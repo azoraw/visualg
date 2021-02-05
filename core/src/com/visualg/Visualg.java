@@ -13,6 +13,7 @@ public class Visualg extends ApplicationAdapter {
     private int WIDTH;
     private int HEIGHT;
     private RandomPixMap randomPixMap;
+    private RandomColorGenerator randomColorGenerator;
 
     @Override
     public void create() {
@@ -20,20 +21,20 @@ public class Visualg extends ApplicationAdapter {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
         randomPixMap = new RandomPixMap();
+        randomColorGenerator = new RandomColorGenerator();
     }
 
     @Override
     public void render() {
         refreshCanvas();
         batch.begin();
-        Pixmap pixmap = randomPixMap.generatePixMap(WIDTH, HEIGHT);
+        Pixmap pixmap = randomPixMap.generatePixMap(WIDTH, HEIGHT, randomColorGenerator::getGreyScaleColor);
         Texture texture = new Texture(pixmap);
         batch.draw(texture, 0, 0);
         batch.end();
         texture.dispose();
         pixmap.dispose();
     }
-
 
     private void refreshCanvas() {
         Gdx.gl.glClearColor(0, 0, 0, 1);
