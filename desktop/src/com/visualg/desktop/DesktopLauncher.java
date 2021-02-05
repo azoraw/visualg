@@ -7,6 +7,7 @@ import com.visualg.Visualg;
 public class DesktopLauncher {
 	public static void main (String[] arg) {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
+		config.setFromDisplayMode(LwjglApplicationConfiguration.getDesktopDisplayMode());
 		new LwjglApplication(new Visualg(), config);
 	}
 }
