@@ -16,7 +16,6 @@ buildscript {
 }
 
 allprojects {
-    apply plugin: "eclipse"
     apply plugin: "io.freefair.lombok"
 
     version = '1.0'
