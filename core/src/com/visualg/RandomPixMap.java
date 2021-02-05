@@ -1,21 +1,17 @@
 package com.visualg;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 
-import java.util.Random;
+import java.util.function.Supplier;
 
 class RandomPixMap {
 
-    private final Random random = new Random();
-
-    Pixmap generatePixMap(int WIDTH, int HEIGHT) {
+    Pixmap generatePixMap(int WIDTH, int HEIGHT, Supplier<Integer> color) {
         Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         for (int i = 0; i < WIDTH; i++) {
             for (int j = 0; j < HEIGHT; j++) {
-                pixmap.setColor(new Color(random.nextInt()));
-                pixmap.drawPixel(i, j);
+                pixmap.drawPixel(i, j, color.get());
             }
         }
         return pixmap;
