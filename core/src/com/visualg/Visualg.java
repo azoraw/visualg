@@ -8,31 +8,30 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.visualg.noise.random.RandomColorMode;
 import com.visualg.noise.random.RandomPixMap;
+import com.visualg.noise.simplex.SimplexColorMode;
 import com.visualg.noise.simplex.SimplexPixMap;
 
 public class Visualg extends ApplicationAdapter {
 
     private SpriteBatch batch;
-    private int WIDTH;
-    private int HEIGHT;
     private RandomPixMap randomPixMap;
     private SimplexPixMap simplexPixMap;
 
     @Override
     public void create() {
         batch = new SpriteBatch();
-        WIDTH = Gdx.graphics.getWidth();
-        HEIGHT = Gdx.graphics.getHeight();
+        int WIDTH = Gdx.graphics.getWidth();
+        int HEIGHT = Gdx.graphics.getHeight();
         randomPixMap = new RandomPixMap(RandomColorMode.RANDOM);
-        simplexPixMap = new SimplexPixMap();
+        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE);
     }
 
     @Override
     public void render() {
         refreshCanvas();
         batch.begin();
-        Pixmap pixmap = randomPixMap.generatePixMap(WIDTH, HEIGHT);
-        //Pixmap pixmap = simplexPixMap.generatePixMap(WIDTH, HEIGHT, simplexPixMap::getCow);
+        //Pixmap pixmap = randomPixMap.generatePixMap(WIDTH, HEIGHT);
+        Pixmap pixmap = simplexPixMap.generateZoomOut();
         Texture texture = new Texture(pixmap);
         batch.draw(texture, 0, 0);
         batch.end();
