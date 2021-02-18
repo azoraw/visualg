@@ -23,7 +23,7 @@ public class Visualg extends ApplicationAdapter {
         int WIDTH = Gdx.graphics.getWidth();
         int HEIGHT = Gdx.graphics.getHeight();
         randomPixMap = new RandomPixMap(RandomColorMode.RANDOM);
-        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE);
+        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE, 4);
     }
 
     @Override

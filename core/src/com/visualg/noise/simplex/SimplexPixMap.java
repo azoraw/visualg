@@ -16,11 +16,13 @@ public class SimplexPixMap {
     private final int HEIGHT;
     private final OpenSimplexNoise openSimplex2S;
     private final Function<Double, Integer> colorFunction;
+    private final int goInNumberOfPixels;
     private double z;
 
-    public SimplexPixMap(int WIDTH, int HEIGHT, SimplexColorMode mode) {
+    public SimplexPixMap(int WIDTH, int HEIGHT, SimplexColorMode mode, int goInNumberOfPixels) {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
+        this.goInNumberOfPixels = goInNumberOfPixels;
         openSimplex2S = new OpenSimplexNoise(0);
         colorFunction = mode.getColorFunction();
     }
@@ -32,9 +34,9 @@ public class SimplexPixMap {
 
         double x = 0;
         double y;
-        for (int i = 0; i < WIDTH; i++) {
+        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
             y = 0;
-            for (int j = 0; j < HEIGHT; j++) {
+            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
                 double eval = openSimplex2S.eval(x, y, z);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
@@ -52,9 +54,9 @@ public class SimplexPixMap {
 
         double x = 0;
         double y;
-        for (int i = 0; i < WIDTH; i++) {
+        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
             y = 0;
-            for (int j = 0; j < HEIGHT; j++) {
+            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
                 double eval = openSimplex2S.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF + z;
@@ -72,9 +74,9 @@ public class SimplexPixMap {
 
         double x = z;
         double y;
-        for (int i = 0; i < WIDTH; i++) {
+        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
             y = z;
-            for (int j = 0; j < HEIGHT; j++) {
+            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
                 double eval = openSimplex2S.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
