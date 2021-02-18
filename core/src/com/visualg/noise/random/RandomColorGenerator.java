@@ -1,4 +1,4 @@
-package com.visualg;
+package com.visualg.noise.random;
 
 import java.util.Random;
 
