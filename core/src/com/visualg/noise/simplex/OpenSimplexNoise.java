@@ -1,4 +1,4 @@
-package com.visualg.noise;/*
+package com.visualg.noise.simplex;/*
  * OpenSimplex Noise in Java.
  * by Kurt Spencer
  *
