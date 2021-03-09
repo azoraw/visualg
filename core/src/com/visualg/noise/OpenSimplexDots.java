@@ -8,13 +8,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.visualg.noise.random.RandomColorGenerator;
 import com.visualg.noise.simplex.OpenSimplexNoise;
 
-public class Mountains extends ApplicationAdapter {
-    int WIDTH;
-    int HEIGHT;
-    ShapeRenderer sr;
-    OpenSimplexNoise openSimplexNoise;
-    RandomColorGenerator colorGenerator;
-    int x;
+public class OpenSimplexDots extends ApplicationAdapter {
+
+    private int WIDTH;
+    private int HEIGHT;
+    private ShapeRenderer sr;
+    private OpenSimplexNoise openSimplexNoise;
+    private RandomColorGenerator colorGenerator;
+    private int x;
 
     @Override
     public void create() {
