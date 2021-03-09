@@ -10,7 +10,7 @@ import java.util.Random;
  * B - Blue
  * A - Alpha
  */
-class RandomColorGenerator {
+public class RandomColorGenerator {
 
     private static final int monochromaticMask = 0B11111111111111111111111100000000;
     private static final int redMask = 0B11111111000000000000000011111111;
@@ -18,7 +18,7 @@ class RandomColorGenerator {
 
     private final Random random = new Random();
 
-    int getRandomColor() {
+    public int getRandomColor() {
         return random.nextInt();
     }
 
