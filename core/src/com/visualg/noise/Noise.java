@@ -1,4 +1,4 @@
-package com.visualg;
+package com.visualg.noise;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
@@ -11,7 +11,7 @@ import com.visualg.noise.random.RandomPixMap;
 import com.visualg.noise.simplex.SimplexColorMode;
 import com.visualg.noise.simplex.SimplexPixMap;
 
-public class Visualg extends ApplicationAdapter {
+public class Noise extends ApplicationAdapter {
 
     private SpriteBatch batch;
     private RandomPixMap randomPixMap;
@@ -23,7 +23,7 @@ public class Visualg extends ApplicationAdapter {
         int WIDTH = Gdx.graphics.getWidth();
         int HEIGHT = Gdx.graphics.getHeight();
         randomPixMap = new RandomPixMap(RandomColorMode.RANDOM);
-        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE, 4);
+        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE, 1);
     }
 
     @Override
