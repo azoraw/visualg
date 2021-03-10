@@ -6,14 +6,14 @@ import com.visualg.noise.util.RandomGenerator;
 import static com.visualg.noise.util.RandomGenerator.getIntInRange;
 
 public class Dot {
+    private static final float maxSpeed = 2;
+    private static final float fieldMagnitude = 0.05f;
     private final int WIDHT;
     private final int HEIGHT;
-    private final float maxSpeed = 2;
-    private final float fieldMagnitude = 0.05f;
 
-    private Vector2 position;
-    private Vector2 velocity;
-    private Vector2 acceleration;
+    private final Vector2 position;
+    private final Vector2 velocity;
+    private final Vector2 acceleration;
 
     public Dot(int width, int height) {
         WIDHT = width;
