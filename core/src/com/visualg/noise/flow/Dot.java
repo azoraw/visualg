@@ -6,8 +6,8 @@ import com.visualg.noise.util.RandomGenerator;
 import static com.visualg.noise.util.RandomGenerator.getIntInRange;
 
 public class Dot {
-    private static final float maxSpeed = 2;
-    private static final float fieldMagnitude = 0.05f;
+    private static final float maxSpeed = 1;
+    private static final float fieldMagnitude = 0.01f;
     private final int WIDHT;
     private final int HEIGHT;
 
@@ -21,7 +21,7 @@ public class Dot {
         float x = getIntInRange(width);
         float y = getIntInRange(height);
         position = new Vector2(x, y);
-        velocity = new Vector2(0, 4);
+        velocity = new Vector2(0, 1);
         velocity.setAngleRad(RandomGenerator.getRandomFloat(Math.PI * 4));
         acceleration = new Vector2(0, 0);
     }
