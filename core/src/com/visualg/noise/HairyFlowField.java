@@ -13,7 +13,7 @@ public class HairyFlowField extends ApplicationAdapter {
     private int HEIGHT;
     private ShapeRenderer sr;
     private HairyFlowFieldAlg alg;
-    private Color color = new Color(1,1,1,0.01f);
+    private Color color = new Color(1,1,1,0.02f);
 
     @Override
     public void create() {
