@@ -37,7 +37,7 @@ public class HairyFlowFieldAlg {
 
     private void initDots() {
         dots = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 100; i++) {
             dots.add(new Dot(WIDTH, HEIGHT));
         }
     }

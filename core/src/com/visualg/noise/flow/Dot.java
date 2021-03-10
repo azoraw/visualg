@@ -11,6 +11,7 @@ public class Dot {
     private final int WIDHT;
     private final int HEIGHT;
 
+    private final Vector2 prevPosition;
     private final Vector2 position;
     private final Vector2 velocity;
     private final Vector2 acceleration;
@@ -21,6 +22,7 @@ public class Dot {
         float x = getIntInRange(width);
         float y = getIntInRange(height);
         position = new Vector2(x, y);
+        prevPosition= new Vector2(position);
         velocity = new Vector2(0, 1);
         velocity.setAngleRad(RandomGenerator.getRandomFloat(Math.PI * 4));
         acceleration = new Vector2(0, 0);
@@ -34,7 +36,16 @@ public class Dot {
         return (int) position.y;
     }
 
+    public int getX2() {
+        return (int) prevPosition.x;
+    }
+
+    public int getY2() {
+        return (int) prevPosition.y;
+    }
+
     public void moveWithFlow(Vector2 vector2) {
+        //prevPosition.set(position);
         velocity.add(acceleration);
         velocity.limit(maxSpeed);
         position.add(velocity);
