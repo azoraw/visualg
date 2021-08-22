@@ -1,4 +1,4 @@
-package com.visualg.noise.util;
+package com.visualg.util;
 
 import lombok.experimental.UtilityClass;
 
