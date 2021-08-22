@@ -1,9 +1,9 @@
 package com.visualg.noise.flow;
 
 import com.badlogic.gdx.math.Vector2;
-import com.visualg.noise.util.RandomGenerator;
+import com.visualg.util.RandomGenerator;
 
-import static com.visualg.noise.util.RandomGenerator.getIntInRange;
+import static com.visualg.util.RandomGenerator.getIntInRange;
 
 public class Dot {
     private static final float maxSpeed = 1;

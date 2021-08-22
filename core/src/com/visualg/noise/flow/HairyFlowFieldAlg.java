@@ -2,7 +2,7 @@ package com.visualg.noise.flow;
 
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.noise.simplex.OpenSimplexNoise;
-import com.visualg.noise.util.RandomGenerator;
+import com.visualg.util.RandomGenerator;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class HairyFlowFieldAlg {
 
     private void initDots() {
         dots = new ArrayList<>();
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1000; i++) {
             dots.add(new Dot(WIDTH, HEIGHT));
         }
     }
