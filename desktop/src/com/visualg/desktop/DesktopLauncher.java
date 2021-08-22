@@ -2,7 +2,7 @@ package com.visualg.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.visualg.noise.HairyFlowField;
+import com.visualg.squares.SmallerSquares;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
