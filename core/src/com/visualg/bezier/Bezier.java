@@ -12,13 +12,10 @@ public class Bezier extends ApplicationAdapter {
 
     private ShapeRenderer sr;
     private OldWidowsScreenSaver oldWidowsScreenSaver;
-    private OldWidowsScreenSaver oldWidowsScreenSaver2;
 
     @Override
     public void create() {
-
         oldWidowsScreenSaver = new OldWidowsScreenSaver(Gdx.graphics.getWidth(),  Gdx.graphics.getHeight());
-        oldWidowsScreenSaver2 = new OldWidowsScreenSaver(Gdx.graphics.getWidth(),  Gdx.graphics.getHeight());
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
     }
@@ -32,12 +29,8 @@ public class Bezier extends ApplicationAdapter {
             sr.line(line.first, line.second);
         }
 
-        for (Pair<Vector2, Vector2> line : oldWidowsScreenSaver2.getLines()) {
-            sr.line(line.first, line.second);
-        }
         sr.end();
         oldWidowsScreenSaver.update();
-        oldWidowsScreenSaver2.update();
     }
 
     private void refreshCanvas() {
