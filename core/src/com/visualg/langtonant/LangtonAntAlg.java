@@ -18,11 +18,7 @@ class LangtonAntAlg {
         this.height = height;
         board = new boolean[width][height];
         ants = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
-
-            ants.add(new Ant(width, height));
-        }
-
+        ants.add(new Ant(width, height));
     }
 
     public void move() {

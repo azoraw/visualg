@@ -1,7 +1,5 @@
 package com.visualg.langtonant;
 
-import com.visualg.util.RandomGenerator;
-
 import static com.visualg.langtonant.Direction.UP;
 
 class Ant {
@@ -14,8 +12,8 @@ class Ant {
     public Ant(int width, int height) {
         this.width = width;
         this.height = height;
-        this.x = RandomGenerator.getIntInRange(width);
-        this.y = RandomGenerator.getIntInRange(height);
+        this.x = width / 2;
+        this.y = height / 2;
         currentDirection = UP;
     }
 
