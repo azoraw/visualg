@@ -1,27 +1,34 @@
 package com.visualg.bezier;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.util.Pair;
 
-public class Bezier extends ApplicationAdapter {
+public class Bezier extends Actor {
 
     private ShapeRenderer sr;
     private OldWidowsScreenSaver oldWidowsScreenSaver;
 
-    @Override
-    public void create() {
+    public Bezier() {
         oldWidowsScreenSaver = new OldWidowsScreenSaver(Gdx.graphics.getWidth(),  Gdx.graphics.getHeight());
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
     }
 
+
+    private void refreshCanvas() {
+        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+    }
+
     @Override
-    public void render() {
+    public void draw(Batch batch, float parentAlpha) {
+        super.draw(batch, parentAlpha);
         refreshCanvas();
         sr.begin(ShapeRenderer.ShapeType.Line);
 
@@ -31,10 +38,5 @@ public class Bezier extends ApplicationAdapter {
 
         sr.end();
         oldWidowsScreenSaver.update();
-    }
-
-    private void refreshCanvas() {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }
 }
