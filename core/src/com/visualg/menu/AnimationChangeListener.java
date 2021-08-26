@@ -25,7 +25,7 @@ class AnimationChangeListener implements EventListener {
     }
 
     private void showAnimation(Animation animation) {
-        mainStage.getActors()
+         mainStage.getActors()
                 .first()
                 .remove();
 

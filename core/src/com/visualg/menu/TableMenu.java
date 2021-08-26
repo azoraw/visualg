@@ -18,5 +18,11 @@ class TableMenu extends Table {
         Button bezier = new MainMenuButton("Bezier - old windows screen saver", Animation.BEZIER);
         this.add(bezier);
 
+        Button langtonAnt = new MainMenuButton("Langton Ant", Animation.LANGTON_ANT);
+        this.add(langtonAnt);
+
+        Button hairyFlowField = new MainMenuButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
+        this.add(hairyFlowField);
+
     }
 }

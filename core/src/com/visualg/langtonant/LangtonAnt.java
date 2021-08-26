@@ -1,40 +1,42 @@
 package com.visualg.langtonant;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.Batch;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 
-public class LangtonAnt extends ApplicationAdapter {
-    private SpriteBatch batch;
+public class LangtonAnt extends Actor {
 
-    private int WIDTH;
-    private int HEIGHT;
-    private LangtonAntAlg langtonAntAlg;
+    private final LangtonAntAlg langtonAntAlg;
 
+    private Texture texture;
+    private Pixmap pixmap;
 
-    @Override
-    public void create() {
-        batch = new SpriteBatch();
-        WIDTH = Gdx.graphics.getWidth();
-        HEIGHT = Gdx.graphics.getHeight();
+    public LangtonAnt() {
+        int WIDTH = Gdx.graphics.getWidth();
+        int HEIGHT = Gdx.graphics.getHeight();
         langtonAntAlg = new LangtonAntAlg(WIDTH, HEIGHT);
     }
 
     @Override
-    public void render() {
+    public void draw(Batch batch, float parentAlpha) {
         refreshCanvas();
-        batch.begin();
-        Pixmap pixmap = langtonAntAlg.getPixMap();
-        Texture texture = new Texture(pixmap);
+        disposePreviousTexture();
+        pixmap = langtonAntAlg.getPixMap();
+        texture = new Texture(pixmap);
         batch.draw(texture, 0, 0);
-        batch.end();
-        texture.dispose();
-        pixmap.dispose();
-
         langtonAntAlg.move();
+    }
+
+    private void disposePreviousTexture() {
+        if (texture != null) {
+            texture.dispose();
+        }
+        if (pixmap != null) {
+            pixmap.dispose();
+        }
     }
 
     private void refreshCanvas() {
