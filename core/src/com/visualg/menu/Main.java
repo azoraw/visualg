@@ -20,9 +20,7 @@ public class Main extends ApplicationAdapter {
     @Override
     public void render() {
         super.render();
+        Config.refreshType.refresh();
         mainStage.draw();
     }
-
-
-
 }
