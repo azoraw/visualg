@@ -1,36 +1,22 @@
 package com.visualg.menu;
 
-import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.visualg.global.Animation;
+import com.visualg.global.Config;
 
-public class TableMenu extends Table {
+class TableMenu extends Table {
 
-    private final MainMenu mainStage;
-
-    public TableMenu(MainMenu mainStage) {
-        this.mainStage = mainStage;
-
-        Skin skin = new Skin(Gdx.files.internal("uiskin.json"));
+    public TableMenu() {
         this.setFillParent(true);
         this.center().top();
-
-        Label label = new Label("VISUALG", skin);
+        Label label = new Label("VISUALG", Config.skin);
         this.add(label);
         this.row();
 
-        Button button = new TextButton("Bezier - old windows screen saver", skin);
-        button.addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                mainStage.showAnimation(Animation.BEZIER);
-            }
-        });
-        this.add(button);
+        Button bezier = new MainMenuButton("Bezier - old windows screen saver", Animation.BEZIER);
+        this.add(bezier);
+
     }
 }
