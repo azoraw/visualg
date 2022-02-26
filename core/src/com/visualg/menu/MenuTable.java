@@ -10,7 +10,7 @@ class MenuTable extends Table {
 
     public MenuTable() {
         this.setFillParent(true);
-        this.center().top();
+        this.left().top();
         Label label = new Label("VISUALG", Config.skin);
         this.add(label);
         this.row();
@@ -21,11 +21,19 @@ class MenuTable extends Table {
         Button langtonAnt = new AnimationButton("Langton Ant", Animation.LANGTON_ANT);
         this.add(langtonAnt);
 
+        Button linesDoodle = new AnimationButton("LinesDoodle", Animation.LINES_DOODLE);
+        this.add(linesDoodle);
+
+        Button rectangles = new AnimationButton("Rectangles", Animation.RECTANGLES);
+        this.add(rectangles);
+
+        this.row();
+
         Button hairyFlowField = new AnimationButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
         this.add(hairyFlowField);
 
-        Button linesDoodle = new AnimationButton("LinesDoodle", Animation.LINES_DOODLE);
-        this.add(linesDoodle);
+        Button hairyFlowFieldLines = new AnimationButton("HairyFlowFieldLines", Animation.HAIRY_FLOW_FIELD_LINES);
+        this.add(hairyFlowFieldLines);
 
     }
 }

@@ -1,4 +1,4 @@
-package com.visualg.squares;
+package com.visualg.rectangles;
 
 public class Line {
     public final float x1;

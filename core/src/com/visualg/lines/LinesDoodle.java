@@ -19,7 +19,7 @@ public class LinesDoodle extends Actor {
     @Override
     public void draw(Batch batch, float parentAlpha) {
         batch.end();
-        sr.begin(ShapeRenderer.ShapeType.Filled);
+        sr.begin(ShapeRenderer.ShapeType.Line);
         for (LineSegment segment : lines.getSegments()) {
             sr.line(segment.x1, segment.y1, segment.x2, segment.y2);
         }
