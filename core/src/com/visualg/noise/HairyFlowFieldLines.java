@@ -1,13 +1,15 @@
 package com.visualg.noise;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.global.Config;
+import com.visualg.global.RefreshType;
 import com.visualg.noise.flow.HairyFlowFieldAlg;
 
-public class HairyFlowFieldLines extends ApplicationAdapter {
+public class HairyFlowFieldLines extends Actor {
 
     private int WIDTH;
     private int HEIGHT;
@@ -15,29 +17,23 @@ public class HairyFlowFieldLines extends ApplicationAdapter {
     private HairyFlowFieldAlg alg;
     private Color color = new Color(1,1,1,0.00785f);
 
-    @Override
-    public void create() {
+    public HairyFlowFieldLines() {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
         sr = new ShapeRenderer();
         sr.setColor(color);
         alg = new HairyFlowFieldAlg(WIDTH, HEIGHT);
+        Config.refreshType = RefreshType.BLEND;
     }
 
     @Override
-    public void render() {
-        refreshCanvas();
+    public void draw(Batch batch, float parentAlpha) {
         sr.begin(ShapeRenderer.ShapeType.Filled);
         alg.getDots().forEach(dot ->
                 sr.line(dot.getX(), dot.getY(), dot.getX2(), dot.getY2())
         );
         sr.end();
         alg.update();
-    }
-
-    private void refreshCanvas() {
-        Gdx.gl.glEnable(GL20.GL_BLEND);
-        Gdx.gl.glBlendFunc(GL20.GL_SRC_ALPHA, GL20.GL_ONE_MINUS_SRC_ALPHA);
     }
 
 }

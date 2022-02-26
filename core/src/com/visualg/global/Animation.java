@@ -5,6 +5,8 @@ import com.visualg.bezier.Bezier;
 import com.visualg.langtonant.LangtonAnt;
 import com.visualg.lines.LinesDoodle;
 import com.visualg.noise.HairyFlowField;
+import com.visualg.noise.HairyFlowFieldLines;
+import com.visualg.rectangles.Rectangles;
 
 import java.util.function.Supplier;
 
@@ -12,7 +14,9 @@ public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(Bezier::new),
     HAIRY_FLOW_FIELD(HairyFlowField::new),
-    LINES_DOODLE(LinesDoodle::new);
+    HAIRY_FLOW_FIELD_LINES(HairyFlowFieldLines::new),
+    LINES_DOODLE(LinesDoodle::new),
+    RECTANGLES(Rectangles::new);
 
     private final Supplier<Actor> animationSupplier;
 

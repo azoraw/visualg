@@ -1,4 +1,4 @@
-package com.visualg.squares;
+package com.visualg.rectangles;
 
 
 import java.util.HashSet;
