@@ -1,6 +1,7 @@
 package com.visualg.menu;
 
 import com.badlogic.gdx.ApplicationAdapter;
+import com.badlogic.gdx.Gdx;
 import com.visualg.global.Config;
 
 public class Main extends ApplicationAdapter {
@@ -11,15 +12,14 @@ public class Main extends ApplicationAdapter {
     public void create() {
         Config.initSkin();
         mainStage = new MainStage();
-        TableMenu tableMenu = new TableMenu();
-        mainStage.addActor(tableMenu);
         mainStage.addListener(new AnimationChangeListener(mainStage));
+        mainStage.addTable();
     }
 
     @Override
     public void render() {
-        super.render();
         Config.refreshType.refresh();
+        mainStage.act(Gdx.graphics.getDeltaTime());
         mainStage.draw();
     }
 }

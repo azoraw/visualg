@@ -21,12 +21,14 @@ public class Bezier extends Actor {
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
+        batch.end();
         sr.begin(ShapeRenderer.ShapeType.Line);
         for (Pair<Vector2, Vector2> line : oldWidowsScreenSaver.getLines()) {
             sr.line(line.first, line.second);
         }
         sr.end();
         oldWidowsScreenSaver.update();
+        batch.begin();
     }
 
 }
