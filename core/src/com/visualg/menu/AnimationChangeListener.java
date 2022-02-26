@@ -3,14 +3,12 @@ package com.visualg.menu;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
-import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.visualg.global.Animation;
 
 class AnimationChangeListener implements EventListener {
 
-    private final Stage mainStage;
+    private final MainStage mainStage;
 
-    public AnimationChangeListener(Stage mainStage) {
+    public AnimationChangeListener(MainStage mainStage) {
         this.mainStage = mainStage;
         Gdx.input.setInputProcessor(mainStage);
     }
@@ -19,16 +17,10 @@ class AnimationChangeListener implements EventListener {
     public boolean handle(Event event) {
         if (event instanceof ChangeAnimationEvent) {
             ChangeAnimationEvent changeAnimationEvent = (ChangeAnimationEvent) event;
-            showAnimation(changeAnimationEvent.getAnimation());
+            mainStage.showAnimation(changeAnimationEvent.getAnimation());
         }
         return false;
     }
 
-    private void showAnimation(Animation animation) {
-         mainStage.getActors()
-                .first()
-                .remove();
 
-        mainStage.addActor(animation.getAnimation());
-    }
 }
