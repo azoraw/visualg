@@ -19,6 +19,9 @@ class AnimationChangeListener implements EventListener {
             ChangeAnimationEvent changeAnimationEvent = (ChangeAnimationEvent) event;
             mainStage.showAnimation(changeAnimationEvent.getAnimation());
         }
+        if (event instanceof MainMenuEvent) {
+            mainStage.showMainMenu();
+        }
         return false;
     }
 
