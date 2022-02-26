@@ -24,5 +24,8 @@ class TableMenu extends Table {
         Button hairyFlowField = new MainMenuButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
         this.add(hairyFlowField);
 
+        Button linesDoodle = new MainMenuButton("LinesDoodle", Animation.LINES_DOODLE);
+        this.add(linesDoodle);
+
     }
 }
