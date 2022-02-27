@@ -2,6 +2,7 @@ package com.visualg.global;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.bezier.Bezier;
+import com.visualg.circlePacking.CirclePacking;
 import com.visualg.langtonant.LangtonAnt;
 import com.visualg.lines.LinesDoodle;
 import com.visualg.noise.HairyFlowField;
@@ -16,7 +17,8 @@ public enum Animation {
     HAIRY_FLOW_FIELD(HairyFlowField::new),
     HAIRY_FLOW_FIELD_LINES(HairyFlowFieldLines::new),
     LINES_DOODLE(LinesDoodle::new),
-    RECTANGLES(Rectangles::new);
+    RECTANGLES(Rectangles::new),
+    CIRCLE_PACKING(CirclePacking::new);
 
     private final Supplier<Actor> animationSupplier;
 
