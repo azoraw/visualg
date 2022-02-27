@@ -1,17 +1,21 @@
 package com.visualg.circlePacking;
 
+import com.badlogic.gdx.graphics.Color;
+
 class Circle implements Comparable<Circle> {
     private static final int initR = 1;
 
     final int x;
     final int y;
+    Color color;
     double r;
     boolean canGrow = true;
 
-    public Circle(int x, int y) {
+    public Circle(int x, int y, int pixel) {
         this.x = x;
         this.y = y;
         this.r = initR;
+        color = new Color(pixel);
     }
 
 

@@ -1,6 +1,7 @@
 package com.visualg.circlePacking;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.util.RandomGenerator;
 
 import java.awt.geom.Point2D;
@@ -8,12 +9,15 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Circles {
+    int HOW_MANY_CIRCLES = 100;
 
     private final int WIDTH;
     private final int HEIGHT;
     private final ArrayList<Circle> circles = new ArrayList<>();
+    private final Pixmap pixmap;
 
-    public Circles() {
+    public Circles(Pixmap pixmapResized) {
+        this.pixmap = pixmapResized;
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
         circles.add(createCircle());
@@ -24,7 +28,10 @@ public class Circles {
     }
 
     public void update() {
-        addNewCircle();
+
+        for (int i = 0; i < HOW_MANY_CIRCLES; i++) {
+            addNewCircle();
+        }
         growCircles();
         Collections.sort(circles);
     }
@@ -40,7 +47,7 @@ public class Circles {
                             continue;
                         }
                         double d = Point2D.distance(circle.x, circle.y, circle1.x, circle1.y);
-                        if (d - 1 < circle.r + circle1.r) {
+                        if (d + 1 < circle.r + circle1.r) {
                             circle.canGrow = false;
                             break;
                         }
@@ -72,7 +79,9 @@ public class Circles {
     }
 
     private Circle createCircle() {
-        return new Circle(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT));
+        int x = RandomGenerator.getIntInRange(WIDTH);
+        int y = RandomGenerator.getIntInRange(HEIGHT);
+        return new Circle(x, y, pixmap.getPixel(x, HEIGHT - y));
     }
 
     private boolean edge(Circle circle) {
