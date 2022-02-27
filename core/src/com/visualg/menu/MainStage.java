@@ -7,17 +7,19 @@ public class MainStage extends Stage {
 
     void showAnimation(Animation animation) {
         this.getActors()
-                .first()
-                .remove();
+                .clear();
 
         this.addActor(animation.getAnimation());
         AnimationTable actor = new AnimationTable();
         this.addActor(actor);
+        this.addActor(new ExitTable());
+
     }
 
     void addTable() {
         MenuTable menuTable = new MenuTable();
         this.addActor(menuTable);
+        this.addActor(new ExitTable());
     }
 
     public void showMainMenu() {
