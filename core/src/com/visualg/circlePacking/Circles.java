@@ -40,7 +40,7 @@ public class Circles {
                             continue;
                         }
                         double d = Point2D.distance(circle.x, circle.y, circle1.x, circle1.y);
-                        if (d -1< circle.r + circle1.r) {
+                        if (d - 1 < circle.r + circle1.r) {
                             circle.canGrow = false;
                             break;
                         }
@@ -77,5 +77,17 @@ public class Circles {
 
     private boolean edge(Circle circle) {
         return circle.x + circle.r >= WIDTH || circle.x - circle.r <= 0 || circle.y + circle.r >= HEIGHT || circle.y - circle.r <= 0;
+    }
+
+    public void popBiggestCircle(int x, int y) {
+        if (circles.isEmpty()) {
+            return;
+        }
+        y = HEIGHT - y;
+        Circle biggestCircle = circles.get(circles.size() - 1);
+        double distance = Point2D.distance(x, y, biggestCircle.x, biggestCircle.y);
+        if (distance < biggestCircle.r) {
+            circles.remove(circles.size() - 1);
+        }
     }
 }

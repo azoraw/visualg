@@ -1,5 +1,6 @@
 package com.visualg.circlePacking;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -25,11 +26,13 @@ public class CirclePacking extends Actor {
         }
         sr.end();
         sr.begin(ShapeRenderer.ShapeType.Filled);
-        Circle circle = circles.getCircles().get(0);
+        Circle circle = circles.getCircles().get(circles.getCircles().size() - 1);
         sr.circle(circle.x, circle.y, (float) circle.r);
         sr.end();
         batch.begin();
+        circles.popBiggestCircle(Gdx.input.getX(), Gdx.input.getY());
         circles.update();
+
     }
 
 }
