@@ -20,8 +20,8 @@ class Circle implements Comparable<Circle> {
         if (o.r == r) {
             return 0;
         } else if (r > o.r) {
-            return -1;
+            return 1;
         }
-        return 1;
+        return -1;
     }
 }
