@@ -27,6 +27,9 @@ class MenuTable extends Table {
         Button rectangles = new AnimationButton("Rectangles", Animation.RECTANGLES);
         this.add(rectangles);
 
+        Button circlePacking = new AnimationButton("CirclePacking", Animation.CIRCLE_PACKING);
+        this.add(circlePacking);
+
         this.row();
 
         Button hairyFlowField = new AnimationButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
