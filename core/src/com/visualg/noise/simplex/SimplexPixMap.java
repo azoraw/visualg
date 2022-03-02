@@ -2,6 +2,7 @@ package com.visualg.noise.simplex;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.util.OpenSimplexNoise;
 
 import java.util.function.Function;
 

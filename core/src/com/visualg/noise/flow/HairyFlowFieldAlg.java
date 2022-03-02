@@ -1,7 +1,7 @@
 package com.visualg.noise.flow;
 
 import com.badlogic.gdx.math.Vector2;
-import com.visualg.noise.simplex.OpenSimplexNoise;
+import com.visualg.util.OpenSimplexNoise;
 import com.visualg.util.RandomGenerator;
 import lombok.Getter;
 
