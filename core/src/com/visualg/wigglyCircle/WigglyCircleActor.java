@@ -1,6 +1,5 @@
 package com.visualg.wigglyCircle;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -9,20 +8,16 @@ import com.visualg.util.Pair;
 
 import java.util.List;
 
-public class WigglyCircle extends Actor {
+class WigglyCircleActor extends Actor {
 
     private final ShapeRenderer sr;
     private final WigglyCircleAlg alg;
     float[] points;
-    int width;
-    int height;
 
-    public WigglyCircle() {
+    public WigglyCircleActor(WigglyCircleAlg alg) {
+        this.alg = alg;
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
-        width = Gdx.graphics.getWidth();
-        height = Gdx.graphics.getHeight();
-        alg = new WigglyCircleAlg((float) width / 2, (float) height / 2);
     }
 
     @Override
