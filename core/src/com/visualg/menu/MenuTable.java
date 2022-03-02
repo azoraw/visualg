@@ -32,6 +32,11 @@ class MenuTable extends Table {
 
         this.row();
 
+        Button wigglyCircle = new AnimationButton("WigglyCircle", Animation.WIGGLY_CIRCLE);
+        this.add(wigglyCircle);
+
+        this.row();
+
         Button hairyFlowField = new AnimationButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
         this.add(hairyFlowField);
 

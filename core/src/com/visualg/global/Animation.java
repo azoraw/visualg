@@ -8,6 +8,7 @@ import com.visualg.lines.LinesDoodle;
 import com.visualg.noise.HairyFlowField;
 import com.visualg.noise.HairyFlowFieldLines;
 import com.visualg.rectangles.Rectangles;
+import com.visualg.wigglyCircle.WigglyCircle;
 
 import java.util.function.Supplier;
 
@@ -18,7 +19,8 @@ public enum Animation {
     HAIRY_FLOW_FIELD_LINES(HairyFlowFieldLines::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
-    CIRCLE_PACKING(CirclePacking::new);
+    CIRCLE_PACKING(CirclePacking::new),
+    WIGGLY_CIRCLE(WigglyCircle::new);
 
     private final Supplier<Actor> animationSupplier;
 

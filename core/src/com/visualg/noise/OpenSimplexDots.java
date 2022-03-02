@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.visualg.noise.random.RandomColorGenerator;
-import com.visualg.noise.simplex.OpenSimplexNoise;
+import com.visualg.util.OpenSimplexNoise;
 
 public class OpenSimplexDots extends ApplicationAdapter {
 
