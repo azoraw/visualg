@@ -13,7 +13,6 @@ class WigglyCircleAlg {
 
     private int THRESHOLD_RADIUS = 250;
 
-    private double NOISE_DELTA = 1;
     private final float xMiddle;
     private final float yMiddle;
     private final CurrentSettings settings;
@@ -30,7 +29,7 @@ class WigglyCircleAlg {
     List<Pair<Float, Float>> getVertices() {
         ArrayList<Pair<Float, Float>> points = new ArrayList<>();
         for (float a = 0; a < 2 * Math.PI; a += 2 * Math.PI / settings.getVertexNumber()) {
-            double r = settings.getStartingRadius() + settings.getMaxRadius() * noise.eval(NOISE_DELTA * cos(a), NOISE_DELTA * sin(a), settings.getZ());
+            double r = settings.getStartingRadius() + settings.getMaxRadius() * noise.eval(settings.getNoiseDeltaX() * cos(a), settings.getNoiseDeltaY() * sin(a), settings.getZ());
             if (settings.isThresholdEnabled()) {
                 r = Math.min(r, THRESHOLD_RADIUS);
             }
