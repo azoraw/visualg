@@ -12,13 +12,16 @@ import java.util.function.Consumer;
 
 public class DefaultTextField extends TextField {
 
+    private final String defaultValue;
+
     public DefaultTextField(String defaultValue, Consumer<String> valueConsumer) {
         super(defaultValue, Config.skin);
+        this.defaultValue = defaultValue;
         this.addListener(new InputListener() {
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
                 if (keycode == Input.Keys.ENTER) {
-                    valueConsumer.accept(getText());
+                    accept(valueConsumer);
                 }
                 return false;
             }
@@ -27,16 +30,26 @@ public class DefaultTextField extends TextField {
             @Override
             public void keyboardFocusChanged(FocusListener.FocusEvent event, Actor actor, boolean focused) {
                 if (!focused) {
-                    valueConsumer.accept(getText());
+                    accept(valueConsumer);
                 }
             }
+
             @Override
             public void scrollFocusChanged(FocusEvent event, Actor actor, boolean focused) {
                 if (!focused) {
-                    valueConsumer.accept(getText());
+                    accept(valueConsumer);
                 }
             }
         });
+    }
+
+    private void accept(Consumer<String> valueConsumer) {
+        try {
+            valueConsumer.accept(getText());
+        } catch (NumberFormatException e) {
+            setText(defaultValue);
+            valueConsumer.accept(defaultValue);
+        }
     }
 
 }

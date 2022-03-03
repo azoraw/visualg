@@ -65,6 +65,18 @@ class WigglyCircleSettings extends Table {
         add(changeSpeedTextField);
         row();
 
+        Label noiseCos = new Label("noiseCos", skin);
+        add(noiseCos);
+        TextField noiseCosTextField = new DefaultTextField(valueOf(currentSettings.getNoiseDeltaX()), e -> currentSettings.setNoiseDeltaX(Float.parseFloat(e)));
+        add(noiseCosTextField);
+        row();
+
+        Label noiseSin = new Label("noiseSin", skin);
+        add(noiseSin);
+        TextField noiseSinTextField = new DefaultTextField(valueOf(currentSettings.getNoiseDeltaY()), e -> currentSettings.setNoiseDeltaY(Float.parseFloat(e)));
+        add(noiseSinTextField);
+        row();
+
     }
 
 
