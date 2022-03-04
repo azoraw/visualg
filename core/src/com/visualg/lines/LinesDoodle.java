@@ -8,12 +8,12 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 public class LinesDoodle extends Actor {
 
     private final ShapeRenderer sr;
-    private final Lines2 lines;
+    private final Lines lines;
 
     public LinesDoodle() {
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
-        lines = new Lines2();
+        lines = new Lines();
     }
 
     @Override

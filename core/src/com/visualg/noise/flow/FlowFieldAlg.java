@@ -10,7 +10,7 @@ public class FlowFieldAlg {
 
     private double xStep = 0.05;
     private double yStep = 0.05;
-    private double zStep = 0.000005;
+    private double zStep = 0.000001;
     int time = 0;
 
     public final double scale = 10;

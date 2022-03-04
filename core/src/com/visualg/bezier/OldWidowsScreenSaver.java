@@ -1,7 +1,6 @@
 package com.visualg.bezier;
 
 import com.badlogic.gdx.math.Vector2;
-import com.visualg.util.BouncingBall;
 import com.visualg.util.Pair;
 
 import java.util.ArrayList;

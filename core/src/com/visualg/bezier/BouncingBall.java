@@ -1,4 +1,4 @@
-package com.visualg.util;
+package com.visualg.bezier;
 
 import com.badlogic.gdx.math.Vector2;
 
