@@ -1,14 +1,14 @@
 package com.visualg.noise;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.noise.random.RandomColorGenerator;
 import com.visualg.util.OpenSimplexNoise;
 
-public class OpenSimplexDots extends ApplicationAdapter {
+public class OpenSimplexDots extends Actor {
 
     private int WIDTH;
     private int HEIGHT;
@@ -17,8 +17,7 @@ public class OpenSimplexDots extends ApplicationAdapter {
     private RandomColorGenerator colorGenerator;
     private int x;
 
-    @Override
-    public void create() {
+    public OpenSimplexDots() {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
         openSimplexNoise = new OpenSimplexNoise();
@@ -28,20 +27,16 @@ public class OpenSimplexDots extends ApplicationAdapter {
     }
 
     @Override
-    public void render() {
-        refreshCanvas();
-
+    public void draw(Batch batch, float parentAlpha) {
+        batch.end();
         sr.begin(ShapeRenderer.ShapeType.Filled);
-            for (int i = 0; i < WIDTH; i++) {
-                sr.setColor(new Color(colorGenerator.getRandomColor()));
-                sr.circle(i, (HEIGHT / 2) + (float) openSimplexNoise.eval((x + WIDTH * i) * 0.01, 0) * (HEIGHT / 2), 3);
-            }
+        for (int i = 0; i < WIDTH; i++) {
+            sr.setColor(new Color(colorGenerator.getRandomColor()));
+            sr.circle(i, (HEIGHT / 2) + (float) openSimplexNoise.eval((x + WIDTH * i) * 0.01, 0) * (HEIGHT / 2), 3);
+        }
         x++;
         sr.end();
+        batch.begin();
     }
 
-    private void refreshCanvas() {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-    }
 }

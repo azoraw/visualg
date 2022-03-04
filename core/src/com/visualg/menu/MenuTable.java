@@ -43,5 +43,11 @@ class MenuTable extends Table {
         Button hairyFlowFieldLines = new AnimationButton("HairyFlowFieldLines", Animation.HAIRY_FLOW_FIELD_LINES);
         this.add(hairyFlowFieldLines);
 
+        Button openSimplexDots = new AnimationButton("openSimplexDots", Animation.OPEN_SIMPLEX_DOTS);
+        this.add(openSimplexDots);
+
+        Button flowField = new AnimationButton("flowField", Animation.FLOW_FIELD);
+        this.add(flowField);
+
     }
 }

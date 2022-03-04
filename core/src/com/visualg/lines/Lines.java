@@ -12,38 +12,42 @@ class Lines {
 
     private final int width;
     private final int height;
-    private List<LineSegment> segments = new ArrayList<>();
+    private final List<LineSegment> segments = new ArrayList<>();
 
     public Lines() {
         width = Gdx.graphics.getWidth();
         height = Gdx.graphics.getHeight();
-        Pair<Integer, Integer> tmp = getNewPoint();
-        Pair<Integer, Integer> tmp2 = getNewPoint();
+        Pair<Integer, Integer> tmp = getNewRandomPoint();
+        Pair<Integer, Integer> tmp2 = getNewRandomPoint();
         segments.add(new LineSegment(tmp.first, tmp.second, tmp2.first, tmp2.second));
     }
 
 
     void update() {
-        Pair<Integer, Integer> newPoint1 = getNewPoint();
-        Pair<Integer, Integer> newPoint2 = getNewPoint();
-        LineSegment lineSegment = new LineSegment(newPoint1.first, newPoint1.second, newPoint2.first, newPoint2.second);
+        Pair<Integer, Integer> newPoint = getNewRandomPoint();
 
-        if (canAdd(lineSegment)) {
-            segments.add(lineSegment);
+        LineSegment newSegment = new LineSegment(segments.get(segments.size() - 1).x2, segments.get(segments.size() - 1).y2, newPoint.first, newPoint.second);
+
+        if (canAdd(newSegment)) {
+            segments.add(newSegment);
         }
     }
 
-    private boolean canAdd(LineSegment lineSegment) {
-        return segments.stream()
-                .noneMatch(e -> Line2D.linesIntersect(e.x1, e.y1, e.x2, e.y2, lineSegment.x1, lineSegment.y1, lineSegment.x2, lineSegment.y2));
+    private boolean canAdd(LineSegment newSegment) {
+        for (int i = 0; i < segments.size() - 1; i++) {
+            if (Line2D.linesIntersect(segments.get(i).x1, segments.get(i).y1, segments.get(i).x2, segments.get(i).y2,
+                    newSegment.x1, newSegment.y1, newSegment.x2, newSegment.y2)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     List<LineSegment> getSegments() {
         return segments;
     }
 
-    private Pair<Integer, Integer> getNewPoint() {
-
+    private Pair<Integer, Integer> getNewRandomPoint() {
         return new Pair<>(RandomGenerator.getIntInRange(width), RandomGenerator.getIntInRange(height));
     }
 

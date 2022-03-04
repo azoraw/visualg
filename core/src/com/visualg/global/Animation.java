@@ -5,8 +5,10 @@ import com.visualg.bezier.Bezier;
 import com.visualg.circlePacking.CirclePacking;
 import com.visualg.langtonant.LangtonAnt;
 import com.visualg.lines.LinesDoodle;
+import com.visualg.noise.FlowField;
 import com.visualg.noise.HairyFlowField;
 import com.visualg.noise.HairyFlowFieldLines;
+import com.visualg.noise.OpenSimplexDots;
 import com.visualg.rectangles.Rectangles;
 import com.visualg.wigglyCircle.WigglyCircleGroup;
 
@@ -20,7 +22,9 @@ public enum Animation {
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
-    WIGGLY_CIRCLE(WigglyCircleGroup::new);
+    WIGGLY_CIRCLE(WigglyCircleGroup::new),
+    OPEN_SIMPLEX_DOTS(OpenSimplexDots::new),
+    FLOW_FIELD(FlowField::new);
 
     private final Supplier<Actor> animationSupplier;
 

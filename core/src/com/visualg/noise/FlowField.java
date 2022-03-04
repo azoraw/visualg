@@ -1,21 +1,20 @@
 package com.visualg.noise;
 
-import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.noise.flow.FlowFieldAlg;
 
-public class FlowField extends ApplicationAdapter {
+public class FlowField extends Actor {
 
     private int WIDTH;
     private int HEIGHT;
     private ShapeRenderer sr;
     private FlowFieldAlg alg;
 
-    @Override
-    public void create() {
+    public FlowField() {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
         sr = new ShapeRenderer();
@@ -24,8 +23,8 @@ public class FlowField extends ApplicationAdapter {
     }
 
     @Override
-    public void render() {
-        refreshCanvas();
+    public void draw(Batch batch, float parentAlpha) {
+        batch.end();
         sr.begin(ShapeRenderer.ShapeType.Line);
         for (int x = 0; x < WIDTH / alg.scale; x++) {
             for (int y = 0; y < HEIGHT / alg.scale; y++) {
@@ -34,11 +33,6 @@ public class FlowField extends ApplicationAdapter {
         }
         sr.end();
         alg.update();
+        batch.begin();
     }
-
-    private void refreshCanvas() {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-    }
-
 }

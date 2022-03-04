@@ -8,7 +8,7 @@ import static com.visualg.util.RandomGenerator.getIntInRange;
 public class Dot {
     private static final float maxSpeed = 1;
     private static final float fieldMagnitude = 0.01f;
-    private final int WIDHT;
+    private final int WIDTH;
     private final int HEIGHT;
 
     private final Vector2 prevPosition;
@@ -17,7 +17,7 @@ public class Dot {
     private final Vector2 acceleration;
 
     public Dot(int width, int height) {
-        WIDHT = width;
+        WIDTH = width;
         HEIGHT = height;
         float x = getIntInRange(width);
         float y = getIntInRange(height);
@@ -45,7 +45,6 @@ public class Dot {
     }
 
     public void moveWithFlow(Vector2 vector2) {
-        //prevPosition.set(position);
         velocity.add(acceleration);
         velocity.limit(maxSpeed);
         position.add(velocity);
@@ -54,9 +53,9 @@ public class Dot {
     }
 
     private void edge() {
-        if (position.x < 0) position.set(WIDHT, position.y);
+        if (position.x < 0) position.set(WIDTH, position.y);
         if (position.y < 0) position.set(position.x, HEIGHT);
-        if (position.x > WIDHT) position.set(0, position.y);
+        if (position.x > WIDTH) position.set(0, position.y);
         if (position.y > HEIGHT) position.set(position.x, 0);
     }
 }
