@@ -8,5 +8,6 @@ class AnimationTable extends Table {
         this.setFillParent(true);
         this.left().top();
         this.add(new MainMenuButton());
+        this.add(new RestartButton());
     }
 }

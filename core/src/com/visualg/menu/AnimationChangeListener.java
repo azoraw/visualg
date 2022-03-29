@@ -22,6 +22,9 @@ class AnimationChangeListener implements EventListener {
         if (event instanceof MainMenuEvent) {
             mainStage.showMainMenu();
         }
+        if (event instanceof RestartEvent) {
+            mainStage.restart();
+        }
         return false;
     }
 

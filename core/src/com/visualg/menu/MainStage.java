@@ -6,12 +6,15 @@ import com.visualg.ui.exit.ExitTable;
 
 public class MainStage extends Stage {
 
+    private Animation currentAnimation;
+
     public MainStage() {
         this.addListener(new AnimationChangeListener(this));
         this.addMenuTable();
     }
 
     void showAnimation(Animation animation) {
+        currentAnimation = animation;
         this.getActors()
                 .clear();
 
@@ -31,5 +34,9 @@ public class MainStage extends Stage {
         this.getActors()
                 .clear();
         addMenuTable();
+    }
+
+    public void restart() {
+        showAnimation(currentAnimation);
     }
 }
