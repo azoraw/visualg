@@ -6,48 +6,42 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.visualg.global.Animation;
 import com.visualg.global.Config;
 
+import static com.visualg.global.Animation.BEZIER;
+import static com.visualg.global.Animation.CIRCLE_PACKING;
+import static com.visualg.global.Animation.FLOW_FIELD;
+import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
+import static com.visualg.global.Animation.HAIRY_FLOW_FIELD_LINES;
+import static com.visualg.global.Animation.LANGTON_ANT;
+import static com.visualg.global.Animation.LINES_DOODLE;
+import static com.visualg.global.Animation.OPEN_SIMPLEX_DOTS;
+import static com.visualg.global.Animation.RECTANGLES;
+import static com.visualg.global.Animation.WIGGLY_CIRCLE;
+
 class MenuTable extends Table {
 
-    public MenuTable() {
+    MenuTable() {
         this.setFillParent(true);
         this.left().top();
         Label label = new Label("VISUALG", Config.skin);
         this.add(label);
-        this.row();
-
-        Button bezier = new AnimationButton("Bezier - old windows screen saver", Animation.BEZIER);
-        this.add(bezier);
-
-        Button langtonAnt = new AnimationButton("Langton Ant", Animation.LANGTON_ANT);
-        this.add(langtonAnt);
-
-        Button linesDoodle = new AnimationButton("LinesDoodle", Animation.LINES_DOODLE);
-        this.add(linesDoodle);
-
-        Button rectangles = new AnimationButton("Rectangles", Animation.RECTANGLES);
-        this.add(rectangles);
-
-        Button circlePacking = new AnimationButton("CirclePacking", Animation.CIRCLE_PACKING);
-        this.add(circlePacking);
 
         this.row();
-
-        Button wigglyCircle = new AnimationButton("WigglyCircle", Animation.WIGGLY_CIRCLE);
-        this.add(wigglyCircle);
-
+        createAnimationButton("Bezier - old windows screen saver", BEZIER);
+        createAnimationButton("Langton Ant", LANGTON_ANT);
+        createAnimationButton("LinesDoodle", LINES_DOODLE);
+        createAnimationButton("Rectangles", RECTANGLES);
+        createAnimationButton("CirclePacking", CIRCLE_PACKING);
         this.row();
+        createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
+        this.row();
+        createAnimationButton("HairyFlowField", HAIRY_FLOW_FIELD);
+        createAnimationButton("HairyFlowFieldLines", HAIRY_FLOW_FIELD_LINES);
+        createAnimationButton("openSimplexDots", OPEN_SIMPLEX_DOTS);
+        createAnimationButton("flowField", FLOW_FIELD);
+    }
 
-        Button hairyFlowField = new AnimationButton("HairyFlowField", Animation.HAIRY_FLOW_FIELD);
-        this.add(hairyFlowField);
-
-        Button hairyFlowFieldLines = new AnimationButton("HairyFlowFieldLines", Animation.HAIRY_FLOW_FIELD_LINES);
-        this.add(hairyFlowFieldLines);
-
-        Button openSimplexDots = new AnimationButton("openSimplexDots", Animation.OPEN_SIMPLEX_DOTS);
-        this.add(openSimplexDots);
-
-        Button flowField = new AnimationButton("flowField", Animation.FLOW_FIELD);
+    private void createAnimationButton(String text, Animation animation) {
+        Button flowField = new AnimationButton(text, animation);
         this.add(flowField);
-
     }
 }

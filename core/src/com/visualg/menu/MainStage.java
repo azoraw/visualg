@@ -2,8 +2,14 @@ package com.visualg.menu;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.global.Animation;
+import com.visualg.ui.exit.ExitTable;
 
 public class MainStage extends Stage {
+
+    public MainStage() {
+        this.addListener(new AnimationChangeListener(this));
+        this.addMenuTable();
+    }
 
     void showAnimation(Animation animation) {
         this.getActors()
@@ -15,7 +21,7 @@ public class MainStage extends Stage {
         this.addActor(new ExitTable());
     }
 
-    void addTable() {
+    public void addMenuTable() {
         MenuTable menuTable = new MenuTable();
         this.addActor(menuTable);
         this.addActor(new ExitTable());
@@ -24,6 +30,6 @@ public class MainStage extends Stage {
     public void showMainMenu() {
         this.getActors()
                 .clear();
-        addTable();
+        addMenuTable();
     }
 }

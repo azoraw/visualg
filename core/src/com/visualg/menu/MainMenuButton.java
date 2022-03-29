@@ -7,7 +7,7 @@ import com.visualg.global.Config;
 
 class MainMenuButton extends TextButton {
 
-    public MainMenuButton() {
+    MainMenuButton() {
         super("Main Menu", Config.skin);
         this.addListener(new ChangeListener() {
             @Override
