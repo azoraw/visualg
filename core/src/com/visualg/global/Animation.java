@@ -1,16 +1,16 @@
 package com.visualg.global;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.visualg.bezier.Bezier;
-import com.visualg.circlePacking.CirclePacking;
-import com.visualg.langtonant.LangtonAnt;
-import com.visualg.lines.LinesDoodle;
-import com.visualg.noise.FlowField;
-import com.visualg.noise.HairyFlowField;
-import com.visualg.noise.HairyFlowFieldLines;
-import com.visualg.noise.OpenSimplexDots;
-import com.visualg.rectangles.Rectangles;
-import com.visualg.wigglyCircle.WigglyCircleGroup;
+import com.visualg.animations.bezier.Bezier;
+import com.visualg.animations.circlePacking.CirclePacking;
+import com.visualg.animations.langtonant.LangtonAnt;
+import com.visualg.animations.lines.LinesDoodle;
+import com.visualg.animations.noise.FlowField;
+import com.visualg.animations.noise.HairyFlowField;
+import com.visualg.animations.noise.HairyFlowFieldLines;
+import com.visualg.animations.noise.OpenSimplexDots;
+import com.visualg.animations.rectangles.Rectangles;
+import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 
 import java.util.function.Supplier;
 

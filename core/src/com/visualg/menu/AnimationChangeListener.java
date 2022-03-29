@@ -8,7 +8,7 @@ class AnimationChangeListener implements EventListener {
 
     private final MainStage mainStage;
 
-    public AnimationChangeListener(MainStage mainStage) {
+    AnimationChangeListener(MainStage mainStage) {
         this.mainStage = mainStage;
         Gdx.input.setInputProcessor(mainStage);
     }
