@@ -13,6 +13,7 @@ import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
 import static com.visualg.global.Animation.HAIRY_FLOW_FIELD_LINES;
 import static com.visualg.global.Animation.LANGTON_ANT;
 import static com.visualg.global.Animation.LINES_DOODLE;
+import static com.visualg.global.Animation.N_BODY;
 import static com.visualg.global.Animation.OPEN_SIMPLEX_DOTS;
 import static com.visualg.global.Animation.RECTANGLES;
 import static com.visualg.global.Animation.WIGGLY_CIRCLE;
@@ -33,6 +34,7 @@ class MenuTable extends Table {
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
         this.row();
         createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
+        createAnimationButton("n-body", N_BODY);
         this.row();
         createAnimationButton("HairyFlowField", HAIRY_FLOW_FIELD);
         createAnimationButton("HairyFlowFieldLines", HAIRY_FLOW_FIELD_LINES);

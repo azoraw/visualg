@@ -5,6 +5,7 @@ import com.visualg.animations.bezier.Bezier;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
+import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.FlowField;
 import com.visualg.animations.noise.HairyFlowField;
 import com.visualg.animations.noise.HairyFlowFieldLines;
@@ -23,6 +24,7 @@ public enum Animation {
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
+    N_BODY(NBodyGroup::new),
     OPEN_SIMPLEX_DOTS(OpenSimplexDots::new),
     FLOW_FIELD(FlowField::new);
 
