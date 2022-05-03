@@ -7,6 +7,7 @@ import com.visualg.global.Animation;
 import com.visualg.global.Config;
 
 import static com.visualg.global.Animation.BEZIER;
+import static com.visualg.global.Animation.CELLULAR_AUTOMATA;
 import static com.visualg.global.Animation.CIRCLE_PACKING;
 import static com.visualg.global.Animation.FLOW_FIELD;
 import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
@@ -40,6 +41,9 @@ class MenuTable extends Table {
         createAnimationButton("HairyFlowFieldLines", HAIRY_FLOW_FIELD_LINES);
         createAnimationButton("openSimplexDots", OPEN_SIMPLEX_DOTS);
         createAnimationButton("flowField", FLOW_FIELD);
+
+        this.row();
+        createAnimationButton("cellular automata", CELLULAR_AUTOMATA);
     }
 
     private void createAnimationButton(String text, Animation animation) {
