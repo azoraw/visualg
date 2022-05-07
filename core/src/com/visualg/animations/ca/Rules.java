@@ -5,8 +5,8 @@ import java.util.Map;
 
 class Rules {
 
-    private int currentRule = 0;
-    private Map<Integer, Boolean[]> rules = new HashMap<>();
+    private final int currentRule;
+    private final Map<Integer, Boolean[]> rules = new HashMap<>();
 
     public Rules(int ruleNo) {
         currentRule = ruleNo;
