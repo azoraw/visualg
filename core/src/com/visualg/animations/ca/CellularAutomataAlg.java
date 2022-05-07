@@ -9,15 +9,19 @@ class CellularAutomataAlg {
 
     public static final int NUMBER_OF_ROWS = 50;
     public static final int NUMBER_OF_COLUMNS = 81;
+    @Getter
+    private final CurrentSettings currentSettings;
+    private final CellularAutomataSettings settings;
 
-    private int currentRule = 0;
     private Rules rules;
 
     @Getter
     private ArrayDeque<Boolean[]> elements;
 
-    CellularAutomataAlg(int ruleNo) {
-        init(ruleNo);
+    CellularAutomataAlg(CurrentSettings currentSettings, CellularAutomataSettings settings) {
+        this.currentSettings = currentSettings;
+        this.settings = settings;
+        init(currentSettings.getRuleNumber());
     }
 
     private void init(int ruleNo) {
@@ -50,14 +54,9 @@ class CellularAutomataAlg {
     }
 
     public void incrementRuleNumber() {
-        incrementRule();
-        init(currentRule);
-    }
+        currentSettings.incrementRule();
+        settings.updateRuleNumber();
+        init(currentSettings.getRuleNumber());
 
-    private void incrementRule() {
-        currentRule++;
-        if (currentRule > 255) {
-            currentRule = 0;
-        }
     }
 }

@@ -2,7 +2,7 @@ package com.visualg.global;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.bezier.Bezier;
-import com.visualg.animations.ca.CellularAutomata;
+import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
@@ -28,7 +28,7 @@ public enum Animation {
     N_BODY(NBodyGroup::new),
     OPEN_SIMPLEX_DOTS(OpenSimplexDots::new),
     FLOW_FIELD(FlowField::new),
-    CELLULAR_AUTOMATA(CellularAutomata::new);
+    CELLULAR_AUTOMATA(CellularAutomataGroup::new);
 
     private final Supplier<Actor> animationSupplier;
 
