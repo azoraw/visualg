@@ -1,33 +1,20 @@
 package com.visualg.animations.wigglyCircle;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.visualg.ui.DefaultTextField;
+import com.visualg.ui.SettingsTable;
 
 import static com.visualg.global.Config.skin;
 import static java.lang.String.valueOf;
 
-class WigglyCircleSettings extends Table {
+class WigglyCircleSettings extends SettingsTable {
 
-    private final CurrentSettings currentSettings;
 
     public WigglyCircleSettings(CurrentSettings currentSettings) {
-        this.currentSettings = currentSettings;
-        setSize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        top().right();
-        Label empty = new Label("", skin);
-        add(empty);
-        row();
-
-        Label settings = new Label("Settings", skin);
-        add(settings);
-        row();
-
         CheckBox threshold = new CheckBox("threshold", skin);
         threshold.addListener(new ClickListener() {
             @Override
@@ -49,7 +36,6 @@ class WigglyCircleSettings extends Table {
         add(vertexNumber);
         TextField vertexNumberTextField = new DefaultTextField(valueOf(currentSettings.getVertexNumber()),
                 e -> currentSettings.setVertexNumber(Integer.parseInt(e)));
-
         add(vertexNumberTextField);
         row();
 

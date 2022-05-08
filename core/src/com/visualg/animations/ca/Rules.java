@@ -39,6 +39,4 @@ class Rules {
             n = (n << 1) | (b ? 1 : 0);
         return n;
     }
-
-
 }
