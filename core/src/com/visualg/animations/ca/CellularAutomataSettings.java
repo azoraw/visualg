@@ -8,12 +8,12 @@ import com.visualg.ui.SettingsTable;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
-public class CellularAutomataSettings extends SettingsTable {
+class CellularAutomataSettings extends SettingsTable {
 
     private final TextField ruleNumberTextField;
     private final CurrentSettings currentSettings;
 
-    public CellularAutomataSettings(CurrentSettings currentSettings) {
+    CellularAutomataSettings(CurrentSettings currentSettings) {
         this.currentSettings = currentSettings;
 
         DefaultSettingsRow ruleNumber = DefaultSettingsRow.builder()
@@ -42,7 +42,8 @@ public class CellularAutomataSettings extends SettingsTable {
     }
 
 
-    public void updateRuleNumber() {
+    void updateRuleNumber() {
         ruleNumberTextField.setText(valueOf(currentSettings.getRuleNumber()));
+
     }
 }
