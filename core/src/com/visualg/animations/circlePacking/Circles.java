@@ -1,6 +1,5 @@
 package com.visualg.animations.circlePacking;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.util.RandomGenerator;
 
@@ -8,18 +7,17 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 class Circles {
     int HOW_MANY_CIRCLES = 100;
 
-    private final int WIDTH;
-    private final int HEIGHT;
     private final ArrayList<Circle> circles = new ArrayList<>();
     private final Pixmap pixmap;
 
     public Circles(Pixmap pixmapResized) {
         this.pixmap = pixmapResized;
-        WIDTH = Gdx.graphics.getWidth();
-        HEIGHT = Gdx.graphics.getHeight();
         circles.add(createCircle());
     }
 

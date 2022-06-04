@@ -1,6 +1,5 @@
 package com.visualg.animations.langtonant;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -14,9 +13,7 @@ public class LangtonAnt extends Actor {
     private Pixmap pixmap;
 
     public LangtonAnt() {
-        int WIDTH = Gdx.graphics.getWidth();
-        int HEIGHT = Gdx.graphics.getHeight();
-        langtonAntAlg = new LangtonAntAlg(WIDTH, HEIGHT);
+        langtonAntAlg = new LangtonAntAlg();
     }
 
     @Override

@@ -7,6 +7,9 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 public class CirclePacking extends Actor {
 
     private final ShapeRenderer sr;
@@ -16,7 +19,7 @@ public class CirclePacking extends Actor {
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
         Pixmap pixmap200 = new Pixmap(Gdx.files.internal("RandomPicture.JPG"));
-        Pixmap pixmap100 = new Pixmap(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), pixmap200.getFormat());
+        Pixmap pixmap100 = new Pixmap(WIDTH, HEIGHT, pixmap200.getFormat());
         pixmap100.drawPixmap(pixmap200,
                 0, 0, pixmap200.getWidth(), pixmap200.getHeight(),
                 0, 0, pixmap100.getWidth(), pixmap100.getHeight());

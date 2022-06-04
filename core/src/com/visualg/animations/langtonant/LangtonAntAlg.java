@@ -6,19 +6,18 @@ import com.badlogic.gdx.graphics.Pixmap;
 import java.util.ArrayList;
 import java.util.List;
 
-class LangtonAntAlg {
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
 
-    private final int width;
-    private final int height;
-    private boolean[][] board;
+class LangtonAntAlg {
+    
+    private final boolean[][] board;
     private final List<Ant> ants;
 
-    LangtonAntAlg(int width, int height) {
-        this.width = width;
-        this.height = height;
-        board = new boolean[width][height];
+    LangtonAntAlg() {
+        board = new boolean[WIDTH][HEIGHT];
         ants = new ArrayList<>();
-        ants.add(new Ant(width, height));
+        ants.add(new Ant(WIDTH, HEIGHT));
     }
 
     public void move() {
@@ -34,7 +33,7 @@ class LangtonAntAlg {
     }
 
     public Pixmap getPixMap() {
-        Pixmap pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+        Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(Color.WHITE);
 

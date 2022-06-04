@@ -3,10 +3,10 @@ package com.visualg.animations.noise.flow;
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.OpenSimplexNoise;
 
-public class FlowFieldAlg {
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
 
-    private final int WIDTH;
-    private final int HEIGHT;
+public class FlowFieldAlg {
 
     private double xStep = 0.05;
     private double yStep = 0.05;
@@ -18,9 +18,7 @@ public class FlowFieldAlg {
     OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise();
     Vector2[][] vectors;
 
-    public FlowFieldAlg(int WIDTH, int HEIGHT) {
-        this.WIDTH = WIDTH;
-        this.HEIGHT = HEIGHT;
+    public FlowFieldAlg() {
         vectors = new Vector2[(WIDTH / (int) scale) + 1][(HEIGHT / (int) scale) + 1];
 
         for (int x = 0; x < WIDTH / scale; x++) {

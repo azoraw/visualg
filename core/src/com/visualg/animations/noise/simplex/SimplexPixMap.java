@@ -6,6 +6,9 @@ import com.visualg.util.OpenSimplexNoise;
 
 import java.util.function.Function;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 
 public class SimplexPixMap {
 
@@ -13,16 +16,12 @@ public class SimplexPixMap {
     private static final double Y_OFF = 0.02;
     private static final double Z_OFF = 0.001;
 
-    private final int WIDTH;
-    private final int HEIGHT;
     private final OpenSimplexNoise openSimplex2S;
     private final Function<Double, Integer> colorFunction;
     private final int goInNumberOfPixels;
     private double z;
 
-    public SimplexPixMap(int WIDTH, int HEIGHT, SimplexColorMode mode, int goInNumberOfPixels) {
-        this.WIDTH = WIDTH;
-        this.HEIGHT = HEIGHT;
+    public SimplexPixMap(SimplexColorMode mode, int goInNumberOfPixels) {
         this.goInNumberOfPixels = goInNumberOfPixels;
         openSimplex2S = new OpenSimplexNoise(0);
         colorFunction = mode.getColorFunction();

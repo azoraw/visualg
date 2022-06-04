@@ -7,21 +7,21 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 class NBodyAlg {
 
-    private final int width;
-    private final int height;
     private final CurrentSettings settings;
 
     @Getter
     private final List<Body> bodies = new ArrayList<>();
 
-    public NBodyAlg(int width, int height, CurrentSettings currentSettings) {
-        this.width = width;
-        this.height = height;
+    public NBodyAlg(CurrentSettings currentSettings) {
+
         this.settings = currentSettings;
         for (int i = 0; i < currentSettings.getNumberOfBodies(); i++) {
-            bodies.add(new Body(new Vector2(RandomGenerator.getIntInRange(width), RandomGenerator.getIntInRange(height)), currentSettings));
+            bodies.add(new Body(new Vector2(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT)), currentSettings));
         }
     }
 
