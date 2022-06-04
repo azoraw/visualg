@@ -8,10 +8,10 @@ import lombok.Getter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HairyFlowFieldAlg {
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
 
-    private final int WIDTH;
-    private final int HEIGHT;
+public class HairyFlowFieldAlg {
 
     private final double xStep = 0.05;
     private final double yStep = 0.05;
@@ -25,9 +25,7 @@ public class HairyFlowFieldAlg {
     @Getter
     private List<Dot> dots;
 
-    public HairyFlowFieldAlg(int WIDTH, int HEIGHT) {
-        this.WIDTH = WIDTH;
-        this.HEIGHT = HEIGHT;
+    public HairyFlowFieldAlg() {
         vectors = new Vector2[(WIDTH / (int) scale) + 1][(HEIGHT / (int) scale) + 1];
         xOffset = RandomGenerator.getRandomFloat(10000);
         yOffset = RandomGenerator.getRandomFloat(10000);

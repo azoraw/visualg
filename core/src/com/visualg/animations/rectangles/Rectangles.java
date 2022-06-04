@@ -1,6 +1,5 @@
 package com.visualg.animations.rectangles;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -14,11 +13,9 @@ public class Rectangles extends Actor {
     private final Squares squares;
 
     public Rectangles() {
-        int WIDTH = Gdx.graphics.getWidth();
-        int HEIGHT = Gdx.graphics.getHeight();
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
-        squares = new Squares(WIDTH, HEIGHT);
+        squares = new Squares();
     }
 
     @Override

@@ -1,25 +1,23 @@
 package com.visualg.animations.noise;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.noise.flow.FlowFieldAlg;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 public class FlowField extends Actor {
 
-    private int WIDTH;
-    private int HEIGHT;
     private ShapeRenderer sr;
     private FlowFieldAlg alg;
 
     public FlowField() {
-        WIDTH = Gdx.graphics.getWidth();
-        HEIGHT = Gdx.graphics.getHeight();
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
-        alg = new FlowFieldAlg(WIDTH, HEIGHT);
+        alg = new FlowFieldAlg();
     }
 
     @Override

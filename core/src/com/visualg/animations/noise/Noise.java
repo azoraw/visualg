@@ -20,10 +20,8 @@ public class Noise extends ApplicationAdapter {
     @Override
     public void create() {
         batch = new SpriteBatch();
-        int WIDTH = Gdx.graphics.getWidth();
-        int HEIGHT = Gdx.graphics.getHeight();
         randomPixMap = new RandomPixMap(RandomColorMode.RANDOM);
-        simplexPixMap = new SimplexPixMap(WIDTH, HEIGHT, SimplexColorMode.BLACK_AND_WHITE, 1);
+        simplexPixMap = new SimplexPixMap(SimplexColorMode.BLACK_AND_WHITE, 1);
     }
 
     @Override

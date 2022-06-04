@@ -1,6 +1,5 @@
 package com.visualg.animations.bezier;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -14,7 +13,7 @@ public class Bezier extends Actor {
     private final OldWidowsScreenSaver oldWidowsScreenSaver;
 
     public Bezier() {
-        oldWidowsScreenSaver = new OldWidowsScreenSaver(Gdx.graphics.getWidth(),  Gdx.graphics.getHeight());
+        oldWidowsScreenSaver = new OldWidowsScreenSaver();
         sr = new ShapeRenderer();
         sr.setColor(Color.WHITE);
     }

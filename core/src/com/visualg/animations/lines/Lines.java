@@ -1,6 +1,5 @@
 package com.visualg.animations.lines;
 
-import com.badlogic.gdx.Gdx;
 import com.visualg.util.Pair;
 import com.visualg.util.RandomGenerator;
 
@@ -8,15 +7,14 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 class Lines {
 
-    private final int width;
-    private final int height;
     private final List<LineSegment> segments = new ArrayList<>();
 
     public Lines() {
-        width = Gdx.graphics.getWidth();
-        height = Gdx.graphics.getHeight();
         Pair<Integer, Integer> tmp = getNewRandomPoint();
         Pair<Integer, Integer> tmp2 = getNewRandomPoint();
         segments.add(new LineSegment(tmp.first, tmp.second, tmp2.first, tmp2.second));
@@ -48,7 +46,7 @@ class Lines {
     }
 
     private Pair<Integer, Integer> getNewRandomPoint() {
-        return new Pair<>(RandomGenerator.getIntInRange(width), RandomGenerator.getIntInRange(height));
+        return new Pair<>(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT));
     }
 
 

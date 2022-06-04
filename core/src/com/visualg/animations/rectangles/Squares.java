@@ -4,6 +4,9 @@ package com.visualg.animations.rectangles;
 import java.util.HashSet;
 import java.util.Set;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 class Squares {
 
     private static final float DIFF_STEP = 0.002f;
@@ -13,9 +16,9 @@ class Squares {
     final int height;
 
 
-    public Squares(int width, int height) {
-        this.width = width;
-        this.height = height - 1;
+    public Squares() {
+        this.width = WIDTH;
+        this.height = HEIGHT - 1;
     }
 
     public Set<Line> getLinesForNumberOfSquares(int numberOfSquares) {

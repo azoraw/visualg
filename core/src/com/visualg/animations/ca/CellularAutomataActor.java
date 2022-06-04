@@ -1,6 +1,5 @@
 package com.visualg.animations.ca;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -26,8 +25,6 @@ public class CellularAutomataActor extends Actor {
 
 
     public CellularAutomataActor(CellularAutomataAlg cellularAutomataAlg) {
-        int WIDTH = Gdx.graphics.getWidth();
-        int HEIGHT = Gdx.graphics.getHeight();
         sr = new ShapeRenderer();
         sr.setColor(OFF_COLOR);
 
