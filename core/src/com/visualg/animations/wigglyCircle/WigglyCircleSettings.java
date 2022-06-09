@@ -5,8 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.visualg.ui.DefaultTextField;
-import com.visualg.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.DefaultTextField;
+import com.visualg.util.libgdx.ui.SettingsTable;
 
 import static com.visualg.global.Config.skin;
 import static java.lang.String.valueOf;
