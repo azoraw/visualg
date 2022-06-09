@@ -11,10 +11,10 @@ import com.visualg.util.libgdx.ui.SettingsTable;
 import static com.visualg.global.Config.skin;
 import static java.lang.String.valueOf;
 
-class WigglyCircleSettings extends SettingsTable {
+class WigglyCircleSettingsTable extends SettingsTable {
 
 
-    public WigglyCircleSettings(CurrentSettings currentSettings) {
+    public WigglyCircleSettingsTable(CurrentSettings currentSettings) {
         CheckBox threshold = new CheckBox("threshold", skin);
         threshold.addListener(new ClickListener() {
             @Override
