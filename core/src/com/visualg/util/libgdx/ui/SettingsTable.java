@@ -1,4 +1,4 @@
-package com.visualg.ui;
+package com.visualg.util.libgdx.ui;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;

@@ -2,7 +2,7 @@ package com.visualg.menu;
 
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.global.Animation;
-import com.visualg.ui.exit.ExitTable;
+import com.visualg.util.libgdx.ui.exit.ExitTable;
 
 public class MainStage extends Stage {
 

@@ -1,4 +1,4 @@
-package com.visualg.ui.exit;
+package com.visualg.util.libgdx.ui.exit;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
