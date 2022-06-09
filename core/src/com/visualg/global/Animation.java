@@ -11,7 +11,6 @@ import com.visualg.animations.noise.FlowField;
 import com.visualg.animations.noise.HairyFlowField;
 import com.visualg.animations.noise.HairyFlowFieldLines;
 import com.visualg.animations.noise.Noise;
-import com.visualg.animations.noise.OpenSimplexDots;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 
@@ -28,7 +27,6 @@ public enum Animation {
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     N_BODY(NBodyGroup::new),
     OPEN_SIMPLEX(Noise::new),
-    OPEN_SIMPLEX_DOTS(OpenSimplexDots::new),
     FLOW_FIELD(FlowField::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new);
 
