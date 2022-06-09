@@ -1,6 +1,5 @@
 package com.visualg.util;
 
-import com.badlogic.gdx.graphics.Color;
 import lombok.experimental.UtilityClass;
 
 import java.util.Random;
@@ -21,7 +20,7 @@ public class RandomGenerator {
         return random.nextFloat() * (float) max;
     }
 
-    public static Color getRandomColor() {
-        return new Color(random.nextFloat(), random.nextFloat(), random.nextFloat(), 1);
+    public static int nextInt() {
+        return random.nextInt();
     }
 }

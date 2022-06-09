@@ -4,8 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.visualg.animations.noise.random.RandomColorGenerator;
 import com.visualg.util.OpenSimplexNoise;
+import com.visualg.util.RandomColorGenerator;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;

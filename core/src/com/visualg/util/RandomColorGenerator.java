@@ -1,6 +1,4 @@
-package com.visualg.animations.noise.random;
-
-import java.util.Random;
+package com.visualg.util;
 
 /**
  * Generates RGBA8888
@@ -16,22 +14,20 @@ public class RandomColorGenerator {
     private static final int redMask = 0B11111111000000000000000011111111;
     private static final int alphaMask = 0B00000000000000000000000011111111;
 
-    private final Random random = new Random();
-
     public int getRandomColor() {
-        return random.nextInt();
+        return RandomGenerator.nextInt();
     }
 
-    int getRedScaleColor() {
-        return random.nextInt() & redMask;
+    public int getRedScaleColor() {
+        return RandomGenerator.nextInt() & redMask;
     }
 
-    int getMonoChromaticColor() {
-        return random.nextInt() | monochromaticMask;
+    public int getMonoChromaticColor() {
+        return RandomGenerator.nextInt() | monochromaticMask;
     }
 
-    int getGreyScaleColor() {
-        int luminosity = random.nextInt() & alphaMask;
+    public int getGreyScaleColor() {
+        int luminosity = RandomGenerator.nextInt() & alphaMask;
         int tmp = luminosity << 8;
         tmp = luminosity ^ tmp;
         return (tmp << 16) ^ tmp;

@@ -1,5 +1,7 @@
 package com.visualg.animations.noise.random;
 
+import com.visualg.util.RandomColorGenerator;
+
 import java.util.function.Supplier;
 
 public class ColorModeSupplierFactory {
