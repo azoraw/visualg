@@ -1,6 +1,7 @@
 package com.visualg.animations.noise.random;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.util.RandomColorGenerator;
 
 import java.util.function.Supplier;
 

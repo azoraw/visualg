@@ -9,7 +9,7 @@ import com.visualg.animations.noise.simplex.SimplexPixMap;
 
 public class Noise extends Actor {
 
-    private SimplexPixMap simplexPixMap;
+    private final SimplexPixMap simplexPixMap;
     private Texture texture;
     private Pixmap pixmap;
 
