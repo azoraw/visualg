@@ -1,22 +1,19 @@
-package com.visualg.animations.noise;
+package com.visualg.animations.noise.simplex;
 
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.visualg.animations.noise.simplex.SimplexColorMode;
-import com.visualg.animations.noise.simplex.SimplexPixMap;
 
-public class Noise extends Actor {
+public class NoiseActor extends Actor {
 
     private final SimplexPixMap simplexPixMap;
     private Texture texture;
     private Pixmap pixmap;
 
-    public Noise() {
+    public NoiseActor() {
         simplexPixMap = new SimplexPixMap(SimplexColorMode.GRAYSCALE, 1);
     }
-
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
@@ -34,5 +31,4 @@ public class Noise extends Actor {
             pixmap.dispose();
         }
     }
-
 }
