@@ -1,9 +1,7 @@
 package com.visualg.animations.ca;
 
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.util.libgdx.ShapeRendererActor;
 
 import java.util.ArrayDeque;
 import java.util.Iterator;
@@ -11,12 +9,11 @@ import java.util.Iterator;
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 
 
-public class CellularAutomataActor extends Actor {
+public class CellularAutomataActor extends ShapeRendererActor {
 
     private static final int CELL_SIZE = 20;
     private static final Color ON_COLOR = Color.GRAY;
     private static final Color OFF_COLOR = Color.DARK_GRAY;
-    private final ShapeRenderer sr;
     private final CellularAutomataAlg alg;
     private final CurrentSettings settings;
 
@@ -25,7 +22,7 @@ public class CellularAutomataActor extends Actor {
 
 
     public CellularAutomataActor(CellularAutomataAlg cellularAutomataAlg) {
-        sr = new ShapeRenderer();
+        super(Filled);
         sr.setColor(OFF_COLOR);
 
         alg = cellularAutomataAlg;
@@ -33,9 +30,7 @@ public class CellularAutomataActor extends Actor {
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
-        batch.end();
-        sr.begin(Filled);
+    protected void drawFrame() {
         ArrayDeque<Boolean[]> elements = alg.getElements();
         int row = 0;
         Iterator<Boolean[]> it = elements.descendingIterator();
@@ -51,9 +46,7 @@ public class CellularAutomataActor extends Actor {
             }
             row++;
         }
-        sr.end();
         update();
-        batch.begin();
     }
 
     private void update() {

@@ -11,8 +11,8 @@ import static com.visualg.global.Config.WIDTH;
 
 public class FlowField extends Actor {
 
-    private ShapeRenderer sr;
-    private FlowFieldAlg alg;
+    private final ShapeRenderer sr;
+    private final FlowFieldAlg alg;
 
     public FlowField() {
         sr = new ShapeRenderer();
