@@ -1,29 +1,24 @@
 package com.visualg.animations.wigglyCircle;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.util.Pair;
+import com.visualg.util.libgdx.ShapeRendererActor;
 
 import java.util.List;
 
-class WigglyCircleActor extends Actor {
+import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
 
-    private final ShapeRenderer sr;
+class WigglyCircleActor extends ShapeRendererActor {
+
     private final WigglyCircleAlg alg;
     float[] points;
 
     public WigglyCircleActor(WigglyCircleAlg alg) {
+        super(Line);
         this.alg = alg;
-        sr = new ShapeRenderer();
-        sr.setColor(Color.WHITE);
     }
 
     @Override
-    public void draw(Batch batch, float parentAlpha) {
-        batch.end();
-        sr.begin(ShapeRenderer.ShapeType.Line);
+    protected void drawFrame() {
         List<Pair<Float, Float>> pairs = alg.getVertices();
 
         points = new float[2 * pairs.size()];
@@ -32,8 +27,6 @@ class WigglyCircleActor extends Actor {
             points[2 * i + 1] = pairs.get(i).second;
         }
         sr.polygon(points);
-        sr.end();
         alg.update();
-        batch.begin();
     }
 }
