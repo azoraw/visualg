@@ -9,8 +9,7 @@ import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.NoiseActor;
-import com.visualg.animations.noise.transparent.HairyFlowFieldActor;
-import com.visualg.animations.noise.transparent.TransparentLinesActor;
+import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 
@@ -19,8 +18,7 @@ import java.util.function.Supplier;
 public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(Bezier::new),
-    HAIRY_FLOW_FIELD(HairyFlowFieldActor::new),
-    HAIRY_FLOW_FIELD_LINES(TransparentLinesActor::new),
+    HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),

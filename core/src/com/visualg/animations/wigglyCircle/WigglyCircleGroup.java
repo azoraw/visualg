@@ -11,7 +11,7 @@ public class WigglyCircleGroup extends Group {
         CurrentSettings currentSettings = new CurrentSettings();
         WigglyCircleAlg wigglyCircleAlg = new WigglyCircleAlg((float) WIDTH / 2, (float) HEIGHT / 2,
                 currentSettings);
-        WigglyCircleSettings actor = new WigglyCircleSettings(currentSettings);
+        WigglyCircleSettingsTable actor = new WigglyCircleSettingsTable(currentSettings);
         this.addActor(actor);
         this.addActor(new WigglyCircleActor(wigglyCircleAlg));
     }
