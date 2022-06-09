@@ -1,26 +1,25 @@
-package com.visualg.animations.noise.flow;
+package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.RandomGenerator;
 
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
 import static com.visualg.util.RandomGenerator.getIntInRange;
 
 public class Dot {
     private static final float maxSpeed = 1;
     private static final float fieldMagnitude = 0.01f;
-    private final int WIDTH;
-    private final int HEIGHT;
 
     private final Vector2 prevPosition;
     private final Vector2 position;
     private final Vector2 velocity;
     private final Vector2 acceleration;
 
-    public Dot(int width, int height) {
-        WIDTH = width;
-        HEIGHT = height;
-        float x = getIntInRange(width);
-        float y = getIntInRange(height);
+    public Dot() {
+
+        float x = getIntInRange(WIDTH);
+        float y = getIntInRange(HEIGHT);
         position = new Vector2(x, y);
         prevPosition= new Vector2(position);
         velocity = new Vector2(0, 1);

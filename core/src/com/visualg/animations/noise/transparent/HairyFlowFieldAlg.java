@@ -1,4 +1,4 @@
-package com.visualg.animations.noise.flow;
+package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.OpenSimplexNoise;
@@ -36,7 +36,7 @@ public class HairyFlowFieldAlg {
     private void initDots() {
         dots = new ArrayList<>();
         for (int i = 0; i < 1000; i++) {
-            dots.add(new Dot(WIDTH, HEIGHT));
+            dots.add(new Dot());
         }
     }
 

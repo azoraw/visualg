@@ -7,10 +7,10 @@ import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
-import com.visualg.animations.noise.FlowField;
-import com.visualg.animations.noise.HairyFlowField;
-import com.visualg.animations.noise.HairyFlowFieldLines;
-import com.visualg.animations.noise.Noise;
+import com.visualg.animations.noise.flow.FlowFieldActor;
+import com.visualg.animations.noise.simplex.NoiseActor;
+import com.visualg.animations.noise.transparent.HairyFlowFieldActor;
+import com.visualg.animations.noise.transparent.TransparentLinesActor;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 
@@ -19,15 +19,15 @@ import java.util.function.Supplier;
 public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(Bezier::new),
-    HAIRY_FLOW_FIELD(HairyFlowField::new),
-    HAIRY_FLOW_FIELD_LINES(HairyFlowFieldLines::new),
+    HAIRY_FLOW_FIELD(HairyFlowFieldActor::new),
+    HAIRY_FLOW_FIELD_LINES(TransparentLinesActor::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     N_BODY(NBodyGroup::new),
-    OPEN_SIMPLEX(Noise::new),
-    FLOW_FIELD(FlowField::new),
+    OPEN_SIMPLEX(NoiseActor::new),
+    FLOW_FIELD(FlowFieldActor::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new);
 
     private final Supplier<Actor> animationSupplier;

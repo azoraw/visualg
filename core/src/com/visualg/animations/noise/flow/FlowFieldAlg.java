@@ -8,9 +8,9 @@ import static com.visualg.global.Config.WIDTH;
 
 public class FlowFieldAlg {
 
-    private double xStep = 0.05;
-    private double yStep = 0.05;
-    private double zStep = 0.000001;
+    private final double xStep = 0.05;
+    private final double yStep = 0.05;
+    private final double zStep = 0.000001;
     int time = 0;
 
     public final double scale = 10;

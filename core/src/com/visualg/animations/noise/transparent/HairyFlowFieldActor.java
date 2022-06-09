@@ -1,14 +1,13 @@
-package com.visualg.animations.noise;
+package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.animations.noise.flow.HairyFlowFieldAlg;
 import com.visualg.util.libgdx.TransparentActor;
 
-public class HairyFlowField extends TransparentActor {
+public class HairyFlowFieldActor extends TransparentActor {
 
     private final HairyFlowFieldAlg alg;
 
-    public HairyFlowField() {
+    public HairyFlowFieldActor() {
         alg = new HairyFlowFieldAlg();
         Color color = new Color(1, 1, 1, 0.01f);
         sr.setColor(color);
