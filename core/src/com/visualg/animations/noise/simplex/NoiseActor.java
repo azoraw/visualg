@@ -13,7 +13,7 @@ public class NoiseActor extends Actor {
     private Pixmap pixmap;
 
     public NoiseActor() {
-        simplexPixMap = new SimplexPixMap(SimplexColorMode.GRAYSCALE, 1);
+        simplexPixMap = new SimplexPixMap(SimplexColorMode.GRAYSCALE, 10);
     }
 
     @Override
