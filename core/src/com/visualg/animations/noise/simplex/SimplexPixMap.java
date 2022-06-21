@@ -40,7 +40,7 @@ public class SimplexPixMap {
         for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
             y = 0;
             for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
-                double eval = openSimplex.eval(x, y, z);
+                double eval = openSimplex.eval(i, j, z);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
             }

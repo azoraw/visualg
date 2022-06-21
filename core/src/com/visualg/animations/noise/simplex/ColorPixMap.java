@@ -7,8 +7,8 @@ import com.visualg.util.OpenSimplexNoise;
 
 public class ColorPixMap {
 
-    private static final double X_OFF = 0.02;
-    private static final double Y_OFF = 0.02;
+    private static final double X_OFF = 0.01;
+    private static final double Y_OFF = 0.01;
     private static final double Z_OFF = 0.04;
 
     private static final int WIDTH_SCALED = Config.WIDTH / 4;
