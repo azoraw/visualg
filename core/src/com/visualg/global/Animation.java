@@ -8,6 +8,7 @@ import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
+import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseActor;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
@@ -22,6 +23,7 @@ public enum Animation {
     OPEN_SIMPLEX(NoiseActor::new),
     FLOW_FIELD(FlowFieldActor::new),
     NOISE(NoiseActor::new),
+    COLOR_NOISE(ColorNoiseActor::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
