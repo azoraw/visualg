@@ -16,27 +16,30 @@ public class SimplexPixMap {
     private static final double Y_OFF = 0.02;
     private static final double Z_OFF = 0.04;
 
+    private final int WIDTH_SCALED = WIDTH / 2;
+    private final int HEIGHT_SCALED = HEIGHT / 2;
+
     private final OpenSimplexNoise openSimplex;
     private final Function<Double, Integer> colorFunction;
     private final int goInNumberOfPixels;
+    private final Pixmap pixmap;
     private double z;
 
     public SimplexPixMap(SimplexColorMode mode, int goInNumberOfPixels) {
         this.goInNumberOfPixels = goInNumberOfPixels;
         openSimplex = new OpenSimplexNoise(0);
         colorFunction = mode.getColorFunction();
+        pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
+        pixmap.setBlending(Pixmap.Blending.None);
+        pixmap.setColor(Color.WHITE);
     }
 
     public Pixmap generateMovementOnZAxis() {
-        Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
-        pixmap.setBlending(Pixmap.Blending.None);
-        pixmap.setColor(Color.WHITE);
-
         double x = 0;
         double y;
-        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
+        for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
             y = 0;
-            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
+            for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
                 double eval = openSimplex.eval(x, y, z);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
@@ -54,9 +57,9 @@ public class SimplexPixMap {
 
         double x = 0;
         double y;
-        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
+        for (int i = 0; i < WIDTH; i += goInNumberOfPixels) {
             y = 0;
-            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
+            for (int j = 0; j < HEIGHT; j += goInNumberOfPixels) {
                 double eval = openSimplex.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF + z;
@@ -74,9 +77,9 @@ public class SimplexPixMap {
 
         double x = z;
         double y;
-        for (int i = 0; i < WIDTH; i+=goInNumberOfPixels) {
+        for (int i = 0; i < WIDTH; i += goInNumberOfPixels) {
             y = z;
-            for (int j = 0; j < HEIGHT; j+=goInNumberOfPixels) {
+            for (int j = 0; j < HEIGHT; j += goInNumberOfPixels) {
                 double eval = openSimplex.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
