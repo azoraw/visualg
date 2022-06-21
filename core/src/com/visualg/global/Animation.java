@@ -19,13 +19,15 @@ public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(Bezier::new),
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
+    OPEN_SIMPLEX(NoiseActor::new),
+    FLOW_FIELD(FlowFieldActor::new),
+    NOISE(NoiseActor::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     N_BODY(NBodyGroup::new),
-    OPEN_SIMPLEX(NoiseActor::new),
-    FLOW_FIELD(FlowFieldActor::new),
+
     CELLULAR_AUTOMATA(CellularAutomataGroup::new);
 
     private final Supplier<Actor> animationSupplier;

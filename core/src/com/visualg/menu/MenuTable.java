@@ -13,6 +13,7 @@ import static com.visualg.global.Animation.FLOW_FIELD;
 import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
 import static com.visualg.global.Animation.LANGTON_ANT;
 import static com.visualg.global.Animation.LINES_DOODLE;
+import static com.visualg.global.Animation.NOISE;
 import static com.visualg.global.Animation.N_BODY;
 import static com.visualg.global.Animation.OPEN_SIMPLEX;
 import static com.visualg.global.Animation.RECTANGLES;
@@ -39,6 +40,7 @@ class MenuTable extends Table {
         createAnimationButton("HairyFlowField", HAIRY_FLOW_FIELD);
         createAnimationButton("openSimplex", OPEN_SIMPLEX);
         createAnimationButton("flowField", FLOW_FIELD);
+        createAnimationButton("noise", NOISE);
 
         this.row();
         createAnimationButton("cellular automata", CELLULAR_AUTOMATA);
