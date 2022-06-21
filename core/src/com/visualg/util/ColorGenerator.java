@@ -8,7 +8,7 @@ package com.visualg.util;
  * B - Blue
  * A - Alpha
  */
-public class RandomColorGenerator {
+public class ColorGenerator {
 
     private static final int monochromaticMask = 0B11111111111111111111111100000000;
     private static final int redMask = 0B11111111000000000000000011111111;

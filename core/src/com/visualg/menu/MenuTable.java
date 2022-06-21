@@ -9,6 +9,7 @@ import com.visualg.global.Config;
 import static com.visualg.global.Animation.BEZIER;
 import static com.visualg.global.Animation.CELLULAR_AUTOMATA;
 import static com.visualg.global.Animation.CIRCLE_PACKING;
+import static com.visualg.global.Animation.COLOR_NOISE;
 import static com.visualg.global.Animation.FLOW_FIELD;
 import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
 import static com.visualg.global.Animation.LANGTON_ANT;
@@ -41,6 +42,7 @@ class MenuTable extends Table {
         createAnimationButton("openSimplex", OPEN_SIMPLEX);
         createAnimationButton("flowField", FLOW_FIELD);
         createAnimationButton("noise", NOISE);
+        createAnimationButton("ColorNoise", COLOR_NOISE);
 
         this.row();
         createAnimationButton("cellular automata", CELLULAR_AUTOMATA);
