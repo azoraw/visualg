@@ -9,7 +9,7 @@ import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.ColorNoiseActor;
-import com.visualg.animations.noise.simplex.NoiseActor;
+import com.visualg.animations.noise.simplex.NoiseGroup;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
@@ -20,7 +20,7 @@ public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(Bezier::new),
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
-    OPEN_SIMPLEX(NoiseActor::new),
+    OPEN_SIMPLEX(NoiseGroup::new),
     FLOW_FIELD(FlowFieldActor::new),
     COLOR_NOISE(ColorNoiseActor::new),
     LINES_DOODLE(LinesDoodle::new),

@@ -12,9 +12,9 @@ import static com.visualg.global.Config.WIDTH;
 
 public class SimplexPixMap {
 
-    private static final double X_OFF = 0.14;
-    private static final double Y_OFF = 0.14;
-    private static final double Z_OFF = 0.04;
+    private final double X_OFF;
+    private final double Y_OFF;
+    private final double Z_OFF;
 
     private final int WIDTH_SCALED = WIDTH / 2;
     private final int HEIGHT_SCALED = HEIGHT / 2;
@@ -25,10 +25,13 @@ public class SimplexPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    public SimplexPixMap(SimplexColorMode mode, int goInNumberOfPixels) {
-        this.goInNumberOfPixels = goInNumberOfPixels;
+    public SimplexPixMap(NoiseSettings settings) {
+        goInNumberOfPixels = settings.getNumberOfSkippedPixels();
         openSimplex = new OpenSimplexNoise(0);
-        colorFunction = mode.getColorFunction();
+        colorFunction = settings.getColorMode().getColorFunction();
+        X_OFF = settings.getX_OFF();
+        Y_OFF = settings.getY_OFF();
+        Z_OFF = settings.getZ_OFF();
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(Color.WHITE);
