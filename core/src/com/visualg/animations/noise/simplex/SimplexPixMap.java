@@ -12,8 +12,8 @@ import static com.visualg.global.Config.WIDTH;
 
 public class SimplexPixMap {
 
-    private static final double X_OFF = 0.02;
-    private static final double Y_OFF = 0.02;
+    private static final double X_OFF = 0.14;
+    private static final double Y_OFF = 0.14;
     private static final double Z_OFF = 0.04;
 
     private final int WIDTH_SCALED = WIDTH / 2;
@@ -40,7 +40,7 @@ public class SimplexPixMap {
         for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
             y = 0;
             for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
-                double eval = openSimplex.eval(i, j, z);
+                double eval = openSimplex.eval(x, y, z);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;
             }
@@ -51,15 +51,11 @@ public class SimplexPixMap {
     }
 
     public Pixmap generateZoomOut() {
-        Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
-        pixmap.setBlending(Pixmap.Blending.None);
-        pixmap.setColor(Color.WHITE);
-
         double x = 0;
         double y;
-        for (int i = 0; i < WIDTH; i += goInNumberOfPixels) {
+        for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
             y = 0;
-            for (int j = 0; j < HEIGHT; j += goInNumberOfPixels) {
+            for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
                 double eval = openSimplex.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF + z;
@@ -71,15 +67,11 @@ public class SimplexPixMap {
     }
 
     public Pixmap generatePlanarMovement() {
-        Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
-        pixmap.setBlending(Pixmap.Blending.None);
-        pixmap.setColor(Color.WHITE);
-
         double x = z;
         double y;
-        for (int i = 0; i < WIDTH; i += goInNumberOfPixels) {
+        for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
             y = z;
-            for (int j = 0; j < HEIGHT; j += goInNumberOfPixels) {
+            for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
                 double eval = openSimplex.eval(x, y, 0);
                 pixmap.drawPixel(i, j, colorFunction.apply(eval));
                 y += Y_OFF;

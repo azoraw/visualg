@@ -22,7 +22,6 @@ public enum Animation {
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
     OPEN_SIMPLEX(NoiseActor::new),
     FLOW_FIELD(FlowFieldActor::new),
-    NOISE(NoiseActor::new),
     COLOR_NOISE(ColorNoiseActor::new),
     LINES_DOODLE(LinesDoodle::new),
     RECTANGLES(Rectangles::new),
