@@ -1,7 +1,12 @@
 package com.visualg.animations.noise.transparent;
 
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
+import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.visualg.global.Config;
 import com.visualg.menu.RestartEvent;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
+import com.visualg.util.libgdx.ui.EmptyLabel;
 import com.visualg.util.libgdx.ui.SettingsTable;
 
 import static java.lang.Float.parseFloat;
@@ -37,7 +42,8 @@ public class HairyFlowFieldSettingsTable extends SettingsTable {
                 .build();
         addRow(scale);
 
-        /*CheckBox connected = new CheckBox("connect init point", skin);
+        CheckBox connected = new CheckBox("connect init point", Config.skin);
+        connected.setChecked(settings.isConnectedWithStartingPoint());
         connected.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
@@ -46,6 +52,6 @@ public class HairyFlowFieldSettingsTable extends SettingsTable {
         });
         add(new EmptyLabel());
         add(connected);
-        row();*/
+        row();
     }
 }
