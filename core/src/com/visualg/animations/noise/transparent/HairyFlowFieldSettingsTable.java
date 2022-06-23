@@ -1,12 +1,11 @@
 package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.visualg.global.Config;
 import com.visualg.menu.RestartEvent;
+import com.visualg.util.libgdx.ui.DefaultButton;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
 import com.visualg.util.libgdx.ui.EmptyLabel;
 import com.visualg.util.libgdx.ui.SettingsTable;
@@ -55,14 +54,8 @@ public class HairyFlowFieldSettingsTable extends SettingsTable {
         add(connected);
         row();
 
-        Button button = new TextButton("screenshot", Config.skin);
-        button.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                onScreenShotRunnable.run();
-            }
-        });
+        DefaultButton screenShot = new DefaultButton("screenShot", onScreenShotRunnable);
         add(new EmptyLabel());
-        add(button);
+        add(screenShot);
     }
 }
