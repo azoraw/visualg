@@ -24,21 +24,6 @@ public class DefaultTextField extends TextField {
                 return false;
             }
         });
-       /*this.addListener(new FocusListener() {
-            @Override
-            public void keyboardFocusChanged(FocusListener.FocusEvent event, Actor actor, boolean focused) {
-                if (!focused) {
-                    accept(valueConsumer);
-                }
-            }
-
-            @Override
-            public void scrollFocusChanged(FocusEvent event, Actor actor, boolean focused) {
-                if (!focused) {
-                    accept(valueConsumer);
-                }
-            }
-        });*/
     }
 
     private void accept(Consumer<String> valueConsumer) {

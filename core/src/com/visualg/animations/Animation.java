@@ -1,4 +1,4 @@
-package com.visualg.global;
+package com.visualg.animations;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.bezier.Bezier;
@@ -28,7 +28,6 @@ public enum Animation {
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     N_BODY(NBodyGroup::new),
-
     CELLULAR_AUTOMATA(CellularAutomataGroup::new);
 
     private final Supplier<Actor> animationSupplier;

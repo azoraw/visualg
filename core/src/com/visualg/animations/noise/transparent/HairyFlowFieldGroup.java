@@ -6,8 +6,9 @@ public class HairyFlowFieldGroup extends Group {
 
     public HairyFlowFieldGroup() {
         CurrentSettings settings = CurrentSettings.INSTANCE;
-        HairyFlowFieldSettingsTable settingsTable = new HairyFlowFieldSettingsTable(settings);
-        this.addActor(new HairyFlowFieldActor(settings));
+        HairyFlowFieldActor actor = new HairyFlowFieldActor(settings);
+        HairyFlowFieldSettingsTable settingsTable = new HairyFlowFieldSettingsTable(settings, actor.onScreenShot());
+        this.addActor(actor);
         this.addActor(settingsTable);
     }
 }

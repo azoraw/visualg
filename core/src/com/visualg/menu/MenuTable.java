@@ -3,21 +3,21 @@ package com.visualg.menu;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.visualg.global.Animation;
+import com.visualg.animations.Animation;
 import com.visualg.global.Config;
 
-import static com.visualg.global.Animation.BEZIER;
-import static com.visualg.global.Animation.CELLULAR_AUTOMATA;
-import static com.visualg.global.Animation.CIRCLE_PACKING;
-import static com.visualg.global.Animation.COLOR_NOISE;
-import static com.visualg.global.Animation.FLOW_FIELD;
-import static com.visualg.global.Animation.HAIRY_FLOW_FIELD;
-import static com.visualg.global.Animation.LANGTON_ANT;
-import static com.visualg.global.Animation.LINES_DOODLE;
-import static com.visualg.global.Animation.N_BODY;
-import static com.visualg.global.Animation.OPEN_SIMPLEX;
-import static com.visualg.global.Animation.RECTANGLES;
-import static com.visualg.global.Animation.WIGGLY_CIRCLE;
+import static com.visualg.animations.Animation.BEZIER;
+import static com.visualg.animations.Animation.CELLULAR_AUTOMATA;
+import static com.visualg.animations.Animation.CIRCLE_PACKING;
+import static com.visualg.animations.Animation.COLOR_NOISE;
+import static com.visualg.animations.Animation.FLOW_FIELD;
+import static com.visualg.animations.Animation.HAIRY_FLOW_FIELD;
+import static com.visualg.animations.Animation.LANGTON_ANT;
+import static com.visualg.animations.Animation.LINES_DOODLE;
+import static com.visualg.animations.Animation.N_BODY;
+import static com.visualg.animations.Animation.OPEN_SIMPLEX;
+import static com.visualg.animations.Animation.RECTANGLES;
+import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
 
 class MenuTable extends Table {
 
