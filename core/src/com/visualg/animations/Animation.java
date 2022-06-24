@@ -4,6 +4,7 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.bezier.Bezier;
 import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
+import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
@@ -28,7 +29,8 @@ public enum Animation {
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     N_BODY(NBodyGroup::new),
-    CELLULAR_AUTOMATA(CellularAutomataGroup::new);
+    CELLULAR_AUTOMATA(CellularAutomataGroup::new),
+    DOUBLE_PENDULUM(DoublePendulum::new);
 
     private final Supplier<Actor> animationSupplier;
 
