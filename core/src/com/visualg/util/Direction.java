@@ -1,5 +1,8 @@
 package com.visualg.util;
 
+import java.util.EnumSet;
+import java.util.Set;
+
 public enum Direction {
     UP,
     DOWN,
@@ -8,6 +11,7 @@ public enum Direction {
 
     public Direction clockwise;
     public Direction counterClockwise;
+    public Direction opposite;
 
     static {
         UP.clockwise = RIGHT;
@@ -21,5 +25,19 @@ public enum Direction {
 
         LEFT.clockwise = UP;
         LEFT.counterClockwise = DOWN;
+    }
+    static {
+        UP.opposite = DOWN;
+        RIGHT.opposite = LEFT;
+        DOWN.opposite = UP;
+        LEFT.opposite = RIGHT;
+    }
+
+
+    public static Set<Direction> getAllReducedBy(EnumSet<Direction> directions) {
+        Set<Direction> reversed = EnumSet.allOf(Direction.class);
+        reversed.removeAll(directions);
+
+        return reversed;
     }
 }
