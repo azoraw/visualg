@@ -9,6 +9,7 @@ import com.visualg.animations.labyrinth.LabyrinthGenerator;
 import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
+import com.visualg.animations.mouseFollower.MouseFollowerActor;
 import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.ColorNoiseActor;
@@ -34,7 +35,8 @@ public enum Animation {
     CELLULAR_AUTOMATA(CellularAutomataGroup::new),
     DOUBLE_PENDULUM(DoublePendulum::new),
     LABYRINTH_GENERATOR(LabyrinthGenerator::new),
-    LABYRINTH_SOLVER(LabyrinthSolver::new);
+    LABYRINTH_SOLVER(LabyrinthSolver::new),
+    MOUSE_FOLLOWER(MouseFollowerActor::new);
 
     private final Supplier<Actor> animationSupplier;
 
