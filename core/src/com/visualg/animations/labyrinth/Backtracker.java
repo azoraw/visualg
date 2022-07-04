@@ -34,7 +34,7 @@ public class Backtracker extends Thread {
         }
     }
 
-    public void full() {
+    public void fullRun() {
         while (!stack.isEmpty()) {
             nextStep();
         }
