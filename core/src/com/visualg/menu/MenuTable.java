@@ -7,6 +7,7 @@ import com.visualg.animations.Animation;
 import com.visualg.global.Config;
 
 import static com.visualg.animations.Animation.BEZIER;
+import static com.visualg.animations.Animation.BOIDS;
 import static com.visualg.animations.Animation.CELLULAR_AUTOMATA;
 import static com.visualg.animations.Animation.CIRCLE_PACKING;
 import static com.visualg.animations.Animation.COLOR_NOISE;
@@ -39,7 +40,9 @@ class MenuTable extends Table {
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
         this.row();
         createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
+        createAnimationButton("mouse follower", MOUSE_FOLLOWER);
         createAnimationButton("n-body", N_BODY);
+        createAnimationButton("boids", BOIDS);
         this.row();
         createAnimationButton("HairyFlowField", HAIRY_FLOW_FIELD);
         createAnimationButton("openSimplex", OPEN_SIMPLEX);
@@ -52,8 +55,7 @@ class MenuTable extends Table {
         this.row();
         createAnimationButton("labyrinth generator", LABYRINTH_GENERATOR);
         createAnimationButton("labyrinth solver", LABYRINTH_SOLVER);
-        this.row();
-        createAnimationButton("mouse follower", MOUSE_FOLLOWER);
+
     }
 
     private void createAnimationButton(String text, Animation animation) {

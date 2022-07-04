@@ -23,4 +23,13 @@ public class RandomGenerator {
     public static int nextInt() {
         return random.nextInt();
     }
+
+    public static boolean nextBoolean() {
+        return random.nextBoolean();
+    }
+
+    public static int getRandom(int max) {
+        return random.nextInt(max);
+    }
+
 }

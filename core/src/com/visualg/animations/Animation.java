@@ -2,6 +2,7 @@ package com.visualg.animations;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.bezier.Bezier;
+import com.visualg.animations.boids.BoidsGroup;
 import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.doublePendulum.DoublePendulum;
@@ -31,12 +32,14 @@ public enum Animation {
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
+    MOUSE_FOLLOWER(MouseFollowerActor::new),
     N_BODY(NBodyGroup::new),
+    BOIDS(BoidsGroup::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new),
     DOUBLE_PENDULUM(DoublePendulum::new),
     LABYRINTH_GENERATOR(LabyrinthGenerator::new),
     LABYRINTH_SOLVER(LabyrinthSolver::new),
-    MOUSE_FOLLOWER(MouseFollowerActor::new);
+    ;
 
     private final Supplier<Actor> animationSupplier;
 
