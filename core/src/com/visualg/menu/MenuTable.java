@@ -17,6 +17,7 @@ import static com.visualg.animations.Animation.LABYRINTH_GENERATOR;
 import static com.visualg.animations.Animation.LABYRINTH_SOLVER;
 import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
+import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
 import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
@@ -51,6 +52,8 @@ class MenuTable extends Table {
         this.row();
         createAnimationButton("labyrinth generator", LABYRINTH_GENERATOR);
         createAnimationButton("labyrinth solver", LABYRINTH_SOLVER);
+        this.row();
+        createAnimationButton("mouse follower", MOUSE_FOLLOWER);
     }
 
     private void createAnimationButton(String text, Animation animation) {
