@@ -12,7 +12,7 @@ public class Cell {
     private final int x;
     private final int y;
 
-    private EnumSet<Direction> walls = EnumSet.allOf(Direction.class);
+    private final EnumSet<Direction> walls = EnumSet.allOf(Direction.class);
 
     @Setter
     private boolean current;

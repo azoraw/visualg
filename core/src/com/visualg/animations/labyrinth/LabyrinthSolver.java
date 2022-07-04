@@ -48,7 +48,7 @@ public class LabyrinthSolver extends Actor {
     private void createBacktracker() {
         cells = new Cell[GRID_WIDTH][GRID_HEIGHT];
         Backtracker backtracker = new Backtracker(cells);
-        backtracker.full();
+        backtracker.fullRun();
     }
 
     private void createTextures() {
