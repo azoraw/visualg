@@ -9,10 +9,10 @@ import java.util.Stack;
 
 import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_HEIGHT;
 import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_WIDTH;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.SLEEP_MILLISECOND;
 
 public class Backtracker extends Thread {
 
+    private static final long SLEEP_MILLISECOND = 5;
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
     private final Stack<Cell> stack = new Stack<>();
@@ -30,7 +30,13 @@ public class Backtracker extends Thread {
     public void run() {
         while (!stack.isEmpty()) {
             nextStep();
-            //sleep();
+            sleep();
+        }
+    }
+
+    public void full() {
+        while (!stack.isEmpty()) {
+            nextStep();
         }
     }
 

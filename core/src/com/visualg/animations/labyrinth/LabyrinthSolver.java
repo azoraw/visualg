@@ -4,12 +4,13 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.animations.labyrinth.finder.AStarAlg;
 import com.visualg.global.Config;
 import com.visualg.util.Direction;
 
 import java.util.Map;
 
-public class LabyrinthGenerator extends Actor {
+public class LabyrinthSolver extends Actor {
 
     static final int CELL_WIDTH = 10;
     static final int CELL_HEIGHT = 10;
@@ -20,22 +21,34 @@ public class LabyrinthGenerator extends Actor {
     private Map<Direction, Texture> wallTextures;
     private Map<Color, Texture> backgroundTextures;
     private Cell[][] cells;
+    private final AStarAlg aStarAlg;
 
-    public LabyrinthGenerator() {
+    public LabyrinthSolver() {
         createTextures();
         createBacktracker();
         batch = new SpriteBatch();
+        drawGrid();
+        aStarAlg = new AStarAlg(cells);
+        aStarAlg.start();
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         drawGrid();
+        drawRandomFinder();
+    }
+
+    private void drawRandomFinder() {
+        Cell currentCell = aStarAlg.getCurrentCell();
+        batch.begin();
+        batch.draw(backgroundTextures.get(Color.WHITE), currentCell.getX() * CELL_WIDTH, (GRID_HEIGHT - currentCell.getY() - 1) * CELL_HEIGHT);
+        batch.end();
     }
 
     private void createBacktracker() {
         cells = new Cell[GRID_WIDTH][GRID_HEIGHT];
         Backtracker backtracker = new Backtracker(cells);
-        backtracker.start();
+        backtracker.full();
     }
 
     private void createTextures() {

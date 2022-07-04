@@ -6,6 +6,7 @@ import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.labyrinth.LabyrinthGenerator;
+import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.nBody.NBodyGroup;
@@ -32,7 +33,8 @@ public enum Animation {
     N_BODY(NBodyGroup::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new),
     DOUBLE_PENDULUM(DoublePendulum::new),
-    LABYRINTH(LabyrinthGenerator::new);
+    LABYRINTH_GENERATOR(LabyrinthGenerator::new),
+    LABYRINTH_SOLVER(LabyrinthSolver::new);
 
     private final Supplier<Actor> animationSupplier;
 

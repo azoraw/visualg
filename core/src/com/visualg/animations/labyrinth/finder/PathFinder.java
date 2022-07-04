@@ -10,12 +10,12 @@ import java.util.List;
 
 import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_HEIGHT;
 import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_WIDTH;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.SLEEP_MILLISECOND;
 
 
 @RequiredArgsConstructor
 public abstract class PathFinder extends Thread {
 
+    private static final long SLEEP_MILLISECOND = 50;
     protected final Cell[][] cells;
 
     protected void sleep() {
