@@ -18,5 +18,8 @@ Execute in command line:
 
 # Screens:
 
-![visualg_screen](https://user-images.githubusercontent.com/26636050/110701739-d96f8d00-81f1-11eb-9501-2a1fc0254bc3.png)
+![2022_06_23T19_08_42 618541100](https://user-images.githubusercontent.com/26636050/177177451-bc07bdd6-fa95-47ec-af80-9bc9b74edf59.png)
+![2022_06_23T16_09_25 945675800](https://user-images.githubusercontent.com/26636050/177177540-b69e2085-d805-4c7c-9c4e-916cafcf3fd2.png)
+![screenShot540903492](https://user-images.githubusercontent.com/26636050/177177580-98054488-43b1-4b19-a4a0-3256b910779e.png)
+
 
