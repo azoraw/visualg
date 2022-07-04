@@ -24,6 +24,6 @@ public class BoidsSettings {
 
     private int neighbourRadius = 100;
 
-    private int circleRadius = 5;
+    private int circleRadius = 1;
 
 }
