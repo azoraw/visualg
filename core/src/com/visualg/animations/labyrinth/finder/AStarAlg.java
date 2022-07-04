@@ -47,7 +47,6 @@ public class AStarAlg extends PathFinder {
             addPotentialCells(distanceFromBeginning, neighbours);
             goToNextCell();
             distanceFromBeginning = potentialCells.get(currentCell);
-            sleep();
         }
     }
 

@@ -13,7 +13,8 @@ import static com.visualg.animations.Animation.COLOR_NOISE;
 import static com.visualg.animations.Animation.DOUBLE_PENDULUM;
 import static com.visualg.animations.Animation.FLOW_FIELD;
 import static com.visualg.animations.Animation.HAIRY_FLOW_FIELD;
-import static com.visualg.animations.Animation.LABYRINTH;
+import static com.visualg.animations.Animation.LABYRINTH_GENERATOR;
+import static com.visualg.animations.Animation.LABYRINTH_SOLVER;
 import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
 import static com.visualg.animations.Animation.N_BODY;
@@ -47,7 +48,9 @@ class MenuTable extends Table {
         this.row();
         createAnimationButton("cellular automata", CELLULAR_AUTOMATA);
         createAnimationButton("double pendulum", DOUBLE_PENDULUM);
-        createAnimationButton("labyrinth", LABYRINTH);
+        this.row();
+        createAnimationButton("labyrinth generator", LABYRINTH_GENERATOR);
+        createAnimationButton("labyrinth solver", LABYRINTH_SOLVER);
     }
 
     private void createAnimationButton(String text, Animation animation) {

@@ -38,7 +38,7 @@ public class State {
         double velocity2Tmp = calculateAcceleration2();
         velocity1 += velocity1Tmp;
         velocity2 += velocity2Tmp;
-        limit();
+        //limit();
         angle1 += velocity1;
         angle2 += velocity2;
 
