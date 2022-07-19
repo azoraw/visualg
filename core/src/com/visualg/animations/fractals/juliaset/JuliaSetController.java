@@ -12,30 +12,36 @@ public class JuliaSetController {
 
     private final Settings settings;
     private final SettingsView settingsView;
+    private final JuliaSetActor juliaSetActor;
 
     public void zoom(Zoom zoom) {
         settings.zoom(zoom);
-        settingsView.updateFields();
+        updateViews();
     }
 
     public void moveCameraAndZoom(int screenX, int screenY, Zoom zoom) {
         settings.move(screenX, screenY, WIDTH, HEIGHT);
         settings.zoom(zoom);
-        settingsView.updateFields();
+        updateViews();
     }
 
     public void moveCamera(Direction direction) {
         settings.addOffset(direction);
-        settingsView.updateFields();
+        updateViews();
     }
 
     public void moveCamera(int screenX, int screenY) {
         settings.move(screenX, screenY, WIDTH, HEIGHT);
-        settingsView.updateFields();
+        updateViews();
     }
 
     public void moveSet(Direction left) {
         settings.moveJulia(left);
+        updateViews();
+    }
+
+    private void updateViews() {
         settingsView.updateFields();
+        juliaSetActor.updateFractal();
     }
 }
