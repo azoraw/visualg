@@ -8,7 +8,7 @@ import com.visualg.global.Config;
 public class DesktopLauncher {
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
-       // config.setFromDisplayMode(LwjglApplicationConfiguration.getDesktopDisplayMode());
+        config.setFromDisplayMode(LwjglApplicationConfiguration.getDesktopDisplayMode());
         config.width = Config.WIDTH;
         config.height = Config.HEIGHT;
         new LwjglApplication(new Main(), config);
