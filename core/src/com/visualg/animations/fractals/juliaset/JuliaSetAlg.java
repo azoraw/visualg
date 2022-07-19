@@ -2,18 +2,19 @@ package com.visualg.animations.fractals.juliaset;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.animations.fractals.PixmapAlg;
 import lombok.RequiredArgsConstructor;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
 @RequiredArgsConstructor
-public class JuliaSetAlg {
+public class JuliaSetAlg extends PixmapAlg {
 
     private final Settings settings;
-    public float progress;
 
-    Pixmap getPixMap() {
+    @Override
+    public Pixmap getPixMap() {
         Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.BLACK);
         pixmap.fill();

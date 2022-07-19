@@ -35,18 +35,12 @@ class Settings {
     private double zoom;
     private double zoomMultiplier;
 
-
-    Settings copy () {
-        return this.toBuilder().build();
-    }
-
     void zoom(Zoom zoom) {
         if (zoom == Zoom.IN) {
             this.zoom *= zoomMultiplier;
         } else
             this.zoom /= zoomMultiplier;
     }
-
 
     void addOffset(Direction direction) {
         double offsetDelta = 0.2 / zoom;

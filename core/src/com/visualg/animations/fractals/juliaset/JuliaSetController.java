@@ -1,5 +1,6 @@
 package com.visualg.animations.fractals.juliaset;
 
+import com.visualg.animations.fractals.PixmapActor;
 import com.visualg.util.Direction;
 import com.visualg.util.Zoom;
 import lombok.RequiredArgsConstructor;
@@ -12,7 +13,7 @@ public class JuliaSetController {
 
     private final Settings settings;
     private final SettingsView settingsView;
-    private final JuliaSetActor juliaSetActor;
+    private final PixmapActor juliaSetActor;
 
     public void zoom(Zoom zoom) {
         settings.zoom(zoom);
