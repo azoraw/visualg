@@ -1,8 +1,11 @@
 package com.visualg.menu;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.animations.Animation;
+import com.visualg.util.libgdx.InteractiveActor;
 import com.visualg.util.libgdx.ui.exit.ExitTable;
 
 public class MainStage extends Stage {
@@ -12,6 +15,7 @@ public class MainStage extends Stage {
     public MainStage() {
         this.addListener(new AnimationChangeListener(this));
         this.addMenuTable();
+        addMainInputProcessor();
     }
 
     void showAnimation(Animation animation) {
@@ -24,17 +28,17 @@ public class MainStage extends Stage {
         ToolbarTable backMenu = new ToolbarTable();
         this.addActor(backMenu);
         this.addActor(new ExitTable());
-        //addInputProcessors(animationActor,backMenu);
+        addInputProcessors(animationActor);
     }
 
-/*    private void addInputProcessors(Actor animationActor, ToolbarTable backMenu) {
-        if(animationActor instanceof Fractal) {
+    private void addInputProcessors(Actor animationActor) {
+        if(animationActor instanceof InteractiveActor) {
             InputMultiplexer inputMultiplexer = new InputMultiplexer();
-            inputMultiplexer.addProcessor(backMenu);
-            inputMultiplexer.addProcessor(((Fractal) animationActor).getInputProcessor());
+            inputMultiplexer.addProcessor(this);
+            inputMultiplexer.addProcessor(((InteractiveActor) animationActor).getInputProcessor());
             Gdx.input.setInputProcessor(inputMultiplexer);
         }
-    }*/
+    }
 
     public void addMenuTable() {
         MenuTable menuTable = new MenuTable();
@@ -46,6 +50,11 @@ public class MainStage extends Stage {
         this.getActors()
                 .clear();
         addMenuTable();
+        addMainInputProcessor();
+    }
+
+    void addMainInputProcessor() {
+        Gdx.input.setInputProcessor(this);
     }
 
     public void restart() {
