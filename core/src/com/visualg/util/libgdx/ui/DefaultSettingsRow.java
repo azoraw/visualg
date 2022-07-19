@@ -18,7 +18,8 @@ public class DefaultSettingsRow {
     public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
         this.label = new Label(label, skin);
         textField = new DefaultTextField(String.valueOf(initValue), onValueChange.andThen(Optional.ofNullable(afterValueChange)
-                .orElseGet(() -> (consumer) -> {})));
+                .orElseGet(() -> (consumer) -> {
+                })));
     }
 
     public Label getLabel() {
@@ -28,4 +29,10 @@ public class DefaultSettingsRow {
     public TextField getTextField() {
         return textField;
     }
+
+    public void updateText(String newText) {
+        textField.setText(newText);
+    }
+
+
 }

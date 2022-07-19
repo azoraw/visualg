@@ -1,100 +1,115 @@
 package com.visualg.animations.fractals.juliaset;
 
 import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
+import com.visualg.util.libgdx.ui.InteractiveSettingsRow;
 import com.visualg.util.libgdx.ui.SettingsTable;
+
+import java.util.HashSet;
+import java.util.Set;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
 class SettingsView extends SettingsTable {
 
+    Set<InteractiveSettingsRow> rows = new HashSet<>();
+
     public SettingsView(Settings settings) {
-        DefaultSettingsRow numberOfIteration = DefaultSettingsRow.builder()
+        InteractiveSettingsRow numberOfIteration = InteractiveSettingsRow.builder()
                 .label("numberOfIterations")
-                .initValue(settings.getNumberOfIteration())
+                .initValue(settings::getNumberOfIteration)
                 .onValueChange(newValue -> settings.setNumberOfIteration(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(numberOfIteration);
+        addSettingsRow(numberOfIteration);
 
-
-        DefaultSettingsRow re = DefaultSettingsRow.builder()
+        InteractiveSettingsRow re = InteractiveSettingsRow.builder()
                 .label("re")
-                .initValue(settings.getComplexNumber().getRe())
+                .initValue(() -> settings.getComplexNumber().getRe())
                 .onValueChange(newValue -> settings.getComplexNumber().setRe(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(re);
+        addSettingsRow(re);
 
-        DefaultSettingsRow im = DefaultSettingsRow.builder()
+        InteractiveSettingsRow im = InteractiveSettingsRow.builder()
                 .label("im")
-                .initValue(settings.getComplexNumber().getIm())
+                .initValue(() -> settings.getComplexNumber().getIm())
                 .onValueChange(newValue -> settings.getComplexNumber().setIm(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(im);
-        DefaultSettingsRow r = DefaultSettingsRow.builder()
+        addSettingsRow(im);
+
+        InteractiveSettingsRow r = InteractiveSettingsRow.builder()
                 .label("r")
-                .initValue(settings.getRMultiplier())
+                .initValue(settings::getRMultiplier)
                 .onValueChange(newValue -> settings.setRMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(r);
+        addSettingsRow(r);
 
-        DefaultSettingsRow g = DefaultSettingsRow.builder()
+        InteractiveSettingsRow g = InteractiveSettingsRow.builder()
                 .label("g")
-                .initValue(settings.getGMultiplier())
+                .initValue(settings::getGMultiplier)
                 .onValueChange(newValue -> settings.setGMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(g);
+        addSettingsRow(g);
 
-        DefaultSettingsRow b = DefaultSettingsRow.builder()
+        InteractiveSettingsRow b = InteractiveSettingsRow.builder()
                 .label("b")
-                .initValue(settings.getBMultiplier())
+                .initValue(settings::getBMultiplier)
                 .onValueChange(newValue -> settings.setBMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(b);
+        addSettingsRow(b);
 
-        DefaultSettingsRow moveDelta = DefaultSettingsRow.builder()
+        InteractiveSettingsRow moveDelta = InteractiveSettingsRow.builder()
                 .label("moveDelta")
-                .initValue(settings.getMoveDelta())
+                .initValue(settings::getMoveDelta)
                 .onValueChange(newValue -> settings.setMoveDelta(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(moveDelta);
+        addSettingsRow(moveDelta);
 
-        DefaultSettingsRow xOffset = DefaultSettingsRow.builder()
+        InteractiveSettingsRow xOffset = InteractiveSettingsRow.builder()
                 .label("xOffset")
-                .initValue(settings.getXOffset())
+                .initValue(settings::getXOffset)
                 .onValueChange(newValue -> settings.setXOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(xOffset);
+        addSettingsRow(xOffset);
 
-        DefaultSettingsRow yOffset = DefaultSettingsRow.builder()
+        InteractiveSettingsRow yOffset = InteractiveSettingsRow.builder()
                 .label("Offset")
-                .initValue(settings.getYOffset())
+                .initValue(settings::getYOffset)
                 .onValueChange(newValue -> settings.setYOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(yOffset);
+        addSettingsRow(yOffset);
 
-        DefaultSettingsRow zoom = DefaultSettingsRow.builder()
+        InteractiveSettingsRow zoom = InteractiveSettingsRow.builder()
                 .label("zoom")
-                .initValue(settings.getZoom())
+                .initValue(settings::getZoom)
                 .onValueChange(newValue -> settings.setZoom(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(zoom);
-        DefaultSettingsRow zoomMultiplier = DefaultSettingsRow.builder()
+        addSettingsRow(zoom);
+
+        InteractiveSettingsRow zoomMultiplier = InteractiveSettingsRow.builder()
                 .label("zoomMultiplier")
-                .initValue(settings.getZoomMultiplier())
+                .initValue(settings::getZoomMultiplier)
                 .onValueChange(newValue -> settings.setZoomMultiplier(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(zoomMultiplier);
+        addSettingsRow(zoomMultiplier);
+    }
+
+    void updateFields() {
+        rows.forEach(InteractiveSettingsRow::updateTextField);
+    }
+
+    private void addSettingsRow(InteractiveSettingsRow interactiveSettingsRow) {
+        addRow(interactiveSettingsRow.getDefaultSettingsRow());
+        rows.add(interactiveSettingsRow);
     }
 }
