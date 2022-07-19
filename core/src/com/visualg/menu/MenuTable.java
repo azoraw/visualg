@@ -4,7 +4,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.visualg.animations.Animation;
-import com.visualg.global.Config;
 
 import static com.visualg.animations.Animation.BEZIER;
 import static com.visualg.animations.Animation.BOIDS;
@@ -26,42 +25,64 @@ import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
+import static com.visualg.global.Config.skin;
 
 class MenuTable extends Table {
 
     MenuTable() {
         this.setFillParent(true);
         this.left().top();
-        Label label = new Label("VISUALG", Config.skin);
-        this.add(label);
+        Label titleLabel = new Label("VISUALG", skin);
+        this.add(titleLabel);
 
         this.row();
-        createAnimationButton("Bezier - old windows screen saver", BEZIER);
-        createAnimationButton("Langton Ant", LANGTON_ANT);
-        createAnimationButton("LinesDoodle", LINES_DOODLE);
+        Label bezierLabel = new Label("bezier:", skin);
+        this.add(bezierLabel);
+        createAnimationButton("old windows screen saver", BEZIER);
         createAnimationButton("Rectangles", RECTANGLES);
-        createAnimationButton("CirclePacking", CIRCLE_PACKING);
+
         this.row();
-        createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
-        createAnimationButton("mouse follower", MOUSE_FOLLOWER);
+        Label cellularAutomataLabel = new Label("cellular automata:", skin);
+        this.add(cellularAutomataLabel);
+        createAnimationButton("2d", CELLULAR_AUTOMATA);
+        createAnimationButton("Langton Ant", LANGTON_ANT);
+
+        this.row();
+        Label systemsLabel = new Label("systems:", skin);
+        this.add(systemsLabel);
         createAnimationButton("n-body", N_BODY);
         createAnimationButton("boids", BOIDS);
+        createAnimationButton("double pendulum", DOUBLE_PENDULUM);
+        createAnimationButton("mouse follower", MOUSE_FOLLOWER);
+
         this.row();
+        Label openSimplexLabel = new Label("openSimplex:", skin);
+        this.add(openSimplexLabel);
         createAnimationButton("HairyFlowField", HAIRY_FLOW_FIELD);
         createAnimationButton("openSimplex", OPEN_SIMPLEX);
         createAnimationButton("flowField", FLOW_FIELD);
         createAnimationButton("ColorNoise", COLOR_NOISE);
+        createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
 
         this.row();
-        createAnimationButton("cellular automata", CELLULAR_AUTOMATA);
-        createAnimationButton("double pendulum", DOUBLE_PENDULUM);
-        this.row();
+        Label dfsLabel = new Label("dfs:", skin);
+        this.add(dfsLabel);
         createAnimationButton("labyrinth generator", LABYRINTH_GENERATOR);
         createAnimationButton("labyrinth solver", LABYRINTH_SOLVER);
+
         this.row();
+        Label fractalLabel = new Label("fractals:", skin);
+        this.add(fractalLabel);
         createAnimationButton("julia set", JULIA_SET);
         createAnimationButton("mandelbrot set", MANDELBROT);
         createAnimationButton("multibrot set", MULTIBROT);
+
+
+        this.row();
+        Label randomLabel = new Label("random:", skin);
+        this.add(randomLabel);
+        createAnimationButton("LinesDoodle", LINES_DOODLE);
+        createAnimationButton("CirclePacking", CIRCLE_PACKING);
 
     }
 
