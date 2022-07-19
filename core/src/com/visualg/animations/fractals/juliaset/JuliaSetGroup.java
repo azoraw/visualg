@@ -11,9 +11,10 @@ public class JuliaSetGroup extends Group implements InteractiveActor {
     public JuliaSetGroup() {
         Settings settings = Settings.INSTANCE;
         SettingsView settingsView = new SettingsView(settings);
-        addActor(new JuliaSetActor(settings));
+        JuliaSetActor juliaSetActor = new JuliaSetActor(settings);
+        addActor(juliaSetActor);
         addActor(settingsView);
-        JuliaSetController juliaSetController = new JuliaSetController(settings, settingsView);
+        JuliaSetController juliaSetController = new JuliaSetController(settings, settingsView, juliaSetActor);
         inputProcessors = new JuliaSetInputProcessor(juliaSetController);
     }
 
