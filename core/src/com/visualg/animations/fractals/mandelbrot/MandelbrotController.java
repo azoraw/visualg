@@ -1,8 +1,8 @@
 package com.visualg.animations.fractals.mandelbrot;
 
-import com.visualg.animations.fractals.PixmapActor;
 import com.visualg.util.Direction;
 import com.visualg.util.Zoom;
+import com.visualg.util.libgdx.PixmapActor;
 import lombok.RequiredArgsConstructor;
 
 import static com.visualg.global.Config.HEIGHT;

@@ -1,4 +1,4 @@
-package com.visualg.animations.fractals;
+package com.visualg.util.libgdx;
 
 import com.badlogic.gdx.graphics.Pixmap;
 

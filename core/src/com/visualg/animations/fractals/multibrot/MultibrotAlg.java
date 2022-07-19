@@ -2,7 +2,7 @@ package com.visualg.animations.fractals.multibrot;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.visualg.animations.fractals.PixmapAlg;
+import com.visualg.util.libgdx.PixmapAlg;
 import lombok.RequiredArgsConstructor;
 
 import static com.visualg.global.Config.HEIGHT;
