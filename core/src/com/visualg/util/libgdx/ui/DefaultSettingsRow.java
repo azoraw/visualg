@@ -15,9 +15,9 @@ public class DefaultSettingsRow {
     private final TextField textField;
 
     @Builder
-    public DefaultSettingsRow(String label, String initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
+    public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
         this.label = new Label(label, skin);
-        textField = new DefaultTextField(initValue, onValueChange.andThen(Optional.ofNullable(afterValueChange)
+        textField = new DefaultTextField(String.valueOf(initValue), onValueChange.andThen(Optional.ofNullable(afterValueChange)
                 .orElseGet(() -> (consumer) -> {})));
     }
 
