@@ -1,5 +1,6 @@
 package com.visualg.animations.boids;
 
+import com.visualg.menu.RestartEvent;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
 import com.visualg.util.libgdx.ui.SettingsTable;
 
@@ -9,13 +10,13 @@ import static java.lang.String.valueOf;
 
 public class BoidsSettingsTable extends SettingsTable {
 
-
     public BoidsSettingsTable(BoidsSettings boidsSettings) {
 
         DefaultSettingsRow numberOfBoids = DefaultSettingsRow.builder()
                 .label("number of boids: ")
                 .initValue(valueOf(boidsSettings.getNumberOfBoids()))
                 .onValueChange(newValue -> boidsSettings.setNumberOfBoids(parseInt(newValue)))
+                .afterValueChange(value -> fire(new RestartEvent()))
                 .build();
         addRow(numberOfBoids);
 
