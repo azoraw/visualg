@@ -21,6 +21,7 @@ import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
 import static com.visualg.animations.Animation.MANDELBROT;
 import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
+import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
@@ -60,6 +61,7 @@ class MenuTable extends Table {
         this.row();
         createAnimationButton("julia set", JULIA_SET);
         createAnimationButton("mandelbrot set", MANDELBROT);
+        createAnimationButton("multibrot set", MULTIBROT);
 
     }
 

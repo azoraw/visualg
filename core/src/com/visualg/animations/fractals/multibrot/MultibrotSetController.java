@@ -1,4 +1,4 @@
-package com.visualg.animations.fractals.mandelbrot;
+package com.visualg.animations.fractals.multibrot;
 
 import com.visualg.animations.fractals.PixmapActor;
 import com.visualg.util.Direction;
@@ -9,11 +9,11 @@ import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
 @RequiredArgsConstructor
-public class MandelbrotController {
+public class MultibrotSetController {
 
     private final Settings settings;
     private final SettingsView settingsView;
-    private final PixmapActor mandelbrotActor;
+    private final PixmapActor multibrotActor;
 
     public void zoom(Zoom zoom) {
         settings.zoom(zoom);
@@ -36,8 +36,13 @@ public class MandelbrotController {
         updateViews();
     }
 
+    public void moveSet(Direction left) {
+        settings.moveSet(left);
+        updateViews();
+    }
+
     private void updateViews() {
         settingsView.updateFields();
-        mandelbrotActor.updateFractal();
+        multibrotActor.updateFractal();
     }
 }
