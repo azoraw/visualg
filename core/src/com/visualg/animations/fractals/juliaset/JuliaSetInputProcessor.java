@@ -97,7 +97,7 @@ public class JuliaSetInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        this.juliaSetController.zoom(amountX < 0 ? Zoom.IN : Zoom.OUT);
+        this.juliaSetController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
         return false;
     }
 

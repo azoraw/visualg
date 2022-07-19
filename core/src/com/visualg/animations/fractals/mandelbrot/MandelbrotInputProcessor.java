@@ -90,7 +90,7 @@ public class MandelbrotInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        this.mandelbrotController.zoom(amountX < 0 ? Zoom.IN : Zoom.OUT);
+        this.mandelbrotController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
         return false;
     }
 
