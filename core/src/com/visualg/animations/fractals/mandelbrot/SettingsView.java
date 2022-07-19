@@ -1,4 +1,4 @@
-package com.visualg.animations.fractals.juliaset;
+package com.visualg.animations.fractals.mandelbrot;
 
 import com.visualg.menu.RestartEvent;
 import com.visualg.util.libgdx.ui.InteractiveSettingsRow;
@@ -10,7 +10,7 @@ import java.util.Set;
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 
-class SettingsView extends SettingsTable {
+public class SettingsView extends SettingsTable {
 
     Set<InteractiveSettingsRow> rows = new HashSet<>();
 
@@ -22,22 +22,6 @@ class SettingsView extends SettingsTable {
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(numberOfIteration);
-
-        InteractiveSettingsRow re = InteractiveSettingsRow.builder()
-                .label("re")
-                .initValue(() -> settings.getComplexNumber().getRe())
-                .onValueChange(newValue -> settings.getComplexNumber().setRe(parseDouble(newValue)))
-                .afterValueChange(newStringValue -> fire(new RestartEvent()))
-                .build();
-        addSettingsRow(re);
-
-        InteractiveSettingsRow im = InteractiveSettingsRow.builder()
-                .label("im")
-                .initValue(() -> settings.getComplexNumber().getIm())
-                .onValueChange(newValue -> settings.getComplexNumber().setIm(parseDouble(newValue)))
-                .afterValueChange(newStringValue -> fire(new RestartEvent()))
-                .build();
-        addSettingsRow(im);
 
         InteractiveSettingsRow r = InteractiveSettingsRow.builder()
                 .label("r")

@@ -7,6 +7,7 @@ import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.fractals.juliaset.JuliaSetGroup;
+import com.visualg.animations.fractals.mandelbrot.MandelbrotGroup;
 import com.visualg.animations.labyrinth.LabyrinthGenerator;
 import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
@@ -41,6 +42,7 @@ public enum Animation {
     LABYRINTH_GENERATOR(LabyrinthGenerator::new),
     LABYRINTH_SOLVER(LabyrinthSolver::new),
     JULIA_SET(JuliaSetGroup::new),
+    MANDELBROT(MandelbrotGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;
