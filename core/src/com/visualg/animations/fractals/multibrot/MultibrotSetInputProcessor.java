@@ -95,7 +95,7 @@ public class MultibrotSetInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        this.multibrotSetController.zoom(amountX < 0 ? Zoom.IN : Zoom.OUT);
+        this.multibrotSetController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
         return false;
     }
 }
