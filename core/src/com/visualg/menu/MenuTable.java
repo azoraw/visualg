@@ -24,6 +24,7 @@ import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
+import static com.visualg.animations.Animation.ULAM_SPIRAL;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
 import static com.visualg.global.Config.skin;
 
@@ -83,6 +84,7 @@ class MenuTable extends Table {
         this.add(randomLabel);
         createAnimationButton("LinesDoodle", LINES_DOODLE);
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
+        createAnimationButton("Ulam spiral", ULAM_SPIRAL);
 
     }
 

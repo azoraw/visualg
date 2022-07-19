@@ -2,8 +2,8 @@ package com.visualg.animations.fractals.mandelbrot;
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.visualg.animations.fractals.PixmapActor;
 import com.visualg.util.libgdx.InteractiveActor;
+import com.visualg.util.libgdx.PixmapActor;
 
 public class MandelbrotGroup extends Group implements InteractiveActor {
 
