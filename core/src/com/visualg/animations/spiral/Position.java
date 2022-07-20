@@ -1,9 +1,9 @@
-package com.visualg.animations.ulamSpiral;
+package com.visualg.animations.spiral;
 
 
 import com.visualg.util.Direction;
 
-import static com.visualg.animations.ulamSpiral.UlamSpiralAlg.SIDE_LENGTH;
+import static com.visualg.animations.spiral.ulam.UlamSpiralAlg.SIDE_LENGTH;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 

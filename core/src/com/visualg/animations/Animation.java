@@ -20,7 +20,8 @@ import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseGroup;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
-import com.visualg.animations.ulamSpiral.UlamSpiralGroup;
+import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
+import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 
 import java.util.function.Supplier;
@@ -47,6 +48,7 @@ public enum Animation {
     MANDELBROT(MandelbrotGroup::new),
     MULTIBROT(MultibrotSetGroup::new),
     ULAM_SPIRAL(UlamSpiralGroup::new),
+    MODULO_SPIRAL(ModuloSpiralGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;

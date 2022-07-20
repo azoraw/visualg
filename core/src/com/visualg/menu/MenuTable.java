@@ -19,6 +19,7 @@ import static com.visualg.animations.Animation.LABYRINTH_SOLVER;
 import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
 import static com.visualg.animations.Animation.MANDELBROT;
+import static com.visualg.animations.Animation.MODULO_SPIRAL;
 import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
 import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
@@ -85,6 +86,7 @@ class MenuTable extends Table {
         createAnimationButton("LinesDoodle", LINES_DOODLE);
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
         createAnimationButton("Ulam spiral", ULAM_SPIRAL);
+        createAnimationButton("Modulo spiral", MODULO_SPIRAL);
 
     }
 
