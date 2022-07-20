@@ -1,4 +1,4 @@
-package com.visualg.animations.ulamSpiral;
+package com.visualg.animations.spiral;
 
 public class Spiral {
 

@@ -1,21 +1,18 @@
-package com.visualg.animations.ulamSpiral;
+package com.visualg.animations.spiral.modulo;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.animations.spiral.Position;
 import com.visualg.util.libgdx.PixmapAlg;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static java.lang.Math.max;
 
-public class UlamSpiralAlg extends PixmapAlg {
+public class ModuloSpiralAlg extends PixmapAlg {
 
     public static final int SIDE_LENGTH = max(WIDTH, HEIGHT);
-    private final Prime prime;
-
-    public UlamSpiralAlg() {
-        prime = new Prime();
-    }
+    private int modulo = 1;
 
     @Override
     public Pixmap getPixMap() {
@@ -32,7 +29,6 @@ public class UlamSpiralAlg extends PixmapAlg {
             currentPosition.turn();
             number++;
         }
-
         return pixmap;
     }
 
@@ -42,9 +38,12 @@ public class UlamSpiralAlg extends PixmapAlg {
 
     private void colorPixel(Pixmap img, Position currentPosition, int number) {
         if (currentPosition.isInsideDrawableArea()) {
-            int pixelColor = prime.isPrime(number) ? Color.WHITE.toIntBits() : Color.BLACK.toIntBits();
+            int pixelColor = number % modulo == 0 ? Color.WHITE.toIntBits() : Color.BLACK.toIntBits();
             img.drawPixel(currentPosition.getX(), currentPosition.getY(), pixelColor);
         }
     }
 
+    public void update() {
+        modulo++;
+    }
 }

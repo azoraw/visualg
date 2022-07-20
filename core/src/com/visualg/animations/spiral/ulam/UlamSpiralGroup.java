@@ -1,4 +1,4 @@
-package com.visualg.animations.ulamSpiral;
+package com.visualg.animations.spiral.ulam;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 import com.visualg.util.libgdx.PixmapActor;

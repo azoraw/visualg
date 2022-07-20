@@ -1,8 +1,8 @@
-package com.visualg.animations.ulamSpiral;
+package com.visualg.animations.spiral.ulam;
 
 import java.util.Arrays;
 
-import static com.visualg.animations.ulamSpiral.UlamSpiralAlg.SIDE_LENGTH;
+import static com.visualg.animations.spiral.ulam.UlamSpiralAlg.SIDE_LENGTH;
 
 public class Prime {
 
