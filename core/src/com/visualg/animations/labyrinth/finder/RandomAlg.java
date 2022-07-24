@@ -6,8 +6,8 @@ import lombok.Getter;
 import java.util.List;
 import java.util.Random;
 
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_HEIGHT;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_WIDTH;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIGHT;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
 
 public class RandomAlg extends PathFinder {

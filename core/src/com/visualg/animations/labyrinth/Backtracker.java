@@ -7,12 +7,12 @@ import java.util.List;
 import java.util.Random;
 import java.util.Stack;
 
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_HEIGHT;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_WIDTH;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIGHT;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
 public class Backtracker extends Thread {
 
-    private static final long SLEEP_MILLISECOND = 5;
+    private static final long SLEEP_MILLISECOND = 1;
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
     private final Stack<Cell> stack = new Stack<>();
