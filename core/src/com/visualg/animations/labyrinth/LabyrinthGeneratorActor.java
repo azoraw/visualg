@@ -1,35 +1,45 @@
 package com.visualg.animations.labyrinth;
 
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.global.Config;
 import com.visualg.util.Direction;
+import com.visualg.util.libgdx.ScreenShotUtil;
 
 import java.util.Map;
 
-public class LabyrinthGenerator extends Actor {
+public class LabyrinthGeneratorActor extends Actor {
 
     static final int CELL_WIDTH = 10;
     static final int CELL_HEIGHT = 10;
     public static final int GRID_WIDTH = Config.WIDTH / CELL_WIDTH;
     public static final int GRID_HEIGHT = Config.HEIGHT / CELL_HEIGHT;
 
-    private final SpriteBatch batch;
+    private final SpriteBatch spriteBatch;
     private Map<Direction, Texture> wallTextures;
     private Map<Color, Texture> backgroundTextures;
     private Cell[][] cells;
+    private boolean canTakeScreenShot = false;
 
-    public LabyrinthGenerator() {
+    public LabyrinthGeneratorActor() {
         createTextures();
         createBacktracker();
-        batch = new SpriteBatch();
+        spriteBatch = new SpriteBatch();
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         drawGrid();
+        takeScreenShot();
+    }
+
+    private void takeScreenShot() {
+        if (canTakeScreenShot)
+            ScreenShotUtil.take(Pixmap.createFromFrameBuffer(0, 0, Config.WIDTH, Config.HEIGHT));
+        canTakeScreenShot = false;
     }
 
     private void createBacktracker() {
@@ -44,16 +54,16 @@ public class LabyrinthGenerator extends Actor {
     }
 
     private void drawGrid() {
-        batch.begin();
+        spriteBatch.begin();
         for (int x = 0; x < GRID_WIDTH; x++) {
             for (int y = 0; y < GRID_HEIGHT; y++) {
                 Cell cell = cells[x][GRID_HEIGHT - y - 1];
                 Texture backgroundColor = getBackgroundTexture(cell);
-                batch.draw(backgroundColor, x * CELL_WIDTH, y * CELL_HEIGHT);
+                spriteBatch.draw(backgroundColor, x * CELL_WIDTH, y * CELL_HEIGHT);
                 drawWalls(x, y, cell);
             }
         }
-        batch.end();
+        spriteBatch.end();
     }
 
     private Texture getBackgroundTexture(Cell cell) {
@@ -72,7 +82,11 @@ public class LabyrinthGenerator extends Actor {
 
     private void drawWalls(int x, int y, Cell cell) {
         for (Direction direction : cell.getWalls()) {
-            batch.draw(wallTextures.get(direction), x * CELL_WIDTH, y * CELL_HEIGHT);
+            spriteBatch.draw(wallTextures.get(direction), x * CELL_WIDTH, y * CELL_HEIGHT);
         }
+    }
+
+    public void screenShot() {
+        canTakeScreenShot = true;
     }
 }

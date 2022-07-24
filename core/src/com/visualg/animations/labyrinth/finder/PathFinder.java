@@ -8,8 +8,8 @@ import lombok.RequiredArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_HEIGHT;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.GRID_WIDTH;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIGHT;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
 
 @RequiredArgsConstructor

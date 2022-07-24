@@ -9,7 +9,7 @@ import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.fractals.juliaset.JuliaSetGroup;
 import com.visualg.animations.fractals.mandelbrot.MandelbrotGroup;
 import com.visualg.animations.fractals.multibrot.MultibrotSetGroup;
-import com.visualg.animations.labyrinth.LabyrinthGenerator;
+import com.visualg.animations.labyrinth.LabyrinthGeneratorGroup;
 import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lines.LinesDoodle;
@@ -42,7 +42,7 @@ public enum Animation {
     BOIDS(BoidsGroup::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new),
     DOUBLE_PENDULUM(DoublePendulum::new),
-    LABYRINTH_GENERATOR(LabyrinthGenerator::new),
+    LABYRINTH_GENERATOR(LabyrinthGeneratorGroup::new),
     LABYRINTH_SOLVER(LabyrinthSolver::new),
     JULIA_SET(JuliaSetGroup::new),
     MANDELBROT(MandelbrotGroup::new),

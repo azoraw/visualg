@@ -9,8 +9,8 @@ import com.visualg.util.Direction;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.CELL_HEIGHT;
-import static com.visualg.animations.labyrinth.LabyrinthGenerator.CELL_WIDTH;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.CELL_HEIGHT;
+import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.CELL_WIDTH;
 
 public class TextureFactory {
 
