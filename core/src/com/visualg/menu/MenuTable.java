@@ -18,6 +18,7 @@ import static com.visualg.animations.Animation.LABYRINTH_GENERATOR;
 import static com.visualg.animations.Animation.LABYRINTH_SOLVER;
 import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
+import static com.visualg.animations.Animation.LINES_GROWER;
 import static com.visualg.animations.Animation.MANDELBROT;
 import static com.visualg.animations.Animation.MODULO_SPIRAL;
 import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
@@ -84,6 +85,7 @@ class MenuTable extends Table {
         Label randomLabel = new Label("random:", skin);
         this.add(randomLabel);
         createAnimationButton("LinesDoodle", LINES_DOODLE);
+        createAnimationButton("lineGrower", LINES_GROWER);
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
         createAnimationButton("Ulam spiral", ULAM_SPIRAL);
         createAnimationButton("Modulo spiral", MODULO_SPIRAL);

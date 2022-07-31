@@ -24,12 +24,11 @@ public class RandomGenerator {
         return random.nextInt();
     }
 
-    public static boolean nextBoolean() {
-        return random.nextBoolean();
-    }
-
-    public static int getRandom(int max) {
+    public static int nextInt(int max) {
         return random.nextInt(max);
     }
 
+    public static boolean nextBoolean() {
+        return random.nextBoolean();
+    }
 }
