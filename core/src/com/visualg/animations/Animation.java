@@ -12,6 +12,7 @@ import com.visualg.animations.fractals.multibrot.MultibrotSetGroup;
 import com.visualg.animations.labyrinth.LabyrinthGeneratorGroup;
 import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
+import com.visualg.animations.lineGrower.LineGrowerGroup;
 import com.visualg.animations.lines.LinesDoodle;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
 import com.visualg.animations.nBody.NBodyGroup;
@@ -34,6 +35,7 @@ public enum Animation {
     FLOW_FIELD(FlowFieldActor::new),
     COLOR_NOISE(ColorNoiseActor::new),
     LINES_DOODLE(LinesDoodle::new),
+    LINES_GROWER(LineGrowerGroup::new),
     RECTANGLES(Rectangles::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
