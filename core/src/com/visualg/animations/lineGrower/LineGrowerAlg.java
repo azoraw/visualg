@@ -18,7 +18,7 @@ public class LineGrowerAlg extends PixmapAlg {
     private static final int DIR[] = getInts();
 
     private static int[] getInts() {
-        int shift = 10;
+        int shift = 5;
         int[] ints = new int[shift * 2 + 2];
         int index = 0;
         for (int i = -shift; i < shift; i++) {
@@ -29,6 +29,7 @@ public class LineGrowerAlg extends PixmapAlg {
     }
 
     private static final int MAX_NUMBER_OF_GROWING_SEGMENTS = 100;
+    private static final int MAX_NUMBER_OF_All_SEGMENTS = 1_0000;
     private Pixmap pixmap;
 
     private final HashSet<Segment> growingSegments = new HashSet<>();
@@ -61,6 +62,9 @@ public class LineGrowerAlg extends PixmapAlg {
 
     private void createNewSegments(HashSet<Segment> segmentsToRemove) {
         if (MAX_NUMBER_OF_GROWING_SEGMENTS < growingSegments.size()) {
+            return;
+        }
+        if (MAX_NUMBER_OF_All_SEGMENTS < allSegments.size()) {
             return;
         }
         for (int i = 0; i < segmentsToRemove.size() * NUMBER_OF_NEW_SEGMENTS; i++) {
@@ -102,7 +106,7 @@ public class LineGrowerAlg extends PixmapAlg {
 
 
     private boolean isInbound(int x, int y) {
-        return x > 0 && y > 0 && x < WIDTH && y < HEIGHT;
+        return x > 1 && y > 1 && x < WIDTH-1 && y < HEIGHT-1;
     }
 
     private void addNewSegment(Segment segment) {

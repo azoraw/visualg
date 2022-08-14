@@ -16,7 +16,7 @@ public class PixmapActor extends Group {
 
     public PixmapActor(PixmapAlg alg) {
         this.alg = alg;
-        update();
+        asyncUpdate();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class PixmapActor extends Group {
         this.drawChildren(batch, parentAlpha);
     }
 
-    public void update() {
+    public void asyncUpdate() {
         if (!progressBarActor.isShown()) {
             addProgressBarActor();
             new Thread(() -> {

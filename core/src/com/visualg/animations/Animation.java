@@ -5,6 +5,7 @@ import com.visualg.animations.bezier.Bezier;
 import com.visualg.animations.boids.BoidsGroup;
 import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
+import com.visualg.animations.circleStacking.CircleStackingGroup;
 import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.fractals.juliaset.JuliaSetGroup;
 import com.visualg.animations.fractals.mandelbrot.MandelbrotGroup;
@@ -14,6 +15,7 @@ import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lineGrower.LineGrowerGroup;
 import com.visualg.animations.lines.LinesDoodle;
+import com.visualg.animations.mondrian.MondrianGroup;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
 import com.visualg.animations.nBody.NBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
@@ -51,6 +53,8 @@ public enum Animation {
     MULTIBROT(MultibrotSetGroup::new),
     ULAM_SPIRAL(UlamSpiralGroup::new),
     MODULO_SPIRAL(ModuloSpiralGroup::new),
+    CIRCLES_STACKING(CircleStackingGroup::new),
+    MONDRIAN(MondrianGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;

@@ -29,13 +29,15 @@ public class LabyrinthSolver extends Actor {
         batch = new SpriteBatch();
         drawGrid();
         aStarAlg = new AStarAlg(cells);
-        aStarAlg.start();
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         drawGrid();
         drawRandomFinder();
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            aStarAlg.update();
+        }
     }
 
     private void drawRandomFinder() {

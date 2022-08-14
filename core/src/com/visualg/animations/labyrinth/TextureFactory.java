@@ -17,10 +17,10 @@ public class TextureFactory {
     public static Map<Direction, Texture> createWallTextures() {
         Map<Direction, Texture> wallTextures = new HashMap<>();
 
-        wallTextures.put(Direction.LEFT, new Texture(createScaledCell(Gdx.files.internal("LEFT.png"))));
-        wallTextures.put(Direction.RIGHT, new Texture(createScaledCell(Gdx.files.internal("RIGHT.png"))));
-        wallTextures.put(Direction.DOWN, new Texture(createScaledCell(Gdx.files.internal("DOWN.png"))));
-        wallTextures.put(Direction.UP, new Texture(createScaledCell(Gdx.files.internal("UP.png"))));
+        wallTextures.put(Direction.LEFT, new Texture(createScaledCell(Gdx.files.internal("labyrinth/LEFT.png"))));
+        wallTextures.put(Direction.RIGHT, new Texture(createScaledCell(Gdx.files.internal("labyrinth/RIGHT.png"))));
+        wallTextures.put(Direction.DOWN, new Texture(createScaledCell(Gdx.files.internal("labyrinth/DOWN.png"))));
+        wallTextures.put(Direction.UP, new Texture(createScaledCell(Gdx.files.internal("labyrinth/UP.png"))));
 
         return wallTextures;
     }
@@ -28,10 +28,10 @@ public class TextureFactory {
     public static Map<Color, Texture> createBackgroundTextures() {
         Map<Color, Texture> backgroundTextures = new HashMap<>();
 
-        backgroundTextures.put(Color.RED, new Texture(createScaledCell(Gdx.files.internal("Red.png"))));
-        backgroundTextures.put(Color.GREEN, new Texture(createScaledCell(Gdx.files.internal("Green.png"))));
-        backgroundTextures.put(Color.BLUE, new Texture(createScaledCell(Gdx.files.internal("Blue.png"))));
-        backgroundTextures.put(Color.WHITE, new Texture(createScaledCell(Gdx.files.internal("WhiteCentered.png"))));
+        backgroundTextures.put(Color.RED, new Texture(createScaledCell(Gdx.files.internal("labyrinth/Red.png"))));
+        backgroundTextures.put(Color.GREEN, new Texture(createScaledCell(Gdx.files.internal("labyrinth/Green.png"))));
+        backgroundTextures.put(Color.BLUE, new Texture(createScaledCell(Gdx.files.internal("labyrinth/Blue.png"))));
+        backgroundTextures.put(Color.WHITE, new Texture(createScaledCell(Gdx.files.internal("labyrinth/WhiteCentered.png"))));
 
         return backgroundTextures;
     }

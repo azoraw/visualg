@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.global.Config;
 
 public class ModuloSpiralActor extends Actor {
 
@@ -21,7 +22,9 @@ public class ModuloSpiralActor extends Actor {
         pixmap = alg.getPixMap();
         texture = new Texture(pixmap);
         batch.draw(texture, 0, 0);
-        alg.update();
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            alg.update();
+        }
     }
 
     private void disposePreviousTexture() {

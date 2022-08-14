@@ -1,4 +1,7 @@
-package com.visualg.util;
+package com.visualg.util.color;
+
+import com.badlogic.gdx.graphics.Color;
+import com.visualg.util.RandomGenerator;
 
 /**
  * Generates RGBA8888
@@ -31,5 +34,9 @@ public class ColorGenerator {
         int tmp = luminosity << 8;
         tmp = luminosity ^ tmp;
         return (tmp << 16) ^ tmp;
+    }
+
+    public static Color fromRGB(int r, int g, int b) {
+        return new Color(Color.rgba8888((float) r/256, (float)g/256, (float) b/256,1f));
     }
 }

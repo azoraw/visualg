@@ -8,6 +8,7 @@ import com.visualg.animations.Animation;
 import static com.visualg.animations.Animation.BEZIER;
 import static com.visualg.animations.Animation.BOIDS;
 import static com.visualg.animations.Animation.CELLULAR_AUTOMATA;
+import static com.visualg.animations.Animation.CIRCLES_STACKING;
 import static com.visualg.animations.Animation.CIRCLE_PACKING;
 import static com.visualg.animations.Animation.COLOR_NOISE;
 import static com.visualg.animations.Animation.DOUBLE_PENDULUM;
@@ -21,6 +22,7 @@ import static com.visualg.animations.Animation.LINES_DOODLE;
 import static com.visualg.animations.Animation.LINES_GROWER;
 import static com.visualg.animations.Animation.MANDELBROT;
 import static com.visualg.animations.Animation.MODULO_SPIRAL;
+import static com.visualg.animations.Animation.MONDRIAN;
 import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
 import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
@@ -49,6 +51,9 @@ class MenuTable extends Table {
         this.add(cellularAutomataLabel);
         createAnimationButton("2d", CELLULAR_AUTOMATA);
         createAnimationButton("Langton Ant", LANGTON_ANT);
+        createAnimationButton("Ulam spiral", ULAM_SPIRAL);
+        createAnimationButton("Modulo spiral", MODULO_SPIRAL);
+
 
         this.row();
         Label systemsLabel = new Label("systems:", skin);
@@ -87,8 +92,12 @@ class MenuTable extends Table {
         createAnimationButton("LinesDoodle", LINES_DOODLE);
         createAnimationButton("lineGrower", LINES_GROWER);
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
-        createAnimationButton("Ulam spiral", ULAM_SPIRAL);
-        createAnimationButton("Modulo spiral", MODULO_SPIRAL);
+        createAnimationButton("CircleStacking", CIRCLES_STACKING);
+
+        this.row();
+        this.add(new Label("artists:", skin));
+        createAnimationButton("Mondrian", MONDRIAN);
+
 
     }
 

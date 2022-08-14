@@ -13,18 +13,11 @@ import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDT
 
 
 @RequiredArgsConstructor
-public abstract class PathFinder extends Thread {
+public abstract class PathFinder {
 
-    private static final long SLEEP_MILLISECOND = 50;
     protected final Cell[][] cells;
 
-    protected void sleep() {
-        try {
-            sleep(SLEEP_MILLISECOND);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+    abstract void update();
 
     protected List<Cell> getNeighbours(Cell cell) {
         List<Cell> neighbours = new ArrayList<>();

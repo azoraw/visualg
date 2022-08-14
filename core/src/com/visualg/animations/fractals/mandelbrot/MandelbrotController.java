@@ -38,6 +38,6 @@ public class MandelbrotController {
 
     private void updateViews() {
         settingsView.updateFields();
-        mandelbrotActor.update();
+        mandelbrotActor.asyncUpdate();
     }
 }
