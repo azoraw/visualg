@@ -23,6 +23,7 @@ public class LabyrinthGeneratorActor extends Actor {
     private Map<Color, Texture> backgroundTextures;
     private Cell[][] cells;
     private boolean canTakeScreenShot = false;
+    private Backtracker backtracker;
 
     public LabyrinthGeneratorActor() {
         createTextures();
@@ -34,6 +35,9 @@ public class LabyrinthGeneratorActor extends Actor {
     public void draw(Batch batch, float parentAlpha) {
         drawGrid();
         takeScreenShot();
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            backtracker.update();
+        }
     }
 
     private void takeScreenShot() {
@@ -44,8 +48,7 @@ public class LabyrinthGeneratorActor extends Actor {
 
     private void createBacktracker() {
         cells = new Cell[GRID_WIDTH][GRID_HEIGHT];
-        Backtracker backtracker = new Backtracker(cells);
-        backtracker.start();
+        backtracker = new Backtracker(cells);
     }
 
     private void createTextures() {

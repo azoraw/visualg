@@ -43,6 +43,6 @@ public class MultibrotSetController {
 
     private void updateViews() {
         settingsView.updateFields();
-        multibrotActor.update();
+        multibrotActor.asyncUpdate();
     }
 }

@@ -6,32 +6,42 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.global.Config;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.RefreshType.BLEND;
+import static com.visualg.global.RefreshType.DEFAULT;
 
-public abstract class TransparentActor extends Actor {
+public abstract class FrameBufferActor extends Actor {
 
     private final FrameBuffer fbo;
     protected final ShapeRenderer sr;
     private boolean takeScreenShot = false;
-    private boolean backgroundClear = true;
+    private boolean backgroundCleared = false;
+    private boolean transparent = true;
 
-    public TransparentActor() {
+    public FrameBufferActor(boolean transparent) {
         sr = new ShapeRenderer();
         fbo = new FrameBuffer(Pixmap.Format.RGBA8888, WIDTH, HEIGHT, false);
+        this.transparent = transparent;
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         batch.end();
         fbo.begin();
-        BLEND.refresh();
+        if(transparent) {
+            BLEND.refresh();
+        } else {
+            DEFAULT.refresh();
+        }
         sr.begin(Filled);
         blackBackground();
-        drawFrame();
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            drawFrame();
+        }
         sr.end();
         screenShot();
         fbo.end();
@@ -40,8 +50,8 @@ public abstract class TransparentActor extends Actor {
     }
 
     private void blackBackground() {
-        if (backgroundClear) {
-            backgroundClear = false;
+        if (!backgroundCleared) {
+            backgroundCleared = true;
             sr.rect(0, 0, fbo.getWidth(), fbo.getHeight(), Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
         }
     }

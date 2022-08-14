@@ -38,7 +38,10 @@ public class ColorPixMap {
             }
             x += X_OFF;
         }
-        z += Z_OFF;
         return pixmap;
+    }
+
+    void update() {
+        z += Z_OFF;
     }
 }

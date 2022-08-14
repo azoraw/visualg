@@ -55,7 +55,7 @@ class Segment {
                 .build();
     }
     Segment() {
-        position = new Vector2(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT));
+        position = new Vector2(RandomGenerator.getIntInRange(WIDTH-1), RandomGenerator.getIntInRange(HEIGHT-1));
         initPosition = position.cpy();
 
         velocity = new Vector2();

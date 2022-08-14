@@ -10,9 +10,8 @@ import java.util.Stack;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIGHT;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
-public class Backtracker extends Thread {
+public class Backtracker {
 
-    private static final long SLEEP_MILLISECOND = 1;
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
     private final Stack<Cell> stack = new Stack<>();
@@ -26,11 +25,9 @@ public class Backtracker extends Thread {
         initBacktracker();
     }
 
-    @Override
-    public void run() {
-        while (!stack.isEmpty()) {
+    public void update() {
+        if (!stack.isEmpty()) {
             nextStep();
-            sleep();
         }
     }
 
@@ -45,14 +42,6 @@ public class Backtracker extends Thread {
         List<Cell> neighbours = getNotVisitedNeighbours(head);
         if (hasNeighbour(neighbours)) {
             goToNeighbour(head, neighbours);
-        }
-    }
-
-    private void sleep() {
-        try {
-            sleep(SLEEP_MILLISECOND);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
         }
     }
 

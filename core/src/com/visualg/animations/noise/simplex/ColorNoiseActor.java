@@ -20,6 +20,9 @@ public class ColorNoiseActor extends Actor {
         disposePreviousTexture();
         texture = new Texture(simplexPixMap.getPixMap());
         batch.draw(texture, 0, 0, Config.WIDTH, Config.HEIGHT);
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            simplexPixMap.update();
+        }
     }
 
     private void disposePreviousTexture() {

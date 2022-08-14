@@ -25,14 +25,13 @@ public class RandomAlg extends PathFinder {
         currentCell.setCurrent(true);
     }
 
-    @Override
-    public void run() {
-        while (!(currentCell.getX() == GRID_WIDTH - 1 && currentCell.getY() == GRID_HEIGHT - 1)) {
+
+    public void update() {
+        if (!(currentCell.getX() == GRID_WIDTH - 1 && currentCell.getY() == GRID_HEIGHT - 1)) {
             Cell randomNeighbour = getRandomNeighbour(getNeighbours(currentCell));
             currentCell.setCurrent(false);
             currentCell = randomNeighbour;
             currentCell.setCurrent(true);
-            sleep();
         }
     }
 

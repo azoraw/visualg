@@ -17,9 +17,10 @@ public class AStarAlg extends PathFinder {
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
     private final Cell goal;
+    private final Map<Cell, Integer> potentialCells = new HashMap<>();
+    private final List<Cell> visitedCells = new ArrayList<>();
 
-    private Map<Cell, Integer> potentialCells = new HashMap<>();
-    private List<Cell> visitedCells = new ArrayList<>();
+    private int distanceFromBeginning = 0;
 
     @Getter
     private Cell currentCell;
@@ -30,18 +31,16 @@ public class AStarAlg extends PathFinder {
         currentCell = cells[INIT_POSITION_X][INIT_POSITION_Y];
     }
 
-    @Override
-    public void run() {
-        int distanceFromBeginning = 0;
-        while (isCurrentCellNotDestination()) {
+    public void update() {
 
+        if (isCurrentCellNotDestination()) {
             visitedCells.add(currentCell);
             potentialCells.remove(currentCell);
             List<Cell> neighbours = getNeighbours(currentCell);
 
             if (isNotCrossroad(currentCell)) {
                 followPath(neighbours);
-                continue;
+                return;
             }
 
             addPotentialCells(distanceFromBeginning, neighbours);
@@ -83,7 +82,6 @@ public class AStarAlg extends PathFinder {
                 currentCell = neighbour;
             }
         }
-        sleep();
     }
 
     private int calculateDistanceHeuristic(Cell cell) {

@@ -43,6 +43,6 @@ public class JuliaSetController {
 
     private void updateViews() {
         settingsView.updateFields();
-        juliaSetActor.update();
+        juliaSetActor.asyncUpdate();
     }
 }

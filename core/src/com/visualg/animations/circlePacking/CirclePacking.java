@@ -12,7 +12,6 @@ import static com.visualg.global.Config.WIDTH;
 
 public class CirclePacking extends ShapeRendererActor {
 
-
     private final Circles circles;
 
     public CirclePacking() {

@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.global.Config;
 
 public class LangtonAnt extends Actor {
 
@@ -22,7 +23,9 @@ public class LangtonAnt extends Actor {
         pixmap = langtonAntAlg.getPixMap();
         texture = new Texture(pixmap);
         batch.draw(texture, 0, 0);
-        langtonAntAlg.move();
+        for (int i = 0; i < Config.updatesPerFrame; i++) {
+            langtonAntAlg.move();
+        }
     }
 
     private void disposePreviousTexture() {

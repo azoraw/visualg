@@ -11,7 +11,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
-        Config.initSkin();
+        Config.init();
         mainStage = new MainStage();
     }
 
