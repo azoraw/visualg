@@ -9,10 +9,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.visualg.animations.mondrian.Settings.INSTANCE;
+import static com.visualg.animations.mondrian.Settings.RESOLUTION;
 
 class MondrianAlg {
 
-    private static final int MAX_SIZE = 10_000;
+    private static final int MAX_SIZE = 10_0000;
     private final Palette palette;
     private final float[] splits = {0.5f, 1, 1.5f};
 
@@ -23,8 +24,8 @@ class MondrianAlg {
         int width;
         int height;
         if (INSTANCE.getSpace() == 0) {
-            width = (int) Math.pow(2, 11);
-            height = (int) Math.pow(2, 11);
+            width = RESOLUTION;
+            height = RESOLUTION;
         } else {
             width = Config.WIDTH;
             height = Config.HEIGHT;
