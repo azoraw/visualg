@@ -1,12 +1,10 @@
 package com.visualg.animations.wigglyCircle;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.visualg.util.libgdx.ui.DefaultTextField;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultTextField;
 
 import static com.visualg.global.Config.skin;
 import static java.lang.String.valueOf;
@@ -15,13 +13,12 @@ class WigglyCircleSettingsTable extends SettingsTable {
 
 
     public WigglyCircleSettingsTable(CurrentSettings currentSettings) {
-        CheckBox threshold = new CheckBox("threshold", skin);
-        threshold.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                currentSettings.setThresholdEnabled(!currentSettings.isThresholdEnabled());
-            }
-        });
+
+        DefaultCheckBox threshold = DefaultCheckBox.builder()
+                .label("threshold")
+                .initValue(currentSettings.isThresholdEnabled())
+                .onClick(() -> currentSettings.setThresholdEnabled(!currentSettings.isThresholdEnabled()))
+                .build();
         add(threshold);
         row();
 

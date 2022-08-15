@@ -23,7 +23,7 @@ class CellularAutomataSettings extends SettingsTable {
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
 
-        ruleNumberTextField = ruleNumber.getTextField();
+        ruleNumberTextField = ruleNumber.getWidget();
         addRow(ruleNumber);
 
         DefaultSettingsRow animationSpeed = DefaultSettingsRow.builder()

@@ -21,9 +21,9 @@ public class SettingsTable extends Table {
         row();
     }
 
-    protected void addRow(DefaultSettingsRow defaultSettingsRow) {
-        add(defaultSettingsRow.getLabel());
-        add(defaultSettingsRow.getTextField());
+    protected void addRow(SettingsRow settingsRow) {
+        add(settingsRow.getLabel());
+        add(settingsRow.getWidget());
         row();
     }
 }

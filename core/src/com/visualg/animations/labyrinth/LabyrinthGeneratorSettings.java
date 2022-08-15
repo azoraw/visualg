@@ -1,7 +1,7 @@
 package com.visualg.animations.labyrinth;
 
-import com.visualg.util.libgdx.ui.DefaultButton;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
 
 public class LabyrinthGeneratorSettings extends SettingsTable {
 
