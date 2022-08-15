@@ -1,5 +1,5 @@
 # Visualg
-App to train algorithms and create fun animations
+App to train algorithms and also create fun animations and wallpapers.
 
 # Requirements
 
@@ -12,7 +12,7 @@ Execute in command line:
 ./gradlew desktop:run
 
 # Stack
-* Java 8
+* Java 17
 * Libgdx
 * Lombok
 
