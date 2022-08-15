@@ -17,14 +17,14 @@ class Lines {
     public Lines() {
         Pair<Integer, Integer> tmp = getNewRandomPoint();
         Pair<Integer, Integer> tmp2 = getNewRandomPoint();
-        segments.add(new LineSegment(tmp.first, tmp.second, tmp2.first, tmp2.second));
+        segments.add(new LineSegment(tmp.first(), tmp.second(), tmp2.first(), tmp2.second()));
     }
 
 
     void update() {
         Pair<Integer, Integer> newPoint = getNewRandomPoint();
 
-        LineSegment newSegment = new LineSegment(segments.get(segments.size() - 1).x2, segments.get(segments.size() - 1).y2, newPoint.first, newPoint.second);
+        LineSegment newSegment = new LineSegment(segments.get(segments.size() - 1).x2, segments.get(segments.size() - 1).y2, newPoint.first(), newPoint.second());
 
         if (canAdd(newSegment)) {
             segments.add(newSegment);

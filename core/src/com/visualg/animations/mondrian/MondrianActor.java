@@ -21,6 +21,6 @@ class MondrianActor extends FrameBufferActor {
     }
 
     private void drawRect(Rect rect) {
-        sr.rect(rect.getX(), rect.getY(), rect.getWidth(), rect.getHeight(), rect.getColor(), Color.BLACK, rect.getColor(), Color.WHITE);
+        sr.rect(rect.x(), rect.y(), rect.width(), rect.height(), rect.color(), Color.BLACK, rect.color(), Color.WHITE);
     }
 }

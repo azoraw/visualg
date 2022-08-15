@@ -47,7 +47,7 @@ class MondrianAlg {
     void update() {
         int index = RandomGenerator.getIntInRange(rectangles.size());
         Rect split = rectangles.get(index);
-        if (split.getHeight() < INSTANCE.getSideMaxSplitLength() || split.getWidth() < INSTANCE.getSideMaxSplitLength()
+        if (split.height() < INSTANCE.getSideMaxSplitLength() || split.width() < INSTANCE.getSideMaxSplitLength()
                 || rectangles.size() > MAX_SIZE) {
             return;
         }
@@ -56,32 +56,32 @@ class MondrianAlg {
         float currentSplit = getCurrentSplit();
         if (RandomGenerator.nextBoolean()) {
             rect1 = Rect.builder()
-                    .x(split.getX())
-                    .y(split.getY())
-                    .width((int) ((split.getWidth() / 2) * currentSplit) - INSTANCE.getSpace())
-                    .height(split.getHeight())
+                    .x(split.x())
+                    .y(split.y())
+                    .width((int) ((split.width() / 2) * currentSplit) - INSTANCE.getSpace())
+                    .height(split.height())
                     .color(palette.getRandomColor())
                     .build();
             rect2 = Rect.builder()
-                    .x(split.getX() + (int) ((split.getWidth() / 2) * currentSplit) + INSTANCE.getSpace())
-                    .y(split.getY())
-                    .width((int) ((split.getWidth() / 2) * (2 - currentSplit)) - INSTANCE.getSpace())
-                    .height(split.getHeight())
+                    .x(split.x() + (int) ((split.width() / 2) * currentSplit) + INSTANCE.getSpace())
+                    .y(split.y())
+                    .width((int) ((split.width() / 2) * (2 - currentSplit)) - INSTANCE.getSpace())
+                    .height(split.height())
                     .color(palette.getRandomColor())
                     .build();
         } else {
             rect1 = Rect.builder()
-                    .x(split.getX())
-                    .y(split.getY())
-                    .width(split.getWidth())
-                    .height((int) ((split.getHeight() / 2) * currentSplit) - INSTANCE.getSpace())
+                    .x(split.x())
+                    .y(split.y())
+                    .width(split.width())
+                    .height((int) ((split.height() / 2) * currentSplit) - INSTANCE.getSpace())
                     .color(palette.getRandomColor())
                     .build();
             rect2 = Rect.builder()
-                    .x(split.getX())
-                    .y((int) (split.getY() + (split.getHeight() / 2) * currentSplit) + INSTANCE.getSpace())
-                    .width(split.getWidth())
-                    .height((int) ((split.getHeight() / 2) * (2 - currentSplit)) - INSTANCE.getSpace())
+                    .x(split.x())
+                    .y((int) (split.y() + (split.height() / 2) * currentSplit) + INSTANCE.getSpace())
+                    .width(split.width())
+                    .height((int) ((split.height() / 2) * (2 - currentSplit)) - INSTANCE.getSpace())
                     .color(palette.getRandomColor())
                     .build();
         }
