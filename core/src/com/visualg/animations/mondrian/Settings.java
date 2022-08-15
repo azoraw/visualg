@@ -12,4 +12,8 @@ class Settings {
     private int sideMaxSplitLength = 80;
     private int space = 3;
     private boolean mondriatsPalette = true;
+    private Gradient gradient1 = Gradient.PALETTE;
+    private Gradient gradient2 = Gradient.PALETTE;
+    private Gradient gradient3 = Gradient.PALETTE;
+    private Gradient gradient4 = Gradient.PALETTE;
 }

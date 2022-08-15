@@ -1,11 +1,12 @@
 package com.visualg.animations.mondrian;
 
 import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultButton;
-import com.visualg.util.libgdx.ui.DefaultCheckBox;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.EmptyLabel;
+import com.visualg.util.libgdx.ui.SelectBoxRow;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.Integer.parseInt;
 
@@ -34,7 +35,6 @@ class MondrianSettingsTable extends SettingsTable {
                     fire(new RestartEvent());
                 })
                 .build();
-
         add(new EmptyLabel());
         add(mondriatCheckBox);
         row();
@@ -45,6 +45,31 @@ class MondrianSettingsTable extends SettingsTable {
                     .initValue(settings.getPaletteSize())
                     .onValueChange(stringValue -> settings.setPaletteSize(parseInt(stringValue)))
                     .afterValueChange(s -> this.fire(new RestartEvent()))
+                    .build());
+
+            addRow(SelectBoxRow.<Gradient>builder()
+                    .label("gradient1")
+                    .onChange(settings::setGradient1)
+                    .selected(settings.getGradient1())
+                    .items(Gradient.values())
+                    .build());
+            addRow(SelectBoxRow.<Gradient>builder()
+                    .label("gradient2")
+                    .onChange(settings::setGradient2)
+                    .selected(settings.getGradient2())
+                    .items(Gradient.values())
+                    .build());
+            addRow(SelectBoxRow.<Gradient>builder()
+                    .label("gradient3")
+                    .onChange(settings::setGradient3)
+                    .selected(settings.getGradient3())
+                    .items(Gradient.values())
+                    .build());
+            addRow(SelectBoxRow.<Gradient>builder()
+                    .label("gradient4")
+                    .onChange(settings::setGradient4)
+                    .selected(settings.getGradient4())
+                    .items(Gradient.values())
                     .build());
         }
 
