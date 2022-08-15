@@ -2,9 +2,9 @@ package com.visualg.animations.circleStacking;
 
 import com.visualg.menu.RestartEvent;
 import com.visualg.util.MutablePair;
-import com.visualg.util.libgdx.ui.DefaultButton;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
 
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;

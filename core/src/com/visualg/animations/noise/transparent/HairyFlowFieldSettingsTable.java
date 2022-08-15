@@ -1,14 +1,11 @@
 package com.visualg.animations.noise.transparent;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.visualg.global.Config;
 import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultButton;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.EmptyLabel;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
@@ -42,14 +39,11 @@ public class HairyFlowFieldSettingsTable extends SettingsTable {
                 .build();
         addRow(scale);
 
-        CheckBox connected = new CheckBox("connect init point", Config.skin);
-        connected.setChecked(settings.isConnectedWithStartingPoint());
-        connected.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                settings.setConnectedWithStartingPoint(!settings.isConnectedWithStartingPoint());
-            }
-        });
+        DefaultCheckBox connected = DefaultCheckBox.builder()
+                .label("connect init point")
+                .initValue(settings.isConnectedWithStartingPoint())
+                .onClick(() -> settings.setConnectedWithStartingPoint(!settings.isConnectedWithStartingPoint()))
+                .build();
         add(new EmptyLabel());
         add(connected);
         row();

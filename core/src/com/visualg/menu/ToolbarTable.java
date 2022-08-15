@@ -17,6 +17,6 @@ class ToolbarTable extends Table {
                 .onValueChange(s -> Config.setUpdatesPerFrame(Integer.parseInt(s)))
                 .build();
         add(updatesPerFrame.getLabel());
-        add(updatesPerFrame.getTextField());
+        add(updatesPerFrame.getWidget());
     }
 }

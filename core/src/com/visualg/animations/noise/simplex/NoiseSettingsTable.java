@@ -1,13 +1,10 @@
 package com.visualg.animations.noise.simplex;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.visualg.global.Config;
 import com.visualg.menu.RestartEvent;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.EmptyLabel;
 import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.String.valueOf;
 
@@ -49,15 +46,13 @@ public class NoiseSettingsTable extends SettingsTable {
 
         addRow(z);
 
-        CheckBox connected = new CheckBox("GRAY SCALE", Config.skin);
-        connected.setChecked(settings.getColorMode() == SimplexColorMode.GRAYSCALE);
-        connected.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                settings.changeColorMode();
-                fire(new RestartEvent());
-            }
-        });
+        DefaultCheckBox connected = DefaultCheckBox.builder()
+                .label("GRAY SCALE")
+                .initValue(settings.getColorMode() == SimplexColorMode.GRAYSCALE)
+                .onClick(() -> {
+                    settings.changeColorMode();
+                    fire(new RestartEvent());
+                }).build();
         add(new EmptyLabel());
         add(connected);
         row();

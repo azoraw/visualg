@@ -1,11 +1,8 @@
 package com.visualg.animations.mondrian;
 
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.visualg.global.Config;
 import com.visualg.menu.RestartEvent;
 import com.visualg.util.libgdx.ui.DefaultButton;
+import com.visualg.util.libgdx.ui.DefaultCheckBox;
 import com.visualg.util.libgdx.ui.DefaultSettingsRow;
 import com.visualg.util.libgdx.ui.EmptyLabel;
 import com.visualg.util.libgdx.ui.SettingsTable;
@@ -29,20 +26,20 @@ class MondrianSettingsTable extends SettingsTable {
                 .afterValueChange(s -> this.fire(new RestartEvent()))
                 .build());
 
-        CheckBox mondriat = new CheckBox("Mondriats palette", Config.skin);
-        mondriat.setChecked(settings.isMondriatsPalette());
-        mondriat.addListener(new ClickListener() {
-            @Override
-            public void clicked(InputEvent event, float x, float y) {
-                settings.setMondriatsPalette(!settings.isMondriatsPalette());
-                fire(new RestartEvent());
-            }
-        });
+        DefaultCheckBox mondriatCheckBox = DefaultCheckBox.builder()
+                .label("Mondriats palette")
+                .initValue(settings.isMondriatsPalette())
+                .onClick(() -> {
+                    settings.setMondriatsPalette(!settings.isMondriatsPalette());
+                    fire(new RestartEvent());
+                })
+                .build();
+
         add(new EmptyLabel());
-        add(mondriat);
+        add(mondriatCheckBox);
         row();
 
-        if(!settings.isMondriatsPalette()) {
+        if (!settings.isMondriatsPalette()) {
             addRow(DefaultSettingsRow.builder()
                     .label("randomPaletteSize")
                     .initValue(settings.getPaletteSize())
@@ -50,6 +47,7 @@ class MondrianSettingsTable extends SettingsTable {
                     .afterValueChange(s -> this.fire(new RestartEvent()))
                     .build());
         }
+
         add(new EmptyLabel());
         add(new DefaultButton("screenShot", actor.onScreenShot()));
     }
