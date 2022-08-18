@@ -22,7 +22,7 @@ class CircleStackingSettings {
     private List<MutablePair<Integer, Integer>> circles = new ArrayList<>();
     private float transparency = 0.008f;
 
-    public void setNumberOfCircles(int numberOfCircles) {
+    void setNumberOfCircles(int numberOfCircles) {
         this.numberOfCircles = numberOfCircles;
         circles.clear();
         for (int i = 0; i < numberOfCircles; i++) {
@@ -30,7 +30,7 @@ class CircleStackingSettings {
         }
     }
 
-    public void randomise() {
+    void randomise() {
         numberOfCircles = getIntInRange(2, 5);
         circles.clear();
         for (int i = 0; i < numberOfCircles; i++) {

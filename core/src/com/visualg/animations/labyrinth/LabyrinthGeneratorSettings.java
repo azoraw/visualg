@@ -1,11 +1,11 @@
 package com.visualg.animations.labyrinth;
 
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultButton;
 
-public class LabyrinthGeneratorSettings extends SettingsTable {
+class LabyrinthGeneratorSettings extends SettingsTable {
 
-    public LabyrinthGeneratorSettings(LabyrinthGeneratorController controller) {
+    LabyrinthGeneratorSettings(LabyrinthGeneratorController controller) {
         DefaultButton textButton = new DefaultButton("save", controller::onSave);
         add(textButton);
     }

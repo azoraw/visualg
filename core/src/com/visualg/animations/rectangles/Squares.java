@@ -16,12 +16,12 @@ class Squares {
     final int height;
 
 
-    public Squares() {
+    Squares() {
         this.width = WIDTH;
         this.height = HEIGHT - 1;
     }
 
-    public Set<Line> getLinesForNumberOfSquares(int numberOfSquares) {
+    Set<Line> getLinesForNumberOfSquares(int numberOfSquares) {
         Line line1 = new Line(1, 1, 1, height, diffMultiplier);
         Line line2 = new Line(1, height, width, height, diffMultiplier);
         Line line3 = new Line(width, height, width, 0, diffMultiplier);
@@ -52,7 +52,7 @@ class Squares {
         return lines;
     }
 
-    public void updateAnimationLoop() {
+    void updateAnimationLoop() {
         diffMultiplier -= DIFF_STEP;
         if (diffMultiplier < -1) {
             diffMultiplier = 1;

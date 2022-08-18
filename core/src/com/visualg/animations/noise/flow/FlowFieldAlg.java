@@ -6,19 +6,19 @@ import com.visualg.util.OpenSimplexNoise;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
-public class FlowFieldAlg {
+class FlowFieldAlg {
 
     private final double xStep = 0.05;
     private final double yStep = 0.05;
     private final double zStep = 0.000001;
     int time = 0;
 
-    public final double scale = 10;
+    final double scale = 10;
 
     OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise();
     Vector2[][] vectors;
 
-    public FlowFieldAlg() {
+    FlowFieldAlg() {
         vectors = new Vector2[(WIDTH / (int) scale) + 1][(HEIGHT / (int) scale) + 1];
 
         for (int x = 0; x < WIDTH / scale; x++) {
@@ -29,15 +29,15 @@ public class FlowFieldAlg {
         }
     }
 
-    public int getXCoordinate(int x, int y) {
+    int getXCoordinate(int x, int y) {
         return (int) (x * scale + scale * Math.cos(vectors[x][y].angleRad()));
     }
 
-    public int getYCoordinate(int x, int y) {
+    int getYCoordinate(int x, int y) {
         return (int) (y * scale + scale * Math.sin(vectors[x][y].angleRad()));
     }
 
-    public void update() {
+    void update() {
         for (int x = 0; x < WIDTH / scale; x++) {
             for (int y = 0; y < HEIGHT / scale; y++) {
                 vectors[x][y].setAngleRad((float) (2 * Math.PI * openSimplexNoise.eval(x * xStep, y * yStep, ++time * zStep)));

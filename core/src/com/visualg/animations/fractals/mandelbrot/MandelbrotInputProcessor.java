@@ -7,7 +7,7 @@ import com.visualg.util.Zoom;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
-public class MandelbrotInputProcessor implements InputProcessor {
+class MandelbrotInputProcessor implements InputProcessor {
 
     private final MandelbrotController mandelbrotController;
 
@@ -17,26 +17,22 @@ public class MandelbrotInputProcessor implements InputProcessor {
     public boolean keyDown(int keycode) {
         switch (keycode) {
             case Input.Keys.LEFT:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.mandelbrotController.moveCamera(Direction.LEFT);
                 }
                 break;
             case Input.Keys.RIGHT:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.mandelbrotController.moveCamera(Direction.RIGHT);
                 }
                 break;
             case Input.Keys.UP:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.mandelbrotController.moveCamera(Direction.UP);
                 }
                 break;
             case Input.Keys.DOWN:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.mandelbrotController.moveCamera(Direction.DOWN);
                 }
                 break;

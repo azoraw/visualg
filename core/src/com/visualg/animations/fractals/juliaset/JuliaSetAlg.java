@@ -2,14 +2,14 @@ package com.visualg.animations.fractals.juliaset;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.visualg.util.libgdx.PixmapAlg;
+import com.visualg.ui.pixmap.PixmapAlg;
 import lombok.RequiredArgsConstructor;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
 @RequiredArgsConstructor
-public class JuliaSetAlg extends PixmapAlg {
+class JuliaSetAlg extends PixmapAlg {
 
     private final Settings settings;
 

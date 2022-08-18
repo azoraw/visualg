@@ -18,7 +18,7 @@ class Position {
     private double tmpDX;
     private double tmpDY;
 
-    public Position(BoidsSettings boidsSettings) {
+    Position(BoidsSettings boidsSettings) {
         this.boidsSettings = boidsSettings;
         x = RandomGenerator.getIntInRange(Config.WIDTH);
         y = RandomGenerator.getIntInRange(Config.HEIGHT);
@@ -125,7 +125,7 @@ class Position {
         }
     }
 
-    public boolean isTooClose(Position possibleNeighbourPosition) {
+    boolean isTooClose(Position possibleNeighbourPosition) {
         double x2 = possibleNeighbourPosition.getX();
         double y2 = possibleNeighbourPosition.getY();
         return Math.pow(x - x2, 2) + Math.pow(y - y2, 2) < Math.pow(boidsSettings.getCollidingRadius(), 2);

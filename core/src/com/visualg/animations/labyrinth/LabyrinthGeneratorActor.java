@@ -25,7 +25,7 @@ public class LabyrinthGeneratorActor extends Actor {
     private boolean canTakeScreenShot = false;
     private Backtracker backtracker;
 
-    public LabyrinthGeneratorActor() {
+    LabyrinthGeneratorActor() {
         createTextures();
         createBacktracker();
         spriteBatch = new SpriteBatch();
@@ -89,7 +89,7 @@ public class LabyrinthGeneratorActor extends Actor {
         }
     }
 
-    public void screenShot() {
+    void screenShot() {
         canTakeScreenShot = true;
     }
 }

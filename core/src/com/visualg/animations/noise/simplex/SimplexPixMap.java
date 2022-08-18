@@ -10,7 +10,7 @@ import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
 
-public class SimplexPixMap {
+class SimplexPixMap {
 
     private final double X_OFF;
     private final double Y_OFF;
@@ -25,7 +25,7 @@ public class SimplexPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    public SimplexPixMap(NoiseSettings settings) {
+    SimplexPixMap(NoiseSettings settings) {
         goInNumberOfPixels = settings.getNumberOfSkippedPixels();
         openSimplex = new OpenSimplexNoise(0);
         colorFunction = settings.getColorMode().getColorFunction();
@@ -37,7 +37,7 @@ public class SimplexPixMap {
         pixmap.setColor(Color.WHITE);
     }
 
-    public Pixmap generateMovementOnZAxis() {
+    Pixmap generateMovementOnZAxis() {
         double x = 0;
         double y;
         for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
@@ -53,7 +53,7 @@ public class SimplexPixMap {
         return pixmap;
     }
 
-    public Pixmap generateZoomOut() {
+    Pixmap generateZoomOut() {
         double x = 0;
         double y;
         for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
@@ -69,7 +69,7 @@ public class SimplexPixMap {
         return pixmap;
     }
 
-    public Pixmap generatePlanarMovement() {
+    Pixmap generatePlanarMovement() {
         double x = z;
         double y;
         for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {

@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-public class BoidsSettings {
+class BoidsSettings {
 
     static BoidsSettings INSTANCE = new BoidsSettings();
 

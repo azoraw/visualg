@@ -1,7 +1,7 @@
 package com.visualg.animations.rectangles;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
 import java.util.Set;
 

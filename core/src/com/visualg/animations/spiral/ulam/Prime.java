@@ -4,15 +4,15 @@ import java.util.Arrays;
 
 import static com.visualg.animations.spiral.ulam.UlamSpiralAlg.SIDE_LENGTH;
 
-public class Prime {
+class Prime {
 
     private boolean[] primes;
 
-    public Prime() {
+    Prime() {
         createPrimesBySieveOfEratosthenes();
     }
 
-    public boolean isPrime(int n) {
+    boolean isPrime(int n) {
         return primes[n];
     }
 

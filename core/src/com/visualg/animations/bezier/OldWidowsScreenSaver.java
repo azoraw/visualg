@@ -18,14 +18,14 @@ class OldWidowsScreenSaver {
 
     List<BouncingBall> bouncingBalls = new ArrayList<>();
 
-    public OldWidowsScreenSaver() {
+    OldWidowsScreenSaver() {
         bouncingBalls.add(new BouncingBall(HEIGHT, 1, 1, WIDTH, movementSpeed));
         bouncingBalls.add(new BouncingBall(HEIGHT, 1, 1, WIDTH, movementSpeed));
         bouncingBalls.add(new BouncingBall(HEIGHT, 1, 1, WIDTH, movementSpeed));
         bouncingBalls.add(new BouncingBall(HEIGHT, 1, 1, WIDTH, movementSpeed));
     }
 
-    public Set<Pair<Vector2, Vector2>> getLines() {
+    Set<Pair<Vector2, Vector2>> getLines() {
         return getQuadraticBezier(
                 bouncingBalls.get(0).getPosition(),
                 bouncingBalls.get(1).getPosition(),
@@ -34,7 +34,7 @@ class OldWidowsScreenSaver {
                 DELTA);
     }
 
-    public void update() {
+    void update() {
         bouncingBalls.forEach(BouncingBall::update);
     }
 }

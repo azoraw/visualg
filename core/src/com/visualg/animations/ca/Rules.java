@@ -8,7 +8,7 @@ class Rules {
     private final int currentRule;
     private final Map<Integer, Boolean[]> rules = new HashMap<>();
 
-    public Rules(int ruleNo) {
+    Rules(int ruleNo) {
         currentRule = ruleNo;
         initRules();
     }
@@ -28,7 +28,7 @@ class Rules {
         return boolArray;
     }
 
-    public boolean getStateFor(boolean left, boolean middle, boolean right) {
+    boolean getStateFor(boolean left, boolean middle, boolean right) {
         Boolean[] booleans = rules.get(currentRule);
         return booleans[booleansToInt(left, middle, right)];
     }

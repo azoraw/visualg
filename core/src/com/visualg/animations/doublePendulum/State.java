@@ -8,7 +8,7 @@ import static java.lang.Math.cos;
 import static java.lang.Math.sin;
 
 @Getter
-public class State {
+class State {
     private final int length1 = 100;
     private final int length2 = 100;
     private final int m1 = 10;
@@ -45,11 +45,11 @@ public class State {
         calculatePositions();
     }
 
-    public double getY1() {
+    double getY1() {
         return 2 * y0 - y1;
     }
 
-    public double getY2() {
+    double getY2() {
         return 2 * y0 - y2;
     }
 

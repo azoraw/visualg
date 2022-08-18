@@ -1,7 +1,7 @@
 package com.visualg.animations.mondrian;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.util.libgdx.FrameBufferActor;
+import com.visualg.ui.FrameBufferActor;
 
 class MondrianActor extends FrameBufferActor {
 

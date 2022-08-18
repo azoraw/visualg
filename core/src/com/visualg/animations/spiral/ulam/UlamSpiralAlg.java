@@ -3,7 +3,7 @@ package com.visualg.animations.spiral.ulam;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.animations.spiral.Position;
-import com.visualg.util.libgdx.PixmapAlg;
+import com.visualg.ui.pixmap.PixmapAlg;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
@@ -14,7 +14,7 @@ public class UlamSpiralAlg extends PixmapAlg {
     public static final int SIDE_LENGTH = max(WIDTH, HEIGHT);
     private final Prime prime;
 
-    public UlamSpiralAlg() {
+    UlamSpiralAlg() {
         prime = new Prime();
     }
 

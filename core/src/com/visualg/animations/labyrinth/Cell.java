@@ -21,12 +21,12 @@ public class Cell {
     @Setter
     private boolean onStack;
 
-    public Cell(int x, int y) {
+    Cell(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public Direction getDirection(Cell cell) {
+    Direction getDirection(Cell cell) {
         if (x < cell.getX()) {
             return Direction.RIGHT;
         }
@@ -42,7 +42,7 @@ public class Cell {
         return null;
     }
 
-    public void removeWall(Direction wall) {
+    void removeWall(Direction wall) {
         walls.remove(wall);
     }
 }

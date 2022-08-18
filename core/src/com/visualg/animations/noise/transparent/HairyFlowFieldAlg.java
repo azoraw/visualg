@@ -11,7 +11,7 @@ import java.util.List;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
-public class HairyFlowFieldAlg {
+class HairyFlowFieldAlg {
 
     private final double xOffset;
     private final double yOffset;
@@ -23,7 +23,7 @@ public class HairyFlowFieldAlg {
     @Getter
     private List<Dot> dots;
 
-    public HairyFlowFieldAlg(CurrentSettings settings) {
+    HairyFlowFieldAlg(CurrentSettings settings) {
         this.settings = settings;
         vectors = new Vector2[(WIDTH / settings.getScale()) + 1][(HEIGHT / settings.getScale()) + 1];
         xOffset = RandomGenerator.getRandomFloat(10000);
@@ -49,7 +49,7 @@ public class HairyFlowFieldAlg {
         }
     }
 
-    public void update() {
+    void update() {
         dots.forEach(dot ->
                 dot.moveWithFlow(vectors[dot.getX() / settings.getScale()][dot.getY() / settings.getScale()])
         );

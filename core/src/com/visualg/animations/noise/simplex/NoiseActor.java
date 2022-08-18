@@ -6,13 +6,13 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.global.Config;
 
-public class NoiseActor extends Actor {
+class NoiseActor extends Actor {
 
     private final SimplexPixMap simplexPixMap;
     private Texture texture;
     private Pixmap pixmap;
 
-    public NoiseActor(NoiseSettings settings) {
+    NoiseActor(NoiseSettings settings) {
         simplexPixMap = new SimplexPixMap(settings);
     }
 

@@ -1,8 +1,8 @@
 package com.visualg.animations.fractals.juliaset;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.InteractiveSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.InteractiveSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -14,7 +14,7 @@ class SettingsView extends SettingsTable {
 
     Set<InteractiveSettingsRow> rows = new HashSet<>();
 
-    public SettingsView(Settings settings) {
+    SettingsView(Settings settings) {
         InteractiveSettingsRow numberOfIteration = InteractiveSettingsRow.builder()
                 .label("numberOfIterations")
                 .initValue(settings::getNumberOfIteration)

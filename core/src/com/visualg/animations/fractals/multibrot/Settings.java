@@ -35,7 +35,7 @@ class Settings {
     private double zoom;
     private double zoomMultiplier;
 
-    public void zoom(Zoom zoom) {
+    void zoom(Zoom zoom) {
         if (zoom == Zoom.IN) {
             this.zoom *= zoomMultiplier;
         } else
@@ -43,32 +43,24 @@ class Settings {
     }
 
 
-    public void addOffset(Direction direction) {
+    void addOffset(Direction direction) {
         double offsetDelta = 0.2 / zoom;
         switch (direction) {
-            case UP:
-                yOffset += offsetDelta;
-                break;
-            case DOWN:
-                yOffset -= offsetDelta;
-                break;
-            case LEFT:
-                xOffset += offsetDelta;
-                break;
-            case RIGHT:
-                xOffset -= offsetDelta;
-                break;
+            case UP -> yOffset += offsetDelta;
+            case DOWN -> yOffset -= offsetDelta;
+            case LEFT -> xOffset += offsetDelta;
+            case RIGHT -> xOffset -= offsetDelta;
         }
     }
 
-    public void move(int screenX, int screenY, int fractalWidth, int fractalHeight) {
+    void move(int screenX, int screenY, int fractalWidth, int fractalHeight) {
         double x = 1.5 * (((double) screenX * 2 / fractalWidth) - 1) / this.zoom;
         double y = (((double) screenY * 2 / fractalHeight) - 1) / this.zoom;
         xOffset -= x;
         yOffset -= y;
     }
 
-    public void moveSet(Direction direction) {
+    void moveSet(Direction direction) {
         switch (direction) {
             case UP:
             case DOWN:

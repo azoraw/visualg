@@ -1,7 +1,7 @@
 package com.visualg.animations.nBody;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 
@@ -9,7 +9,7 @@ class NBodyActor extends ShapeRendererActor {
 
     private final NBodyAlg alg;
 
-    public NBodyActor(NBodyAlg alg) {
+    NBodyActor(NBodyAlg alg) {
         super(Filled);
         this.alg = alg;
         sr.setColor(Color.DARK_GRAY);

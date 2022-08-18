@@ -1,7 +1,7 @@
 package com.visualg.animations.ca;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
 import java.util.ArrayDeque;
 import java.util.Iterator;
@@ -9,7 +9,7 @@ import java.util.Iterator;
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 
 
-public class CellularAutomataActor extends ShapeRendererActor {
+class CellularAutomataActor extends ShapeRendererActor {
 
     private static final int CELL_SIZE = 20;
     private static final Color ON_COLOR = Color.GRAY;
@@ -21,7 +21,7 @@ public class CellularAutomataActor extends ShapeRendererActor {
     private int ruleSpeedFrameCounter = 0;
 
 
-    public CellularAutomataActor(CellularAutomataAlg cellularAutomataAlg) {
+    CellularAutomataActor(CellularAutomataAlg cellularAutomataAlg) {
         super(Filled);
         sr.setColor(OFF_COLOR);
 

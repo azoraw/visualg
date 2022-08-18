@@ -1,19 +1,19 @@
 package com.visualg.animations.noise.transparent;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
-import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultButton;
+import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
-public class HairyFlowFieldSettingsTable extends SettingsTable {
+class HairyFlowFieldSettingsTable extends SettingsTable {
 
-    public HairyFlowFieldSettingsTable(CurrentSettings settings, Runnable onScreenShotRunnable) {
+    HairyFlowFieldSettingsTable(CurrentSettings settings, Runnable onScreenShotRunnable) {
 
         DefaultSettingsRow alpha = DefaultSettingsRow.builder()
                 .label("alpha")

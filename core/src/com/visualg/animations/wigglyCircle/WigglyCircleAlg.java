@@ -19,7 +19,7 @@ class WigglyCircleAlg {
     private final OpenSimplexNoise noise;
 
 
-    public WigglyCircleAlg(float xMiddle, float yMiddle, CurrentSettings currentSettings) {
+    WigglyCircleAlg(float xMiddle, float yMiddle, CurrentSettings currentSettings) {
         this.xMiddle = xMiddle;
         this.yMiddle = yMiddle;
         this.settings = currentSettings;

@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.function.Function;
 
 @RequiredArgsConstructor
-public enum SimplexColorMode {
+enum SimplexColorMode {
     GRAYSCALE(SimplexColorMode::getGreyScale),
     BLACK_AND_WHITE(SimplexColorMode::getCow);
 

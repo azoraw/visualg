@@ -8,7 +8,7 @@ import java.util.Set;
 
 class BezierFunctionAlg {
 
-    public static Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 start, Vector2 middle, Vector2 end, int delta) {
+    static Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 start, Vector2 middle, Vector2 end, int delta) {
         HashSet<Pair<Vector2, Vector2>> lines = new HashSet<>();
 
         for (int i = 0; i <= delta; i++) {
@@ -19,7 +19,7 @@ class BezierFunctionAlg {
         return lines;
     }
 
-    public static Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 position0, Vector2 position1, Vector2 position2, Vector2 position3, int delta) {
+    static Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 position0, Vector2 position1, Vector2 position2, Vector2 position3, int delta) {
         HashSet<Pair<Vector2, Vector2>> lines = new HashSet<>();
 
         for (int i = 0; i <= delta; i++) {

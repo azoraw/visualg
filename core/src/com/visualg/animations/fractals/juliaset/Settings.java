@@ -45,18 +45,10 @@ class Settings {
     void addOffset(Direction direction) {
         double offsetDelta = 0.2 / zoom;
         switch (direction) {
-            case UP:
-                yOffset += offsetDelta;
-                break;
-            case DOWN:
-                yOffset -= offsetDelta;
-                break;
-            case LEFT:
-                xOffset += offsetDelta;
-                break;
-            case RIGHT:
-                xOffset -= offsetDelta;
-                break;
+            case UP -> yOffset += offsetDelta;
+            case DOWN -> yOffset -= offsetDelta;
+            case LEFT -> xOffset += offsetDelta;
+            case RIGHT -> xOffset -= offsetDelta;
         }
     }
 
@@ -69,20 +61,10 @@ class Settings {
 
     void moveJulia(Direction direction) {
         switch (direction) {
-            case UP:
-                complexNumber = this.complexNumber.move(0, moveDelta);
-                break;
-            case DOWN:
-                complexNumber = this.complexNumber.move(0, -moveDelta);
-                break;
-            case LEFT:
-                complexNumber = this.complexNumber.move(-moveDelta, 0);
-                break;
-            case RIGHT:
-                complexNumber = this.complexNumber.move(moveDelta, 0);
-                break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + direction);
+            case UP -> complexNumber = this.complexNumber.move(0, moveDelta);
+            case DOWN -> complexNumber = this.complexNumber.move(0, -moveDelta);
+            case LEFT -> complexNumber = this.complexNumber.move(-moveDelta, 0);
+            case RIGHT -> complexNumber = this.complexNumber.move(moveDelta, 0);
         }
     }
 }

@@ -1,16 +1,16 @@
 package com.visualg.animations.boids;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
 
 import static java.lang.Double.parseDouble;
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
 
-public class BoidsSettingsTable extends SettingsTable {
+class BoidsSettingsTable extends SettingsTable {
 
-    public BoidsSettingsTable(BoidsSettings boidsSettings) {
+    BoidsSettingsTable(BoidsSettings boidsSettings) {
 
         DefaultSettingsRow numberOfBoids = DefaultSettingsRow.builder()
                 .label("number of boids: ")

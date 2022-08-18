@@ -4,13 +4,13 @@ import com.visualg.util.RandomGenerator;
 import lombok.Getter;
 
 @Getter
-public class Motion {
+class Motion {
 
     private final BoidsSettings boidsSettings;
     private double dx;
     private double dy;
 
-    public Motion(BoidsSettings boidsSettings) {
+    Motion(BoidsSettings boidsSettings) {
         this.boidsSettings = boidsSettings;
         randomDirection();
     }

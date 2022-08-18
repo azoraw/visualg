@@ -1,15 +1,15 @@
 package com.visualg.animations.noise.simplex;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
-import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.String.valueOf;
 
-public class NoiseSettingsTable extends SettingsTable {
-    public NoiseSettingsTable(NoiseSettings settings) {
+class NoiseSettingsTable extends SettingsTable {
+    NoiseSettingsTable(NoiseSettings settings) {
         DefaultSettingsRow numberOfSkippedPixels = DefaultSettingsRow.builder()
                 .label("pixels per cell")
                 .initValue(valueOf(settings.getNumberOfSkippedPixels()))

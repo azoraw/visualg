@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class MultibrotSetInputProcessor implements InputProcessor {
+class MultibrotSetInputProcessor implements InputProcessor {
 
     private final MultibrotSetController multibrotSetController;
 
@@ -34,14 +34,12 @@ public class MultibrotSetInputProcessor implements InputProcessor {
                 }
                 break;
             case Input.Keys.UP:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.multibrotSetController.moveCamera(Direction.UP);
                 }
                 break;
             case Input.Keys.DOWN:
-                if (ctrlPressed) {
-                } else {
+                if (!ctrlPressed) {
                     this.multibrotSetController.moveCamera(Direction.DOWN);
                 }
                 break;

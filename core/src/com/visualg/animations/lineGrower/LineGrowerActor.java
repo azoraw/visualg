@@ -8,11 +8,11 @@ import com.visualg.global.Config;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
-public class LineGrowerActor extends Actor {
+class LineGrowerActor extends Actor {
     private final LineGrowerAlg alg;
     private Texture texture;
 
-    public LineGrowerActor(LineGrowerAlg alg) {
+    LineGrowerActor(LineGrowerAlg alg) {
         this.alg = alg;
     }
 

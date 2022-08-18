@@ -2,8 +2,8 @@ package com.visualg.animations.fractals.multibrot;
 
 import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.visualg.util.libgdx.InteractiveActor;
-import com.visualg.util.libgdx.PixmapActor;
+import com.visualg.controls.InteractiveActor;
+import com.visualg.ui.pixmap.PixmapActor;
 
 public class MultibrotSetGroup extends Group implements InteractiveActor {
 

@@ -15,7 +15,7 @@ class Bird {
     @Setter
     private List<Bird> neighbours = new ArrayList<>();
 
-    public Bird(BoidsSettings boidsSettings) {
+    Bird(BoidsSettings boidsSettings) {
         this.boidsSettings = boidsSettings;
         this.position = new Position(boidsSettings);
     }
@@ -25,7 +25,7 @@ class Bird {
     }
 
 
-    public boolean isNeighbour(Position possibleNeighbourPosition) {
+    boolean isNeighbour(Position possibleNeighbourPosition) {
         double x1 = position.getX();
         double x2 = possibleNeighbourPosition.getX();
         double y1 = position.getY();

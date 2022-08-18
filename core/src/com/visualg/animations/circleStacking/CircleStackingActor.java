@@ -1,6 +1,6 @@
 package com.visualg.animations.circleStacking;
 
-import com.visualg.util.libgdx.FrameBufferActor;
+import com.visualg.ui.FrameBufferActor;
 
 import static com.visualg.animations.circleStacking.CircleStackingSettings.INSTANCE;
 
@@ -8,7 +8,7 @@ class CircleStackingActor extends FrameBufferActor {
 
     private final CircleStackingAlg alg;
 
-    public CircleStackingActor() {
+    CircleStackingActor() {
         super(true);
         alg = new CircleStackingAlg();
         sr.setColor(1, 1, 1, INSTANCE.getTransparency());

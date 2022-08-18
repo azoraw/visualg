@@ -10,7 +10,7 @@ import java.util.Stack;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIGHT;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
-public class Backtracker {
+class Backtracker {
 
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
@@ -19,19 +19,19 @@ public class Backtracker {
 
     private final Cell[][] cells;
 
-    public Backtracker(Cell[][] cells) {
+    Backtracker(Cell[][] cells) {
         this.cells = cells;
         initGrid();
         initBacktracker();
     }
 
-    public void update() {
+    void update() {
         if (!stack.isEmpty()) {
             nextStep();
         }
     }
 
-    public void fullRun() {
+    void fullRun() {
         while (!stack.isEmpty()) {
             nextStep();
         }
