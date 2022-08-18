@@ -10,7 +10,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public class JuliaSetInputProcessor implements InputProcessor {
+class JuliaSetInputProcessor implements InputProcessor {
 
     private final JuliaSetController juliaSetController;
 

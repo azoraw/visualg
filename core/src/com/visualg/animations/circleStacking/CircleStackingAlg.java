@@ -10,7 +10,7 @@ class CircleStackingAlg {
 
     private final List<Circle> circles = new ArrayList<>();
 
-    public CircleStackingAlg() {
+    CircleStackingAlg() {
         CircleStackingSettings settings = CircleStackingSettings.INSTANCE;
         circles.add(Circle.builder()
                 .xCenter(Config.WIDTH/2)
@@ -29,19 +29,19 @@ class CircleStackingAlg {
         }
     }
 
-    public void update() {
+    void update() {
         circles.get(0).update(Config.WIDTH/2,Config.HEIGHT/2);
         for (int i = 1; i < circles.size(); i++) {
             circles.get(i).update((int)circles.get(i-1).getEnd().x,(int) circles.get(i-1).getEnd().y);
         }
     }
 
-    public Vector2 getLastCircle() {
+    Vector2 getLastCircle() {
         int index = circles.size() - 1;
         return circles.get(index).getEnd();
     }
 
-    public Vector2 getSecondLastCircle() {
+    Vector2 getSecondLastCircle() {
         int index = circles.size() - 2;
         return circles.get(index).getEnd();
     }

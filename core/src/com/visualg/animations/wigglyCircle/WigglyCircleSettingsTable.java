@@ -2,9 +2,9 @@ package com.visualg.animations.wigglyCircle;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultTextField;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.ui.simplifiedComponents.DefaultTextField;
 
 import static com.visualg.global.Config.skin;
 import static java.lang.String.valueOf;
@@ -12,7 +12,7 @@ import static java.lang.String.valueOf;
 class WigglyCircleSettingsTable extends SettingsTable {
 
 
-    public WigglyCircleSettingsTable(CurrentSettings currentSettings) {
+    WigglyCircleSettingsTable(CurrentSettings currentSettings) {
 
         DefaultCheckBox threshold = DefaultCheckBox.builder()
                 .label("threshold")

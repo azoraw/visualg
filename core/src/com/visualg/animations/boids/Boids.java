@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Getter
-public class Boids {
+class Boids {
     private final List<Bird> birds = new ArrayList<>();
     private final BoidsSettings boidsSettings;
 
@@ -20,7 +20,7 @@ public class Boids {
         );
     }
 
-    public Boids(BoidsSettings boidsSettings) {
+    Boids(BoidsSettings boidsSettings) {
         this.boidsSettings = boidsSettings;
 
         for (int i = 0; i < boidsSettings.getNumberOfBoids(); i++) {
@@ -28,14 +28,14 @@ public class Boids {
         }
     }
 
-    public void move() {
+    void move() {
         whoIsNeighbour();
         for (Bird bird : birds) {
             bird.move();
         }
     }
 
-    public boolean shouldRestart() {
+    boolean shouldRestart() {
         return birds.size() != boidsSettings.getNumberOfBoids();
     }
 }

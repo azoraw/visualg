@@ -1,17 +1,17 @@
 package com.visualg.animations.mondrian;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SelectBoxRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultCheckBox;
-import com.visualg.util.libgdx.ui.simplifiedComponents.EmptyLabel;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SelectBoxRow;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultButton;
+import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
+import com.visualg.ui.simplifiedComponents.EmptyLabel;
 
 import static java.lang.Integer.parseInt;
 
 class MondrianSettingsTable extends SettingsTable {
-    public MondrianSettingsTable(MondrianActor actor) {
+    MondrianSettingsTable(MondrianActor actor) {
         Settings settings = Settings.INSTANCE;
 
         addRow(DefaultSettingsRow.builder()

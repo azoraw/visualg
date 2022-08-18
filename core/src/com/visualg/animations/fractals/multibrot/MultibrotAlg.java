@@ -2,7 +2,7 @@ package com.visualg.animations.fractals.multibrot;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
-import com.visualg.util.libgdx.PixmapAlg;
+import com.visualg.ui.pixmap.PixmapAlg;
 import lombok.RequiredArgsConstructor;
 
 import static com.visualg.global.Config.HEIGHT;
@@ -13,7 +13,7 @@ import static java.lang.Math.pow;
 import static java.lang.Math.sin;
 
 @RequiredArgsConstructor
-public class MultibrotAlg extends PixmapAlg {
+class MultibrotAlg extends PixmapAlg {
 
     private final Settings settings;
 

@@ -17,7 +17,7 @@ class NBodyAlg {
     @Getter
     private final List<Body> bodies = new ArrayList<>();
 
-    public NBodyAlg(CurrentSettings currentSettings) {
+    NBodyAlg(CurrentSettings currentSettings) {
 
         this.settings = currentSettings;
         for (int i = 0; i < currentSettings.getNumberOfBodies(); i++) {

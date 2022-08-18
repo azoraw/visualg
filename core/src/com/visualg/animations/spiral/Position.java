@@ -2,6 +2,7 @@ package com.visualg.animations.spiral;
 
 
 import com.visualg.util.Direction;
+import lombok.Getter;
 
 import static com.visualg.animations.spiral.ulam.UlamSpiralAlg.SIDE_LENGTH;
 import static com.visualg.global.Config.HEIGHT;
@@ -9,18 +10,13 @@ import static com.visualg.global.Config.WIDTH;
 
 public class Position {
 
+    private final Spiral spiral = new Spiral();
+
+    @Getter
     private int x = WIDTH / 2;
+    @Getter
     private int y = HEIGHT / 2;
     private Direction direction = Direction.RIGHT;
-    private Spiral spiral = new Spiral();
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
 
     public void move() {
         moveInCurrentDirection();
@@ -43,21 +39,12 @@ public class Position {
 
     private void moveInCurrentDirection() {
         switch (direction) {
-            case RIGHT:
-                x++;
-                break;
-            case UP:
-                y--;
-                break;
-            case LEFT:
-                x--;
-                break;
-            case DOWN:
-                y++;
-                break;
+            case RIGHT -> x++;
+            case UP -> y--;
+            case LEFT -> x--;
+            case DOWN -> y++;
         }
     }
-
 
     private boolean canIncreaseSpiralSide() {
         return direction == Direction.RIGHT || direction == Direction.LEFT;

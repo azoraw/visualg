@@ -15,7 +15,7 @@ class BouncingBall {
     private Vector2 position;
     private Vector2 movementDirection;
 
-    public BouncingBall(int y1, int x0, int y0, int x1, int speed) {
+    BouncingBall(int y1, int x0, int y0, int x1, int speed) {
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;
@@ -29,11 +29,11 @@ class BouncingBall {
         movementDirection = new Vector2(getIntInRange(-1 * speed, speed), getIntInRange(-1 * speed, speed));
     }
 
-    public Vector2 getPosition() {
+    Vector2 getPosition() {
         return position.cpy();
     }
 
-    public void update() {
+    void update() {
         position.add(movementDirection);
 
         if (position.x < x0 || position.x > x1) {

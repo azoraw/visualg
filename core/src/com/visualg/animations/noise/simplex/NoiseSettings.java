@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-public class NoiseSettings {
+class NoiseSettings {
 
     static NoiseSettings INSTANCE = new NoiseSettings();
 
@@ -17,7 +17,7 @@ public class NoiseSettings {
     private double Y_OFF = 0.1;
     private double Z_OFF = 0.04;
 
-    public void changeColorMode() {
+    void changeColorMode() {
         if (colorMode == SimplexColorMode.GRAYSCALE) {
             colorMode = SimplexColorMode.BLACK_AND_WHITE;
         } else

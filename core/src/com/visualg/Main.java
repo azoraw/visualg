@@ -2,8 +2,8 @@ package com.visualg;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.visualg.controls.MainStage;
 import com.visualg.global.Config;
-import com.visualg.menu.MainStage;
 
 public class Main extends ApplicationAdapter {
 

@@ -20,7 +20,7 @@ class MondrianAlg {
     @Getter
     private final List<Rect> rectangles = new ArrayList<>();
 
-    public MondrianAlg() {
+    MondrianAlg() {
         int width;
         int height;
         if (INSTANCE.getSpace() == 0) {

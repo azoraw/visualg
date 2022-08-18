@@ -6,13 +6,13 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.global.Config;
 
-public class ModuloSpiralActor extends Actor {
+class ModuloSpiralActor extends Actor {
 
     private final ModuloSpiralAlg alg;
     private Texture texture;
     private Pixmap pixmap;
 
-    public ModuloSpiralActor(ModuloSpiralAlg alg) {
+    ModuloSpiralActor(ModuloSpiralAlg alg) {
         this.alg = alg;
     }
 

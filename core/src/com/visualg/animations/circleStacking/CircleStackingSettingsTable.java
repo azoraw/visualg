@@ -1,17 +1,17 @@
 package com.visualg.animations.circleStacking;
 
-import com.visualg.menu.RestartEvent;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
+import com.visualg.ui.simplifiedComponents.DefaultButton;
 import com.visualg.util.MutablePair;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
-import com.visualg.util.libgdx.ui.simplifiedComponents.DefaultButton;
 
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 
 class CircleStackingSettingsTable extends SettingsTable {
 
-    public CircleStackingSettingsTable(CircleStackingSettings settings, Runnable screenshot) {
+    CircleStackingSettingsTable(CircleStackingSettings settings, Runnable screenshot) {
         addRow(DefaultSettingsRow.builder()
                 .label("transparency")
                 .initValue(settings.getTransparency())

@@ -1,6 +1,6 @@
 package com.visualg.animations.labyrinth;
 
-public enum Color {
+enum Color {
     RED,
     GREEN,
     BLUE,

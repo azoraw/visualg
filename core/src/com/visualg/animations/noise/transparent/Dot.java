@@ -7,7 +7,7 @@ import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.util.RandomGenerator.getIntInRange;
 
-public class Dot {
+class Dot {
     private static final float maxSpeed = 1;
     private static final float fieldMagnitude = 0.01f;
 
@@ -16,7 +16,7 @@ public class Dot {
     private final Vector2 velocity;
     private final Vector2 acceleration;
 
-    public Dot() {
+    Dot() {
 
         float x = getIntInRange(WIDTH);
         float y = getIntInRange(HEIGHT);
@@ -27,23 +27,23 @@ public class Dot {
         acceleration = new Vector2(0, 0);
     }
 
-    public int getX() {
+    int getX() {
         return (int) position.x;
     }
 
-    public int getY() {
+    int getY() {
         return (int) position.y;
     }
 
-    public int getX2() {
+    int getX2() {
         return (int) prevPosition.x;
     }
 
-    public int getY2() {
+    int getY2() {
         return (int) prevPosition.y;
     }
 
-    public void moveWithFlow(Vector2 vector2) {
+    void moveWithFlow(Vector2 vector2) {
         velocity.add(acceleration);
         velocity.limit(maxSpeed);
         position.add(velocity);

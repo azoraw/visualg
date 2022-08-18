@@ -17,17 +17,17 @@ class Circle {
     private float yCenter;
 
     @Builder
-    public Circle(int stepsNo, int radius, int xCenter, int yCenter) {
+    Circle(int stepsNo, int radius, int xCenter, int yCenter) {
         this.stepsNo = stepsNo;
         this.radius = radius;
         updateCenter(xCenter, yCenter);
     }
 
-    public Vector2 getEnd() {
+    Vector2 getEnd() {
         return new Vector2((float) x + xCenter, (float) y + yCenter);
     }
 
-    public void update(int xCenter, int yCenter) {
+    void update(int xCenter, int yCenter) {
         x = radius * cos(t);
         y = radius * sin(t);
         t += 2 * PI / stepsNo;

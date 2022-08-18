@@ -1,7 +1,7 @@
 package com.visualg.animations.spiral.ulam;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
-import com.visualg.util.libgdx.PixmapActor;
+import com.visualg.ui.pixmap.PixmapActor;
 
 public class UlamSpiralGroup extends Group  {
 

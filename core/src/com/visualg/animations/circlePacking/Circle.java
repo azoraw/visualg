@@ -11,7 +11,7 @@ class Circle implements Comparable<Circle> {
     double r;
     boolean canGrow = true;
 
-    public Circle(int x, int y, int pixel) {
+    Circle(int x, int y, int pixel) {
         this.x = x;
         this.y = y;
         this.r = initR;

@@ -12,7 +12,7 @@ import static com.visualg.global.Config.WIDTH;
 class Segment {
 
     private static final float SPEED = 1;
-    private static final int DIR[] = getInts();
+    private static final int[] DIR = getInts();
 
     private static int[] getInts() {
         int shift = 1;
@@ -69,7 +69,7 @@ class Segment {
     }
 
     @Builder
-    public Segment(Vector2 position, Vector2 initPosition, Vector2 velocity) {
+    Segment(Vector2 position, Vector2 initPosition, Vector2 velocity) {
         this.position = position;
         this.initPosition = initPosition;
         this.velocity = velocity;

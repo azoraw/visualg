@@ -2,7 +2,7 @@ package com.visualg.animations.doublePendulum;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
 public class DoublePendulum extends ShapeRendererActor {
 

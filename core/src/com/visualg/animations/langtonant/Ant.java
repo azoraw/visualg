@@ -11,7 +11,7 @@ class Ant {
     int y;
     private Direction currentDirection;
 
-    public Ant(int width, int height) {
+    Ant(int width, int height) {
         this.width = width;
         this.height = height;
         this.x = width / 2;
@@ -19,30 +19,22 @@ class Ant {
         currentDirection = UP;
     }
 
-    public void moveCounterClockwise() {
+    void moveCounterClockwise() {
         currentDirection = currentDirection.counterClockwise;
         move();
     }
 
-    public void moveClockwise() {
+    void moveClockwise() {
         currentDirection = currentDirection.clockwise;
         move();
     }
 
     private void move() {
         switch (currentDirection) {
-            case UP:
-                y++;
-                break;
-            case DOWN:
-                y--;
-                break;
-            case RIGHT:
-                x++;
-                break;
-            case LEFT:
-                x--;
-                break;
+            case UP -> y++;
+            case DOWN -> y--;
+            case RIGHT -> x++;
+            case LEFT -> x--;
         }
         limit();
     }

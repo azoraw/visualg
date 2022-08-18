@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.global.Config;
 import com.visualg.util.OpenSimplexNoise;
 
-public class ColorPixMap {
+class ColorPixMap {
 
     private static final double X_OFF = 0.01;
     private static final double Y_OFF = 0.01;
@@ -17,14 +17,14 @@ public class ColorPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    public ColorPixMap() {
+    ColorPixMap() {
         openSimplex = new OpenSimplexNoise(0);
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(Color.WHITE);
     }
 
-    public Pixmap getPixMap() {
+    Pixmap getPixMap() {
         double x = 0;
         double y;
         for (int i = 0; i < WIDTH_SCALED; i++) {

@@ -1,6 +1,6 @@
 package com.visualg.animations.mondrian;
 
-public enum Gradient {
+enum Gradient {
     BLACK,
     WHITE,
     PALETTE

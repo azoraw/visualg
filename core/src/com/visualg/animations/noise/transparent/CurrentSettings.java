@@ -9,7 +9,7 @@ import static java.lang.Math.min;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-public class CurrentSettings {
+class CurrentSettings {
 
     static CurrentSettings INSTANCE = new CurrentSettings();
 
@@ -18,9 +18,9 @@ public class CurrentSettings {
     private int numberOfAgents = 1000;
     private double xStep = 0.05;
     private double yStep = 0.05;
-    public int scale = 10;
+    int scale = 10;
 
-    public void setAlpha(float alpha) {
+    void setAlpha(float alpha) {
         this.alpha = min(max(alpha, 0.01f), 1);
     }
 }

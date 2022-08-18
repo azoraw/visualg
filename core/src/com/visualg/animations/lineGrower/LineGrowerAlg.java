@@ -2,9 +2,9 @@ package com.visualg.animations.lineGrower;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.ui.pixmap.PixmapAlg;
+import com.visualg.ui.pixmap.PixmapFactory;
 import com.visualg.util.RandomGenerator;
-import com.visualg.util.libgdx.PixmapAlg;
-import com.visualg.util.libgdx.PixmapFactory;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -12,10 +12,10 @@ import java.util.HashSet;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
-public class LineGrowerAlg extends PixmapAlg {
+class LineGrowerAlg extends PixmapAlg {
     private static final int NUMBER_OF_INIT_POINTS = 3;
     int NUMBER_OF_NEW_SEGMENTS = 2;
-    private static final int DIR[] = getInts();
+    private static final int[] DIR = getInts();
 
     private static int[] getInts() {
         int shift = 5;
@@ -36,7 +36,7 @@ public class LineGrowerAlg extends PixmapAlg {
     private final ArrayList<Segment> allSegments = new ArrayList<>();
     private Segment[][] pixels = new Segment[WIDTH + 1][HEIGHT + 1];
 
-    public LineGrowerAlg() {
+    LineGrowerAlg() {
         pixmap = PixmapFactory.create();
         createInitPoints();
     }
@@ -139,7 +139,7 @@ public class LineGrowerAlg extends PixmapAlg {
         return pixmap;
     }
 
-    public void update() {
+    void update() {
         grow();
     }
 }

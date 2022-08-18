@@ -12,9 +12,9 @@ import java.util.Map;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.CELL_HEIGHT;
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.CELL_WIDTH;
 
-public class TextureFactory {
+class TextureFactory {
 
-    public static Map<Direction, Texture> createWallTextures() {
+    static Map<Direction, Texture> createWallTextures() {
         Map<Direction, Texture> wallTextures = new HashMap<>();
 
         wallTextures.put(Direction.LEFT, new Texture(createScaledCell(Gdx.files.internal("labyrinth/LEFT.png"))));
@@ -25,7 +25,7 @@ public class TextureFactory {
         return wallTextures;
     }
 
-    public static Map<Color, Texture> createBackgroundTextures() {
+    static Map<Color, Texture> createBackgroundTextures() {
         Map<Color, Texture> backgroundTextures = new HashMap<>();
 
         backgroundTextures.put(Color.RED, new Texture(createScaledCell(Gdx.files.internal("labyrinth/Red.png"))));

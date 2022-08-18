@@ -14,8 +14,8 @@ public class LabyrinthSolver extends Actor {
 
     static final int CELL_WIDTH = 10;
     static final int CELL_HEIGHT = 10;
-    public static final int GRID_WIDTH = Config.WIDTH / CELL_WIDTH;
-    public static final int GRID_HEIGHT = Config.HEIGHT / CELL_HEIGHT;
+    static final int GRID_WIDTH = Config.WIDTH / CELL_WIDTH;
+    static final int GRID_HEIGHT = Config.HEIGHT / CELL_HEIGHT;
 
     private final SpriteBatch batch;
     private Map<Direction, Texture> wallTextures;

@@ -1,8 +1,8 @@
 package com.visualg.animations.nBody;
 
-import com.visualg.menu.RestartEvent;
-import com.visualg.util.libgdx.ui.DefaultSettingsRow;
-import com.visualg.util.libgdx.ui.SettingsTable;
+import com.visualg.controls.events.RestartEvent;
+import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SettingsTable;
 
 import static java.lang.String.valueOf;
 

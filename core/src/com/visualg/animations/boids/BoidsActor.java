@@ -1,14 +1,14 @@
 package com.visualg.animations.boids;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
-public class BoidsActor extends ShapeRendererActor {
+class BoidsActor extends ShapeRendererActor {
 
     private final BoidsSettings boidsSettings;
     private final Boids boids;
 
-    public BoidsActor(BoidsSettings boidsSettings) {
+    BoidsActor(BoidsSettings boidsSettings) {
         super(ShapeRenderer.ShapeType.Line);
         this.boidsSettings = boidsSettings;
         boids = new Boids(boidsSettings);

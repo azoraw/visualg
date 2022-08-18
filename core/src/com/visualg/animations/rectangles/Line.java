@@ -1,13 +1,13 @@
 package com.visualg.animations.rectangles;
 
 class Line {
-    public final float x1;
-    public final float y1;
-    public final float x2;
-    public final float y2;
+    final float x1;
+    final float y1;
+    final float x2;
+    final float y2;
     private final float diffMultiplier;
 
-    public Line(float x1, float y1, float x2, float y2, float diffMultiplier) {
+    Line(float x1, float y1, float x2, float y2, float diffMultiplier) {
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;
@@ -15,7 +15,7 @@ class Line {
         this.diffMultiplier = diffMultiplier;
     }
 
-    public float getNextX() {
+    float getNextX() {
         float diff;
         if (x1 > x2)
             diff = getDiffX();
@@ -27,7 +27,7 @@ class Line {
         return ((x1 + x2) / 2) + diff;
     }
 
-    public float getNextY() {
+    float getNextY() {
         float diff;
         if (y1 > y2)
             diff = getDiffY();

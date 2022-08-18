@@ -20,7 +20,7 @@ class LangtonAntAlg {
         ants.add(new Ant(WIDTH, HEIGHT));
     }
 
-    public void move() {
+    void move() {
         for (Ant ant : ants) {
             if (board[ant.x][ant.y]) {
                 ant.moveCounterClockwise();
@@ -32,7 +32,7 @@ class LangtonAntAlg {
 
     }
 
-    public Pixmap getPixMap() {
+    Pixmap getPixMap() {
         Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(Color.WHITE);

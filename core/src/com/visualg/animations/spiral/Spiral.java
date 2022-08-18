@@ -1,23 +1,23 @@
 package com.visualg.animations.spiral;
 
-public class Spiral {
+class Spiral {
 
     private int currentSideLength = 0;
     private int sideLength = 1;
 
-    public void incrementCurrentSideLength() {
+    void incrementCurrentSideLength() {
         currentSideLength++;
     }
 
-    public void incrementSideLength() {
+    void incrementSideLength() {
         sideLength++;
     }
 
-    public boolean canTurn() {
+    boolean canTurn() {
         return currentSideLength == sideLength;
     }
 
-    public void resetCurrentSideLength() {
+    void resetCurrentSideLength() {
         currentSideLength = 0;
     }
 }

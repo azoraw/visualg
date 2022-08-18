@@ -10,7 +10,7 @@ import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_HEIG
 import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDTH;
 
 
-public class RandomAlg extends PathFinder {
+class RandomAlg extends PathFinder {
 
     private static final int INIT_POSITION_X = 0;
     private static final int INIT_POSITION_Y = 0;
@@ -19,14 +19,14 @@ public class RandomAlg extends PathFinder {
     @Getter
     private Cell currentCell;
 
-    public RandomAlg(Cell[][] cells) {
+    RandomAlg(Cell[][] cells) {
         super(cells);
         currentCell = cells[INIT_POSITION_X][INIT_POSITION_Y];
         currentCell.setCurrent(true);
     }
 
 
-    public void update() {
+    void update() {
         if (!(currentCell.getX() == GRID_WIDTH - 1 && currentCell.getY() == GRID_HEIGHT - 1)) {
             Cell randomNeighbour = getRandomNeighbour(getNeighbours(currentCell));
             currentCell.setCurrent(false);

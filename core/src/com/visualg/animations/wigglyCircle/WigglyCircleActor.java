@@ -1,7 +1,7 @@
 package com.visualg.animations.wigglyCircle;
 
+import com.visualg.ui.ShapeRendererActor;
 import com.visualg.util.Pair;
-import com.visualg.util.libgdx.ShapeRendererActor;
 
 import java.util.List;
 
@@ -12,7 +12,7 @@ class WigglyCircleActor extends ShapeRendererActor {
     private final WigglyCircleAlg alg;
     float[] points;
 
-    public WigglyCircleActor(WigglyCircleAlg alg) {
+    WigglyCircleActor(WigglyCircleAlg alg) {
         super(Line);
         this.alg = alg;
     }

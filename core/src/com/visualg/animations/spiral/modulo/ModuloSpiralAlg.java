@@ -3,15 +3,15 @@ package com.visualg.animations.spiral.modulo;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.animations.spiral.Position;
-import com.visualg.util.libgdx.PixmapAlg;
+import com.visualg.ui.pixmap.PixmapAlg;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static java.lang.Math.max;
 
-public class ModuloSpiralAlg extends PixmapAlg {
+class ModuloSpiralAlg extends PixmapAlg {
 
-    public static final int SIDE_LENGTH = max(WIDTH, HEIGHT);
+    static final int SIDE_LENGTH = max(WIDTH, HEIGHT);
     private int modulo = 1;
 
     @Override
@@ -43,7 +43,7 @@ public class ModuloSpiralAlg extends PixmapAlg {
         }
     }
 
-    public void update() {
+    void update() {
         modulo++;
     }
 }

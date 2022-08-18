@@ -1,6 +1,6 @@
 package com.visualg.animations.noise.flow;
 
-import com.visualg.util.libgdx.ShapeRendererActor;
+import com.visualg.ui.ShapeRendererActor;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Line;
 import static com.visualg.global.Config.HEIGHT;

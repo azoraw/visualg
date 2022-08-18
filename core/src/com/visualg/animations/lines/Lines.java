@@ -14,7 +14,7 @@ class Lines {
 
     private final List<LineSegment> segments = new ArrayList<>();
 
-    public Lines() {
+    Lines() {
         Pair<Integer, Integer> tmp = getNewRandomPoint();
         Pair<Integer, Integer> tmp2 = getNewRandomPoint();
         segments.add(new LineSegment(tmp.first(), tmp.second(), tmp2.first(), tmp2.second()));

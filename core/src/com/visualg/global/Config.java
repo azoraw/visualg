@@ -2,6 +2,7 @@ package com.visualg.global;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.visualg.util.libgdx.RefreshType;
 import lombok.Setter;
 
 public class Config {

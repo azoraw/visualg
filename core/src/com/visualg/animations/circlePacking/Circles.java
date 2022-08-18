@@ -16,16 +16,16 @@ class Circles {
     private final ArrayList<Circle> circles = new ArrayList<>();
     private final Pixmap pixmap;
 
-    public Circles(Pixmap pixmapResized) {
+    Circles(Pixmap pixmapResized) {
         this.pixmap = pixmapResized;
         circles.add(createCircle());
     }
 
-    public ArrayList<Circle> getCircles() {
+    ArrayList<Circle> getCircles() {
         return circles;
     }
 
-    public void update() {
+    void update() {
 
         for (int i = 0; i < HOW_MANY_CIRCLES; i++) {
             addNewCircle();
@@ -86,7 +86,7 @@ class Circles {
         return circle.x + circle.r >= WIDTH || circle.x - circle.r <= 0 || circle.y + circle.r >= HEIGHT || circle.y - circle.r <= 0;
     }
 
-    public void popBiggestCircle(int x, int y) {
+    void popBiggestCircle(int x, int y) {
         if (circles.isEmpty()) {
             return;
         }

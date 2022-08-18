@@ -13,7 +13,7 @@ import static com.visualg.animations.labyrinth.LabyrinthGeneratorActor.GRID_WIDT
 
 
 @RequiredArgsConstructor
-public abstract class PathFinder {
+abstract class PathFinder {
 
     protected final Cell[][] cells;
 
@@ -27,18 +27,10 @@ public abstract class PathFinder {
                             int x = cell.getX();
                             int y = cell.getY();
                             switch (direction) {
-                                case UP:
-                                    y--;
-                                    break;
-                                case RIGHT:
-                                    x++;
-                                    break;
-                                case DOWN:
-                                    y++;
-                                    break;
-                                case LEFT:
-                                    x--;
-                                    break;
+                                case UP -> y--;
+                                case RIGHT -> x++;
+                                case DOWN -> y++;
+                                case LEFT -> x--;
                             }
                             if (isInsideGrid(x, y)) {
                                 neighbours.add(cells[x][y]);

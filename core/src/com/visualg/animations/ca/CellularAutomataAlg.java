@@ -7,8 +7,8 @@ import java.util.Arrays;
 
 class CellularAutomataAlg {
 
-    public static final int NUMBER_OF_ROWS = 50;
-    public static final int NUMBER_OF_COLUMNS = 81;
+    static final int NUMBER_OF_ROWS = 50;
+    static final int NUMBER_OF_COLUMNS = 81;
     @Getter
     private final CurrentSettings currentSettings;
     private final CellularAutomataSettings settings;
@@ -53,7 +53,7 @@ class CellularAutomataAlg {
         return newState;
     }
 
-    public void incrementRuleNumber() {
+    void incrementRuleNumber() {
         currentSettings.incrementRule();
         settings.updateRuleNumber();
         init(currentSettings.getRuleNumber());
