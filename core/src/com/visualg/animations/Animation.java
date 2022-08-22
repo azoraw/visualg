@@ -6,6 +6,7 @@ import com.visualg.animations.boids.BoidsGroup;
 import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
 import com.visualg.animations.circleStacking.CircleStackingGroup;
+import com.visualg.animations.colorPicker.ColorPickerGroup;
 import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.fractals.juliaset.JuliaSetGroup;
 import com.visualg.animations.fractals.mandelbrot.MandelbrotGroup;
@@ -55,6 +56,7 @@ public enum Animation {
     MODULO_SPIRAL(ModuloSpiralGroup::new),
     CIRCLES_STACKING(CircleStackingGroup::new),
     MONDRIAN(MondrianGroup::new),
+    COLOR_PICKER(ColorPickerGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;

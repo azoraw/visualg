@@ -12,6 +12,7 @@ import static com.visualg.animations.Animation.CELLULAR_AUTOMATA;
 import static com.visualg.animations.Animation.CIRCLES_STACKING;
 import static com.visualg.animations.Animation.CIRCLE_PACKING;
 import static com.visualg.animations.Animation.COLOR_NOISE;
+import static com.visualg.animations.Animation.COLOR_PICKER;
 import static com.visualg.animations.Animation.DOUBLE_PENDULUM;
 import static com.visualg.animations.Animation.FLOW_FIELD;
 import static com.visualg.animations.Animation.HAIRY_FLOW_FIELD;
@@ -93,6 +94,7 @@ public class MenuTable extends Table {
         createAnimationButton("lineGrower", LINES_GROWER);
         createAnimationButton("CirclePacking", CIRCLE_PACKING);
         createAnimationButton("CircleStacking", CIRCLES_STACKING);
+        createAnimationButton("ColorPicker", COLOR_PICKER);
 
         row();
         add(new DefaultLabel("artists:"));
