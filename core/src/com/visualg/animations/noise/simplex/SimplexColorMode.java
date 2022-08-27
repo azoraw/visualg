@@ -6,6 +6,8 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.function.Function;
 
+import static com.visualg.global.Config.palette;
+
 @RequiredArgsConstructor
 enum SimplexColorMode {
     GRAYSCALE(SimplexColorMode::getGreyScale),
@@ -19,10 +21,10 @@ enum SimplexColorMode {
     }
 
     private static int getGreyScale(double simpleNoiseValue) {
-        return Color.rgba8888(1, 1, 1, (float) (simpleNoiseValue + 1) / 2);
+        return Color.rgba8888(palette.getPrimaryColor().r, palette.getPrimaryColor().g, palette.getPrimaryColor().b, (float) (simpleNoiseValue + 1) / 2);
     }
 
     private static int getCow(double simpleNoiseValue) {
-        return Color.rgba8888(1, 1, 1, simpleNoiseValue > 0 ? 1 : 0);
+        return Color.rgba8888(palette.getPrimaryColor().r, palette.getPrimaryColor().g, palette.getPrimaryColor().b, simpleNoiseValue > 0 ? 1 : 0);
     }
 }

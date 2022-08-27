@@ -1,17 +1,17 @@
 package com.visualg.ui;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.visualg.global.Config;
 import com.visualg.util.libgdx.ScreenShotUtil;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
+import static com.visualg.global.Config.updatesPerFrame;
 import static com.visualg.util.libgdx.RefreshType.BLEND;
 import static com.visualg.util.libgdx.RefreshType.DEFAULT;
 
@@ -39,8 +39,8 @@ public abstract class FrameBufferActor extends Actor {
             DEFAULT.refresh();
         }
         sr.begin(Filled);
-        blackBackground();
-        for (int i = 0; i < Config.updatesPerFrame; i++) {
+        clearBackground();
+        for (int i = 0; i < updatesPerFrame; i++) {
             drawFrame();
         }
         sr.end();
@@ -50,10 +50,14 @@ public abstract class FrameBufferActor extends Actor {
         batch.draw(fbo.getColorBufferTexture(), 0, 0, WIDTH, HEIGHT, 0, 0, 1, 1);
     }
 
-    private void blackBackground() {
+    private void clearBackground() {
         if (!backgroundCleared) {
             backgroundCleared = true;
-            sr.rect(0, 0, fbo.getWidth(), fbo.getHeight(), Color.BLACK, Color.BLACK, Color.BLACK, Color.BLACK);
+            sr.rect(0, 0, fbo.getWidth(), fbo.getHeight(),
+                    palette.getBackground(),
+                    palette.getBackground(),
+                    palette.getBackground(),
+                    palette.getBackground());
         }
     }
 

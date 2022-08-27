@@ -1,6 +1,7 @@
 package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.graphics.Color;
+import com.visualg.global.Config;
 import com.visualg.ui.FrameBufferActor;
 
 class HairyFlowFieldActor extends FrameBufferActor {
@@ -12,7 +13,8 @@ class HairyFlowFieldActor extends FrameBufferActor {
         super(true);
         this.settings = settings;
         alg = new HairyFlowFieldAlg(settings);
-        Color color = new Color(1, 1, 1, settings.getAlpha());
+        final Color primaryColor = Config.palette.getPrimaryColor();
+        Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, settings.getAlpha());
         sr.setColor(color);
     }
 

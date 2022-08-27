@@ -5,6 +5,8 @@ import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.global.Config;
 import com.visualg.util.OpenSimplexNoise;
 
+import static com.visualg.global.Config.palette;
+
 class ColorPixMap {
 
     private static final double X_OFF = 0.01;
@@ -21,7 +23,8 @@ class ColorPixMap {
         openSimplex = new OpenSimplexNoise(0);
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
-        pixmap.setColor(Color.WHITE);
+        pixmap.setColor(palette.getBackground());
+        pixmap.fill();
     }
 
     Pixmap getPixMap() {
@@ -31,6 +34,7 @@ class ColorPixMap {
             y = 0;
             for (int j = 0; j < HEIGHT_SCALED; j++) {
                 float r = (float) (openSimplex.eval(x, y, z) + 1) / 2;
+                System.out.println(r);
                 float g = (float) (openSimplex.eval(x, y, z + 100) + 1) / 2;
                 float b = (float) (openSimplex.eval(x, y, z + 200) + 1) / 2;
                 pixmap.drawPixel(i, j, Color.rgba8888(r, g, b, 1));

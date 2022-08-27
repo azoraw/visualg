@@ -1,5 +1,7 @@
 package com.visualg.animations.circleStacking;
 
+import com.badlogic.gdx.graphics.Color;
+import com.visualg.global.Config;
 import com.visualg.ui.FrameBufferActor;
 
 import static com.visualg.animations.circleStacking.CircleStackingSettings.INSTANCE;
@@ -11,7 +13,8 @@ class CircleStackingActor extends FrameBufferActor {
     CircleStackingActor() {
         super(true);
         alg = new CircleStackingAlg();
-        sr.setColor(1, 1, 1, INSTANCE.getTransparency());
+        final Color primaryColor = Config.palette.getPrimaryColor();
+        sr.setColor(primaryColor.r, primaryColor.g, primaryColor.b, INSTANCE.getTransparency());
     }
 
     @Override

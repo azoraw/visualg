@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.visualg.ui.ShapeRendererActor;
 
+import static com.visualg.global.Config.palette;
+
 public class DoublePendulum extends ShapeRendererActor {
 
     State state;
@@ -16,7 +18,7 @@ public class DoublePendulum extends ShapeRendererActor {
     @Override
     protected void drawFrame() {
 
-        sr.setColor(Color.WHITE);
+        sr.setColor(palette.getPrimaryColor());
         sr.line((float) state.getX0(), (float) state.getY0(), (float) state.getX1(), (float) state.getY1());
         sr.line((float) state.getX1(), (float) state.getY1(), (float) state.getX2(), (float) state.getY2());
         sr.end();

@@ -1,11 +1,14 @@
 package com.visualg.util.libgdx;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.visualg.global.Config;
 
 public enum RefreshType {
     DEFAULT(() -> {
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Color background = Config.palette.getBackground();
+        Gdx.gl.glClearColor(background.r, background.g, background.b, background.a);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
     }),
     BLEND(() -> {

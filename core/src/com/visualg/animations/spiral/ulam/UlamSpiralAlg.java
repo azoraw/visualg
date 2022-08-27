@@ -7,6 +7,7 @@ import com.visualg.ui.pixmap.PixmapAlg;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
 import static java.lang.Math.max;
 
 public class UlamSpiralAlg extends PixmapAlg {
@@ -43,7 +44,7 @@ public class UlamSpiralAlg extends PixmapAlg {
 
     private void colorPixel(Pixmap img, Position currentPosition, int number) {
         if (currentPosition.isInsideDrawableArea()) {
-            int pixelColor = prime.isPrime(number) ? Color.WHITE.toIntBits() : Color.BLACK.toIntBits();
+            int pixelColor = prime.isPrime(number) ? Color.rgba8888(palette.getPrimaryColor()) :  Color.rgba8888(palette.getBackground());
             img.drawPixel(currentPosition.getX(), currentPosition.getY(), pixelColor);
         }
     }
