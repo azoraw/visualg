@@ -10,6 +10,7 @@ import java.util.List;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static java.lang.Math.PI;
 
 class HairyFlowFieldAlg {
 
@@ -24,6 +25,7 @@ class HairyFlowFieldAlg {
     private List<Dot> dots;
 
     HairyFlowFieldAlg(CurrentSettings settings) {
+        settings.restartColor();
         this.settings = settings;
         vectors = new Vector2[(WIDTH / settings.getScale()) + 1][(HEIGHT / settings.getScale()) + 1];
         xOffset = RandomGenerator.getRandomFloat(10000);
@@ -43,8 +45,10 @@ class HairyFlowFieldAlg {
         for (int x = 0; x <= WIDTH / settings.getScale(); x++) {
             for (int y = 0; y <= HEIGHT / settings.getScale(); y++) {
                 vectors[x][y] = new Vector2(1, 0);
-                vectors[x][y].setAngleRad((float) (2 * Math.PI * openSimplexNoise.eval(x * settings.getXStep() + xOffset,
-                        y * settings.getYStep() + yOffset)));
+                vectors[x][y].setAngleRad((float)
+                        (2 * PI * openSimplexNoise.eval(
+                                x * settings.getXStep() + xOffset,
+                                y * settings.getYStep() + yOffset)));
             }
         }
     }
