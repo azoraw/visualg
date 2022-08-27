@@ -2,6 +2,7 @@ package com.visualg.animations.noise.transparent;
 
 import com.visualg.controls.events.RestartEvent;
 import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SelectBoxRow;
 import com.visualg.ui.settings.SettingsTable;
 import com.visualg.ui.simplifiedComponents.DefaultButton;
 import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
@@ -47,6 +48,16 @@ class HairyFlowFieldSettingsTable extends SettingsTable {
         add(new EmptyLabel());
         add(connected);
         row();
+
+        addRow(SelectBoxRow.<Colors>builder()
+                .label("colours")
+                .onChange(colors -> {
+                    settings.setColors(colors);
+                    fire(new RestartEvent());
+                })
+                .selected(settings.getColors())
+                .items(Colors.values())
+                .build());
 
         DefaultButton screenShot = new DefaultButton("screenShot", onScreenShotRunnable);
         add(new EmptyLabel());

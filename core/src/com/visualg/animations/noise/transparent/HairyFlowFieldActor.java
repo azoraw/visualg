@@ -19,8 +19,9 @@ class HairyFlowFieldActor extends FrameBufferActor {
     @Override
     protected void drawFrame() {
         alg.getDots().forEach(dot -> {
+                    sr.setColor(dot.getColor());
                     if (settings.isConnectedWithStartingPoint())
-                        sr.line(dot.getX(), dot.getY(), dot.getX2(), dot.getY2());
+                        sr.line(dot.getX(), dot.getY(), dot.getInitX(), dot.getInitY());
                     else
                         sr.circle(dot.getX(), dot.getY(), 1);
                 }
