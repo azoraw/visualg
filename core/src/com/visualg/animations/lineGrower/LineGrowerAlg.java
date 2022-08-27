@@ -11,6 +11,7 @@ import java.util.HashSet;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
 
 class LineGrowerAlg extends PixmapAlg {
     private static final int NUMBER_OF_INIT_POINTS = 3;
@@ -120,7 +121,6 @@ class LineGrowerAlg extends PixmapAlg {
             boolean growing = segment.grow(pixels);
             if (growing) {
                 drawPixel(segment);
-
             } else {
                 segmentsToRemove.add(segment);
             }
@@ -131,7 +131,7 @@ class LineGrowerAlg extends PixmapAlg {
         int x = (int) segment.getPosition().x;
         int y = (int) segment.getPosition().y;
         pixels[x][y] = segment;
-        pixmap.drawPixel(x, y, Color.WHITE.toIntBits());
+        pixmap.drawPixel(x, y,  Color.rgba8888(palette.getPrimaryColor()));
     }
 
     @Override

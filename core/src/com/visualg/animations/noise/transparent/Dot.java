@@ -8,6 +8,7 @@ import com.visualg.util.color.ColorGenerator;
 import static com.visualg.animations.noise.transparent.CurrentSettings.INSTANCE;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
 import static com.visualg.util.RandomGenerator.getIntInRange;
 
 class Dot {
@@ -18,7 +19,8 @@ class Dot {
     private final Vector2 velocity;
     private final Vector2 acceleration;
     private final int randomColorDelta;
-    private Color color = new Color(1, 1, 1, INSTANCE.getAlpha());
+    private final Color primaryColor = palette.getPrimaryColor();
+    private Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, INSTANCE.getAlpha());
 
     Dot() {
         float x = getIntInRange(WIDTH);

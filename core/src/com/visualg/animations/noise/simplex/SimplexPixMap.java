@@ -1,6 +1,5 @@
 package com.visualg.animations.noise.simplex;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.util.OpenSimplexNoise;
 
@@ -8,6 +7,7 @@ import java.util.function.Function;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
 
 
 class SimplexPixMap {
@@ -34,7 +34,7 @@ class SimplexPixMap {
         Z_OFF = settings.getZ_OFF();
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
-        pixmap.setColor(Color.WHITE);
+        pixmap.setColor(palette.getPrimaryColor());
     }
 
     Pixmap generateMovementOnZAxis() {

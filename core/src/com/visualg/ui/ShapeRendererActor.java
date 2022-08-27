@@ -1,10 +1,11 @@
 package com.visualg.ui;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.global.Config;
+
+import static com.visualg.global.Config.palette;
 
 public abstract class ShapeRendererActor extends Actor {
 
@@ -14,7 +15,7 @@ public abstract class ShapeRendererActor extends Actor {
     protected ShapeRendererActor(ShapeRenderer.ShapeType shapeType) {
         this.shapeType = shapeType;
         sr = new ShapeRenderer();
-        sr.setColor(Color.WHITE);
+        sr.setColor(palette.getPrimaryColor());
     }
 
     @Override
