@@ -2,6 +2,7 @@ package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
+import com.visualg.util.Pair;
 import com.visualg.util.RandomGenerator;
 import com.visualg.util.color.ColorGenerator;
 
@@ -27,11 +28,17 @@ class Dot {
         float y = getIntInRange(HEIGHT);
         position = new Vector2(x, y);
         initPosition = new Vector2(position);
-        velocity = new Vector2(0, 1);
-        velocity.setAngleRad(RandomGenerator.getRandomFloat(Math.PI * 4));
+        velocity = initVelocity();
         acceleration = new Vector2(0, 0);
         randomColorDelta = INSTANCE.getRandomColorDelta();
 
+    }
+
+    private Vector2 initVelocity() {
+        final Vector2 velocity;
+        velocity = new Vector2(0, 1);
+        velocity.setAngleRad(RandomGenerator.getRandomFloat(Math.PI * 4));
+        return velocity;
     }
 
     int getX() {
@@ -56,14 +63,16 @@ class Dot {
                 return color;
             }
             case SMALL_RANGE -> {
-                var rad = Math.atan2(velocity.x, velocity.y);
+                final Pair<Float, Float> colorInput = getColorInput();
+                var rad = Math.atan2(colorInput.first(), colorInput.second());
                 var angle = rad * (180 / Math.PI);
-                color = ColorGenerator.fromHSV(randomColorDelta + (float) angle / 8, 1, 1);
+                color = ColorGenerator.fromHSV(randomColorDelta + (float) angle / 4, 1, 1);
                 color.a = INSTANCE.getAlpha();
                 return color;
             }
             case FULL_PALETTE -> {
-                var rad = Math.atan2(velocity.x, velocity.y);
+                final Pair<Float, Float> colorInput = getColorInput();
+                var rad = Math.atan2(colorInput.first(), colorInput.second());
                 var angle = rad * (180 / Math.PI);
                 color = ColorGenerator.fromHSV((float) angle, 1, 1);
                 color.a = INSTANCE.getAlpha();
@@ -76,6 +85,22 @@ class Dot {
             }
         }
         return color;
+    }
+
+    private Pair<Float, Float> getColorInput() {
+        switch (INSTANCE.getColorInputSrc()) {
+            case POSITION -> {
+                return new Pair<>( position.x - WIDTH / 2,  position.y - HEIGHT / 2);
+            }
+            case VELOCITY -> {
+                return new Pair<>(velocity.x,  velocity.y);
+
+            }
+            case FIELD -> {
+                return new Pair<>( acceleration.x, acceleration.y);
+            }
+        }
+        throw new RuntimeException();
     }
 
     void moveWithFlow(Vector2 vector2) {
