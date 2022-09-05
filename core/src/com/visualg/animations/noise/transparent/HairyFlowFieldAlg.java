@@ -27,7 +27,7 @@ class HairyFlowFieldAlg {
     HairyFlowFieldAlg(CurrentSettings settings) {
         settings.restartColor();
         this.settings = settings;
-        vectors = new Vector2[(WIDTH / settings.getScale()) + 1][(HEIGHT / settings.getScale()) + 1];
+        vectors = new Vector2[WIDTH + 1][HEIGHT + 1];
         xOffset = RandomGenerator.getRandomFloat(10000);
         yOffset = RandomGenerator.getRandomFloat(10000);
         initVectors(WIDTH, HEIGHT);
@@ -42,20 +42,20 @@ class HairyFlowFieldAlg {
     }
 
     private void initVectors(int WIDTH, int HEIGHT) {
-        for (int x = 0; x <= WIDTH / settings.getScale(); x++) {
-            for (int y = 0; y <= HEIGHT / settings.getScale(); y++) {
+        for (int x = 0; x <= WIDTH ; x++) {
+            for (int y = 0; y <= HEIGHT ; y++) {
                 vectors[x][y] = new Vector2(1, 0);
                 vectors[x][y].setAngleRad((float)
                         (2 * PI * openSimplexNoise.eval(
-                                x * settings.getXStep() + xOffset,
-                                y * settings.getYStep() + yOffset)));
+                                x * settings.getStep() + xOffset,
+                                y * settings.getStep() + yOffset)));
             }
         }
     }
 
     void update() {
         dots.forEach(dot ->
-                dot.moveWithFlow(vectors[dot.getX() / settings.getScale()][dot.getY() / settings.getScale()])
+                dot.moveWithFlow(vectors[dot.getX()][dot.getY()])
         );
     }
 }

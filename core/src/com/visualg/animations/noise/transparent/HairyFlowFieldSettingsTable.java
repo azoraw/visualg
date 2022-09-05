@@ -32,13 +32,29 @@ class HairyFlowFieldSettingsTable extends SettingsTable {
                 .build();
         addRow(numberOfAgents);
 
-        DefaultSettingsRow scale = DefaultSettingsRow.builder()
-                .label("scale")
-                .initValue(valueOf(settings.getScale()))
-                .onValueChange(stringValue -> settings.setScale(parseInt(stringValue)))
+        DefaultSettingsRow initFrameSkips = DefaultSettingsRow.builder()
+                .label("initFrameSkips")
+                .initValue(valueOf(settings.getInitFrameSkips()))
+                .onValueChange(stringValue -> settings.setInitFrameSkips(parseInt(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
-        addRow(scale);
+        addRow(initFrameSkips);
+
+        DefaultSettingsRow fieldForce = DefaultSettingsRow.builder()
+                .label("fieldForce")
+                .initValue(valueOf(settings.getFieldMagnitude()))
+                .onValueChange(stringValue -> settings.setFieldMagnitude(parseFloat(stringValue)))
+                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .build();
+        addRow(fieldForce);
+
+        DefaultSettingsRow step = DefaultSettingsRow.builder()
+                .label("step")
+                .initValue(valueOf(settings.getStep()))
+                .onValueChange(stringValue -> settings.setStep(parseFloat(stringValue)))
+                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .build();
+        addRow(step);
 
         DefaultCheckBox connected = DefaultCheckBox.builder()
                 .label("connect init point")
@@ -51,12 +67,22 @@ class HairyFlowFieldSettingsTable extends SettingsTable {
 
         addRow(SelectBoxRow.<Colors>builder()
                 .label("colours")
+                .selected(settings.getColors())
                 .onChange(colors -> {
                     settings.setColors(colors);
                     fire(new RestartEvent());
                 })
-                .selected(settings.getColors())
                 .items(Colors.values())
+                .build());
+
+        addRow(SelectBoxRow.<ColorInputSrc>builder()
+                .label("colours input")
+                .selected(settings.getColorInputSrc())
+                .onChange(colors -> {
+                    settings.setColorInputSrc(colors);
+                    fire(new RestartEvent());
+                })
+                .items(ColorInputSrc.values())
                 .build());
 
         DefaultButton screenShot = new DefaultButton("screenShot", onScreenShotRunnable);

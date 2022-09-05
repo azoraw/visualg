@@ -17,12 +17,12 @@ class CurrentSettings {
     private boolean isConnectedWithStartingPoint = false;
     private float alpha = 0.01f;
     private int numberOfAgents = 1000;
-    private double xStep = 0.05;
-    private double yStep = 0.05;
-    int scale = 10;
-    float fieldMagnitude = 0.01f;
-    int randomColorDelta = getIntInRange(360);
-    Colors colors = Colors.MONOCHROMATIC;
+    private double step = 0.01;
+    private float fieldMagnitude = 0.01f;
+    private int initFrameSkips = 0;
+    private int randomColorDelta = getIntInRange(360);
+    private Colors colors = Colors.MONOCHROMATIC;
+    private ColorInputSrc colorInputSrc = ColorInputSrc.VELOCITY;
 
     void setAlpha(float alpha) {
         this.alpha = min(max(alpha, 0.01f), 1);
