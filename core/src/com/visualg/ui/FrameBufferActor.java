@@ -1,5 +1,6 @@
 package com.visualg.ui;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
@@ -27,6 +28,11 @@ public abstract class FrameBufferActor extends Actor {
         sr = new ShapeRenderer();
         fbo = new FrameBuffer(Pixmap.Format.RGBA8888, WIDTH, HEIGHT, false);
         this.transparent = transparent;
+        if(transparent) {
+            Color white = Color.WHITE.cpy();
+            white.a = 0.01f;
+            sr.setColor(white);
+        }
     }
 
     @Override
