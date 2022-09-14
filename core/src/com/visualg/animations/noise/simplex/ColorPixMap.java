@@ -34,7 +34,6 @@ class ColorPixMap {
             y = 0;
             for (int j = 0; j < HEIGHT_SCALED; j++) {
                 float r = (float) (openSimplex.eval(x, y, z) + 1) / 2;
-                System.out.println(r);
                 float g = (float) (openSimplex.eval(x, y, z + 100) + 1) / 2;
                 float b = (float) (openSimplex.eval(x, y, z + 200) + 1) / 2;
                 pixmap.drawPixel(i, j, Color.rgba8888(r, g, b, 1));

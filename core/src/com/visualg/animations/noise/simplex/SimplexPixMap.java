@@ -1,6 +1,7 @@
 package com.visualg.animations.noise.simplex;
 
 import com.badlogic.gdx.graphics.Pixmap;
+import com.visualg.global.Config;
 import com.visualg.util.OpenSimplexNoise;
 
 import java.util.function.Function;
@@ -49,7 +50,7 @@ class SimplexPixMap {
             }
             x += X_OFF;
         }
-        z += Z_OFF;
+        z += Z_OFF * Config.updatesPerFrame;
         return pixmap;
     }
 
@@ -65,7 +66,7 @@ class SimplexPixMap {
             }
             x += X_OFF + z;
         }
-        z += Z_OFF;
+        z += Z_OFF * Config.updatesPerFrame;
         return pixmap;
     }
 
@@ -81,7 +82,7 @@ class SimplexPixMap {
             }
             x += X_OFF;
         }
-        z += Z_OFF;
+        z += Z_OFF * Config.updatesPerFrame;
         return pixmap;
     }
 
