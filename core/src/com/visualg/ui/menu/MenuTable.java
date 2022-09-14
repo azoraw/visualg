@@ -30,6 +30,7 @@ import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
+import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
 
@@ -45,6 +46,7 @@ public class MenuTable extends Table {
         Label bezierLabel = new DefaultLabel("bezier:");
         add(bezierLabel);
         createAnimationButton("old windows screen saver", BEZIER);
+        createAnimationButton("transparent old screen saver", TRANSPARENT_BEZIER);
         createAnimationButton("Rectangles", RECTANGLES);
 
         row();
