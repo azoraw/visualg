@@ -29,9 +29,9 @@ public abstract class FrameBufferActor extends Actor {
         fbo = new FrameBuffer(Pixmap.Format.RGBA8888, WIDTH, HEIGHT, false);
         this.transparent = transparent;
         if(transparent) {
-            Color white = Color.WHITE.cpy();
-            white.a = 0.01f;
-            sr.setColor(white);
+            Color color = palette.getPrimaryColor().cpy();
+            color.a = 0.01f;
+            sr.setColor(color);
         }
     }
 
