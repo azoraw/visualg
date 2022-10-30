@@ -17,18 +17,16 @@ public class Config {
     public static RefreshType refreshType = RefreshType.DEFAULT;
     public static Skin skin;
 
-
-
     public static void init() {
         initSkin();
-        initResolution();
+        initNativeResolution();
     }
 
     private static void initSkin() {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
     }
 
-    private static void initResolution() {
+    private static void initNativeResolution() {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
     }
