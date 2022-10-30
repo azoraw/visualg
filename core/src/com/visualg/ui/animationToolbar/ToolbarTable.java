@@ -15,9 +15,19 @@ public class ToolbarTable extends Table {
                 .getSettingsRow();
         add(updatesPerFrame.getLabel());
         add(updatesPerFrame.getWidget());
+
+        RecordingToolbar recordingToolbar = new RecordingToolbar();
+        add(recordingToolbar.getLabel());
+        add(recordingToolbar.getFrameCount());
+        add(recordingToolbar.getStart());
+        add(recordingToolbar.getStop());
+        add(recordingToolbar.getSchedule());
+
         PaletteSetting paletteSetting = new PaletteSetting(() -> fire(new RestartEvent()));
         add(paletteSetting.getSettingsRow().getLabel());
         add(paletteSetting.getSettingsRow().getWidget());
+
+
 
     }
 }

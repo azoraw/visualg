@@ -6,7 +6,7 @@ import com.visualg.ui.settings.SettingsRow;
 import com.visualg.util.color.PaletteType;
 import lombok.Getter;
 
-public class PaletteSetting {
+class PaletteSetting {
     @Getter
     private final SettingsRow settingsRow;
 

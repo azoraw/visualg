@@ -16,7 +16,7 @@ import static com.visualg.global.Config.updatesPerFrame;
 import static com.visualg.util.libgdx.RefreshType.BLEND;
 import static com.visualg.util.libgdx.RefreshType.DEFAULT;
 
-public abstract class FrameBufferActor extends Actor {
+public abstract class FrameBufferActor extends Actor implements Recordable {
 
     private final FrameBuffer fbo;
     private final boolean transparent;
@@ -28,10 +28,13 @@ public abstract class FrameBufferActor extends Actor {
         sr = new ShapeRenderer();
         fbo = new FrameBuffer(Pixmap.Format.RGBA8888, WIDTH, HEIGHT, false);
         this.transparent = transparent;
-        if(transparent) {
+        if (transparent) {
             Color color = palette.getPrimaryColor().cpy();
             color.a = 0.01f;
             sr.setColor(color);
+        }
+        if (ScreenShotUtil.isScheduledToRecordOnNextAnimationStart()) {
+            ScreenShotUtil.prepareRecording();
         }
     }
 
@@ -39,7 +42,7 @@ public abstract class FrameBufferActor extends Actor {
     public void draw(Batch batch, float parentAlpha) {
         batch.end();
         fbo.begin();
-        if(transparent) {
+        if (transparent) {
             BLEND.refresh();
         } else {
             DEFAULT.refresh();
@@ -51,6 +54,7 @@ public abstract class FrameBufferActor extends Actor {
         }
         sr.end();
         screenShot();
+        record();
         fbo.end();
         batch.begin();
         batch.draw(fbo.getColorBufferTexture(), 0, 0, WIDTH, HEIGHT, 0, 0, 1, 1);
@@ -71,6 +75,13 @@ public abstract class FrameBufferActor extends Actor {
         if (takeScreenShot) {
             ScreenShotUtil.take(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
             takeScreenShot = false;
+        }
+    }
+
+    @Override
+    public void record() {
+        if (ScreenShotUtil.isRecording()) {
+            ScreenShotUtil.record(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
         }
     }
 
