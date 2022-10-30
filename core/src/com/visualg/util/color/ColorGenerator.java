@@ -17,7 +17,7 @@ public class ColorGenerator {
     private static final int redMask = 0B11111111000000000000000011111111;
     private static final int alphaMask = 0B00000000000000000000000011111111;
 
-    public int getRandomColor() {
+    public static int getRandomColor() {
         return RandomGenerator.nextInt();
     }
 
@@ -37,11 +37,17 @@ public class ColorGenerator {
     }
 
     public static Color fromRGB(int r, int g, int b) {
-        return new Color(Color.rgba8888((float) r/256, (float)g/256, (float) b/256,1f));
+        return new Color(Color.rgba8888((float) r / 256, (float) g / 256, (float) b / 256, 1f));
     }
 
     public static Color fromHSV(float h, float s, float v) {
-        return new Color().set(Color.WHITE).fromHsv(h, s, v);
+        return Color.WHITE.cpy().fromHsv(h, s, v);
+    }
+
+    public static Color fromHSV(float h, float s, float v, float transparency) {
+        final Color color = Color.WHITE.cpy().fromHsv(h, s, v);
+        color.a = transparency;
+        return color;
     }
 
 }

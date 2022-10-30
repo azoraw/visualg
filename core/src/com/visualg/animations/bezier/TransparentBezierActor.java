@@ -1,24 +1,35 @@
 package com.visualg.animations.bezier;
 
-import com.badlogic.gdx.math.Vector2;
 import com.visualg.ui.FrameBufferActor;
-import com.visualg.util.Pair;
 
-public class TransparentBezierActor extends FrameBufferActor {
+import java.util.ArrayList;
+import java.util.List;
 
-    private final OldWidowsScreenSaver oldWidowsScreenSaver;
+import static com.visualg.animations.bezier.Settings.INSTANCE;
 
-    public TransparentBezierActor() {
+class TransparentBezierActor extends FrameBufferActor {
+
+    private final List<OldWidowsScreenSaver> oldWidowsScreenSavers = new ArrayList<>();
+
+
+    TransparentBezierActor() {
         super(true);
-        oldWidowsScreenSaver = new OldWidowsScreenSaver();
+        for (int i = 0; i < INSTANCE.getNumberOfBlobs(); i++) {
+            oldWidowsScreenSavers.add(new OldWidowsScreenSaver(i));
+        }
     }
 
     @Override
     protected void drawFrame() {
-        for (Pair<Vector2, Vector2> line : oldWidowsScreenSaver.getLines()) {
-            sr.line(line.first(), line.second());
+        for (int i = 0; i < INSTANCE.getNumberOfBlobs(); i++) {
+            final OldWidowsScreenSaver oldWidowsScreenSaver = oldWidowsScreenSavers.get(i);
+            for (Line line : oldWidowsScreenSaver.getLines()) {
+                sr.line(line.pos1().x, line.pos1().y, line.pos2().x, line.pos2().y, line.colorPair().first(), line.colorPair().second());
+            }
         }
-        oldWidowsScreenSaver.update();
+
+        oldWidowsScreenSavers.forEach(OldWidowsScreenSaver::update);
     }
+
 
 }
