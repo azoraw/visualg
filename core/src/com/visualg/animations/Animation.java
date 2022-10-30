@@ -2,7 +2,7 @@ package com.visualg.animations;
 
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.bezier.BezierActor;
-import com.visualg.animations.bezier.TransparentBezierActor;
+import com.visualg.animations.bezier.TransparentBezierGroup;
 import com.visualg.animations.boids.BoidsGroup;
 import com.visualg.animations.ca.CellularAutomataGroup;
 import com.visualg.animations.circlePacking.CirclePacking;
@@ -34,7 +34,7 @@ import java.util.function.Supplier;
 public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(BezierActor::new),
-    TRANSPARENT_BEZIER(TransparentBezierActor::new),
+    TRANSPARENT_BEZIER(TransparentBezierGroup::new),
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
     OPEN_SIMPLEX(NoiseGroup::new),
     FLOW_FIELD(FlowFieldActor::new),
