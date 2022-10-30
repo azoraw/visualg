@@ -34,7 +34,7 @@ import java.util.function.Supplier;
 public enum Animation {
     LANGTON_ANT(LangtonAnt::new),
     BEZIER(BezierActor::new),
-    TRANSPARENT_BEZIER(TransparentBezierGroup::new),
+    TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
     OPEN_SIMPLEX(NoiseGroup::new),
     FLOW_FIELD(FlowFieldActor::new),
@@ -62,9 +62,15 @@ public enum Animation {
     ;
 
     private final Supplier<Actor> animationSupplier;
+    @Getter
+    private boolean recordable = false;
 
     Animation(Supplier<Actor> animationSupplier) {
         this.animationSupplier = animationSupplier;
+    }
+    Animation(Supplier<Actor> animationSupplier, boolean recordable) {
+        this.animationSupplier = animationSupplier;
+        this.recordable = recordable;
     }
 
     public Actor getAnimation() {

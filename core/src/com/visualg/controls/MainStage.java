@@ -3,6 +3,7 @@ package com.visualg.controls;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.animations.Animation;
+import com.visualg.global.Config;
 import com.visualg.ui.animationToolbar.ToolbarTable;
 import com.visualg.ui.exit.ExitTable;
 import com.visualg.ui.menu.MenuTable;
@@ -10,7 +11,6 @@ import com.visualg.ui.menu.MenuTable;
 public class MainStage extends Stage {
 
     private final Input input = new Input();
-    private Animation currentAnimation;
 
     public MainStage() {
         addListener(new MainStageEventListener(this));
@@ -19,11 +19,11 @@ public class MainStage extends Stage {
     }
 
     public void restart() {
-        showAnimation(currentAnimation);
+        showAnimation(Config.getCurrentAnimation());
     }
 
     public void showAnimation(Animation animation) {
-        currentAnimation = animation;
+        Config.setCurrentAnimation(animation);
         clearStage();
 
         Actor animationActor = animation.getAnimation();
@@ -47,7 +47,6 @@ public class MainStage extends Stage {
     }
 
     private void clearStage() {
-        getActors()
-                .clear();
+        getActors().clear();
     }
 }
