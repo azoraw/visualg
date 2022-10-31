@@ -12,6 +12,7 @@ public class ColorPickerGroup extends Group implements InteractiveActor {
         ColorPickerAlg colorPickerAlg = new ColorPickerAlg();
         ColorPickerActor colorPickerActor = new ColorPickerActor(colorPickerAlg);
         addActor(colorPickerActor);
+        addActor(new ColorSettings());
         inputProcessor = new ColorPickerInputProcessor(colorPickerAlg);
     }
 

@@ -31,8 +31,6 @@ class ColorPickerAlg {
     private Pair<Integer, Integer> huePosition = new Pair<>(xMid + INNER_CIRCLE_RADIUS + RING_WIDTH / 2, yMid);
     @Getter
     private Pair<Integer, Integer> valueAndSaturationPosition = new Pair<>(xMid, yMid);
-    @Getter
-    private Color chosenColor;
 
     @Getter
     private final Pixmap pixmap;
@@ -46,9 +44,16 @@ class ColorPickerAlg {
     private void updatePixmap() {
         for (int x = xMid - CIRCLE_RADIUS - 1; x < xMid + CIRCLE_RADIUS + 1; x++) {
             for (int y = yMid - CIRCLE_RADIUS - 1; y < yMid + CIRCLE_RADIUS + 1; y++) {
+                drawPickedColor(x, y);
                 drawHuePicker(x, y);
                 drawTrianglePicker(x, y);
             }
+        }
+    }
+
+    private void drawPickedColor(int x, int y) {
+        if (!insideHuePickerRing(x, y)) {
+            pixmap.drawPixel(x, y, Color.rgba8888(Settings.INSTANCE.getChosenColor()));
         }
     }
 
@@ -102,13 +107,13 @@ class ColorPickerAlg {
     public void touch(int x, int y) {
         if (isInsideTriangle(x, y)) {
             updateValueAndSaturation(x, y);
-            updatePixmap();
             updateChosenColor();
+            updatePixmap();
         }
         if (insideHuePickerRing(x, y)) {
             updateHue(x, y);
-            updatePixmap();
             updateChosenColor();
+            updatePixmap();
         }
     }
 
@@ -124,6 +129,6 @@ class ColorPickerAlg {
         double hue = getAngle(huePosition.first(), huePosition.second());
         double saturation = 1 - normalize(valueAndSaturationPosition.first(), p2X, p1X);
         double value = 1 - normalize(valueAndSaturationPosition.second(), p3Y, p2Y);
-        chosenColor = ColorGenerator.fromHSV((float) hue, (float) saturation, (float) value);
+        Settings.INSTANCE.setChosenColor(ColorGenerator.fromHSV((float) hue, (float) saturation, (float) value));
     }
 }

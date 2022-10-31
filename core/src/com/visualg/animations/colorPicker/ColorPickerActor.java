@@ -32,9 +32,6 @@ class ColorPickerActor extends Actor {
         sr.circle(colorPickerAlg.getHuePosition().first(), colorPickerAlg.getHuePosition().second(), 20);
         sr.circle(colorPickerAlg.getValueAndSaturationPosition().first(), colorPickerAlg.getValueAndSaturationPosition().second(), 20);
         sr.end();
-        sr.begin(ShapeRenderer.ShapeType.Filled);
-        sr.rect(0, 0, 600, 600, colorPickerAlg.getChosenColor(), colorPickerAlg.getChosenColor(), colorPickerAlg.getChosenColor(), colorPickerAlg.getChosenColor());
-        sr.end();
         batch.begin();
     }
 
