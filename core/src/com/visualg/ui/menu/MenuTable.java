@@ -32,6 +32,7 @@ import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
+import static com.visualg.animations.Animation.WAVE_FUNCTION_COLLAPSE;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
 
 public class MenuTable extends Table {
@@ -80,6 +81,11 @@ public class MenuTable extends Table {
         add(dfsLabel);
         createAnimationButton("labyrinth generator", LABYRINTH_GENERATOR);
         createAnimationButton("labyrinth solver", LABYRINTH_SOLVER);
+
+        row();
+        Label bfsLabel = new DefaultLabel("bfs:");
+        add(bfsLabel);
+        createAnimationButton("wave function collapse", WAVE_FUNCTION_COLLAPSE);
 
         row();
         Label fractalLabel = new DefaultLabel("fractals:");
