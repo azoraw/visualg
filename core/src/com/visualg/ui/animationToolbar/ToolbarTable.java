@@ -27,6 +27,5 @@ public class ToolbarTable extends Table {
         PaletteSetting paletteSetting = new PaletteSetting(() -> fire(new RestartEvent()));
         add(paletteSetting.getSettingsRow().getLabel());
         add(paletteSetting.getSettingsRow().getWidget());
-
     }
 }
