@@ -33,7 +33,7 @@ class BlobSetting {
     private float transparency = 0.01f;
     private float transparency2 = 0.01f;
     private boolean gradient = false;
-    private BlobColor blobColor = BlobColor.PRIMARY;
-    private BlobColor blobColor2 = BlobColor.PRIMARY;
+    private BlobColor blobColor = BlobColor.RANDOM;
+    private BlobColor blobColor2 = BlobColor.RANDOM;
 
 }

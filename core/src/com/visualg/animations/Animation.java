@@ -27,7 +27,9 @@ import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
 import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
+import com.visualg.animations.waveFuncCollapse.WaveFunctionCollapseGroup;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
+import lombok.Getter;
 
 import java.util.function.Supplier;
 
@@ -59,6 +61,7 @@ public enum Animation {
     CIRCLES_STACKING(CircleStackingGroup::new),
     MONDRIAN(MondrianGroup::new),
     COLOR_PICKER(ColorPickerGroup::new),
+    WAVE_FUNCTION_COLLAPSE(WaveFunctionCollapseGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;
