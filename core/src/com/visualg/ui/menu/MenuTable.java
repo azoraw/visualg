@@ -48,6 +48,7 @@ public class MenuTable extends Table {
         createAnimationButton("old windows screen saver", BEZIER);
         createAnimationButton("transparent old screen saver", TRANSPARENT_BEZIER);
         createAnimationButton("Rectangles", RECTANGLES);
+        createAnimationButton("Transparent Random Walk", Animation.TRANSPARENT_RANDOM_WALK);
 
         row();
         Label cellularAutomataLabel = new DefaultLabel("cellular automata:");
