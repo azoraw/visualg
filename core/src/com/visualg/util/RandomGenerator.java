@@ -2,7 +2,10 @@ package com.visualg.util;
 
 import lombok.experimental.UtilityClass;
 
+import java.util.Collection;
+import java.util.Optional;
 import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 
 @UtilityClass
 public class RandomGenerator {
@@ -30,5 +33,13 @@ public class RandomGenerator {
 
     public static boolean nextBoolean() {
         return random.nextBoolean();
+    }
+
+    public static <E> Optional<E> getRandomElement(Collection<E> collection) {
+        return collection
+                .stream()
+                .skip(ThreadLocalRandom.current()
+                        .nextInt(collection.size()))
+                .findAny();
     }
 }

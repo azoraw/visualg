@@ -27,6 +27,7 @@ import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
 import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
+import com.visualg.animations.transparentRandomWalk.TransparentRandomWalkGroup;
 import com.visualg.animations.waveFuncCollapse.WaveFunctionCollapseGroup;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
 import lombok.Getter;
@@ -44,6 +45,7 @@ public enum Animation {
     LINES_DOODLE(LinesDoodle::new),
     LINES_GROWER(LineGrowerGroup::new),
     RECTANGLES(Rectangles::new),
+    TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),
     CIRCLE_PACKING(CirclePacking::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     MOUSE_FOLLOWER(MouseFollowerActor::new),

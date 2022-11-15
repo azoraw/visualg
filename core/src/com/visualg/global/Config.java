@@ -42,9 +42,7 @@ public class Config {
     public static void updateUserPrimaryColor(Color userPrimaryColor) {
         Config.userPrimaryColor = userPrimaryColor;
         onPrimaryColorChange.run();
-        if (palette == USER_DEFINED) {
-            USER_DEFINED.setPrimaryColor(userPrimaryColor.cpy());
-        }
+        USER_DEFINED.setPrimaryColor(userPrimaryColor.cpy());
     }
 
     public static void updateUserSecondaryColor(Color userSecondaryColor) {
@@ -55,9 +53,7 @@ public class Config {
     public static void updateUserBackgroundColor(Color userBackgroundColor) {
         Config.userBackgroundColor = userBackgroundColor;
         onBackgroundColorChange.run();
-        if (palette == USER_DEFINED) {
-            USER_DEFINED.setBackground(userBackgroundColor.cpy());
-        }
+        USER_DEFINED.setBackground(userBackgroundColor.cpy());
     }
 
     public static void init() {
