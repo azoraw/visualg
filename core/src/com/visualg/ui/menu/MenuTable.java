@@ -33,6 +33,7 @@ import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
 import static com.visualg.animations.Animation.WAVE_FUNCTION_COLLAPSE;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
+import static com.visualg.animations.Animation.WIGGLY_LINE;
 
 public class MenuTable extends Table {
 
@@ -75,6 +76,7 @@ public class MenuTable extends Table {
         createAnimationButton("flowField", FLOW_FIELD);
         createAnimationButton("ColorNoise", COLOR_NOISE);
         createAnimationButton("WigglyCircle", WIGGLY_CIRCLE);
+        createAnimationButton("Spaghetti line", WIGGLY_LINE);
 
         row();
         Label dfsLabel = new DefaultLabel("dfs:");
