@@ -30,40 +30,42 @@ import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
 import com.visualg.animations.transparentRandomWalk.TransparentRandomWalkGroup;
 import com.visualg.animations.waveFuncCollapse.WaveFunctionCollapseGroup;
 import com.visualg.animations.wigglyCircle.WigglyCircleGroup;
+import com.visualg.animations.wigglyLine.WigglyLineGroup;
 import lombok.Getter;
 
 import java.util.function.Supplier;
 
 public enum Animation {
-    LANGTON_ANT(LangtonAnt::new),
     BEZIER(BezierActor::new),
-    TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
-    HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
-    OPEN_SIMPLEX(NoiseGroup::new),
-    FLOW_FIELD(FlowFieldActor::new),
-    COLOR_NOISE(ColorNoiseActor::new),
-    LINES_DOODLE(LinesDoodle::new),
-    LINES_GROWER(LineGrowerGroup::new),
-    RECTANGLES(Rectangles::new),
-    TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),
-    CIRCLE_PACKING(CirclePacking::new),
-    WIGGLY_CIRCLE(WigglyCircleGroup::new),
-    MOUSE_FOLLOWER(MouseFollowerActor::new),
-    N_BODY(NBodyGroup::new),
     BOIDS(BoidsGroup::new),
     CELLULAR_AUTOMATA(CellularAutomataGroup::new),
+    CIRCLES_STACKING(CircleStackingGroup::new),
+    CIRCLE_PACKING(CirclePacking::new),
+    COLOR_NOISE(ColorNoiseActor::new),
+    COLOR_PICKER(ColorPickerGroup::new),
     DOUBLE_PENDULUM(DoublePendulum::new),
+    FLOW_FIELD(FlowFieldActor::new),
+    HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
+    JULIA_SET(JuliaSetGroup::new),
     LABYRINTH_GENERATOR(LabyrinthGeneratorGroup::new),
     LABYRINTH_SOLVER(LabyrinthSolver::new),
-    JULIA_SET(JuliaSetGroup::new),
+    LANGTON_ANT(LangtonAnt::new),
+    LINES_DOODLE(LinesDoodle::new),
+    LINES_GROWER(LineGrowerGroup::new),
     MANDELBROT(MandelbrotGroup::new),
-    MULTIBROT(MultibrotSetGroup::new),
-    ULAM_SPIRAL(UlamSpiralGroup::new),
     MODULO_SPIRAL(ModuloSpiralGroup::new),
-    CIRCLES_STACKING(CircleStackingGroup::new),
     MONDRIAN(MondrianGroup::new),
-    COLOR_PICKER(ColorPickerGroup::new),
+    MOUSE_FOLLOWER(MouseFollowerActor::new),
+    MULTIBROT(MultibrotSetGroup::new),
+    N_BODY(NBodyGroup::new),
+    OPEN_SIMPLEX(NoiseGroup::new),
+    RECTANGLES(Rectangles::new),
+    TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
+    TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),
+    ULAM_SPIRAL(UlamSpiralGroup::new),
     WAVE_FUNCTION_COLLAPSE(WaveFunctionCollapseGroup::new),
+    WIGGLY_CIRCLE(WigglyCircleGroup::new),
+    WIGGLY_LINE(WigglyLineGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;
@@ -73,6 +75,7 @@ public enum Animation {
     Animation(Supplier<Actor> animationSupplier) {
         this.animationSupplier = animationSupplier;
     }
+
     Animation(Supplier<Actor> animationSupplier, boolean recordable) {
         this.animationSupplier = animationSupplier;
         this.recordable = recordable;
