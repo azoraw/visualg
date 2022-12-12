@@ -7,9 +7,19 @@ Installed Java
 
 # How to run
 
-Execute in command line:
+### For Windows: 
 
-./gradlew desktop:run
+download the latest release [here](https://github.com/azoraw/visualg/releases) 
+
+or execute in command line:
+
+` .\gradlew desktop:start`
+
+### For MacOs/Linux:
+
+execute in command line:
+
+`./gradlew desktop:start`
 
 # Stack
 * Java 17
@@ -23,3 +33,8 @@ Execute in command line:
 ![screenShot540903492](https://user-images.githubusercontent.com/26636050/177177580-98054488-43b1-4b19-a4a0-3256b910779e.png)
 
 
+### Dev:
+
+create release: 
+
+`./gradlew desktop:jpackageImage`
