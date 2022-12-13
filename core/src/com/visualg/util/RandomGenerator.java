@@ -19,6 +19,10 @@ public class RandomGenerator {
         return random.nextInt(max - min) + min;
     }
 
+    public static float getFloatInRange(int min, int max) {
+        return random.nextFloat(max - min) + min;
+    }
+
     public static float getRandomFloat(double max) {
         return random.nextFloat() * (float) max;
     }

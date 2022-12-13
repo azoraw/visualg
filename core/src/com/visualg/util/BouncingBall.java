@@ -1,21 +1,22 @@
-package com.visualg.animations.bezier;
+package com.visualg.util;
 
 import com.badlogic.gdx.math.Vector2;
 
+import static com.visualg.util.RandomGenerator.getFloatInRange;
 import static com.visualg.util.RandomGenerator.getIntInRange;
 
-class BouncingBall {
+public class BouncingBall {
 
     private final int speed;
-    private final int x0;
-    private final int y0;
-    private final int x1;
-    private final int y1;
+    private final float x0;
+    private final float y0;
+    private final float x1;
+    private final float y1;
 
     private Vector2 position;
     private Vector2 movementDirection;
 
-    BouncingBall(int y1, int x0, int y0, int x1, int speed) {
+    public BouncingBall(int y1, int x0, int y0, int x1, int speed) {
         this.x0 = x0;
         this.y0 = y0;
         this.x1 = x1;
@@ -25,15 +26,15 @@ class BouncingBall {
     }
 
     private void randomDirection() {
-        position = new Vector2(getIntInRange(x0, x1), getIntInRange(y0, y1));
-        movementDirection = new Vector2(getIntInRange(-1 * speed, speed), getIntInRange(-1 * speed, speed));
+        position = new Vector2(getIntInRange((int) x0, (int) x1), getIntInRange((int) y0, (int) y1));
+        movementDirection = new Vector2(getFloatInRange(-1 * speed, speed), getFloatInRange(-1 * speed, speed));
     }
 
-    Vector2 getPosition() {
+    public Vector2 getPosition() {
         return position.cpy();
     }
 
-    void update() {
+    public void update() {
         position.add(movementDirection);
 
         if (position.x < x0 || position.x > x1) {

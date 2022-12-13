@@ -30,6 +30,7 @@ import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.QUAD_TREE;
 import static com.visualg.animations.Animation.QUAD_TREE2;
+import static com.visualg.animations.Animation.QUAD_TREE3;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
@@ -115,6 +116,7 @@ public class MenuTable extends Table {
         add(new DefaultLabel("quadTree"));
         createAnimationButton("qTree", QUAD_TREE);
         createAnimationButton("qTree2", QUAD_TREE2);
+        createAnimationButton("qTree3", QUAD_TREE3);
     }
 
     private void createAnimationButton(String text, Animation animation) {
