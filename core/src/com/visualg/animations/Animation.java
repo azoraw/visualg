@@ -24,6 +24,7 @@ import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseGroup;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
+import com.visualg.animations.qTree.QuadTreeGroup;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
 import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
@@ -59,6 +60,7 @@ public enum Animation {
     MULTIBROT(MultibrotSetGroup::new),
     N_BODY(NBodyGroup::new),
     OPEN_SIMPLEX(NoiseGroup::new),
+    QUAD_TREE(QuadTreeGroup::new),
     RECTANGLES(Rectangles::new),
     TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
     TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),

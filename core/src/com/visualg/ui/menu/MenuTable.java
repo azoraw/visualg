@@ -28,6 +28,7 @@ import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
 import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
+import static com.visualg.animations.Animation.QUAD_TREE;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
@@ -108,6 +109,10 @@ public class MenuTable extends Table {
         row();
         add(new DefaultLabel("artists:"));
         createAnimationButton("Mondrian", MONDRIAN);
+
+        row();
+        add(new DefaultLabel("quadTree"));
+        createAnimationButton("qTree", QUAD_TREE);
     }
 
     private void createAnimationButton(String text, Animation animation) {
