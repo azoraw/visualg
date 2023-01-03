@@ -23,7 +23,7 @@ class QuadTreeActor extends ShapeRendererActor {
         sr.setColor(Config.getUserPrimaryColor());
         final ArrayList<Particle> particles = alg.getParticles();
         for (Particle particle : particles) {
-            sr.circle(particle.getX(), particle.getY(), 1);
+            sr.point(particle.getX(), particle.getY(), 0);
         }
         sr.setColor(ColorGenerator.fromHSV((Mouse.getX() / (float) Config.WIDTH) * 360, 1, 0.75f));
         for (Particle particle : particles) {
