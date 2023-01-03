@@ -12,6 +12,7 @@ import com.visualg.animations.doublePendulum.DoublePendulum;
 import com.visualg.animations.fractals.juliaset.JuliaSetGroup;
 import com.visualg.animations.fractals.mandelbrot.MandelbrotGroup;
 import com.visualg.animations.fractals.multibrot.MultibrotSetGroup;
+import com.visualg.animations.kandynsky.KandynskyGroup;
 import com.visualg.animations.labyrinth.LabyrinthGeneratorGroup;
 import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
@@ -51,6 +52,7 @@ public enum Animation {
     FLOW_FIELD(FlowFieldActor::new),
     HAIRY_FLOW_FIELD(HairyFlowFieldGroup::new),
     JULIA_SET(JuliaSetGroup::new),
+    KANDYNSKY(KandynskyGroup::new),
     LABYRINTH_GENERATOR(LabyrinthGeneratorGroup::new),
     LABYRINTH_SOLVER(LabyrinthSolver::new),
     LANGTON_ANT(LangtonAnt::new),

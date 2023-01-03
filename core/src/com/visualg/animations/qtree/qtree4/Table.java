@@ -4,8 +4,8 @@ import com.visualg.controls.events.RestartEvent;
 import com.visualg.ui.settings.DefaultSettingsRow;
 import com.visualg.ui.settings.SettingsTable;
 
-public class Table extends SettingsTable {
-    public Table() {
+class Table extends SettingsTable {
+    Table() {
         addRow(DefaultSettingsRow.builder()
                 .label("movementSpeed")
                 .initValue(Settings.INSTANCE.getMovementSpeed())

@@ -10,11 +10,11 @@ import static com.visualg.global.Config.palette;
 public abstract class ShapeRendererActor extends Actor {
 
     protected final ShapeRenderer.ShapeType shapeType;
-    protected final ShapeRenderer sr;
+    protected final ShapeRendererExtended sr;
 
     protected ShapeRendererActor(ShapeRenderer.ShapeType shapeType) {
         this.shapeType = shapeType;
-        sr = new ShapeRenderer();
+        sr = new ShapeRendererExtended();
         sr.setColor(palette.getPrimaryColor());
     }
 
