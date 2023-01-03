@@ -10,7 +10,7 @@ public class ExitButton extends TextButton {
 
     public ExitButton() {
         super("X", Config.skin);
-        this.addListener(new ChangeListener() {
+        addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {
                 Gdx.app.exit();

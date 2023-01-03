@@ -80,7 +80,7 @@ class KandynskyAlg {
 
     private void select(int x, int y) {
         selectedElement = getNearestElement(x, y);
-        elements.remove(this.selectedElement);
+        elements.remove(selectedElement);
         selected = true;
     }
 

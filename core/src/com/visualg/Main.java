@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.visualg.controls.MainStage;
 import com.visualg.global.Config;
+import com.visualg.util.libgdx.RefreshType;
 
 public class Main extends ApplicationAdapter {
 
@@ -17,7 +18,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void render() {
-        Config.refreshType.refresh();
+        RefreshType.DEFAULT.refresh();
         mainStage.act(Gdx.graphics.getDeltaTime());
         mainStage.draw();
     }

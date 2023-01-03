@@ -27,7 +27,7 @@ public class PixmapActor extends Group {
         if (progressBarActor.isShown()) {
             progressBarActor.getProgressBar().setValue(alg.progress);
         }
-        this.drawChildren(batch, parentAlpha);
+        drawChildren(batch, parentAlpha);
     }
 
     public void asyncUpdate() {
@@ -46,11 +46,11 @@ public class PixmapActor extends Group {
 
     private void addProgressBarActor() {
         progressBarActor.setShown(true);
-        this.addActor(progressBarActor.getProgressBar());
+        addActor(progressBarActor.getProgressBar());
     }
 
     private void removeProgressBarActor(ProgressBarActor progressBarActor) {
         progressBarActor.setShown(false);
-        this.removeActor(progressBarActor.getProgressBar());
+        removeActor(progressBarActor.getProgressBar());
     }
 }

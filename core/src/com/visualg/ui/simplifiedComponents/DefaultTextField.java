@@ -15,7 +15,7 @@ public class DefaultTextField extends TextField {
     public DefaultTextField(String defaultValue, Consumer<String> valueConsumer) {
         super(defaultValue, Config.skin);
         this.defaultValue = defaultValue;
-        this.addListener(new InputListener() {
+        addListener(new InputListener() {
             @Override
             public boolean keyUp(InputEvent event, int keycode) {
                 if (keycode == Input.Keys.ENTER) {

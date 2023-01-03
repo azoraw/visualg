@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.visualg.animations.Animation;
 import com.visualg.util.color.PaletteType;
-import com.visualg.util.libgdx.RefreshType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,7 +13,6 @@ public class Config {
     public static int updatesPerFrame = 1;
     public static int WIDTH;
     public static int HEIGHT;
-    public static RefreshType refreshType = RefreshType.DEFAULT;
     public static Skin skin;
     @Getter @Setter
     private static Animation currentAnimation;

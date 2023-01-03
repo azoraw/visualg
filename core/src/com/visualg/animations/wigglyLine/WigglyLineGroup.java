@@ -7,7 +7,7 @@ public class WigglyLineGroup extends Group/* implements InteractiveActor*/ {
     public WigglyLineGroup() {
         WigglyLineAlg wigglyLineAlg = new WigglyLineAlg();
         Table actor = new Table();
-        this.addActor(actor);
-        this.addActor(new WigglyLineActor(wigglyLineAlg));
+        addActor(actor);
+        addActor(new WigglyLineActor(wigglyLineAlg));
     }
 }

@@ -27,7 +27,7 @@ public class AStarAlg extends PathFinder {
 
     public AStarAlg(Cell[][] cells) {
         super(cells);
-        this.goal = cells[GRID_WIDTH - 1][GRID_HEIGHT - 1];
+        goal = cells[GRID_WIDTH - 1][GRID_HEIGHT - 1];
         currentCell = cells[INIT_POSITION_X][INIT_POSITION_Y];
     }
 

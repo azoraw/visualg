@@ -8,7 +8,7 @@ public class HairyFlowFieldGroup extends Group {
         Settings settings = Settings.INSTANCE;
         HairyFlowFieldActor actor = new HairyFlowFieldActor(settings);
         Table settingsTable = new Table(settings, actor.onScreenShot());
-        this.addActor(actor);
-        this.addActor(settingsTable);
+        addActor(actor);
+        addActor(settingsTable);
     }
 }
