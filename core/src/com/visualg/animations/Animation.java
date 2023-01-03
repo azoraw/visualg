@@ -18,6 +18,7 @@ import com.visualg.animations.labyrinth.LabyrinthSolver;
 import com.visualg.animations.langtonant.LangtonAnt;
 import com.visualg.animations.lineGrower.LineGrowerGroup;
 import com.visualg.animations.lines.LinesDoodle;
+import com.visualg.animations.lissajous.LissajousCurveGroup;
 import com.visualg.animations.moireSupperlattice.MoireSuperlatticeGroup;
 import com.visualg.animations.mondrian.MondrianGroup;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
@@ -78,6 +79,7 @@ public enum Animation {
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     WIGGLY_LINE(WigglyLineGroup::new),
     MOIRE_SUPERLATTICE(MoireSuperlatticeGroup::new),
+    LISSAJOUS_CURVE(LissajousCurveGroup::new),
     ;
 
     private final Supplier<Actor> animationSupplier;

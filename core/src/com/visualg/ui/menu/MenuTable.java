@@ -78,6 +78,7 @@ public class MenuTable extends Table {
         createAnimationButton("CircleStacking", CIRCLES_STACKING);
         createAnimationButton("Transparent Random Walk", Animation.TRANSPARENT_RANDOM_WALK);
         createAnimationButton("moire superlattice", MOIRE_SUPERLATTICE);
+        createAnimationButton("Lissajous Curve", LISSAJOUS_CURVE);
 
         row();
         add(new DefaultLabel("artists:"));
