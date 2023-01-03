@@ -24,9 +24,10 @@ import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseGroup;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
-import com.visualg.animations.qTree.QuadTreeGroup;
-import com.visualg.animations.qtree2.QuadTreeGroup2;
-import com.visualg.animations.qtree3.QuadTreeGroup3;
+import com.visualg.animations.qtree.qTree1.QuadTreeGroup;
+import com.visualg.animations.qtree.qtree2.QuadTreeGroup2;
+import com.visualg.animations.qtree.qtree3.QuadTreeGroup3;
+import com.visualg.animations.qtree.qtree4.QuadTreeGroup4;
 import com.visualg.animations.rectangles.Rectangles;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
 import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
@@ -65,6 +66,7 @@ public enum Animation {
     QUAD_TREE(QuadTreeGroup::new),
     QUAD_TREE2(QuadTreeGroup2::new),
     QUAD_TREE3(QuadTreeGroup3::new),
+    QUAD_TREE4(QuadTreeGroup4::new),
     RECTANGLES(Rectangles::new),
     TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
     TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),

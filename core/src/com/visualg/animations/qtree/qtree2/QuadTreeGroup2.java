@@ -1,9 +1,9 @@
-package com.visualg.animations.qTree;
+package com.visualg.animations.qtree.qtree2;
 
 import com.badlogic.gdx.scenes.scene2d.Group;
 
-public class QuadTreeGroup extends Group {
-    public QuadTreeGroup() {
+public class QuadTreeGroup2 extends Group {
+    public QuadTreeGroup2() {
         final QuadTreeActor quadTreeActor = new QuadTreeActor();
         addActor(quadTreeActor);
     }

@@ -1,4 +1,4 @@
-package com.visualg.animations.qtree2;
+package com.visualg.animations.qtree.qTree1;
 
 import com.visualg.global.Config;
 import com.visualg.util.RandomGenerator;

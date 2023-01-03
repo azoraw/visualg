@@ -1,4 +1,4 @@
-package com.visualg.animations.qtree3;
+package com.visualg.animations.qtree.qtree2;
 
 import com.visualg.global.Config;
 import com.visualg.util.RandomGenerator;
@@ -12,10 +12,5 @@ class Particle {
     public Particle() {
         x = RandomGenerator.getRandomFloat(Config.WIDTH);
         y = RandomGenerator.getRandomFloat(Config.HEIGHT);
-    }
-
-    public void moveRandom() {
-        x += RandomGenerator.getIntInRange(3) - 1;
-        y += RandomGenerator.getIntInRange(3) - 1;
     }
 }

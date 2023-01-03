@@ -1,4 +1,4 @@
-package com.visualg.animations.qTree;
+package com.visualg.animations.qtree.qTree1;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;

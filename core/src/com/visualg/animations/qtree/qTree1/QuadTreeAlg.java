@@ -1,4 +1,4 @@
-package com.visualg.animations.qTree;
+package com.visualg.animations.qtree.qTree1;
 
 import com.visualg.global.Config;
 import com.visualg.util.qTree.Point;

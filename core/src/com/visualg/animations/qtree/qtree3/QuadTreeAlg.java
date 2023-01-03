@@ -1,4 +1,4 @@
-package com.visualg.animations.qtree3;
+package com.visualg.animations.qtree.qtree3;
 
 import com.visualg.global.Config;
 import com.visualg.util.BouncingBall;
