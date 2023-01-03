@@ -1,6 +1,7 @@
 package com.visualg.animations.qtree.qTree1;
 
 import com.visualg.global.Config;
+import com.visualg.util.qTree.Circle;
 import com.visualg.util.qTree.Point;
 import com.visualg.util.qTree.QTree;
 import com.visualg.util.qTree.Rectangle;
@@ -24,5 +25,10 @@ class QuadTreeAlg {
 
     public ArrayList<Point> getParticlesInRect(Rectangle rectangle) {
         return qTree.query(rectangle, new ArrayList<>());
+    }
+
+    public ArrayList<Point> getParticlesInCircle(Circle circle) {
+        return qTree.query(circle, new ArrayList<>());
+
     }
 }

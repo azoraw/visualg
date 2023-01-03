@@ -11,4 +11,5 @@ class Settings {
 
     private int rectSize = 100;
     private int numberOfParticles = 1000;
+    private QueryMode mode = QueryMode.RECT;
 }

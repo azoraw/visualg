@@ -2,6 +2,7 @@ package com.visualg.animations.qtree.qtree4;
 
 import com.visualg.global.Config;
 import com.visualg.util.BouncingBall;
+import com.visualg.util.qTree.Circle;
 import com.visualg.util.qTree.Point;
 import com.visualg.util.qTree.QTree;
 import com.visualg.util.qTree.Rectangle;
@@ -31,7 +32,9 @@ class QuadTreeAlg {
     public ArrayList<Point> getParticlesInRect(Rectangle rectangle) {
         return qTree.query(rectangle, new ArrayList<>());
     }
-
+    public ArrayList<Point> getParticlesInCircle(Circle circle) {
+        return qTree.query(circle, new ArrayList<>());
+    }
     public void update() {
         qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), QTREE_CAPACITY);
         for (BouncingBall bouncingBall : bouncingBalls) {

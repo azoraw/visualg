@@ -73,4 +73,21 @@ public class QTree {
         }
         return found;
     }
+
+    public ArrayList<Point> query(Circle range, ArrayList<Point> found) {
+        if (boundary.intersects(range)) {
+            for (Point p : points) {
+                if (range.contains(p)) {
+                    found.add(p);
+                }
+            }
+            if (isDivided) {
+                northWest.query(range, found);
+                northEast.query(range, found);
+                southWest.query(range, found);
+                southEast.query(range, found);
+            }
+        }
+        return found;
+    }
 }

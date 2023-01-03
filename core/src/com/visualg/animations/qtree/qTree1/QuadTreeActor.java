@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.visualg.ui.ShapeRendererActor;
 import com.visualg.util.Mouse;
+import com.visualg.util.qTree.Circle;
 import com.visualg.util.qTree.Point;
 import com.visualg.util.qTree.Rectangle;
 
@@ -26,8 +27,16 @@ class QuadTreeActor extends ShapeRendererActor {
             sr.point(particle.getX(), particle.getY(), 0);
         }
         sr.setColor(Color.GREEN);
-        sr.rect(Mouse.getX() - INSTANCE.getRectSize(), Mouse.getY() - INSTANCE.getRectSize(), INSTANCE.getRectSize() * 2, INSTANCE.getRectSize() * 2);
-        final ArrayList<Point> particlesInRect = alg.getParticlesInRect(new Rectangle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize(), INSTANCE.getRectSize()));
+        ArrayList<Point> particlesInRect = null;
+        if (INSTANCE.getMode() == QueryMode.RECT) {
+            sr.rect(Mouse.getX() - INSTANCE.getRectSize(), Mouse.getY() - INSTANCE.getRectSize(), INSTANCE.getRectSize() * 2, INSTANCE.getRectSize() * 2);
+            particlesInRect = alg.getParticlesInRect(new Rectangle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize(), INSTANCE.getRectSize()));
+        }
+        if (INSTANCE.getMode() == QueryMode.CIRCLE) {
+            sr.circle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize());
+            particlesInRect = alg.getParticlesInCircle(new Circle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize()));
+        }
+
         for (Point point : particlesInRect) {
             for (Point other : particlesInRect) {
                 if (point == other) {
