@@ -9,7 +9,7 @@ import static com.visualg.global.Config.WIDTH;
 
 class Squares {
 
-    private static final float DIFF_STEP = 0.002f;
+    private static final float DIFF_STEP = 0.001f;
     private float diffMultiplier = 1;
 
     final int width;
