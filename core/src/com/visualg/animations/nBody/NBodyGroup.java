@@ -7,7 +7,7 @@ public class NBodyGroup extends Group {
     public NBodyGroup() {
         CurrentSettings currentSettings = CurrentSettings.INSTANCE;
         NBodyAlg nBodyAlg = new NBodyAlg(currentSettings);
-        NBodySettingsTable settings = new NBodySettingsTable(currentSettings);
+        Table settings = new Table(currentSettings);
         this.addActor(new NBodyActor(nBodyAlg));
         this.addActor(settings);
     }

@@ -7,6 +7,7 @@ import lombok.Getter;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
+import static com.visualg.util.RandomGenerator.Random;
 
 @Getter
 class Segment {
@@ -30,42 +31,13 @@ class Segment {
     private final Vector2 velocity;
     int crossed = 0;
 
-    static Segment test1() {
-        Vector2 initPosition = new Vector2(510,480);
-        Vector2 vel = new Vector2();
-        vel.setToRandomDirection();
-        vel.setAngleDeg(90);
-        vel.scl(SPEED);
-        return  Segment.builder()
-                .initPosition(initPosition)
-                .position(initPosition.cpy())
-                .velocity(vel)
-                .build();
-    }
-    static Segment test2() {
-        Vector2 initPosition = new Vector2(490, 500);
-        Vector2 vel = new Vector2();
-        vel.setToRandomDirection();
-        vel.setAngleDeg(0);
-        vel.scl(SPEED);
-        return  Segment.builder()
-                .initPosition(initPosition)
-                .position(initPosition.cpy())
-                .velocity(vel)
-                .build();
-    }
     Segment() {
-        position = new Vector2(RandomGenerator.getIntInRange(WIDTH-1), RandomGenerator.getIntInRange(HEIGHT-1));
+        position = new Vector2(Random.nextInt(WIDTH-1), Random.nextInt(HEIGHT-1));
         initPosition = position.cpy();
-
         velocity = new Vector2();
         velocity.setToRandomDirection();
         velocity.scl(SPEED);
         initMove();
-    }
-
-    private void initMove() {
-        position.add(velocity);
     }
 
     @Builder
@@ -73,6 +45,10 @@ class Segment {
         this.position = position;
         this.initPosition = initPosition;
         this.velocity = velocity;
+    }
+
+    private void initMove() {
+        position.add(velocity);
     }
 
     Segment createPerpendicular() {
@@ -87,7 +63,7 @@ class Segment {
         Segment segment = Segment.builder()
                 .initPosition(lerp)
                 .position(lerp)
-                .velocity(velocity.cpy().rotate90(RandomGenerator.nextBoolean() ? -1 : 1))
+                .velocity(velocity.cpy().rotate90(Random.nextBoolean() ? -1 : 1))
                 .build();
         segment.initMove();
         return segment;

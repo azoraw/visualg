@@ -7,7 +7,7 @@ import java.awt.geom.Line2D;
 import java.io.Serial;
 
 @Data
-public class LineElement implements Element {
+class LineElement implements Element {
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -16,7 +16,7 @@ public class LineElement implements Element {
     private float xEnd;
     private float yEnd;
 
-    public LineElement(int xStart, int yStart, int xEnd, int yEnd) {
+    LineElement(int xStart, int yStart, int xEnd, int yEnd) {
         this.xStart = xStart;
         this.yStart = yStart;
         this.xEnd = xEnd;

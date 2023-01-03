@@ -15,7 +15,7 @@ class CellularAutomataActor extends ShapeRendererActor {
     private static final Color ON_COLOR = Color.GRAY;
     private static final Color OFF_COLOR = Color.DARK_GRAY;
     private final CellularAutomataAlg alg;
-    private final CurrentSettings settings;
+    private final Settings settings;
 
     private int animationSpeedFrameCounter = 0;
     private int ruleSpeedFrameCounter = 0;
@@ -26,7 +26,7 @@ class CellularAutomataActor extends ShapeRendererActor {
         sr.setColor(OFF_COLOR);
 
         alg = cellularAutomataAlg;
-        settings = cellularAutomataAlg.getCurrentSettings();
+        settings = cellularAutomataAlg.getSettings();
     }
 
     @Override

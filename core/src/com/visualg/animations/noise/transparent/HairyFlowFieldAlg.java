@@ -19,12 +19,12 @@ class HairyFlowFieldAlg {
 
     private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise();
     private final Vector2[][] vectors;
-    private final CurrentSettings settings;
+    private final Settings settings;
 
     @Getter
     private List<Dot> dots;
 
-    HairyFlowFieldAlg(CurrentSettings settings) {
+    HairyFlowFieldAlg(Settings settings) {
         settings.restartColor();
         this.settings = settings;
         vectors = new Vector2[WIDTH + 1][HEIGHT + 1];

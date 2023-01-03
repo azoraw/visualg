@@ -8,10 +8,10 @@ import static com.visualg.global.Config.WIDTH;
 public class WigglyCircleGroup extends Group {
 
     public WigglyCircleGroup() {
-        CurrentSettings currentSettings = new CurrentSettings();
+        Settings settings = new Settings();
         WigglyCircleAlg wigglyCircleAlg = new WigglyCircleAlg((float) WIDTH / 2, (float) HEIGHT / 2,
-                currentSettings);
-        WigglyCircleSettingsTable actor = new WigglyCircleSettingsTable(currentSettings);
+                settings);
+        Table actor = new Table(settings);
         this.addActor(actor);
         this.addActor(new WigglyCircleActor(wigglyCircleAlg));
     }

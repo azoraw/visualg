@@ -1,6 +1,6 @@
 package com.visualg.animations.transparentRandomWalk;
 
-public enum Shape {
+enum Shape {
     RECT,
     CIRCLE
 }

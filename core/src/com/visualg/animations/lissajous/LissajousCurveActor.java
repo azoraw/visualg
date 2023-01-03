@@ -14,7 +14,7 @@ class LissajousCurveActor extends FrameBufferActor {
     public LissajousCurveActor() {
         super(true);
         alg = new LissajousCurveAlg();
-        Color color = Config.getUserPrimaryColor().cpy();
+        Color color = Config.palette.getPrimaryColor().cpy();
         color.a = INSTANCE.getTransparency();
         sr.setColor(color);
         x = Config.WIDTH / 2 + alg.getX();

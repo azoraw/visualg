@@ -18,22 +18,22 @@ class MandelbrotInputProcessor implements InputProcessor {
         switch (keycode) {
             case Input.Keys.LEFT:
                 if (!ctrlPressed) {
-                    this.mandelbrotController.moveCamera(Direction.LEFT);
+                    mandelbrotController.moveCamera(Direction.LEFT);
                 }
                 break;
             case Input.Keys.RIGHT:
                 if (!ctrlPressed) {
-                    this.mandelbrotController.moveCamera(Direction.RIGHT);
+                    mandelbrotController.moveCamera(Direction.RIGHT);
                 }
                 break;
             case Input.Keys.UP:
                 if (!ctrlPressed) {
-                    this.mandelbrotController.moveCamera(Direction.UP);
+                    mandelbrotController.moveCamera(Direction.UP);
                 }
                 break;
             case Input.Keys.DOWN:
                 if (!ctrlPressed) {
-                    this.mandelbrotController.moveCamera(Direction.DOWN);
+                    mandelbrotController.moveCamera(Direction.DOWN);
                 }
                 break;
             case Input.Keys.CONTROL_LEFT:
@@ -60,11 +60,11 @@ class MandelbrotInputProcessor implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (button == Input.Buttons.LEFT) {
-            this.mandelbrotController.moveCameraAndZoom(screenX, screenY, Zoom.IN);
+            mandelbrotController.moveCameraAndZoom(screenX, screenY, Zoom.IN);
         } else if (button == Input.Buttons.RIGHT) {
-            this.mandelbrotController.moveCameraAndZoom(screenX, screenY, Zoom.OUT);
+            mandelbrotController.moveCameraAndZoom(screenX, screenY, Zoom.OUT);
         } else if (button == Input.Buttons.MIDDLE) {
-            this.mandelbrotController.moveCamera(screenX, screenY);
+            mandelbrotController.moveCamera(screenX, screenY);
         }
         return false;
     }
@@ -86,7 +86,7 @@ class MandelbrotInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        this.mandelbrotController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
+        mandelbrotController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
         return false;
     }
 

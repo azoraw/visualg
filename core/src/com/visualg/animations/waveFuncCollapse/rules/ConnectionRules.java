@@ -83,7 +83,7 @@ class ConnectionRules {
     private void initPseudorandom() {
         for (int i = 1; i <= 5; i++) {
             for (Direction dir : values()) {
-                add(i, dir, "" + RandomGenerator.getIntInRange(4));
+                add(i, dir, "" + RandomGenerator.Random.nextInt(4));
             }
         }
     }

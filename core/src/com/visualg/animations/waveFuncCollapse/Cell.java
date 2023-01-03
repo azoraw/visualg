@@ -63,7 +63,7 @@ class Cell  implements Comparable<Cell>{
     }
 
     public void collapse() {
-        collapsed(options.get(RandomGenerator.getIntInRange(options.size())));
+        collapsed(options.get(RandomGenerator.Random.nextInt(options.size())));
     }
 
     @Override

@@ -12,7 +12,7 @@ import static com.visualg.global.Config.WIDTH;
 class MandelbrotController {
 
     private final Settings settings;
-    private final SettingsView settingsView;
+    private final Table table;
     private final PixmapActor mandelbrotActor;
 
     void zoom(Zoom zoom) {
@@ -37,7 +37,7 @@ class MandelbrotController {
     }
 
     private void updateViews() {
-        settingsView.updateFields();
+        table.updateFields();
         mandelbrotActor.asyncUpdate();
     }
 }

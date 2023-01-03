@@ -17,7 +17,7 @@ class WigglyLineAlg {
     private double magn = 1f;
 
     WigglyLineAlg() {
-        noise = new OpenSimplexNoise(RandomGenerator.getIntInRange(Integer.MAX_VALUE));
+        noise = new OpenSimplexNoise(RandomGenerator.Random.nextInt(Integer.MAX_VALUE));
     }
 
     List<Pair<Integer, Integer>> getVertices() {

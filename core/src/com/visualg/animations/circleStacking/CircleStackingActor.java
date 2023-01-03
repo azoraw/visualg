@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.visualg.global.Config;
 import com.visualg.ui.FrameBufferActor;
 
-import static com.visualg.animations.circleStacking.CircleStackingSettings.INSTANCE;
+import static com.visualg.animations.circleStacking.Settings.INSTANCE;
 
 class CircleStackingActor extends FrameBufferActor {
 

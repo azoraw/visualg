@@ -1,10 +1,13 @@
 package com.visualg.animations.bezier;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
 class Settings {
     static final Settings INSTANCE = new Settings();

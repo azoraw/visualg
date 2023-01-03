@@ -6,7 +6,7 @@ import lombok.Data;
 import java.io.Serial;
 
 @Data
-final class SemiCircleElement implements Element {
+class SemiCircleElement implements Element {
     @Serial
     private static final long serialVersionUID = 1L;
 

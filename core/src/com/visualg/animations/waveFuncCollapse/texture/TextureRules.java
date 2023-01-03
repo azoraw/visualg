@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.BiFunction;
 
-import static com.visualg.util.RandomGenerator.getIntInRange;
+import static com.visualg.util.RandomGenerator.Random;
 
 class TextureRules {
 
@@ -46,10 +46,10 @@ class TextureRules {
     private void initPseudoRandom() {
         cellSize = 4;
         add(1, (x, y) -> false);
-        add(2, (x, y) -> y == getIntInRange(cellSize) && x == getIntInRange(cellSize));
-        add(3, (x, y) -> y == getIntInRange(cellSize) && x == getIntInRange(cellSize));
-        add(4, (x, y) -> y == getIntInRange(cellSize) && x == getIntInRange(cellSize));
-        add(5, (x, y) -> y == getIntInRange(cellSize) || x == getIntInRange(cellSize));
+        add(2, (x, y) -> y == Random.nextInt(cellSize) && x == Random.nextInt(cellSize));
+        add(3, (x, y) -> y == Random.nextInt(cellSize) && x == Random.nextInt(cellSize));
+        add(4, (x, y) -> y == Random.nextInt(cellSize) && x == Random.nextInt(cellSize));
+        add(5, (x, y) -> y == Random.nextInt(cellSize) || x == Random.nextInt(cellSize));
     }
 
     private void add(int indexElement, BiFunction<Integer, Integer, Boolean> activeCellsFunction) {

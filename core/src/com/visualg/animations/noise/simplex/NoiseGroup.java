@@ -5,8 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class NoiseGroup extends Group {
 
     public NoiseGroup() {
-        NoiseSettings settings = NoiseSettings.INSTANCE;
-        NoiseSettingsTable settingsTable = new NoiseSettingsTable(settings);
+        Settings settings = Settings.INSTANCE;
+        Table settingsTable = new Table(settings);
         addActor(new NoiseActor(settings));
         addActor(settingsTable);
     }

@@ -1,6 +1,6 @@
 package com.visualg.animations.kandynsky;
 
-public enum EditMode {
+enum EditMode {
     CREATE,
     MOVE,
     SELECT

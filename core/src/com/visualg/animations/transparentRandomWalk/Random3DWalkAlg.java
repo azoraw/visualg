@@ -1,7 +1,7 @@
 package com.visualg.animations.transparentRandomWalk;
 
 import com.visualg.global.Config;
-import com.visualg.util.Direction3d;
+import com.visualg.util.Direction3D;
 import com.visualg.util.RandomGenerator;
 import lombok.Getter;
 
@@ -15,39 +15,39 @@ class Random3DWalkAlg {
 
     @Getter
     private int x, y, z;
-    private Direction3d previousDir = Direction3d.DOWN;
+    private Direction3D previousDir = Direction3D.DOWN;
 
     public Random3DWalkAlg(int cellSize) {
         X_LENGTH = Config.WIDTH / cellSize;
         Y_LENGTH = Config.HEIGHT / cellSize;
         Z_LENGTH = 100;
-        x = RandomGenerator.getIntInRange(X_LENGTH);
-        y = RandomGenerator.getIntInRange(Y_LENGTH);
-        z = RandomGenerator.getIntInRange(Z_LENGTH);
+        x = RandomGenerator.Random.nextInt(X_LENGTH);
+        y = RandomGenerator.Random.nextInt(Y_LENGTH);
+        z = RandomGenerator.Random.nextInt(Z_LENGTH);
 
     }
 
     void update() {
-        final Direction3d randomDirection3d = getRandomDirection();
-        previousDir = randomDirection3d;
-        int newX = x + randomDirection3d.getX();
-        int newY = y + randomDirection3d.getY();
-        int newZ = z + randomDirection3d.getZ();
+        final Direction3D randomDirection3D = getRandomDirection();
+        previousDir = randomDirection3D;
+        int newX = x + randomDirection3D.getX();
+        int newY = y + randomDirection3D.getY();
+        int newZ = z + randomDirection3D.getZ();
 
         if (isXValid(newX) && isYValid(newY) && isZValid(newZ)) {
             x = newX;
             y = newY;
             z = newZ;
         } else {
-            x += randomDirection3d.getOppositeX();
-            y += randomDirection3d.getOppositeY();
-            z += randomDirection3d.getOppositeZ();
+            x += randomDirection3D.getOppositeX();
+            y += randomDirection3D.getOppositeY();
+            z += randomDirection3D.getOppositeZ();
         }
 
     }
 
-    public Direction3d getRandomDirection() {
-        Set<Direction3d> possibleDirs = EnumSet.allOf(Direction3d.class);
+    public Direction3D getRandomDirection() {
+        Set<Direction3D> possibleDirs = EnumSet.allOf(Direction3D.class);
         possibleDirs.remove(previousDir);
         return RandomGenerator.getRandomElement(possibleDirs).orElseThrow();
     }

@@ -6,6 +6,6 @@ public class LineGrowerGroup extends Group {
     public LineGrowerGroup() {
         LineGrowerAlg alg = new LineGrowerAlg();
         LineGrowerActor pixmapActor = new LineGrowerActor(alg);
-        this.addActor(pixmapActor);
+        addActor(pixmapActor);
     }
 }

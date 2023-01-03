@@ -5,19 +5,19 @@ import com.visualg.ui.ShapeRendererActor;
 
 class BoidsActor extends ShapeRendererActor {
 
-    private final BoidsSettings boidsSettings;
+    private final Settings settings;
     private final Boids boids;
 
-    BoidsActor(BoidsSettings boidsSettings) {
+    BoidsActor(Settings settings) {
         super(ShapeRenderer.ShapeType.Line);
-        this.boidsSettings = boidsSettings;
-        boids = new Boids(boidsSettings);
+        this.settings = settings;
+        boids = new Boids(settings);
     }
 
     @Override
     protected void drawFrame() {
-        for (Bird bird : boids.getBirds()) {
-            sr.circle((int) bird.getPosition().getX(), (int) bird.getPosition().getY(), boidsSettings.getCircleRadius());
+        for (Boid boid : boids.getBoids()) {
+            sr.circle((int) boid.getPosition().getX(), (int) boid.getPosition().getY(), settings.getCircleRadius());
         }
         boids.move();
     }

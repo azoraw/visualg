@@ -7,7 +7,7 @@ public class LabyrinthGeneratorGroup extends Group {
         LabyrinthGeneratorActor labyrinthGeneratorActor = new LabyrinthGeneratorActor();
         LabyrinthGeneratorController controller = new LabyrinthGeneratorController(labyrinthGeneratorActor);
         addActor(labyrinthGeneratorActor);
-        LabyrinthGeneratorSettings settings = new LabyrinthGeneratorSettings(controller);
+        Table settings = new Table(controller);
         addActor(settings);
     }
 }

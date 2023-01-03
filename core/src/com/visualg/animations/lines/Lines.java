@@ -46,7 +46,7 @@ class Lines {
     }
 
     private Pair<Integer, Integer> getNewRandomPoint() {
-        return new Pair<>(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT));
+        return new Pair<>(RandomGenerator.Random.nextInt(WIDTH), RandomGenerator.Random.nextInt(HEIGHT));
     }
 
 

@@ -12,6 +12,9 @@ import com.visualg.global.Config;
 import com.visualg.ui.settings.DefaultSettingsRow;
 import com.visualg.ui.simplifiedComponents.DefaultButton;
 import com.visualg.ui.simplifiedComponents.DefaultLabel;
+import com.visualg.util.color.PaletteType;
+
+import static com.visualg.util.color.PaletteType.USER_DEFINED;
 
 public class ToolbarTable extends Table {
 
@@ -47,9 +50,8 @@ public class ToolbarTable extends Table {
         Table table = new Table();
         table.add(label);
         updatePrimaryColor(table);
-        Config.setOnPrimaryColorChange(() -> updatePrimaryColor(table));
+        PaletteType.setOnPrimaryColorChange(() -> updatePrimaryColor(table));
         add(table);
-
     }
 
     private void addSecondaryColor() {
@@ -57,7 +59,7 @@ public class ToolbarTable extends Table {
         Table table = new Table();
         table.add(label);
         updateSecondaryColor(table);
-        Config.setOnSecondaryColorChange(() -> updateSecondaryColor(table));
+        PaletteType.setOnSecondaryColorChange(() -> updateSecondaryColor(table));
         add(table);
     }
 
@@ -66,14 +68,14 @@ public class ToolbarTable extends Table {
         Table table = new Table();
         table.add(label);
         updateBackgroundColor(table);
-        Config.setOnBackgroundColorChange(() -> updateBackgroundColor(table));
+        PaletteType.setOnBackgroundColorChange(() -> updateBackgroundColor(table));
         add(table);
     }
 
 
     private void updatePrimaryColor(Table table) {
         Pixmap bgPixmap = new Pixmap(1, 1, Pixmap.Format.RGB565);
-        bgPixmap.setColor(Config.getUserPrimaryColor());
+        bgPixmap.setColor(USER_DEFINED.getPrimaryColor());
         bgPixmap.fill();
         TextureRegionDrawable textureRegionDrawableBg = new TextureRegionDrawable(new TextureRegion(new Texture(bgPixmap)));
         table.setBackground(textureRegionDrawableBg);
@@ -81,7 +83,7 @@ public class ToolbarTable extends Table {
 
     private void updateSecondaryColor(Table table) {
         Pixmap bgPixmap = new Pixmap(1, 1, Pixmap.Format.RGB565);
-        bgPixmap.setColor(Config.getUserSecondaryColor());
+        bgPixmap.setColor(USER_DEFINED.getSecondaryColor());
         bgPixmap.fill();
         TextureRegionDrawable textureRegionDrawableBg = new TextureRegionDrawable(new TextureRegion(new Texture(bgPixmap)));
         table.setBackground(textureRegionDrawableBg);
@@ -89,7 +91,7 @@ public class ToolbarTable extends Table {
 
     private void updateBackgroundColor(Table table) {
         Pixmap bgPixmap = new Pixmap(1, 1, Pixmap.Format.RGB565);
-        bgPixmap.setColor(Config.getUserBackgroundColor());
+        bgPixmap.setColor(USER_DEFINED.getBackground());
         bgPixmap.fill();
         TextureRegionDrawable textureRegionDrawableBg = new TextureRegionDrawable(new TextureRegion(new Texture(bgPixmap)));
         table.setBackground(textureRegionDrawableBg);

@@ -13,10 +13,9 @@ public class Palette {
     Color[] palette;
 
     public Palette(int paletteSize) {
-        ColorGenerator colorGenerator = new ColorGenerator();
         palette = new Color[paletteSize];
         for (int i = 0; i < paletteSize; i++) {
-            palette[i] = new Color(colorGenerator.getRandomColor());
+            palette[i] = new Color(ColorGenerator.getRandomColor());
         }
     }
 
@@ -25,6 +24,6 @@ public class Palette {
     }
 
     public Color getRandomColor() {
-        return palette[RandomGenerator.getIntInRange(palette.length)];
+        return palette[RandomGenerator.Random.nextInt(palette.length)];
     }
 }

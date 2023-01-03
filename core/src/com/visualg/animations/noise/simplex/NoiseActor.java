@@ -12,7 +12,7 @@ class NoiseActor extends Actor {
     private Texture texture;
     private Pixmap pixmap;
 
-    NoiseActor(NoiseSettings settings) {
+    NoiseActor(Settings settings) {
         simplexPixMap = new SimplexPixMap(settings);
     }
 

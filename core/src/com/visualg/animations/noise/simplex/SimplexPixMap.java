@@ -26,7 +26,7 @@ class SimplexPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    SimplexPixMap(NoiseSettings settings) {
+    SimplexPixMap(Settings settings) {
         goInNumberOfPixels = settings.getNumberOfSkippedPixels();
         openSimplex = new OpenSimplexNoise(0);
         colorFunction = settings.getColorMode().getColorFunction();

@@ -36,7 +36,10 @@ public class BouncingBall {
 
     public void update() {
         position.add(movementDirection);
+        bounce();
+    }
 
+    private void bounce() {
         if (position.x < x0 || position.x > x1) {
             movementDirection.scl(-1, 1);
         }

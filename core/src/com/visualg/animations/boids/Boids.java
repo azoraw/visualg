@@ -8,34 +8,29 @@ import java.util.stream.Collectors;
 
 @Getter
 class Boids {
-    private final List<Bird> birds = new ArrayList<>();
-    private final BoidsSettings boidsSettings;
+    private final List<Boid> boids = new ArrayList<>();
+    private final Settings settings;
 
-    void whoIsNeighbour() {
-        birds.forEach(
-                bird -> bird.setNeighbours(birds.stream()
-                                .filter(possibleNeighbour -> bird != possibleNeighbour
-                                        && bird.isNeighbour(possibleNeighbour.getPosition()))
-                                .collect(Collectors.toList()))
-        );
-    }
-
-    Boids(BoidsSettings boidsSettings) {
-        this.boidsSettings = boidsSettings;
-
-        for (int i = 0; i < boidsSettings.getNumberOfBoids(); i++) {
-            birds.add(new Bird(boidsSettings));
+    Boids(Settings settings) {
+        this.settings = settings;
+        for (int i = 0; i < settings.getNumberOfBoids(); i++) {
+            boids.add(new Boid(settings));
         }
     }
 
     void move() {
-        whoIsNeighbour();
-        for (Bird bird : birds) {
-            bird.move();
+        updateWhoIsNeighbour();
+        for (Boid boid : boids) {
+            boid.move();
         }
     }
 
-    boolean shouldRestart() {
-        return birds.size() != boidsSettings.getNumberOfBoids();
+    void updateWhoIsNeighbour() {
+        boids.forEach(
+                boid -> boid.setNeighbours(boids.stream()
+                        .filter(possibleNeighbour -> boid != possibleNeighbour
+                                && boid.isNeighbour(possibleNeighbour.getPosition()))
+                        .collect(Collectors.toList()))
+        );
     }
 }

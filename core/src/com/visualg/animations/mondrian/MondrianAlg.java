@@ -10,6 +10,7 @@ import java.util.List;
 
 import static com.visualg.animations.mondrian.Settings.INSTANCE;
 import static com.visualg.animations.mondrian.Settings.RESOLUTION;
+import static com.visualg.util.RandomGenerator.Random;
 
 class MondrianAlg {
 
@@ -46,7 +47,7 @@ class MondrianAlg {
     }
 
     void update() {
-        int index = RandomGenerator.getIntInRange(rectangles.size());
+        int index = Random.nextInt(rectangles.size());
         Rect split = rectangles.get(index);
         if (split.height() < INSTANCE.getSideMaxSplitLength() || split.width() < INSTANCE.getSideMaxSplitLength()
                 || rectangles.size() > MAX_SIZE) {
@@ -55,7 +56,7 @@ class MondrianAlg {
         Rect rect1;
         Rect rect2;
         float currentSplit = getCurrentSplit();
-        if (RandomGenerator.nextBoolean()) {
+        if (Random.nextBoolean()) {
             rect1 = Rect.builder()
                     .x(split.x())
                     .y(split.y())
@@ -93,7 +94,7 @@ class MondrianAlg {
     private float getCurrentSplit() {
         float currentSplit = 1f;
         if(INSTANCE.getSpace() != 0) {
-            currentSplit = splits[RandomGenerator.nextInt(splits.length)];
+            currentSplit = splits[Random.nextInt(splits.length)];
         }
         return currentSplit;
     }

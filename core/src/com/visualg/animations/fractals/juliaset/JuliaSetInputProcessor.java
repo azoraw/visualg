@@ -21,30 +21,30 @@ class JuliaSetInputProcessor implements InputProcessor {
         switch (keycode) {
             case Input.Keys.LEFT:
                 if (ctrlPressed) {
-                    this.juliaSetController.moveSet(Direction.LEFT);
+                    juliaSetController.moveSet(Direction.LEFT);
                 } else {
-                    this.juliaSetController.moveCamera(Direction.LEFT);
+                    juliaSetController.moveCamera(Direction.LEFT);
                 }
                 break;
             case Input.Keys.RIGHT:
                 if (ctrlPressed) {
-                    this.juliaSetController.moveSet(Direction.RIGHT);
+                    juliaSetController.moveSet(Direction.RIGHT);
                 } else {
-                    this.juliaSetController.moveCamera(Direction.RIGHT);
+                    juliaSetController.moveCamera(Direction.RIGHT);
                 }
                 break;
             case Input.Keys.UP:
                 if (ctrlPressed) {
-                    this.juliaSetController.moveSet(Direction.UP);
+                    juliaSetController.moveSet(Direction.UP);
                 } else {
-                    this.juliaSetController.moveCamera(Direction.UP);
+                    juliaSetController.moveCamera(Direction.UP);
                 }
                 break;
             case Input.Keys.DOWN:
                 if (ctrlPressed) {
-                    this.juliaSetController.moveSet(Direction.DOWN);
+                    juliaSetController.moveSet(Direction.DOWN);
                 } else {
-                    this.juliaSetController.moveCamera(Direction.DOWN);
+                    juliaSetController.moveCamera(Direction.DOWN);
                 }
                 break;
             case Input.Keys.CONTROL_LEFT:
@@ -71,11 +71,11 @@ class JuliaSetInputProcessor implements InputProcessor {
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
         if (button == Input.Buttons.LEFT) {
-            this.juliaSetController.moveCameraAndZoom(screenX, screenY, Zoom.IN);
+            juliaSetController.moveCameraAndZoom(screenX, screenY, Zoom.IN);
         } else if (button == Input.Buttons.RIGHT) {
-            this.juliaSetController.moveCameraAndZoom(screenX, screenY, Zoom.OUT);
+            juliaSetController.moveCameraAndZoom(screenX, screenY, Zoom.OUT);
         } else if (button == Input.Buttons.MIDDLE) {
-            this.juliaSetController.moveCamera(screenX, screenY);
+            juliaSetController.moveCamera(screenX, screenY);
         }
         return true;
     }
@@ -97,7 +97,7 @@ class JuliaSetInputProcessor implements InputProcessor {
 
     @Override
     public boolean scrolled(float amountX, float amountY) {
-        this.juliaSetController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
+        juliaSetController.zoom(amountY < 0 ? Zoom.IN : Zoom.OUT);
         return false;
     }
 

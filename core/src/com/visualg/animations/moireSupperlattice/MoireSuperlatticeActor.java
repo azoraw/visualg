@@ -35,7 +35,7 @@ class MoireSuperlatticeActor extends Actor {
         Color color=null;
         switch (colorOption) {
             case PRIMARY -> {
-                color = Config.getUserPrimaryColor().cpy();
+                color = Config.palette.getPrimaryColor().cpy();
                 color.a = INSTANCE.getTransparency();
             }
             case RANDOM -> {

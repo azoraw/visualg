@@ -24,7 +24,7 @@ class QuadTreeActor extends ShapeRendererActor {
 
     @Override
     protected void drawFrame() {
-        sr.setColor(Config.getUserPrimaryColor());
+        sr.setColor(Config.palette.getPrimaryColor());
         final ArrayList<BouncingBall> particles = alg.getBouncingBalls();
         for (BouncingBall particle : particles) {
             sr.point(particle.getPosition().x, particle.getPosition().y, 0);

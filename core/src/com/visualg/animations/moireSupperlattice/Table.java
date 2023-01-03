@@ -1,11 +1,9 @@
 package com.visualg.animations.moireSupperlattice;
 
-import com.visualg.animations.bezier.BlobColor;
 import com.visualg.controls.events.RestartEvent;
 import com.visualg.ui.settings.DefaultSettingsRow;
 import com.visualg.ui.settings.SelectBoxRow;
 import com.visualg.ui.settings.SettingsTable;
-import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
 
 import static com.visualg.animations.moireSupperlattice.Settings.INSTANCE;
 

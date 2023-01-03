@@ -77,8 +77,8 @@ class Circles {
     }
 
     private Circle createCircle() {
-        int x = RandomGenerator.getIntInRange(WIDTH);
-        int y = RandomGenerator.getIntInRange(HEIGHT);
+        int x = RandomGenerator.Random.nextInt(WIDTH);
+        int y = RandomGenerator.Random.nextInt(HEIGHT);
         return new Circle(x, y, pixmap.getPixel(x, HEIGHT - y));
     }
 

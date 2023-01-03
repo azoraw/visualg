@@ -6,11 +6,11 @@ import com.visualg.util.Pair;
 import com.visualg.util.RandomGenerator;
 import com.visualg.util.color.ColorGenerator;
 
-import static com.visualg.animations.noise.transparent.CurrentSettings.INSTANCE;
+import static com.visualg.animations.noise.transparent.Settings.INSTANCE;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
-import static com.visualg.util.RandomGenerator.getIntInRange;
+import static com.visualg.util.RandomGenerator.Random;
 
 class Dot {
     private static final float maxSpeed = 1;
@@ -24,8 +24,8 @@ class Dot {
     private Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, INSTANCE.getAlpha());
 
     Dot() {
-        float x = getIntInRange(WIDTH);
-        float y = getIntInRange(HEIGHT);
+        float x = Random.nextInt(WIDTH);
+        float y = Random.nextInt(HEIGHT);
         position = new Vector2(x, y);
         initPosition = new Vector2(position);
         velocity = initVelocity();

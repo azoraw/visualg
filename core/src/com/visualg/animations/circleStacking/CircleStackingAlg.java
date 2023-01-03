@@ -11,7 +11,7 @@ class CircleStackingAlg {
     private final List<Circle> circles = new ArrayList<>();
 
     CircleStackingAlg() {
-        CircleStackingSettings settings = CircleStackingSettings.INSTANCE;
+        Settings settings = Settings.INSTANCE;
         circles.add(Circle.builder()
                 .xCenter(Config.WIDTH/2)
                 .yCenter(Config.HEIGHT/2)

@@ -1,7 +1,10 @@
 package com.visualg.animations.qtree.qtree3;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
 class Settings {
     static final Settings INSTANCE = new Settings();

@@ -12,7 +12,7 @@ import java.util.List;
 
 import static java.lang.Integer.parseInt;
 
-public class Table extends SettingsTable {
+class Table extends SettingsTable {
 
     private final List<InteractiveSettingsRow> selectedElementSettings = new ArrayList<>();
 

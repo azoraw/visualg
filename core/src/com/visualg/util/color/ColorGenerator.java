@@ -18,19 +18,19 @@ public class ColorGenerator {
     private static final int alphaMask = 0B00000000000000000000000011111111;
 
     public static int getRandomColor() {
-        return RandomGenerator.nextInt();
+        return RandomGenerator.Random.nextInt();
     }
 
     public int getRedScaleColor() {
-        return RandomGenerator.nextInt() & redMask;
+        return RandomGenerator.Random.nextInt() & redMask;
     }
 
     public int getMonoChromaticColor() {
-        return RandomGenerator.nextInt() | monochromaticMask;
+        return RandomGenerator.Random.nextInt() | monochromaticMask;
     }
 
     public int getGreyScaleColor() {
-        int luminosity = RandomGenerator.nextInt() & alphaMask;
+        int luminosity = RandomGenerator.Random.nextInt() & alphaMask;
         int tmp = luminosity << 8;
         tmp = luminosity ^ tmp;
         return (tmp << 16) ^ tmp;

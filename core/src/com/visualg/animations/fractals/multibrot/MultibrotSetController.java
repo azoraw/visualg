@@ -12,7 +12,7 @@ import static com.visualg.global.Config.WIDTH;
 class MultibrotSetController {
 
     private final Settings settings;
-    private final SettingsView settingsView;
+    private final Table table;
     private final PixmapActor multibrotActor;
 
     void zoom(Zoom zoom) {
@@ -42,7 +42,7 @@ class MultibrotSetController {
     }
 
     private void updateViews() {
-        settingsView.updateFields();
+        table.updateFields();
         multibrotActor.asyncUpdate();
     }
 }

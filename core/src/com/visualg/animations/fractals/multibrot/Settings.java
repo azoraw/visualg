@@ -1,6 +1,6 @@
 package com.visualg.animations.fractals.multibrot;
 
-import com.visualg.animations.fractals.ComplexNumber;
+import com.visualg.util.ComplexNumber;
 import com.visualg.util.Direction;
 import com.visualg.util.Zoom;
 import lombok.Builder;
@@ -35,13 +35,12 @@ class Settings {
     private double zoom;
     private double zoomMultiplier;
 
-    void zoom(Zoom zoom) {
-        if (zoom == Zoom.IN) {
-            this.zoom *= zoomMultiplier;
+    void zoom(Zoom zoomInput) {
+        if (zoomInput == Zoom.IN) {
+            zoom *= zoomMultiplier;
         } else
-            this.zoom /= zoomMultiplier;
+            zoom /= zoomMultiplier;
     }
-
 
     void addOffset(Direction direction) {
         double offsetDelta = 0.2 / zoom;
@@ -54,8 +53,8 @@ class Settings {
     }
 
     void move(int screenX, int screenY, int fractalWidth, int fractalHeight) {
-        double x = 1.5 * (((double) screenX * 2 / fractalWidth) - 1) / this.zoom;
-        double y = (((double) screenY * 2 / fractalHeight) - 1) / this.zoom;
+        double x = 1.5 * (((double) screenX * 2 / fractalWidth) - 1) / zoom;
+        double y = (((double) screenY * 2 / fractalHeight) - 1) / zoom;
         xOffset -= x;
         yOffset -= y;
     }

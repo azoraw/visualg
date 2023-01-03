@@ -11,23 +11,23 @@ import java.util.stream.Collectors;
 class Position {
 
     private final Motion currentMotion;
-    private final BoidsSettings boidsSettings;
+    private final Settings settings;
 
     private double x;
     private double y;
     private double tmpDX;
     private double tmpDY;
 
-    Position(BoidsSettings boidsSettings) {
-        this.boidsSettings = boidsSettings;
-        x = RandomGenerator.getIntInRange(Config.WIDTH);
-        y = RandomGenerator.getIntInRange(Config.HEIGHT);
-        currentMotion = new Motion(boidsSettings);
+    Position(Settings settings) {
+        this.settings = settings;
+        x = RandomGenerator.Random.nextInt(Config.WIDTH);
+        y = RandomGenerator.Random.nextInt(Config.HEIGHT);
+        currentMotion = new Motion(settings);
     }
 
-    void move(List<Bird> neighbours) {
+    void move(List<Boid> neighbours) {
         List<Position> neighboursPosition = neighbours.stream()
-                .map(Bird::getPosition)
+                .map(Boid::getPosition)
                 .collect(Collectors.toList());
         tmpDX = currentMotion.getDx();
         tmpDY = currentMotion.getDy();
@@ -49,16 +49,16 @@ class Position {
         double alignDy = 0;
         for (Motion neighbourDirection : neighboursDirections) {
             if (neighbourDirection.getDx() > currentMotion.getDx()) {
-                alignDx += boidsSettings.getAlignmentForce();
+                alignDx += settings.getAlignmentForce();
             }
             if (neighbourDirection.getDx() < currentMotion.getDx()) {
-                alignDx -= boidsSettings.getAlignmentForce();
+                alignDx -= settings.getAlignmentForce();
             }
             if (neighbourDirection.getDy() > currentMotion.getDy()) {
-                alignDy += boidsSettings.getAlignmentForce();
+                alignDy += settings.getAlignmentForce();
             }
             if (neighbourDirection.getDy() < currentMotion.getDy()) {
-                alignDy -= boidsSettings.getAlignmentForce();
+                alignDy -= settings.getAlignmentForce();
             }
         }
         if (neighboursDirections.size() != 0) {
@@ -72,16 +72,16 @@ class Position {
         double cohesionDY = 0;
         for (Position position : positions) {
             if (position.getX() - x > 0) {
-                cohesionDX += boidsSettings.getCohesionForce();
+                cohesionDX += settings.getCohesionForce();
             }
             if (position.getX() - x < 0) {
-                cohesionDX -= boidsSettings.getCohesionForce();
+                cohesionDX -= settings.getCohesionForce();
             }
             if (position.getY() - y > 0) {
-                cohesionDY += boidsSettings.getCohesionForce();
+                cohesionDY += settings.getCohesionForce();
             }
             if (position.getY() - y < 0) {
-                cohesionDY -= boidsSettings.getCohesionForce();
+                cohesionDY -= settings.getCohesionForce();
             }
         }
         if (positions.size() != 0) {
@@ -95,13 +95,13 @@ class Position {
         double collisionDY = 0;
         for (Position position : positions) {
             if (position.getX() - x > 0)
-                collisionDX -= boidsSettings.getCollisionRepulsionForce();
+                collisionDX -= settings.getCollisionRepulsionForce();
             if (position.getX() - x < 0)
-                collisionDX += boidsSettings.getCollisionRepulsionForce();
+                collisionDX += settings.getCollisionRepulsionForce();
             if (position.getY() - y > 0)
-                collisionDY -= boidsSettings.getCollisionRepulsionForce();
+                collisionDY -= settings.getCollisionRepulsionForce();
             if (position.getY() - y < 0)
-                collisionDY += boidsSettings.getCollisionRepulsionForce();
+                collisionDY += settings.getCollisionRepulsionForce();
 
         }
         if (positions.size() != 0) {
@@ -128,6 +128,6 @@ class Position {
     boolean isTooClose(Position possibleNeighbourPosition) {
         double x2 = possibleNeighbourPosition.getX();
         double y2 = possibleNeighbourPosition.getY();
-        return Math.pow(x - x2, 2) + Math.pow(y - y2, 2) < Math.pow(boidsSettings.getCollidingRadius(), 2);
+        return Math.pow(x - x2, 2) + Math.pow(y - y2, 2) < Math.pow(settings.getCollidingRadius(), 2);
     }
 }

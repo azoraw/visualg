@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import static com.visualg.global.Config.HEIGHT;
 
 @RequiredArgsConstructor
-public class ColorPickerInputProcessor implements DefaultInputProcessor {
+class ColorPickerInputProcessor implements DefaultInputProcessor {
 
     private final ColorPickerAlg colorPickerAlg;
 

@@ -7,10 +7,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 class Input {
 
     void addInputProcessors(Actor animationActor, MainStage mainStage) {
-        if(animationActor instanceof InteractiveActor) {
+        if(animationActor instanceof InteractiveActor interactiveAnimationActor) {
             InputMultiplexer inputMultiplexer = new InputMultiplexer();
             inputMultiplexer.addProcessor(mainStage);
-            inputMultiplexer.addProcessor(((InteractiveActor) animationActor).getInputProcessor());
+            inputMultiplexer.addProcessor(interactiveAnimationActor.getInputProcessor());
             Gdx.input.setInputProcessor(inputMultiplexer);
         }
     }

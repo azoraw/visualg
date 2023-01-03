@@ -15,7 +15,7 @@ class Particle {
     }
 
     public void moveRandom() {
-        x += RandomGenerator.getIntInRange(3) - 1;
-        y += RandomGenerator.getIntInRange(3) - 1;
+        x += RandomGenerator.Random.nextInt(3) - 1;
+        y += RandomGenerator.Random.nextInt(3) - 1;
     }
 }

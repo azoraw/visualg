@@ -4,10 +4,10 @@ import com.badlogic.gdx.Input;
 import com.visualg.global.Config;
 import com.visualg.ui.simplifiedComponents.DefaultInputProcessor;
 
-public class CreateInputController implements DefaultInputProcessor {
+class CreateInputController implements DefaultInputProcessor {
     private final Settings settings = Settings.INSTANCE;
     private final KandynskyAlg alg;
-    private Table table;
+    private final Table table;
 
     public CreateInputController(KandynskyAlg alg, Table table) {
         this.alg = alg;

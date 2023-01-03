@@ -5,10 +5,10 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class CellularAutomataGroup extends Group {
 
     public CellularAutomataGroup() {
-        CurrentSettings currentSettings = CurrentSettings.INSTANCE;
-        CellularAutomataSettings settingsView = new CellularAutomataSettings(currentSettings);
-        CellularAutomataAlg wigglyCircleAlg = new CellularAutomataAlg(currentSettings, settingsView);
-        this.addActor(settingsView);
-        this.addActor(new CellularAutomataActor(wigglyCircleAlg));
+        Settings settings = Settings.INSTANCE;
+        Table settingsView = new Table(settings);
+        CellularAutomataAlg wigglyCircleAlg = new CellularAutomataAlg(settings, settingsView);
+        addActor(settingsView);
+        addActor(new CellularAutomataActor(wigglyCircleAlg));
     }
 }

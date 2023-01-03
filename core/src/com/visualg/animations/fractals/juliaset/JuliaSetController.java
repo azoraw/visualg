@@ -12,7 +12,7 @@ import static com.visualg.global.Config.WIDTH;
 class JuliaSetController {
 
     private final Settings settings;
-    private final SettingsView settingsView;
+    private final Table table;
     private final PixmapActor juliaSetActor;
 
     void zoom(Zoom zoom) {
@@ -42,7 +42,7 @@ class JuliaSetController {
     }
 
     private void updateViews() {
-        settingsView.updateFields();
+        table.updateFields();
         juliaSetActor.asyncUpdate();
     }
 }

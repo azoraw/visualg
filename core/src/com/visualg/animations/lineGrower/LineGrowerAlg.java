@@ -69,13 +69,13 @@ class LineGrowerAlg extends PixmapAlg {
             return;
         }
         for (int i = 0; i < segmentsToRemove.size() * NUMBER_OF_NEW_SEGMENTS; i++) {
-            Segment perpendicular = allSegments.get(RandomGenerator.nextInt(allSegments.size()))
+            Segment perpendicular = allSegments.get(RandomGenerator.Random.nextInt(allSegments.size()))
                     .createPerpendicular();
             for (int numbreOfTries = 0; numbreOfTries < 100; numbreOfTries++) {
                 if (canAddNewSegment(perpendicular)) {
                     break;
                 }
-                perpendicular = allSegments.get(RandomGenerator.nextInt(allSegments.size()))
+                perpendicular = allSegments.get(RandomGenerator.Random.nextInt(allSegments.size()))
                         .createPerpendicular();
             }
             addNewSegment(perpendicular);

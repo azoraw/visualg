@@ -1,6 +1,6 @@
 package com.visualg.animations.bezier;
 
-public enum BlobColor {
+enum BlobColor {
     PRIMARY,
     BACKGROUND,
     RANDOM,

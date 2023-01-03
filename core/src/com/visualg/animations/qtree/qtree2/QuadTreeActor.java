@@ -20,7 +20,7 @@ class QuadTreeActor extends ShapeRendererActor {
 
     @Override
     protected void drawFrame() {
-        sr.setColor(Config.getUserPrimaryColor());
+        sr.setColor(Config.palette.getPrimaryColor());
         final ArrayList<Particle> particles = alg.getParticles();
         for (Particle particle : particles) {
             sr.point(particle.getX(), particle.getY(), 0);

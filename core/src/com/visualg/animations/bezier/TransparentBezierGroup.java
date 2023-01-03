@@ -6,8 +6,8 @@ public class TransparentBezierGroup extends Group {
     public TransparentBezierGroup() {
         final TransparentBezierActor transparentBezierActor = new TransparentBezierActor();
         addActor(transparentBezierActor);
-        final TransparentBezierSettings transparentBezierSettings = new TransparentBezierSettings(transparentBezierActor.onScreenShot());
-        addActor(transparentBezierSettings);
+        final Table table = new Table(transparentBezierActor.onScreenShot());
+        addActor(table);
 
     }
 }

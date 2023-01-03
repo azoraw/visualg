@@ -21,7 +21,7 @@ class NBodyAlg {
 
         this.settings = currentSettings;
         for (int i = 0; i < currentSettings.getNumberOfBodies(); i++) {
-            bodies.add(new Body(new Vector2(RandomGenerator.getIntInRange(WIDTH), RandomGenerator.getIntInRange(HEIGHT)), currentSettings));
+            bodies.add(new Body(new Vector2(RandomGenerator.Random.nextInt(WIDTH), RandomGenerator.Random.nextInt(HEIGHT)), currentSettings));
         }
     }
 

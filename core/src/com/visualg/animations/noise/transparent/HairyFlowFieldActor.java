@@ -7,16 +7,16 @@ import com.visualg.ui.FrameBufferActor;
 class HairyFlowFieldActor extends FrameBufferActor {
 
     private final HairyFlowFieldAlg alg;
-    private final CurrentSettings settings;
+    private final Settings settings;
 
-    HairyFlowFieldActor(CurrentSettings settings) {
+    HairyFlowFieldActor(Settings settings) {
         super(true);
         this.settings = settings;
         alg = new HairyFlowFieldAlg(settings);
         final Color primaryColor = Config.palette.getPrimaryColor();
         Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, settings.getAlpha());
         sr.setColor(color);
-        for (int i = 0; i < CurrentSettings.INSTANCE.getInitFrameSkips(); i++) {
+        for (int i = 0; i < Settings.INSTANCE.getInitFrameSkips(); i++) {
             alg.update();
         }
     }

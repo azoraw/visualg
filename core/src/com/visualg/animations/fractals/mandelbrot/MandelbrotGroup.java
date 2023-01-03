@@ -11,11 +11,11 @@ public class MandelbrotGroup extends Group implements InteractiveActor {
 
     public MandelbrotGroup() {
         Settings settings = Settings.INSTANCE;
-        SettingsView settingsView = new SettingsView(settings);
+        Table table = new Table(settings);
         PixmapActor pixmapActor = new PixmapActor(new MandelbrotSetAlg(settings));
         addActor(pixmapActor);
-        addActor(settingsView);
-        MandelbrotController mandelbrotController = new MandelbrotController(settings, settingsView, pixmapActor);
+        addActor(table);
+        MandelbrotController mandelbrotController = new MandelbrotController(settings, table, pixmapActor);
         inputProcessors = new MandelbrotInputProcessor(mandelbrotController);
     }
 

@@ -6,7 +6,7 @@ public class TransparentRandomWalkGroup extends Group {
     public TransparentRandomWalkGroup() {
         final TransparentRandomWalkActor transparentRandomWalkActor = new TransparentRandomWalkActor();
         addActor(transparentRandomWalkActor);
-        SettingsView settingsView = new SettingsView();
-        addActor(settingsView);
+        Table table = new Table();
+        addActor(table);
     }
 }

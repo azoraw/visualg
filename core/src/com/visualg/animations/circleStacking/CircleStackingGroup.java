@@ -5,9 +5,9 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class CircleStackingGroup extends Group {
 
     public CircleStackingGroup() {
-        CircleStackingSettings settings = CircleStackingSettings.INSTANCE;
+        Settings settings = Settings.INSTANCE;
         CircleStackingActor actor = new CircleStackingActor();
-        CircleStackingSettingsTable settingsTable = new CircleStackingSettingsTable(settings, actor.onScreenShot());
+        Table settingsTable = new Table(settings, actor.onScreenShot());
         addActor(actor);
         addActor(settingsTable);
     }

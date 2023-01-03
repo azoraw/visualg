@@ -15,14 +15,14 @@ class WigglyCircleAlg {
 
     private final float xMiddle;
     private final float yMiddle;
-    private final CurrentSettings settings;
+    private final Settings settings;
     private final OpenSimplexNoise noise;
 
 
-    WigglyCircleAlg(float xMiddle, float yMiddle, CurrentSettings currentSettings) {
+    WigglyCircleAlg(float xMiddle, float yMiddle, Settings settings) {
         this.xMiddle = xMiddle;
         this.yMiddle = yMiddle;
-        this.settings = currentSettings;
+        this.settings = settings;
         noise = new OpenSimplexNoise();
     }
 
