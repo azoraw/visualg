@@ -32,6 +32,14 @@ class Table extends SettingsTable {
                 .build();
         addRow(numberOfAgents);
 
+        DefaultSettingsRow tiles = DefaultSettingsRow.builder()
+                .label("tiles")
+                .initValue(valueOf(settings.getTiles()))
+                .onValueChange(stringValue -> settings.setTiles(parseInt(stringValue)))
+                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .build();
+        addRow(tiles);
+
         DefaultSettingsRow initFrameSkips = DefaultSettingsRow.builder()
                 .label("initFrameSkips")
                 .initValue(valueOf(settings.getInitFrameSkips()))

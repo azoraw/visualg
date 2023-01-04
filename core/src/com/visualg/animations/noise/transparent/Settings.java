@@ -15,6 +15,7 @@ class Settings {
     static Settings INSTANCE = new Settings();
 
     private boolean isConnectedWithStartingPoint = false;
+    private int tiles = 1;
     private float alpha = 0.01f;
     private int numberOfAgents = 1000;
     private double step = 0.01;

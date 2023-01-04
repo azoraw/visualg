@@ -11,6 +11,7 @@ class HairyFlowFieldActor extends FrameBufferActor {
 
     HairyFlowFieldActor(Settings settings) {
         super(true);
+        super.tiles = settings.getTiles();
         this.settings = settings;
         alg = new HairyFlowFieldAlg(settings);
         final Color primaryColor = Config.palette.getPrimaryColor();

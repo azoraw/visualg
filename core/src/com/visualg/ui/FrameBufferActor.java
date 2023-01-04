@@ -23,6 +23,7 @@ public abstract class FrameBufferActor extends Actor implements Recordable {
     protected final ShapeRenderer sr;
     private boolean takeScreenShot = false;
     private boolean backgroundCleared = false;
+    protected int tiles = 1;
 
     public FrameBufferActor(boolean transparent) {
         sr = new ShapeRenderer();
@@ -57,7 +58,11 @@ public abstract class FrameBufferActor extends Actor implements Recordable {
         record();
         fbo.end();
         batch.begin();
-        batch.draw(fbo.getColorBufferTexture(), 0, 0, WIDTH, HEIGHT, 0, 0, 1, 1);
+        for (int x = 0; x < tiles; x++) {
+            for (int y = 0; y < tiles; y++) {
+                batch.draw(fbo.getColorBufferTexture(), x * WIDTH / tiles, y * HEIGHT / tiles, WIDTH / tiles, HEIGHT / tiles);
+            }
+        }
     }
 
     private void clearBackground() {
