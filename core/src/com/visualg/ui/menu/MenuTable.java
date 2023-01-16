@@ -30,6 +30,7 @@ import static com.visualg.animations.Animation.MONDRIAN;
 import static com.visualg.animations.Animation.MOUSE_FOLLOWER;
 import static com.visualg.animations.Animation.MULTIBROT;
 import static com.visualg.animations.Animation.N_BODY;
+import static com.visualg.animations.Animation.N_BODY_TRANSPARENT;
 import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.QUAD_TREE;
 import static com.visualg.animations.Animation.QUAD_TREE2;
@@ -72,6 +73,7 @@ public class MenuTable extends Table {
         Label systemsLabel = new DefaultLabel("systems:");
         add(systemsLabel);
         createAnimationButton("n-body", N_BODY);
+        createAnimationButton("n-body transparent", N_BODY_TRANSPARENT);
         createAnimationButton("boids", BOIDS);
         createAnimationButton("double pendulum", DOUBLE_PENDULUM);
         createAnimationButton("mouse follower", MOUSE_FOLLOWER);

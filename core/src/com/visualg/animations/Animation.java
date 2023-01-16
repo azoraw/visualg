@@ -23,6 +23,7 @@ import com.visualg.animations.moireSupperlattice.MoireSuperlatticeGroup;
 import com.visualg.animations.mondrian.MondrianGroup;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
 import com.visualg.animations.nBody.NBodyGroup;
+import com.visualg.animations.nBody.TransparentNBodyGroup;
 import com.visualg.animations.noise.flow.FlowFieldActor;
 import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseGroup;
@@ -67,6 +68,7 @@ public enum Animation {
     MOUSE_FOLLOWER(MouseFollowerActor::new),
     MULTIBROT(MultibrotSetGroup::new),
     N_BODY(NBodyGroup::new),
+    N_BODY_TRANSPARENT(TransparentNBodyGroup::new),
     OPEN_SIMPLEX(NoiseGroup::new),
     QUAD_TREE(QuadTreeGroup::new),
     QUAD_TREE2(QuadTreeGroup2::new),

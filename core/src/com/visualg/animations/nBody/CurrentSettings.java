@@ -11,5 +11,6 @@ class CurrentSettings {
 
     private float g = 5f;
     private int numberOfBodies = 3;
+    private float transparency = 0.1f;
 
 }
