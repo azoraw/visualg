@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 class Settings {
     static final Settings INSTANCE = new Settings();
 
-    private EditMode editMode = EditMode.CREATE;
+    private EditMode editMode = EditMode.SELECT;
     private Shape shape = Shape.CIRCLE;
     private boolean drawBackground = true;
     private Element selectedElement = null;

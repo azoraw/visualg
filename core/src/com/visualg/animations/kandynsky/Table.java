@@ -15,6 +15,7 @@ import static java.lang.Integer.parseInt;
 class Table extends SettingsTable {
 
     private final List<InteractiveSettingsRow> selectedElementSettings = new ArrayList<>();
+    DefaultCheckBox currentCheckBox = null;
 
     public Table(KandynskyAlg alg) {
         add(new EmptyLabel());
@@ -23,6 +24,8 @@ class Table extends SettingsTable {
                 .initValue(Settings.INSTANCE.isDrawBackground())
                 .onClick(() -> Settings.INSTANCE.setDrawBackground(!Settings.INSTANCE.isDrawBackground()))
                 .build());
+        add(new EmptyLabel());
+        row();
         add(new EmptyLabel());
         add(DefaultCheckBox.builder()
                 .label("rotate")
@@ -39,14 +42,32 @@ class Table extends SettingsTable {
                 })
                 .items(EditMode.values())
                 .build());
-        addRow(SelectBoxRow.<Shape>builder()
-                .label("shape")
-                .selected(Settings.INSTANCE.getShape())
-                .onChange(shape -> {
-                    Settings.INSTANCE.setShape(shape);
-                    alg.unselect();
-                })
-                .items(Shape.values())
+        add(new EmptyLabel());
+        add(DefaultCheckBox.builder()
+                .label("CIRCLE")
+                .initValue(false)
+                .consumeIsChecked((checkbox, isChecked) -> onChangeCreateCheckBox(alg, Shape.CIRCLE, isChecked, checkbox))
+                .build());
+        row();
+        add(new EmptyLabel());
+        add(DefaultCheckBox.builder()
+                .label("SEMICIRCLE")
+                .initValue(false)
+                .consumeIsChecked((checkbox, isChecked) -> onChangeCreateCheckBox(alg, Shape.SEMICIRCLE, isChecked, checkbox))
+                .build());
+        row();
+        add(new EmptyLabel());
+        add(DefaultCheckBox.builder()
+                .label("QUARTER_CIRCLE")
+                .initValue(false)
+                .consumeIsChecked((checkbox, isChecked) -> onChangeCreateCheckBox(alg, Shape.QUARTER_CIRCLE, isChecked, checkbox))
+                .build());
+        row();
+        add(new EmptyLabel());
+        add(DefaultCheckBox.builder()
+                .label("LINE")
+                .initValue(false)
+                .consumeIsChecked((checkbox, isChecked) -> onChangeCreateCheckBox(alg, Shape.LINE, isChecked, checkbox))
                 .build());
         row();
         add(new EmptyLabel());
@@ -57,6 +78,24 @@ class Table extends SettingsTable {
         row();
         add(new EmptyLabel());
         add(new DefaultButton("clear", alg::clear));
+    }
+
+    private void onChangeCreateCheckBox(KandynskyAlg alg, Shape shape, Boolean isChecked, DefaultCheckBox checkbox) {
+        if (currentCheckBox != null && currentCheckBox != checkbox) {
+            currentCheckBox.toggle();
+        }
+        if (isChecked) {
+            if (currentCheckBox == checkbox) {
+                currentCheckBox = null;
+            }
+            Settings.INSTANCE.setShape(null);
+            Settings.INSTANCE.setEditMode(EditMode.SELECT);
+        } else {
+            currentCheckBox = checkbox;
+            Settings.INSTANCE.setEditMode(EditMode.CREATE);
+            Settings.INSTANCE.setShape(shape);
+            alg.unselect();
+        }
     }
 
     void addSelectedElement(Element selectedElement) {
