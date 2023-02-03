@@ -38,6 +38,7 @@ import static com.visualg.animations.Animation.QUAD_TREE3;
 import static com.visualg.animations.Animation.QUAD_TREE4;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.RECTANGLES2;
+import static com.visualg.animations.Animation.STRANGE_SPIRAL;
 import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
 import static com.visualg.animations.Animation.ULAM_SPIRAL;
 import static com.visualg.animations.Animation.WAVE_FUNCTION_COLLAPSE;
@@ -67,6 +68,7 @@ public class MenuTable extends Table {
         createAnimationButton("Langton Ant", LANGTON_ANT);
         createAnimationButton("Ulam spiral", ULAM_SPIRAL);
         createAnimationButton("Modulo spiral", MODULO_SPIRAL);
+        createAnimationButton("Strange spiral", STRANGE_SPIRAL);
 
 
         row();
