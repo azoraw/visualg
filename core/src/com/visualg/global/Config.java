@@ -3,6 +3,7 @@ package com.visualg.global;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.visualg.animations.Animation;
+import com.visualg.controls.MusicController;
 import com.visualg.util.color.PaletteType;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,10 +20,16 @@ public class Config {
 
     @Setter
     public static PaletteType palette = PaletteType.DARK;
+    public static MusicController musicController;
 
     public static void init() {
         initSkin();
         initNativeResolution();
+        initMusic();
+    }
+
+    private static void initMusic() {
+        musicController = new MusicController();
     }
 
     private static void initSkin() {

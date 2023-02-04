@@ -5,8 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.animations.Animation;
 import com.visualg.global.Config;
 import com.visualg.ui.animationToolbar.ToolbarTable;
-import com.visualg.ui.exit.ExitTable;
 import com.visualg.ui.menu.MenuTable;
+import com.visualg.ui.upRightMenu.UpRightMenuTable;
 
 public class MainStage extends Stage {
 
@@ -29,7 +29,7 @@ public class MainStage extends Stage {
         Actor animationActor = animation.getAnimation();
         addActor(animationActor);
         addActor(new ToolbarTable());
-        addActor(new ExitTable());
+        addActor(new UpRightMenuTable());
 
         input.addInputProcessors(animationActor, this);
     }
@@ -37,7 +37,7 @@ public class MainStage extends Stage {
     public void addMenuTable() {
         MenuTable menuTable = new MenuTable();
         addActor(menuTable);
-        addActor(new ExitTable());
+        addActor(new UpRightMenuTable());
     }
 
     public void showMainMenu() {

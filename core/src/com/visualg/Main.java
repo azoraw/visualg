@@ -12,6 +12,7 @@ public class Main extends ApplicationAdapter {
 
     @Override
     public void create() {
+
         Config.init();
         mainStage = new MainStage();
     }
