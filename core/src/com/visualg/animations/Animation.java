@@ -35,7 +35,6 @@ import com.visualg.animations.qtree.qtree4.QuadTreeGroup4;
 import com.visualg.animations.rectangles.RectanglesActor;
 import com.visualg.animations.rectangles.RectanglesTransparentActor;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
-import com.visualg.animations.spiral.strangeAlgs.StrangeSpiralGroup;
 import com.visualg.animations.spiral.ulam.UlamSpiralGroup;
 import com.visualg.animations.transparentRandomWalk.TransparentRandomWalkGroup;
 import com.visualg.animations.waveFuncCollapse.WaveFunctionCollapseGroup;
@@ -80,7 +79,6 @@ public enum Animation {
     TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),
     TRANSPARENT_RANDOM_WALK(TransparentRandomWalkGroup::new),
     ULAM_SPIRAL(UlamSpiralGroup::new),
-    STRANGE_SPIRAL(StrangeSpiralGroup::new),
     WAVE_FUNCTION_COLLAPSE(WaveFunctionCollapseGroup::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
     WIGGLY_LINE(WigglyLineGroup::new),
