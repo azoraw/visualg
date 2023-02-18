@@ -11,13 +11,11 @@ import java.util.List;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static java.lang.Math.PI;
+import static java.lang.Math.sqrt;
 
 class HairyFlowFieldAlg {
 
-    private final double xOffset;
-    private final double yOffset;
-
-    private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise();
+    private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise(RandomGenerator.Random.nextInt());
     private final Vector2[][] vectors;
     private final Settings settings;
 
@@ -28,8 +26,6 @@ class HairyFlowFieldAlg {
         settings.restartColor();
         this.settings = settings;
         vectors = new Vector2[WIDTH + 1][HEIGHT + 1];
-        xOffset = RandomGenerator.getRandomFloat(10000);
-        yOffset = RandomGenerator.getRandomFloat(10000);
         initVectors(WIDTH, HEIGHT);
         initDots();
     }
@@ -42,15 +38,30 @@ class HairyFlowFieldAlg {
     }
 
     private void initVectors(int WIDTH, int HEIGHT) {
-        for (int x = 0; x <= WIDTH ; x++) {
-            for (int y = 0; y <= HEIGHT ; y++) {
+        for (int x = 0; x <= WIDTH; x++) {
+            for (int y = 0; y <= HEIGHT; y++) {
                 vectors[x][y] = new Vector2(1, 0);
-                vectors[x][y].setAngleRad((float)
-                        (2 * PI * openSimplexNoise.eval(
-                                x * settings.getStep() + xOffset,
-                                y * settings.getStep() + yOffset)));
+                double eval;
+                if (settings.isHaveMiddleCircle() && isInsideCircle(x,y)) {
+                    eval = openSimplexNoise.eval(
+                            x * settings.getStep() / 100,
+                            y * settings.getStep() / 100);
+                } else {
+                    eval = openSimplexNoise.eval(
+                            x * settings.getStep(),
+                            y * settings.getStep());
+                }
+                vectors[x][y].setAngleRad((float) (2 * PI * eval));
             }
         }
+    }
+
+    private boolean isInsideCircle(int x, int y) {
+        float r = 0.75f * HEIGHT / 2;
+        int xNorm = x - WIDTH / 2;
+        int yNorm = y - HEIGHT / 2;
+
+        return sqrt(xNorm * xNorm + yNorm * yNorm) < r;
     }
 
     void update() {

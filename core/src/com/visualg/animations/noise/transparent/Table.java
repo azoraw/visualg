@@ -72,6 +72,18 @@ class Table extends SettingsTable {
         add(new EmptyLabel());
         add(connected);
         row();
+        DefaultCheckBox haveMiddleCircle = DefaultCheckBox.builder()
+                .label("have middle circle")
+                .initValue(settings.isHaveMiddleCircle())
+                .onClick(() -> {
+                    settings.setHaveMiddleCircle(!settings.isHaveMiddleCircle());
+                    fire(new RestartEvent());
+
+                })
+                .build();
+        add(new EmptyLabel());
+        add(haveMiddleCircle);
+        row();
 
         addRow(SelectBoxRow.<Colors>builder()
                 .label("colours")
