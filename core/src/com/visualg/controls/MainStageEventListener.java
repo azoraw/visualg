@@ -3,6 +3,7 @@ package com.visualg.controls;
 import com.badlogic.gdx.scenes.scene2d.Event;
 import com.badlogic.gdx.scenes.scene2d.EventListener;
 import com.visualg.controls.events.ChangeAnimationEvent;
+import com.visualg.controls.events.ChangeUiScalingEvent;
 import com.visualg.controls.events.MainMenuEvent;
 import com.visualg.controls.events.RestartEvent;
 
@@ -24,6 +25,9 @@ class MainStageEventListener implements EventListener {
         }
         if (event instanceof RestartEvent) {
             mainStage.restart();
+        }
+        if (event instanceof ChangeUiScalingEvent) {
+            mainStage.changeUiScaling();
         }
         return false;
     }

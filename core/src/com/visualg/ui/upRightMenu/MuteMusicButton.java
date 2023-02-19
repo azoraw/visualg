@@ -1,31 +1,25 @@
 package com.visualg.ui.upRightMenu;
 
-import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ChangeListener;
+import com.visualg.ui.simplifiedComponents.DefaultButton;
 
 import static com.visualg.global.Config.musicController;
-import static com.visualg.global.Config.skin;
 
-public class MuteMusicButton extends TextButton {
+public class MuteMusicButton extends DefaultButton {
+
+    private static MuteMusicButton INSTANCE;
 
     public MuteMusicButton() {
-        super("mute", skin);
-        addListener(new ChangeListener() {
-            @Override
-            public void changed(ChangeEvent event, Actor actor) {
-                onChange((MuteMusicButton) actor);
-            }
-        });
+        super("mute", () -> onChange(INSTANCE));
+        INSTANCE = this;
     }
 
-    private void onChange(MuteMusicButton actor) {
+    private static void onChange(MuteMusicButton muteMusicButton) {
         if (musicController.isPlaying()) {
             musicController.mute();
-            actor.setText("unmute");
+            muteMusicButton.setText("unmute");
         } else {
             musicController.unmute();
-            actor.setText("mute");
+            muteMusicButton.setText("mute");
         }
     }
 }

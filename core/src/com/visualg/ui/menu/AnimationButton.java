@@ -11,6 +11,7 @@ class AnimationButton extends TextButton {
 
      AnimationButton(String text, Animation animation) {
         super(text, Config.skin);
+
         addListener(new ChangeListener() {
             @Override
             public void changed(ChangeEvent event, Actor actor) {

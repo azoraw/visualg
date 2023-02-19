@@ -1,23 +1,21 @@
 package com.visualg.ui.settings;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
-import com.badlogic.gdx.scenes.scene2d.ui.TextField;
+import com.visualg.ui.simplifiedComponents.DefaultLabel;
 import com.visualg.ui.simplifiedComponents.DefaultTextField;
 import lombok.Builder;
 
 import java.util.Optional;
 import java.util.function.Consumer;
 
-import static com.visualg.global.Config.skin;
-
 public class DefaultSettingsRow extends SettingsRow {
 
-    private final Label label;
-    private final TextField textField;
+    private final DefaultLabel label;
+    private final DefaultTextField textField;
 
     @Builder
     public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
-        this.label = new Label(label, skin);
+        this.label = new DefaultLabel(label);
         textField = new DefaultTextField(String.valueOf(initValue), onValueChange.andThen(Optional.ofNullable(afterValueChange)
                 .orElseGet(() -> (consumer) -> {})));
     }
@@ -28,7 +26,7 @@ public class DefaultSettingsRow extends SettingsRow {
     }
 
     @Override
-    public TextField getWidget() {
+    public DefaultTextField getWidget() {
         return textField;
     }
 

@@ -49,4 +49,12 @@ public class MainStage extends Stage {
     private void clearStage() {
         getActors().clear();
     }
+
+    public void changeUiScaling() {
+        if (Config.getCurrentAnimation() == null) {
+            showMainMenu();
+        } else {
+            showAnimation(Config.getCurrentAnimation());
+        }
+    }
 }

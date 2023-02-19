@@ -1,23 +1,25 @@
 package com.visualg.ui.settings;
 
-import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.visualg.ui.simplifiedComponents.DefaultLabel;
+import com.visualg.ui.simplifiedComponents.EmptyLabel;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
-import static com.visualg.global.Config.skin;
 
 public class SettingsTable extends Table {
 
     public SettingsTable() {
         setSize(WIDTH, HEIGHT);
         top().right();
-        Label empty = new Label("", skin);
-        add(empty);
+        emptyRow();
+        emptyRow();
+        add(new DefaultLabel("Settings"));
         row();
+    }
 
-        Label settings = new Label("Settings", skin);
-        add(settings);
+    private void emptyRow() {
+        add(new EmptyLabel());
         row();
     }
 

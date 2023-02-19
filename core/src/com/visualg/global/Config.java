@@ -16,6 +16,8 @@ public class Config {
     public static int HEIGHT;
     public static Skin skin;
     @Getter @Setter
+    private static float uiScale = 1f;
+    @Getter @Setter
     private static Animation currentAnimation;
 
     @Setter
@@ -34,6 +36,12 @@ public class Config {
 
     private static void initSkin() {
         skin = new Skin(Gdx.files.internal("uiskin.json"));
+        updateUiFontScale(uiScale);
+    }
+
+    public static void updateUiFontScale(float newUiScale) {
+        uiScale = newUiScale;
+        skin.getFont("default-font").getData().setScale(newUiScale);
     }
 
     private static void initNativeResolution() {

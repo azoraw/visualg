@@ -7,6 +7,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.utils.TextureRegionDrawable;
 import com.visualg.animations.Animation;
 import com.visualg.controls.events.ChangeAnimationEvent;
+import com.visualg.controls.events.MainMenuEvent;
 import com.visualg.controls.events.RestartEvent;
 import com.visualg.global.Config;
 import com.visualg.ui.settings.DefaultSettingsRow;
@@ -21,8 +22,8 @@ public class ToolbarTable extends Table {
     public ToolbarTable() {
         setFillParent(true);
         left().top();
-        add(new MainMenuButton());
-        add(new RestartButton());
+        add(new DefaultButton("Main Menu", () -> fire(new MainMenuEvent())));
+        add(new DefaultButton("Restart", () -> fire(new RestartEvent())));
         DefaultSettingsRow updatesPerFrame = new UpdatesPerFrame()
                 .getSettingsRow();
         add(updatesPerFrame.getLabel());
