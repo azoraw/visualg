@@ -4,7 +4,7 @@ import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import static com.visualg.util.RandomGenerator.Random;
+import static com.visualg.util.RandomDecorator.Random;
 import static java.lang.Math.max;
 import static java.lang.Math.min;
 

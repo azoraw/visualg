@@ -2,8 +2,7 @@ package com.visualg.util;
 
 import com.badlogic.gdx.math.Vector2;
 
-import static com.visualg.util.RandomGenerator.getFloatInRange;
-import static com.visualg.util.RandomGenerator.getIntInRange;
+import static com.visualg.util.RandomDecorator.Random;
 
 public class BouncingBall {
 
@@ -26,8 +25,8 @@ public class BouncingBall {
     }
 
     private void randomDirection() {
-        position = new Vector2(getIntInRange((int) x0, (int) x1), getIntInRange((int) y0, (int) y1));
-        movementDirection = new Vector2(getFloatInRange(-1 * speed, speed), getFloatInRange(-1 * speed, speed));
+        position = new Vector2(Random.getIntInRange((int) x0, (int) x1), Random.getIntInRange((int) y0, (int) y1));
+        movementDirection = new Vector2(Random.getFloatInRange(-1 * speed, speed), Random.getFloatInRange(-1 * speed, speed));
     }
 
     public Vector2 getPosition() {

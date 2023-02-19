@@ -1,7 +1,7 @@
 package com.visualg.animations.lines;
 
 import com.visualg.util.Pair;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ class Lines {
     }
 
     private Pair<Integer, Integer> getNewRandomPoint() {
-        return new Pair<>(RandomGenerator.Random.nextInt(WIDTH), RandomGenerator.Random.nextInt(HEIGHT));
+        return new Pair<>(RandomDecorator.Random.nextInt(WIDTH), RandomDecorator.Random.nextInt(HEIGHT));
     }
 
 

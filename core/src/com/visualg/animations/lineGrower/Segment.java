@@ -1,13 +1,12 @@
 package com.visualg.animations.lineGrower;
 
 import com.badlogic.gdx.math.Vector2;
-import com.visualg.util.RandomGenerator;
 import lombok.Builder;
 import lombok.Getter;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
-import static com.visualg.util.RandomGenerator.Random;
+import static com.visualg.util.RandomDecorator.Random;
 
 @Getter
 class Segment {

@@ -1,7 +1,7 @@
 package com.visualg.animations.boids;
 
 import com.visualg.global.Config;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.List;
@@ -20,8 +20,8 @@ class Position {
 
     Position(Settings settings) {
         this.settings = settings;
-        x = RandomGenerator.Random.nextInt(Config.WIDTH);
-        y = RandomGenerator.Random.nextInt(Config.HEIGHT);
+        x = RandomDecorator.Random.nextInt(Config.WIDTH);
+        y = RandomDecorator.Random.nextInt(Config.HEIGHT);
         currentMotion = new Motion(settings);
     }
 

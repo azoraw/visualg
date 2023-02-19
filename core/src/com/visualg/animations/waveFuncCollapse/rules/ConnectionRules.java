@@ -6,7 +6,7 @@ import com.visualg.animations.waveFuncCollapse.rules.tiles.Tileset1Rules;
 import com.visualg.animations.waveFuncCollapse.rules.tiles.TilesetRule;
 import com.visualg.animations.waveFuncCollapse.rules.tiles.TilesetRules;
 import com.visualg.util.Direction;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -83,7 +83,7 @@ class ConnectionRules {
     private void initPseudorandom() {
         for (int i = 1; i <= 5; i++) {
             for (Direction dir : values()) {
-                add(i, dir, "" + RandomGenerator.Random.nextInt(4));
+                add(i, dir, "" + RandomDecorator.Random.nextInt(4));
             }
         }
     }

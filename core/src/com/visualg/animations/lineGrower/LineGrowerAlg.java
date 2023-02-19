@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.visualg.ui.pixmap.PixmapAlg;
 import com.visualg.ui.pixmap.PixmapFactory;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -69,13 +69,13 @@ class LineGrowerAlg extends PixmapAlg {
             return;
         }
         for (int i = 0; i < segmentsToRemove.size() * NUMBER_OF_NEW_SEGMENTS; i++) {
-            Segment perpendicular = allSegments.get(RandomGenerator.Random.nextInt(allSegments.size()))
+            Segment perpendicular = allSegments.get(RandomDecorator.Random.nextInt(allSegments.size()))
                     .createPerpendicular();
             for (int numbreOfTries = 0; numbreOfTries < 100; numbreOfTries++) {
                 if (canAddNewSegment(perpendicular)) {
                     break;
                 }
-                perpendicular = allSegments.get(RandomGenerator.Random.nextInt(allSegments.size()))
+                perpendicular = allSegments.get(RandomDecorator.Random.nextInt(allSegments.size()))
                         .createPerpendicular();
             }
             addNewSegment(perpendicular);

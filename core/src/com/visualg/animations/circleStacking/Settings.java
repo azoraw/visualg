@@ -8,8 +8,7 @@ import lombok.NoArgsConstructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.visualg.util.RandomGenerator.Random;
-import static com.visualg.util.RandomGenerator.getIntInRange;
+import static com.visualg.util.RandomDecorator.Random;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
@@ -34,7 +33,7 @@ class Settings {
     }
 
     void randomise() {
-        numberOfCircles = getIntInRange(2, 5);
+        numberOfCircles = Random.getIntInRange(2, 5);
         circles.clear();
         for (int i = 0; i < numberOfCircles; i++) {
             circles.add(new MutablePair<>(Random.nextInt(500), Random.nextInt(10000)));

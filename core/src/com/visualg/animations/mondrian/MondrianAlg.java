@@ -1,7 +1,6 @@
 package com.visualg.animations.mondrian;
 
 import com.visualg.global.Config;
-import com.visualg.util.RandomGenerator;
 import com.visualg.util.color.Palette;
 import lombok.Getter;
 
@@ -10,7 +9,7 @@ import java.util.List;
 
 import static com.visualg.animations.mondrian.Settings.INSTANCE;
 import static com.visualg.animations.mondrian.Settings.RESOLUTION;
-import static com.visualg.util.RandomGenerator.Random;
+import static com.visualg.util.RandomDecorator.Random;
 
 class MondrianAlg {
 

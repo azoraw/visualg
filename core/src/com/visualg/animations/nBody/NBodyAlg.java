@@ -1,7 +1,7 @@
 package com.visualg.animations.nBody;
 
 import com.badlogic.gdx.math.Vector2;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -21,7 +21,7 @@ class NBodyAlg {
 
         this.settings = currentSettings;
         for (int i = 0; i < currentSettings.getNumberOfBodies(); i++) {
-            bodies.add(new Body(new Vector2(RandomGenerator.Random.nextInt(WIDTH), RandomGenerator.Random.nextInt(HEIGHT)), currentSettings));
+            bodies.add(new Body(new Vector2(RandomDecorator.Random.nextInt(WIDTH), RandomDecorator.Random.nextInt(HEIGHT)), currentSettings));
         }
     }
 

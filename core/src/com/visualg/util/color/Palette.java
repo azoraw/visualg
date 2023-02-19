@@ -1,7 +1,7 @@
 package com.visualg.util.color;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 import static com.visualg.util.color.ColorGenerator.fromRGB;
 
@@ -24,6 +24,6 @@ public class Palette {
     }
 
     public Color getRandomColor() {
-        return palette[RandomGenerator.Random.nextInt(palette.length)];
+        return palette[RandomDecorator.Random.nextInt(palette.length)];
     }
 }

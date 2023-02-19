@@ -2,11 +2,13 @@ package com.visualg.animations.transparentRandomWalk;
 
 import com.visualg.global.Config;
 import com.visualg.util.Direction3D;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.EnumSet;
 import java.util.Set;
+
+import static com.visualg.util.RandomDecorator.Random;
 
 class Random3DWalkAlg {
     private final int X_LENGTH;
@@ -21,9 +23,9 @@ class Random3DWalkAlg {
         X_LENGTH = Config.WIDTH / cellSize;
         Y_LENGTH = Config.HEIGHT / cellSize;
         Z_LENGTH = 100;
-        x = RandomGenerator.Random.nextInt(X_LENGTH);
-        y = RandomGenerator.Random.nextInt(Y_LENGTH);
-        z = RandomGenerator.Random.nextInt(Z_LENGTH);
+        x = RandomDecorator.Random.nextInt(X_LENGTH);
+        y = RandomDecorator.Random.nextInt(Y_LENGTH);
+        z = RandomDecorator.Random.nextInt(Z_LENGTH);
 
     }
 
@@ -49,7 +51,7 @@ class Random3DWalkAlg {
     public Direction3D getRandomDirection() {
         Set<Direction3D> possibleDirs = EnumSet.allOf(Direction3D.class);
         possibleDirs.remove(previousDir);
-        return RandomGenerator.getRandomElement(possibleDirs).orElseThrow();
+        return Random.getRandomElement(possibleDirs).orElseThrow();
     }
 
 

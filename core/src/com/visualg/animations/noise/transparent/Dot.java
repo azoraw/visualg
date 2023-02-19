@@ -3,14 +3,13 @@ package com.visualg.animations.noise.transparent;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.Pair;
-import com.visualg.util.RandomGenerator;
 import com.visualg.util.color.ColorGenerator;
 
 import static com.visualg.animations.noise.transparent.Settings.INSTANCE;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
-import static com.visualg.util.RandomGenerator.Random;
+import static com.visualg.util.RandomDecorator.Random;
 
 class Dot {
     private static final float maxSpeed = 1;
@@ -37,7 +36,7 @@ class Dot {
     private Vector2 initVelocity() {
         final Vector2 velocity;
         velocity = new Vector2(0, 1);
-        velocity.setAngleRad(RandomGenerator.getRandomFloat(Math.PI * 4));
+        velocity.setAngleRad(Random.getRandomFloat(Math.PI * 4));
         return velocity;
     }
 

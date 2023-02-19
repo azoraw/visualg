@@ -1,8 +1,9 @@
 package com.visualg.animations.qtree.qtree2;
 
 import com.visualg.global.Config;
-import com.visualg.util.RandomGenerator;
 import lombok.Getter;
+
+import static com.visualg.util.RandomDecorator.Random;
 
 @Getter
 class Particle {
@@ -10,7 +11,7 @@ class Particle {
     private float y;
 
     public Particle() {
-        x = RandomGenerator.getRandomFloat(Config.WIDTH);
-        y = RandomGenerator.getRandomFloat(Config.HEIGHT);
+        x = Random.getRandomFloat(Config.WIDTH);
+        y = Random.getRandomFloat(Config.HEIGHT);
     }
 }

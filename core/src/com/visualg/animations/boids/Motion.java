@@ -2,7 +2,7 @@ package com.visualg.animations.boids;
 
 import lombok.Getter;
 
-import static com.visualg.util.RandomGenerator.Random;
+import static com.visualg.util.RandomDecorator.Random;
 
 @Getter
 class Motion {

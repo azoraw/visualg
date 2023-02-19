@@ -1,7 +1,7 @@
 package com.visualg.animations.circlePacking;
 
 import com.badlogic.gdx.graphics.Pixmap;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -77,8 +77,8 @@ class Circles {
     }
 
     private Circle createCircle() {
-        int x = RandomGenerator.Random.nextInt(WIDTH);
-        int y = RandomGenerator.Random.nextInt(HEIGHT);
+        int x = RandomDecorator.Random.nextInt(WIDTH);
+        int y = RandomDecorator.Random.nextInt(HEIGHT);
         return new Circle(x, y, pixmap.getPixel(x, HEIGHT - y));
     }
 

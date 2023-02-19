@@ -2,7 +2,7 @@ package com.visualg.animations.waveFuncCollapse;
 
 import com.visualg.animations.waveFuncCollapse.rules.Rules;
 import com.visualg.util.Direction;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.Comparator;
@@ -63,7 +63,7 @@ class Cell  implements Comparable<Cell>{
     }
 
     public void collapse() {
-        collapsed(options.get(RandomGenerator.Random.nextInt(options.size())));
+        collapsed(options.get(RandomDecorator.Random.nextInt(options.size())));
     }
 
     @Override

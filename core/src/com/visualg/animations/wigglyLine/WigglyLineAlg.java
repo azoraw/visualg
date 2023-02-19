@@ -2,7 +2,7 @@ package com.visualg.animations.wigglyLine;
 
 import com.visualg.util.OpenSimplexNoise;
 import com.visualg.util.Pair;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ class WigglyLineAlg {
     private double magn = 1f;
 
     WigglyLineAlg() {
-        noise = new OpenSimplexNoise(RandomGenerator.Random.nextInt(Integer.MAX_VALUE));
+        noise = new OpenSimplexNoise(RandomDecorator.Random.nextInt(Integer.MAX_VALUE));
     }
 
     List<Pair<Integer, Integer>> getVertices() {

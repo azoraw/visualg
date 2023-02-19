@@ -1,7 +1,7 @@
 package com.visualg.util.color;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 
 /**
  * Generates RGBA8888
@@ -18,19 +18,19 @@ public class ColorGenerator {
     private static final int alphaMask = 0B00000000000000000000000011111111;
 
     public static int getRandomColor() {
-        return RandomGenerator.Random.nextInt();
+        return RandomDecorator.Random.nextInt();
     }
 
     public int getRedScaleColor() {
-        return RandomGenerator.Random.nextInt() & redMask;
+        return RandomDecorator.Random.nextInt() & redMask;
     }
 
     public int getMonoChromaticColor() {
-        return RandomGenerator.Random.nextInt() | monochromaticMask;
+        return RandomDecorator.Random.nextInt() | monochromaticMask;
     }
 
     public int getGreyScaleColor() {
-        int luminosity = RandomGenerator.Random.nextInt() & alphaMask;
+        int luminosity = RandomDecorator.Random.nextInt() & alphaMask;
         int tmp = luminosity << 8;
         tmp = luminosity ^ tmp;
         return (tmp << 16) ^ tmp;

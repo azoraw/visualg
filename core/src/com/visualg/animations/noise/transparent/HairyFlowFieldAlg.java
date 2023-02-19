@@ -2,7 +2,7 @@ package com.visualg.animations.noise.transparent;
 
 import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.OpenSimplexNoise;
-import com.visualg.util.RandomGenerator;
+import com.visualg.util.RandomDecorator;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -15,7 +15,7 @@ import static java.lang.Math.sqrt;
 
 class HairyFlowFieldAlg {
 
-    private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise(RandomGenerator.Random.nextInt());
+    private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise(RandomDecorator.Random.nextInt());
     private final Vector2[][] vectors;
     private final Settings settings;
 
