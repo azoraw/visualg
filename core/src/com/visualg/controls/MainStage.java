@@ -50,7 +50,8 @@ public class MainStage extends Stage {
         getActors().clear();
     }
 
-    public void changeUiScaling() {
+    public void changeUiScaling(float newValue) {
+        Config.updateUiFontScale(newValue);
         if (Config.getCurrentAnimation() == null) {
             showMainMenu();
         } else {

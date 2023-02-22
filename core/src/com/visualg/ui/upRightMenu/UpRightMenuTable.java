@@ -17,12 +17,9 @@ public class UpRightMenuTable extends Table {
         setFillParent(true);
         right().top();
         add(new DefaultLabel("uiscale: "));
-        add(new DefaultTextField("" + Config.getUiScale(), (scale) -> {
-            Config.updateUiFontScale(parseFloat(scale));
-            fire(new ChangeUiScalingEvent());
-        }));
+        add(new DefaultTextField("" + Config.getUserProperties().getUiScale(), (scale) -> fire(new ChangeUiScalingEvent(parseFloat(scale)))));
         add(new DefaultLabel("volume: "));
-        add(new DefaultTextField("100", (volume) -> Config.musicController.setVolume(parseInt(volume))));
+        add(new DefaultTextField("" + Config.getUserProperties().getVolume(), (volume) -> Config.musicController.setVolume(parseInt(volume))));
         add(new MuteMusicButton());
         add(new DefaultButton("X", () -> Gdx.app.exit()));
 

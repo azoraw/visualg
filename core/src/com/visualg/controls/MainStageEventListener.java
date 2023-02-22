@@ -26,8 +26,8 @@ class MainStageEventListener implements EventListener {
         if (event instanceof RestartEvent) {
             mainStage.restart();
         }
-        if (event instanceof ChangeUiScalingEvent) {
-            mainStage.changeUiScaling();
+        if (event instanceof ChangeUiScalingEvent changeUiScalingEvent) {
+            mainStage.changeUiScaling(changeUiScalingEvent.getNewValue());
         }
         return false;
     }

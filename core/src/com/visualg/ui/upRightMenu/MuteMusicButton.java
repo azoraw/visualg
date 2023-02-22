@@ -1,5 +1,6 @@
 package com.visualg.ui.upRightMenu;
 
+import com.visualg.global.Config;
 import com.visualg.ui.simplifiedComponents.DefaultButton;
 
 import static com.visualg.global.Config.musicController;
@@ -9,7 +10,7 @@ public class MuteMusicButton extends DefaultButton {
     private static MuteMusicButton INSTANCE;
 
     public MuteMusicButton() {
-        super("mute", () -> onChange(INSTANCE));
+        super(Config.getUserProperties().isMute() ? "unmute" : "mute", () -> onChange(INSTANCE));
         INSTANCE = this;
     }
 
