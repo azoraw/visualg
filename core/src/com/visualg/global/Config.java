@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.visualg.animations.Animation;
 import com.visualg.controls.MusicController;
+import com.visualg.controls.fileio.UserProperties;
 import com.visualg.util.color.PaletteType;
 import lombok.Getter;
 import lombok.Setter;
@@ -19,7 +20,7 @@ public class Config {
     @Getter @Setter
     private static Animation currentAnimation;
     @Getter
-    private static  UserProperties userProperties;
+    private static UserProperties userProperties;
 
     @Setter
     public static PaletteType palette = PaletteType.DARK;

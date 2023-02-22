@@ -1,4 +1,4 @@
-package com.visualg.util.libgdx;
+package com.visualg.controls.fileio;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -7,7 +7,7 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-public class ScreenShotUtil {
+public class ScreenShotSaver {
 
     private static final String SCREEN_SHOTS_PATH = "screenShots/";
     private static String recordStartTimestamp;
@@ -70,6 +70,6 @@ public class ScreenShotUtil {
     }
 
     public static void notifyOnFrameChanged(Runnable onFrameCountChange) {
-        ScreenShotUtil.onFrameCountChange = onFrameCountChange;
+        ScreenShotSaver.onFrameCountChange = onFrameCountChange;
     }
 }

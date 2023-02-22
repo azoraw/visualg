@@ -6,15 +6,15 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
-import com.visualg.util.libgdx.ScreenShotUtil;
+import com.visualg.controls.fileio.ScreenShotSaver;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
 import static com.visualg.global.Config.updatesPerFrame;
-import static com.visualg.util.libgdx.RefreshType.BLEND;
-import static com.visualg.util.libgdx.RefreshType.DEFAULT;
+import static com.visualg.ui.RefreshType.BLEND;
+import static com.visualg.ui.RefreshType.DEFAULT;
 
 public abstract class FrameBufferActor extends Actor implements Recordable {
 
@@ -34,8 +34,8 @@ public abstract class FrameBufferActor extends Actor implements Recordable {
             color.a = 0.01f;
             sr.setColor(color);
         }
-        if (ScreenShotUtil.isScheduledToRecordOnNextAnimationStart()) {
-            ScreenShotUtil.prepareRecording();
+        if (ScreenShotSaver.isScheduledToRecordOnNextAnimationStart()) {
+            ScreenShotSaver.prepareRecording();
         }
     }
 
@@ -78,15 +78,15 @@ public abstract class FrameBufferActor extends Actor implements Recordable {
 
     private void screenShot() {
         if (takeScreenShot) {
-            ScreenShotUtil.take(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
+            ScreenShotSaver.take(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
             takeScreenShot = false;
         }
     }
 
     @Override
     public void record() {
-        if (ScreenShotUtil.isRecording()) {
-            ScreenShotUtil.record(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
+        if (ScreenShotSaver.isRecording()) {
+            ScreenShotSaver.record(Pixmap.createFromFrameBuffer(0, 0, fbo.getWidth(), fbo.getHeight()));
         }
     }
 

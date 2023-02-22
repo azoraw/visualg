@@ -5,8 +5,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.animations.waveFuncCollapse.texture.WFCTextures;
+import com.visualg.controls.fileio.ScreenShotSaver;
 import com.visualg.global.Config;
-import com.visualg.util.libgdx.ScreenShotUtil;
 
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
@@ -49,7 +49,7 @@ class WFCActor extends Actor {
             }
         }
         if (canTakeScreenShot) {
-            ScreenShotUtil.take(Pixmap.createFromFrameBuffer(0, 0, WIDTH, HEIGHT));
+            ScreenShotSaver.take(Pixmap.createFromFrameBuffer(0, 0, WIDTH, HEIGHT));
             canTakeScreenShot = false;
         }
         spriteBatch.end();

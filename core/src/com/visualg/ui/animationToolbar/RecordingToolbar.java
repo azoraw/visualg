@@ -2,9 +2,9 @@ package com.visualg.ui.animationToolbar;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.visualg.controls.fileio.ScreenShotSaver;
 import com.visualg.ui.simplifiedComponents.DefaultButton;
 import com.visualg.ui.simplifiedComponents.DefaultLabel;
-import com.visualg.util.libgdx.ScreenShotUtil;
 import lombok.Getter;
 
 @Getter
@@ -18,14 +18,14 @@ class RecordingToolbar {
 
     RecordingToolbar() {
         label = new DefaultLabel("Recording: ");
-        start = new DefaultButton("Start", ScreenShotUtil::prepareRecording);
-        stop = new DefaultButton("Stop", ScreenShotUtil::finishRecording);
-        schedule = new DefaultButton("Schedule", ScreenShotUtil::scheduleRecordingOnNextAnimationStart);
-        frameCount = new DefaultLabel(ScreenShotUtil.getFrameCount() + " ");
-        ScreenShotUtil.notifyOnFrameChanged(this::onFrameCountChange);
+        start = new DefaultButton("Start", ScreenShotSaver::prepareRecording);
+        stop = new DefaultButton("Stop", ScreenShotSaver::finishRecording);
+        schedule = new DefaultButton("Schedule", ScreenShotSaver::scheduleRecordingOnNextAnimationStart);
+        frameCount = new DefaultLabel(ScreenShotSaver.getFrameCount() + " ");
+        ScreenShotSaver.notifyOnFrameChanged(this::onFrameCountChange);
     }
 
     public void onFrameCountChange() {
-        frameCount.setText(ScreenShotUtil.getFrameCount() + " ");
+        frameCount.setText(ScreenShotSaver.getFrameCount() + " ");
     }
 }

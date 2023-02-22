@@ -1,4 +1,4 @@
-package com.visualg.util.libgdx;
+package com.visualg.ui;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;

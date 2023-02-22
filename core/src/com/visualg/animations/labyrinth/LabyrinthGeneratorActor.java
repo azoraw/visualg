@@ -5,9 +5,9 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
+import com.visualg.controls.fileio.ScreenShotSaver;
 import com.visualg.global.Config;
 import com.visualg.util.Direction;
-import com.visualg.util.libgdx.ScreenShotUtil;
 
 import java.util.Map;
 
@@ -42,7 +42,7 @@ public class LabyrinthGeneratorActor extends Actor {
 
     private void takeScreenShot() {
         if (canTakeScreenShot)
-            ScreenShotUtil.take(Pixmap.createFromFrameBuffer(0, 0, Config.WIDTH, Config.HEIGHT));
+            ScreenShotSaver.take(Pixmap.createFromFrameBuffer(0, 0, Config.WIDTH, Config.HEIGHT));
         canTakeScreenShot = false;
     }
 
