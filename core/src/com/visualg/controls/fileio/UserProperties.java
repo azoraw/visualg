@@ -2,37 +2,44 @@ package com.visualg.controls.fileio;
 
 import lombok.SneakyThrows;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.util.Properties;
 
-import static java.lang.Boolean.parseBoolean;
-import static java.lang.Float.parseFloat;
-import static java.lang.Integer.parseInt;
+import static java.util.Optional.ofNullable;
 
 public class UserProperties {
     private static final String FILE_PATH = "user.properties";
     private static final String UI_SCALE_PATH = "uiScale";
     private static final String VOLUME_PATH = "volume";
     private static final String MUTE_PATH = "mute";
-    private final  Properties properties;
+    private final Properties properties;
 
     @SneakyThrows
     public UserProperties() {
         properties = new Properties();
-        properties.load(new FileInputStream(FILE_PATH));
+        File file = new File(FILE_PATH);
+        file.createNewFile();
+        properties.load(new FileInputStream(file));
     }
 
     public boolean isMute() {
-        return parseBoolean(properties.getProperty(MUTE_PATH));
+        return ofNullable(properties.getProperty(MUTE_PATH))
+                .map(Boolean::parseBoolean)
+                .orElse(false);
     }
 
     public int getVolume() {
-        return parseInt(properties.getProperty(VOLUME_PATH));
+        return ofNullable(properties.getProperty(VOLUME_PATH))
+                .map(Integer::parseInt)
+                .orElse(100);
     }
 
     public float getUiScale() {
-        return parseFloat(properties.getProperty(UI_SCALE_PATH));
+        return ofNullable(properties.getProperty(UI_SCALE_PATH))
+                .map(Float::parseFloat)
+                .orElse(1f);
     }
 
     @SneakyThrows
