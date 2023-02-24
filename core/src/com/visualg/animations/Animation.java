@@ -19,6 +19,7 @@ import com.visualg.animations.langtonant.LangtonAntActor;
 import com.visualg.animations.lineGrower.LineGrowerGroup;
 import com.visualg.animations.lines.LinesDoodleActor;
 import com.visualg.animations.lissajous.LissajousCurveGroup;
+import com.visualg.animations.lsystems.LSystemGroup;
 import com.visualg.animations.moireSupperlattice.MoireSuperlatticeGroup;
 import com.visualg.animations.mondrian.MondrianGroup;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
@@ -62,8 +63,11 @@ public enum Animation {
     LANGTON_ANT(LangtonAntActor::new),
     LINES_DOODLE(LinesDoodleActor::new),
     LINES_GROWER(LineGrowerGroup::new),
+    LISSAJOUS_CURVE(LissajousCurveGroup::new),
+    L_SYSTEM(LSystemGroup::new),
     MANDELBROT(MandelbrotGroup::new),
     MODULO_SPIRAL(ModuloSpiralGroup::new),
+    MOIRE_SUPERLATTICE(MoireSuperlatticeGroup::new),
     MONDRIAN(MondrianGroup::new),
     MOUSE_FOLLOWER(MouseFollowerActor::new),
     MULTIBROT(MultibrotSetGroup::new),
@@ -81,10 +85,7 @@ public enum Animation {
     ULAM_SPIRAL(UlamSpiralGroup::new),
     WAVE_FUNCTION_COLLAPSE(WaveFunctionCollapseGroup::new),
     WIGGLY_CIRCLE(WigglyCircleGroup::new),
-    WIGGLY_LINE(WigglyLineGroup::new),
-    MOIRE_SUPERLATTICE(MoireSuperlatticeGroup::new),
-    LISSAJOUS_CURVE(LissajousCurveGroup::new),
-    ;
+    WIGGLY_LINE(WigglyLineGroup::new);
 
     private final Supplier<Actor> animationSupplier;
     @Getter

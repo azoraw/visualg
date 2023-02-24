@@ -21,6 +21,7 @@ import static com.visualg.animations.Animation.LANGTON_ANT;
 import static com.visualg.animations.Animation.LINES_DOODLE;
 import static com.visualg.animations.Animation.LINES_GROWER;
 import static com.visualg.animations.Animation.LISSAJOUS_CURVE;
+import static com.visualg.animations.Animation.L_SYSTEM;
 import static com.visualg.animations.Animation.MANDELBROT;
 import static com.visualg.animations.Animation.MODULO_SPIRAL;
 import static com.visualg.animations.Animation.MOIRE_SUPERLATTICE;
@@ -117,6 +118,10 @@ public class MenuTable extends Table {
         createAnimationButton("qTree2", QUAD_TREE2);
         createAnimationButton("qTree3", QUAD_TREE3);
         createAnimationButton("qTree4", QUAD_TREE4);
+
+        row();
+        addLabel("turtle graphics");
+        createAnimationButton("L-System", L_SYSTEM);
     }
 
     private void createAnimationButton(String text, Animation animation) {
