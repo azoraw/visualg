@@ -1,4 +1,4 @@
-package com.visualg.ui;
+package com.visualg.ui.turtleGraphics;
 
 public interface TurtleGraphics {
     void move(float distance);

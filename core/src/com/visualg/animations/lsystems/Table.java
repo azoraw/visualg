@@ -2,6 +2,7 @@ package com.visualg.animations.lsystems;
 
 import com.visualg.controls.events.RestartEvent;
 import com.visualg.ui.settings.DefaultSettingsRow;
+import com.visualg.ui.settings.SelectBoxRow;
 import com.visualg.ui.settings.SettingsTable;
 import com.visualg.ui.simplifiedComponents.DefaultButton;
 
@@ -55,6 +56,16 @@ class Table extends SettingsTable {
                     Settings.setDistance(parseFloat(str));
                     fire(new RestartEvent());
                 }).build());
+        addRow(SelectBoxRow.<LSystem>builder()
+                .label("lSystem")
+                .onChange(lSystem -> {
+                    Settings.setLSystem(lSystem);
+                    Settings.restart();
+                    fire(new RestartEvent());
+                })
+                .selected(Settings.getLSystem())
+                .items(LSystem.values())
+                .build());
         addRow(DefaultSettingsRow.builder()
                 .label("rotateLeft")
                 .initValue(Settings.rotateLeft)
