@@ -5,7 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.visualg.global.Config;
 import com.visualg.ui.turtleGraphics.TurtleGraphicRenderer;
 
-import static com.visualg.animations.lsystems.LSystemSettings.LSystemSettings;
+import static com.visualg.animations.lsystems.LSystemSettings.settings;
 
 class LSystemActor extends TurtleGraphicRenderer {
 
@@ -13,11 +13,11 @@ class LSystemActor extends TurtleGraphicRenderer {
     private int index = 0;
 
     LSystemActor() {
-        super(LSystemSettings.xStart, LSystemSettings.yStart, LSystemSettings.angleStart);
+        super(settings.xStart, settings.yStart, settings.angleStart);
         final LSystemAlg lSystemAlg = new LSystemAlg();
-        out = lSystemAlg.create(LSystemSettings.numberOfGenerations);
+        out = lSystemAlg.create(settings.numberOfGenerations);
         final Color cpy = Config.palette.getPrimaryColor().cpy();
-        cpy.a = LSystemSettings.transparency;
+        cpy.a = settings.transparency;
         sr.setColor(cpy);
     }
 
@@ -26,9 +26,9 @@ class LSystemActor extends TurtleGraphicRenderer {
         if (index < out.length()) {
             char c = out.charAt(index);
             switch (c) {
-                case 'A', 'B', 'F', 'G' -> move(LSystemSettings.distance);
-                case '+' -> rotate(LSystemSettings.rotateLeft);
-                case '-' -> rotate(LSystemSettings.rotateRight);
+                case 'A', 'B', 'F', 'G' -> move(settings.distance);
+                case '+' -> rotate(settings.rotateLeft);
+                case '-' -> rotate(settings.rotateRight);
                 case '[' -> pushState();
                 case ']' -> popState();
             }

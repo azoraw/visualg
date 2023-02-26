@@ -10,7 +10,7 @@ import java.util.Map;
 @NoArgsConstructor
 @Data
 class LSystemSettings implements Settings {
-    static LSystemSettings LSystemSettings = new LSystemSettings();
+    static LSystemSettings settings = new LSystemSettings();
 
     float transparency = 1f;
     int numberOfGenerations = 2;
