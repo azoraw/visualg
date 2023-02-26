@@ -11,8 +11,8 @@ class NoiseActor extends Actor {
     private final SimplexPixMap simplexPixMap;
     private Texture texture;
 
-    NoiseActor(SimplexSettings simplexSettings) {
-        simplexPixMap = new SimplexPixMap(simplexSettings);
+    NoiseActor() {
+        simplexPixMap = new SimplexPixMap();
     }
 
     @Override

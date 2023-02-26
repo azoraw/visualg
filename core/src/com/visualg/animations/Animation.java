@@ -30,9 +30,6 @@ import com.visualg.animations.noise.simplex.ColorNoiseActor;
 import com.visualg.animations.noise.simplex.NoiseGroup;
 import com.visualg.animations.noise.transparent.HairyFlowFieldGroup;
 import com.visualg.animations.qtree.qTree1.QuadTreeGroup;
-import com.visualg.animations.qtree.qtree2.QuadTreeGroup2;
-import com.visualg.animations.qtree.qtree3.QuadTreeGroup3;
-import com.visualg.animations.qtree.qtree4.QuadTreeGroup4;
 import com.visualg.animations.rectangles.RectanglesActor;
 import com.visualg.animations.rectangles.RectanglesTransparentActor;
 import com.visualg.animations.spiral.modulo.ModuloSpiralGroup;
@@ -75,9 +72,8 @@ public enum Animation {
     N_BODY_TRANSPARENT(TransparentNBodyGroup::new),
     OPEN_SIMPLEX(NoiseGroup::new),
     QUAD_TREE(QuadTreeGroup::new),
-    QUAD_TREE2(QuadTreeGroup2::new),
-    QUAD_TREE3(QuadTreeGroup3::new),
-    QUAD_TREE4(QuadTreeGroup4::new),
+    QUAD_TREE2(com.visualg.animations.qtree.qtree2.QuadTreeGroup2::new),
+    QUAD_TREE3(com.visualg.animations.qtree.qtree3.QuadTreeGroup3::new),
     RECTANGLES(RectanglesActor::new),
     RECTANGLES2(RectanglesTransparentActor::new),
     TRANSPARENT_BEZIER(TransparentBezierGroup::new, true),

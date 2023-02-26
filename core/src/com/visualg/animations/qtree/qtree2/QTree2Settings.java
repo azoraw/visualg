@@ -1,4 +1,4 @@
-package com.visualg.animations.qtree.qtree3;
+package com.visualg.animations.qtree.qtree2;
 
 import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
@@ -7,8 +7,8 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class QTree3Settings implements Settings {
-    static final QTree3Settings settings = new QTree3Settings();
+class QTree2Settings implements Settings {
+    static final QTree2Settings settings = new QTree2Settings();
 
     private int movementSpeed = 5;
     private int rectSize = 200;

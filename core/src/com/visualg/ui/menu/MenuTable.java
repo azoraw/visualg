@@ -34,7 +34,6 @@ import static com.visualg.animations.Animation.OPEN_SIMPLEX;
 import static com.visualg.animations.Animation.QUAD_TREE;
 import static com.visualg.animations.Animation.QUAD_TREE2;
 import static com.visualg.animations.Animation.QUAD_TREE3;
-import static com.visualg.animations.Animation.QUAD_TREE4;
 import static com.visualg.animations.Animation.RECTANGLES;
 import static com.visualg.animations.Animation.RECTANGLES2;
 import static com.visualg.animations.Animation.TRANSPARENT_BEZIER;
@@ -117,7 +116,6 @@ public class MenuTable extends Table {
         createAnimationButton("qTree", QUAD_TREE);
         createAnimationButton("qTree2", QUAD_TREE2);
         createAnimationButton("qTree3", QUAD_TREE3);
-        createAnimationButton("qTree4", QUAD_TREE4);
 
         row();
         addLabel("turtle graphics");

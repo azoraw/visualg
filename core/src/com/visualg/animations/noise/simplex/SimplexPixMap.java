@@ -6,6 +6,7 @@ import com.visualg.util.OpenSimplexNoise;
 
 import java.util.function.Function;
 
+import static com.visualg.animations.noise.simplex.SimplexSettings.settings;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
@@ -26,13 +27,13 @@ class SimplexPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    SimplexPixMap(SimplexSettings simplexSettings) {
-        goInNumberOfPixels = simplexSettings.getNumberOfSkippedPixels();
+    SimplexPixMap() {
+        goInNumberOfPixels = settings.getNumberOfSkippedPixels();
         openSimplex = new OpenSimplexNoise(0);
-        colorFunction = simplexSettings.getColorMode().getColorFunction();
-        X_OFF = simplexSettings.getX_OFF();
-        Y_OFF = simplexSettings.getY_OFF();
-        Z_OFF = simplexSettings.getZ_OFF();
+        colorFunction = settings.getColorMode().getColorFunction();
+        X_OFF = settings.getX_OFF();
+        Y_OFF = settings.getY_OFF();
+        Z_OFF = settings.getZ_OFF();
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(palette.getPrimaryColor());

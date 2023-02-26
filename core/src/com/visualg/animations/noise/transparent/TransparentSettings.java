@@ -15,8 +15,6 @@ class TransparentSettings implements Settings {
 
     static final TransparentSettings settings = new TransparentSettings();
 
-    private boolean isConnectedWithStartingPoint = false;
-    private boolean haveMiddleCircle = false;
     private int tiles = 1;
     private float alpha = 0.01f;
     private int numberOfAgents = 1000;
@@ -24,6 +22,8 @@ class TransparentSettings implements Settings {
     private float fieldMagnitude = 0.01f;
     private int initFrameSkips = 0;
     private int randomColorDelta = Random.nextInt(360);
+    private boolean isConnectedWithStartingPoint = false;
+    private boolean haveMiddleCircle = false;
     private Colors colors = Colors.MONOCHROMATIC;
     private ColorInputSrc colorInputSrc = ColorInputSrc.VELOCITY;
 

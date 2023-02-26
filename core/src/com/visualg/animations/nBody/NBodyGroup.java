@@ -5,9 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class NBodyGroup extends Group {
 
     public NBodyGroup() {
-        CurrentSettings currentSettings = CurrentSettings.INSTANCE;
-        NBodyAlg nBodyAlg = new NBodyAlg(currentSettings);
-        Table settings = new Table(currentSettings);
+        NBodyAlg nBodyAlg = new NBodyAlg();
+        Table settings = new Table();
         addActor(new NBodyActor(nBodyAlg));
         addActor(settings);
     }

@@ -6,5 +6,6 @@ public class QuadTreeGroup2 extends Group {
     public QuadTreeGroup2() {
         final QuadTreeActor quadTreeActor = new QuadTreeActor();
         addActor(quadTreeActor);
+        addActor(new Table());
     }
 }

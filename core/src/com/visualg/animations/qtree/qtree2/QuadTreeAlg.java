@@ -1,6 +1,7 @@
 package com.visualg.animations.qtree.qtree2;
 
 import com.visualg.global.Config;
+import com.visualg.util.BouncingBall;
 import com.visualg.util.qTree.Point;
 import com.visualg.util.qTree.QTree;
 import com.visualg.util.qTree.Rectangle;
@@ -8,22 +9,35 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 
+import static com.visualg.animations.qtree.qtree2.QTree2Settings.settings;
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+
 class QuadTreeAlg {
-    private static final int NUMBER_OF_PARTICLES = 1000;
+    private static final int QTREE_CAPACITY = 4;
+
     @Getter
-    private final ArrayList<Particle> particles = new ArrayList<>();
-    private final QTree qTree;
+    private final ArrayList<BouncingBall> bouncingBalls = new ArrayList<>();
+    private QTree qTree;
 
     public QuadTreeAlg() {
-        qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), 4);
-        for (int i = 0; i < NUMBER_OF_PARTICLES; i++) {
-            final Particle particle = new Particle();
-            particles.add(particle);
-            qTree.insert(new Point(particle.getX(), particle.getY(), particle));
+        qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), QTREE_CAPACITY);
+        for (int i = 0; i < settings.getNumberOfParticles(); i++) {
+            final BouncingBall bouncingBall = new BouncingBall(HEIGHT, 1, 1, WIDTH, settings.getMovementSpeed());
+            bouncingBalls.add(bouncingBall);
+            qTree.insert(new Point(bouncingBall.getPosition().x, bouncingBall.getPosition().y, bouncingBall));
         }
     }
 
     public ArrayList<Point> getParticlesInRect(Rectangle rectangle) {
         return qTree.query(rectangle, new ArrayList<>());
+    }
+
+    public void update() {
+        qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), QTREE_CAPACITY);
+        for (BouncingBall bouncingBall : bouncingBalls) {
+            bouncingBall.update();
+            qTree.insert(new Point(bouncingBall.getPosition().x, bouncingBall.getPosition().y, bouncingBall));
+        }
     }
 }

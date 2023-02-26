@@ -5,17 +5,18 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 import com.visualg.controls.InteractiveActor;
 import com.visualg.ui.pixmap.PixmapActor;
 
+import static com.visualg.animations.fractals.multibrot.MultibrotSettings.settings;
+
 public class MultibrotSetGroup extends Group implements InteractiveActor {
 
     private final InputProcessor inputProcessors;
 
     public MultibrotSetGroup() {
-        MultibrotSettings multibrotSettings = MultibrotSettings.settings;
-        Table table = new Table(multibrotSettings);
-        PixmapActor pixmapActor = new PixmapActor(new MultibrotAlg(multibrotSettings));
+        Table table = new Table(settings);
+        PixmapActor pixmapActor = new PixmapActor(new MultibrotAlg(settings));
         addActor(pixmapActor);
         addActor(table);
-        MultibrotSetController multibrotSetController = new MultibrotSetController(multibrotSettings, table, pixmapActor);
+        MultibrotSetController multibrotSetController = new MultibrotSetController(settings, table, pixmapActor);
         inputProcessors = new MultibrotSetInputProcessor(multibrotSetController);
     }
 

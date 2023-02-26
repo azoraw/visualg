@@ -5,9 +5,8 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class NoiseGroup extends Group {
 
     public NoiseGroup() {
-        SimplexSettings simplexSettings = SimplexSettings.settings;
-        Table settingsTable = new Table(simplexSettings);
-        addActor(new NoiseActor(simplexSettings));
+        Table settingsTable = new Table();
+        addActor(new NoiseActor());
         addActor(settingsTable);
     }
 }

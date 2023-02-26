@@ -4,6 +4,8 @@ import com.badlogic.gdx.graphics.Color;
 import com.visualg.global.Config;
 import com.visualg.ui.FrameBufferActor;
 
+import static com.visualg.animations.nBody.NBodySettings.settings;
+
 class TransparentNBodyActor extends FrameBufferActor {
     private final NBodyAlg alg;
 
@@ -11,7 +13,7 @@ class TransparentNBodyActor extends FrameBufferActor {
         super(true);
         this.alg = alg;
         final Color color = Config.palette.getPrimaryColor().cpy();
-        color.a = CurrentSettings.INSTANCE.getTransparency();
+        color.a = settings.getTransparency();
         sr.setColor(color);
     }
 
