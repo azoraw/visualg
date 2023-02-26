@@ -11,7 +11,7 @@ public class RandomDecorator extends java.util.Random {
         return super.nextInt(max - min) + min;
     }
 
-    public  float getFloatInRange(int min, int max) {
+    public float getFloatInRange(int min, int max) {
         return super.nextFloat(max - min) + min;
     }
 

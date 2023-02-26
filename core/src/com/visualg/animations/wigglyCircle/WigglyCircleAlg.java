@@ -11,7 +11,7 @@ import static java.lang.Math.sin;
 
 class WigglyCircleAlg {
 
-    private int THRESHOLD_RADIUS = 250;
+    private final int THRESHOLD_RADIUS = 250;
 
     private final float xMiddle;
     private final float yMiddle;

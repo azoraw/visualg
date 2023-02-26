@@ -35,7 +35,6 @@ class OldWidowsScreenSaver {
     }
 
 
-
     void update() {
         bouncingBalls.forEach(BouncingBall::update);
     }

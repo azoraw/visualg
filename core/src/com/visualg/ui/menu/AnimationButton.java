@@ -9,7 +9,7 @@ import com.visualg.global.Config;
 
 class AnimationButton extends TextButton {
 
-     AnimationButton(String text, Animation animation) {
+    AnimationButton(String text, Animation animation) {
         super(text, Config.skin);
 
         addListener(new ChangeListener() {

@@ -42,7 +42,7 @@ class HairyFlowFieldAlg {
             for (int y = 0; y <= HEIGHT; y++) {
                 vectors[x][y] = new Vector2(1, 0);
                 double eval;
-                if (transparentSettings.isHaveMiddleCircle() && isInsideCircle(x,y)) {
+                if (transparentSettings.isHaveMiddleCircle() && isInsideCircle(x, y)) {
                     eval = openSimplexNoise.eval(
                             x * transparentSettings.getStep() / 100,
                             y * transparentSettings.getStep() / 100);

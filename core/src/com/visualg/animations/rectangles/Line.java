@@ -12,7 +12,7 @@ class Line {
         this.y1 = y1;
         this.x2 = x2;
         this.y2 = y2;
-        this.diffMultiplier = -1*diffMultiplier;
+        this.diffMultiplier = -1 * diffMultiplier;
     }
 
     float getNextX() {

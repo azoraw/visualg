@@ -10,19 +10,19 @@ class Table extends SettingsTable {
                 .label("movementSpeed")
                 .initValue(Qtree4Settings.settings.getMovementSpeed())
                 .onValueChange((str) -> Qtree4Settings.settings.setMovementSpeed(Integer.parseInt(str)))
-                .afterValueChange((str)-> fire(new RestartEvent()))
+                .afterValueChange((str) -> fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("number of particles")
                 .initValue(Qtree4Settings.settings.getNumberOfParticles())
                 .onValueChange((str) -> Qtree4Settings.settings.setNumberOfParticles(Integer.parseInt(str)))
-                .afterValueChange((str)-> fire(new RestartEvent()))
+                .afterValueChange((str) -> fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("particle range")
                 .initValue(Qtree4Settings.settings.getRectSize())
                 .onValueChange((str) -> Qtree4Settings.settings.setRectSize(Integer.parseInt(str)))
-                .afterValueChange((str)-> fire(new RestartEvent()))
+                .afterValueChange((str) -> fire(new RestartEvent()))
                 .build());
     }
 }

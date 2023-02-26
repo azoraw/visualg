@@ -33,7 +33,7 @@ class MoireSuperlatticeActor extends Actor {
     private Pixmap getPixmap(ColorOption colorOption) {
         Pixmap pixmap = new Pixmap(WIDTH, HEIGHT, Pixmap.Format.RGBA8888);
         pixmap.setColor(palette.getBackground());
-        Color color=null;
+        Color color = null;
         switch (colorOption) {
             case PRIMARY -> {
                 color = Config.palette.getPrimaryColor().cpy();

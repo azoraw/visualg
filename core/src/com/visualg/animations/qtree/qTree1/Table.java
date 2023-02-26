@@ -13,13 +13,13 @@ class Table extends SettingsTable {
                 .label("number of particles")
                 .initValue(settings.getNumberOfParticles())
                 .onValueChange((str) -> settings.setNumberOfParticles(Integer.parseInt(str)))
-                .afterValueChange((str)-> fire(new RestartEvent()))
+                .afterValueChange((str) -> fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("range")
                 .initValue(settings.getRectSize())
                 .onValueChange((str) -> settings.setRectSize(Integer.parseInt(str)))
-                .afterValueChange((str)-> fire(new RestartEvent()))
+                .afterValueChange((str) -> fire(new RestartEvent()))
                 .build());
         addRow(SelectBoxRow.<QueryMode>builder()
                 .label("query mode")
@@ -28,5 +28,5 @@ class Table extends SettingsTable {
                 .items(QueryMode.values())
                 .build());
 
-           }
+    }
 }

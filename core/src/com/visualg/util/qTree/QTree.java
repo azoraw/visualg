@@ -30,11 +30,7 @@ public class QTree {
             return true;
         } else if (southEast.insert(point)) {
             return true;
-        } else if (southWest.insert(point)) {
-            return true;
-        }
-
-        return false;
+        } else return southWest.insert(point);
     }
 
     private void subdivide() {

@@ -4,5 +4,6 @@ import java.util.List;
 
 public interface TilesetRules {
     List<TilesetRule> get(int index);
+
     int getTilesetCount();
 }

@@ -13,16 +13,16 @@ class CircleStackingAlg {
     CircleStackingAlg() {
         CircleStackingSettings circleStackingSettings = CircleStackingSettings.settings;
         circles.add(Circle.builder()
-                .xCenter(Config.WIDTH/2)
-                .yCenter(Config.HEIGHT/2)
+                .xCenter(Config.WIDTH / 2)
+                .yCenter(Config.HEIGHT / 2)
                 .radius(circleStackingSettings.getCircles().get(0).first)
                 .stepsNo(circleStackingSettings.getCircles().get(0).second)
                 .build());
 
         for (int i = 1; i < circleStackingSettings.getNumberOfCircles(); i++) {
             circles.add(Circle.builder()
-                    .xCenter((int)circles.get(i-1).getEnd().x)
-                    .yCenter((int)circles.get(i-1).getEnd().y)
+                    .xCenter((int) circles.get(i - 1).getEnd().x)
+                    .yCenter((int) circles.get(i - 1).getEnd().y)
                     .radius(circleStackingSettings.getCircles().get(i).first)
                     .stepsNo(circleStackingSettings.getCircles().get(i).second)
                     .build());
@@ -30,9 +30,9 @@ class CircleStackingAlg {
     }
 
     void update() {
-        circles.get(0).update(Config.WIDTH/2,Config.HEIGHT/2);
+        circles.get(0).update(Config.WIDTH / 2, Config.HEIGHT / 2);
         for (int i = 1; i < circles.size(); i++) {
-            circles.get(i).update((int)circles.get(i-1).getEnd().x,(int) circles.get(i-1).getEnd().y);
+            circles.get(i).update((int) circles.get(i - 1).getEnd().x, (int) circles.get(i - 1).getEnd().y);
         }
     }
 

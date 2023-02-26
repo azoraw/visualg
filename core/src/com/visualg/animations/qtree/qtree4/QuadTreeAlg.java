@@ -32,9 +32,11 @@ class QuadTreeAlg {
     public ArrayList<Point> getParticlesInRect(Rectangle rectangle) {
         return qTree.query(rectangle, new ArrayList<>());
     }
+
     public ArrayList<Point> getParticlesInCircle(Circle circle) {
         return qTree.query(circle, new ArrayList<>());
     }
+
     public void update() {
         qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), QTREE_CAPACITY);
         for (BouncingBall bouncingBall : bouncingBalls) {

@@ -28,6 +28,7 @@ class BezierSettings implements Settings {
         this.numberOfBlobs = numberOfBlobs;
         blobs = initBlobs();
     }
+
     BlobSetting getBlobSetting(int index) {
         return blobs.get(index);
     }

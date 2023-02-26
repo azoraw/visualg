@@ -31,11 +31,11 @@ class LineGrowerAlg extends PixmapAlg {
 
     private static final int MAX_NUMBER_OF_GROWING_SEGMENTS = 100;
     private static final int MAX_NUMBER_OF_All_SEGMENTS = 1_0000;
-    private Pixmap pixmap;
+    private final Pixmap pixmap;
 
     private final HashSet<Segment> growingSegments = new HashSet<>();
     private final ArrayList<Segment> allSegments = new ArrayList<>();
-    private Segment[][] pixels = new Segment[WIDTH + 1][HEIGHT + 1];
+    private final Segment[][] pixels = new Segment[WIDTH + 1][HEIGHT + 1];
 
     LineGrowerAlg() {
         pixmap = PixmapFactory.create();
@@ -107,7 +107,7 @@ class LineGrowerAlg extends PixmapAlg {
 
 
     private boolean isInbound(int x, int y) {
-        return x > 1 && y > 1 && x < WIDTH-1 && y < HEIGHT-1;
+        return x > 1 && y > 1 && x < WIDTH - 1 && y < HEIGHT - 1;
     }
 
     private void addNewSegment(Segment segment) {
@@ -131,7 +131,7 @@ class LineGrowerAlg extends PixmapAlg {
         int x = (int) segment.getPosition().x;
         int y = (int) segment.getPosition().y;
         pixels[x][y] = segment;
-        pixmap.drawPixel(x, y,  Color.rgba8888(palette.getPrimaryColor()));
+        pixmap.drawPixel(x, y, Color.rgba8888(palette.getPrimaryColor()));
     }
 
     @Override

@@ -23,7 +23,7 @@ class QuadTreeActor extends FrameBufferActor {
     @Override
     protected void drawFrame() {
         final ArrayList<BouncingBall> particles = alg.getBouncingBalls();
-        sr.setColor(ColorGenerator.fromHSV((Mouse.getX() / (float) Config.WIDTH) * 360, 1, 1,0.01f));
+        sr.setColor(ColorGenerator.fromHSV((Mouse.getX() / (float) Config.WIDTH) * 360, 1, 1, 0.01f));
         for (BouncingBall particle : particles) {
             final ArrayList<Point> connectedParticles = alg.getParticlesInCircle(new Circle(particle.getPosition().x, particle.getPosition().y, Qtree4Settings.settings.getRectSize()));
             for (Point connectedParticle : connectedParticles) {

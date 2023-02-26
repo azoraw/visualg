@@ -26,9 +26,9 @@ class LissajousCurveActor extends FrameBufferActor {
     protected void drawFrame() {
         float newX = Config.WIDTH / 2 + alg.getX();
         float newY = Config.HEIGHT / 2 + alg.getY();
-        sr.rectLine(x,y,newX,newY, settings.getLineThickness());
-        x=newX;
-        y=newY;
+        sr.rectLine(x, y, newX, newY, settings.getLineThickness());
+        x = newX;
+        y = newY;
         alg.update();
 
     }

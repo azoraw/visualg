@@ -17,7 +17,8 @@ public class DefaultSettingsRow extends SettingsRow {
     public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
         this.label = new DefaultLabel(label);
         textField = new DefaultTextField(String.valueOf(initValue), onValueChange.andThen(Optional.ofNullable(afterValueChange)
-                .orElseGet(() -> (consumer) -> {})));
+                .orElseGet(() -> (consumer) -> {
+                })));
     }
 
     @Override

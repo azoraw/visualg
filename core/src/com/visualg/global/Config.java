@@ -17,7 +17,8 @@ public class Config {
     public static int HEIGHT;
     public static Skin skin;
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private static Animation currentAnimation;
     @Getter
     private static UserProperties userProperties;
@@ -34,7 +35,7 @@ public class Config {
     }
 
     private static void initUserProperties() {
-       userProperties = new UserProperties();
+        userProperties = new UserProperties();
     }
 
     private static void initMusic() {

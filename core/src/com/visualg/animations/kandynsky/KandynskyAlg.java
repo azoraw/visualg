@@ -132,6 +132,7 @@ class KandynskyAlg {
         selected = false;
         selectedElement = null;
     }
+
     void rotate() {
         elements.forEach(element -> element.rotate(1));
     }

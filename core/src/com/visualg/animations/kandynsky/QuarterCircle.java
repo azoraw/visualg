@@ -42,6 +42,6 @@ class QuarterCircle implements Element {
 
     @Override
     public void rotate(int angle) {
-        rotation+=angle;
+        rotation += angle;
     }
 }

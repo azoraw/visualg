@@ -25,7 +25,7 @@ public class ProgressBarActor {
         progressBar.setBounds(x, y, width, height);
     }
 
-    private  ProgressBar.ProgressBarStyle createSkin() {
+    private ProgressBar.ProgressBarStyle createSkin() {
         Pixmap pixmap = new Pixmap(100, 20, Pixmap.Format.RGBA8888);
         pixmap.setColor(Color.DARK_GRAY);
         pixmap.fill();
@@ -37,7 +37,7 @@ public class ProgressBarActor {
         Pixmap pixmap2 = new Pixmap(100, 20, Pixmap.Format.RGBA8888);
         pixmap2.setColor(Color.GRAY);
         pixmap2.fill();
-        TextureRegionDrawable drawable1 =  new TextureRegionDrawable(new TextureRegion(new Texture(pixmap2)));
+        TextureRegionDrawable drawable1 = new TextureRegionDrawable(new TextureRegion(new Texture(pixmap2)));
         pixmap2.dispose();
 
         progressBarStyle.knobBefore = drawable1;

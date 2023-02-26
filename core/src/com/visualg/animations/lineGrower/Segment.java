@@ -16,7 +16,7 @@ class Segment {
 
     private static int[] getInts() {
         int shift = 1;
-        int[] ints =new int[shift*2+2];
+        int[] ints = new int[shift * 2 + 2];
         int index = 0;
         for (int i = -shift; i < shift; i++) {
             ints[index] = i;
@@ -31,7 +31,7 @@ class Segment {
     int crossed = 0;
 
     Segment() {
-        position = new Vector2(Random.nextInt(WIDTH-1), Random.nextInt(HEIGHT-1));
+        position = new Vector2(Random.nextInt(WIDTH - 1), Random.nextInt(HEIGHT - 1));
         initPosition = position.cpy();
         velocity = new Vector2();
         velocity.setToRandomDirection();

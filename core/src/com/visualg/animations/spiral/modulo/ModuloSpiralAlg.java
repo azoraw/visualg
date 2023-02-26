@@ -39,7 +39,7 @@ class ModuloSpiralAlg extends PixmapAlg {
 
     private void colorPixel(Pixmap img, Position currentPosition, int number) {
         if (currentPosition.isInsideDrawableArea()) {
-            int pixelColor = number % modulo == 0 ?  Color.rgba8888(palette.getPrimaryColor()) :  Color.rgba8888(palette.getBackground());
+            int pixelColor = number % modulo == 0 ? Color.rgba8888(palette.getPrimaryColor()) : Color.rgba8888(palette.getBackground());
             img.drawPixel(currentPosition.getX(), currentPosition.getY(), pixelColor);
         }
     }

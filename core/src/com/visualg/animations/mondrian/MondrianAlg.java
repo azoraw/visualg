@@ -92,7 +92,7 @@ class MondrianAlg {
 
     private float getCurrentSplit() {
         float currentSplit = 1f;
-        if(settings.getSpace() != 0) {
+        if (settings.getSpace() != 0) {
             currentSplit = splits[Random.nextInt(splits.length)];
         }
         return currentSplit;

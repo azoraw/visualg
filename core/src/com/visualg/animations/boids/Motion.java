@@ -42,7 +42,7 @@ class Motion {
 
     private void minSpeedLimit(double z) {
         if (z < boidsSettings.getMinSpeed()) {
-            if(z == 0 ) {
+            if (z == 0) {
                 randomDirection();
                 return;
             }

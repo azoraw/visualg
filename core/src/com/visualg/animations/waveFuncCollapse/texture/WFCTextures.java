@@ -30,9 +30,9 @@ public class WFCTextures {
         FileHandle file = Gdx.files.internal(carrcasPath);
         Pixmap allTiles = new Pixmap(file);
         int key = 0;
-            for (int y = 0; y < 20; y++) {
-                for (int x = 0; x < 4; x++) {
-                    addcarrcasTile(allTiles, x * 85, y * 85, ++key);
+        for (int y = 0; y < 20; y++) {
+            for (int x = 0; x < 4; x++) {
+                addcarrcasTile(allTiles, x * 85, y * 85, ++key);
             }
         }
         Pixmap pixmap = new Pixmap(85, 85, allTiles.getFormat());

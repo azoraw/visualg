@@ -48,7 +48,7 @@ class LineElement implements Element {
 
     @Override
     public void rotate(int angle) {
-        
+
         final Pair<Float, Float> center = getCenter();
         final Float centerX = center.first();
         final Float centerY = center.second();

@@ -1,7 +1,6 @@
 package com.visualg.util.color;
 
 import com.badlogic.gdx.graphics.Color;
-import com.visualg.global.Config;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -16,11 +15,14 @@ public enum PaletteType {
     USER_DEFINED(WHITE, WHITE, BLACK);
 
 
-    @Getter @Setter
+    @Getter
+    @Setter
     private Color primaryColor;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Color secondaryColor;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Color background;
 
     @Setter

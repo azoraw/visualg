@@ -69,7 +69,8 @@ class BezierFunctionAlg {
                 first = color;
             }
             case RANDOM -> first = randomColor1;
-            case POSITION_BASED -> first = fromHSV(getAngle(pos1.x, pos1.y), 1, 1, settings.getBlobSetting(index).getTransparency());
+            case POSITION_BASED ->
+                    first = fromHSV(getAngle(pos1.x, pos1.y), 1, 1, settings.getBlobSetting(index).getTransparency());
             default -> throw new IllegalStateException("Unexpected value: " + blobSetting.getBlobColor());
         }
         if (!blobSetting.isGradient()) {
@@ -87,7 +88,8 @@ class BezierFunctionAlg {
                 second = color;
             }
             case RANDOM -> second = randomColor2;
-            case POSITION_BASED -> second = fromHSV(getAngle(pos2.x, pos2.y), 1, 1, settings.getBlobSetting(index).getTransparency2());
+            case POSITION_BASED ->
+                    second = fromHSV(getAngle(pos2.x, pos2.y), 1, 1, settings.getBlobSetting(index).getTransparency2());
             default -> throw new IllegalStateException("Unexpected value: " + blobSetting.getBlobColor());
         }
         return new Pair<>(first, second);

@@ -10,7 +10,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-class Cell  implements Comparable<Cell>{
+class Cell implements Comparable<Cell> {
     @Getter
     private final int x;
     @Getter
@@ -44,14 +44,14 @@ class Cell  implements Comparable<Cell>{
         return false;
     }
 
-     void collapsed(int solution) {
+    void collapsed(int solution) {
         options = List.of(solution);
         this.solution = solution;
         collapsed = true;
     }
 
     public int getEntropy() {
-    return options.size();
+        return options.size();
     }
 
     @Override
@@ -59,7 +59,7 @@ class Cell  implements Comparable<Cell>{
         return Comparator.comparing(Cell::getEntropy)
                 .thenComparing(Cell::getX)
                 .thenComparing(Cell::getY)
-                .compare(this,o);
+                .compare(this, o);
     }
 
     public void collapse() {
@@ -68,6 +68,6 @@ class Cell  implements Comparable<Cell>{
 
     @Override
     public String toString() {
-        return ""+solution;
+        return "" + solution;
     }
 }

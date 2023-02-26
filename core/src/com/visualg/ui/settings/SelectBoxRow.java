@@ -16,7 +16,7 @@ public class SelectBoxRow<T> extends SettingsRow {
     @Builder
     public SelectBoxRow(String label, Consumer<T> onChange, T selected, T[] items) {
         this.label = new DefaultLabel(label);
-        this.selectBox =  DefaultSelectBox.<T>builder()
+        this.selectBox = DefaultSelectBox.<T>builder()
                 .onChange(onChange)
                 .selected(selected)
                 .items(items)

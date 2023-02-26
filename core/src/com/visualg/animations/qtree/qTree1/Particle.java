@@ -7,8 +7,8 @@ import static com.visualg.util.RandomDecorator.Random;
 
 @Getter
 class Particle {
-    private float x;
-    private float y;
+    private final float x;
+    private final float y;
 
     public Particle() {
         x = Random.getRandomFloat(Config.WIDTH);

@@ -11,7 +11,7 @@ import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
 
 class LangtonAntAlg {
-    
+
     private final boolean[][] board;
     private final List<Ant> ants;
 

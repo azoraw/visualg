@@ -39,5 +39,6 @@ class CircleElement implements Element {
     }
 
     @Override
-    public void rotate(int degree) {}
+    public void rotate(int degree) {
+    }
 }

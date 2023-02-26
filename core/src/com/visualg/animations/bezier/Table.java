@@ -31,7 +31,7 @@ class Table extends SettingsTable {
             add(DefaultCheckBox.builder()
                     .label("gradient")
                     .initValue(false)
-                    .onClick(() ->  {
+                    .onClick(() -> {
                         bezierSettings.getBlobSetting(finalI).setGradient(!bezierSettings.getBlobSetting(finalI).isGradient());
                         fire(new RestartEvent());
                     })
@@ -40,7 +40,7 @@ class Table extends SettingsTable {
             addRow(DefaultSettingsRow.builder()
                     .label("transparency")
                     .initValue(bezierSettings.getBlobSetting(finalI).getTransparency())
-                    .onValueChange((str)-> bezierSettings.getBlobSetting(finalI).setTransparency(parseFloat(str)))
+                    .onValueChange((str) -> bezierSettings.getBlobSetting(finalI).setTransparency(parseFloat(str)))
                     .afterValueChange((s -> fire(new RestartEvent())))
                     .build());
             addRow(SelectBoxRow.<BlobColor>builder()
@@ -49,11 +49,11 @@ class Table extends SettingsTable {
                     .selected(bezierSettings.getBlobSetting(finalI).getBlobColor())
                     .items(BlobColor.values())
                     .build());
-            if(bezierSettings.getBlobSetting(finalI).isGradient()){
+            if (bezierSettings.getBlobSetting(finalI).isGradient()) {
                 addRow(DefaultSettingsRow.builder()
                         .label("transparency2")
                         .initValue(bezierSettings.getBlobSetting(finalI).getTransparency2())
-                        .onValueChange((str)-> bezierSettings.getBlobSetting(finalI).setTransparency2(parseFloat(str)))
+                        .onValueChange((str) -> bezierSettings.getBlobSetting(finalI).setTransparency2(parseFloat(str)))
                         .afterValueChange((s -> fire(new RestartEvent())))
                         .build());
                 addRow(SelectBoxRow.<BlobColor>builder()

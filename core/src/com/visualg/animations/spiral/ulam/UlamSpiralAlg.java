@@ -44,7 +44,7 @@ public class UlamSpiralAlg extends PixmapAlg {
 
     private void colorPixel(Pixmap img, Position currentPosition, int number) {
         if (currentPosition.isInsideDrawableArea()) {
-            int pixelColor = prime.isPrime(number) ? Color.rgba8888(palette.getPrimaryColor()) :  Color.rgba8888(palette.getBackground());
+            int pixelColor = prime.isPrime(number) ? Color.rgba8888(palette.getPrimaryColor()) : Color.rgba8888(palette.getBackground());
             img.drawPixel(currentPosition.getX(), currentPosition.getY(), pixelColor);
         }
     }

@@ -31,6 +31,7 @@ public class Rectangle {
                 || range.y - range.h > y + h
                 || range.y + range.h < y - h);
     }
+
     boolean intersects(Circle range) {
         return !(range.x - range.r > x + w
                 || range.x + range.r < x - w

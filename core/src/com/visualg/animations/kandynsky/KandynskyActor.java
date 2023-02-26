@@ -54,7 +54,7 @@ class KandynskyActor extends Actor {
     }
 
     private void update() {
-        if(KandynskySettings.settings.isRotate()) {
+        if (KandynskySettings.settings.isRotate()) {
             for (int i = 0; i < Config.updatesPerFrame; i++) {
                 alg.rotate();
             }

@@ -89,14 +89,14 @@ class Dot {
     private Pair<Float, Float> getColorInput() {
         switch (settings.getColorInputSrc()) {
             case POSITION -> {
-                return new Pair<>( position.x - WIDTH / 2,  position.y - HEIGHT / 2);
+                return new Pair<>(position.x - WIDTH / 2, position.y - HEIGHT / 2);
             }
             case VELOCITY -> {
-                return new Pair<>(velocity.x,  velocity.y);
+                return new Pair<>(velocity.x, velocity.y);
 
             }
             case FIELD -> {
-                return new Pair<>( acceleration.x, acceleration.y);
+                return new Pair<>(acceleration.x, acceleration.y);
             }
         }
         throw new RuntimeException();

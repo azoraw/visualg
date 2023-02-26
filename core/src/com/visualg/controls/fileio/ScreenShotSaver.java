@@ -40,8 +40,8 @@ public class ScreenShotSaver {
 
     private static String getCurrentTimeString() {
         return LocalDateTime.now().toString()
-        .replace("-", "_")
-        .replace(":", "_");
+                .replace("-", "_")
+                .replace(":", "_");
     }
 
     public static void prepareRecording() {
@@ -56,7 +56,7 @@ public class ScreenShotSaver {
     }
 
     public static void record(Pixmap pixmap) {
-        if(!recording) {
+        if (!recording) {
             throw new RuntimeException("Before recording call prepareRecording method");
         }
         PixmapIO.writePNG(Gdx.files.local(recordPath()), pixmap);
