@@ -11,23 +11,23 @@ import static java.lang.Integer.parseInt;
 
 class Table extends SettingsTable {
 
-    Table(Settings settings, Runnable screenshot) {
+    Table(CircleStackingSettings circleStackingSettings, Runnable screenshot) {
         addRow(DefaultSettingsRow.builder()
                 .label("transparency")
-                .initValue(settings.getTransparency())
-                .onValueChange(newValue -> settings.setTransparency(parseFloat(newValue)))
+                .initValue(circleStackingSettings.getTransparency())
+                .onValueChange(newValue -> circleStackingSettings.setTransparency(parseFloat(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build());
 
         addRow(DefaultSettingsRow.builder()
                 .label("numberOfCircles")
-                .initValue(settings.getNumberOfCircles())
-                .onValueChange(newValue -> settings.setNumberOfCircles(parseInt(newValue)))
+                .initValue(circleStackingSettings.getNumberOfCircles())
+                .onValueChange(newValue -> circleStackingSettings.setNumberOfCircles(parseInt(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build());
 
-        for (int i = 0; i < settings.getNumberOfCircles(); i++) {
-            MutablePair<Integer, Integer> circle = settings.getCircles().get(i);
+        for (int i = 0; i < circleStackingSettings.getNumberOfCircles(); i++) {
+            MutablePair<Integer, Integer> circle = circleStackingSettings.getCircles().get(i);
             addRow(DefaultSettingsRow.builder()
                     .label("radius" + (i + 1))
                     .initValue(circle.first)
@@ -42,7 +42,7 @@ class Table extends SettingsTable {
                     .build());
         }
         add(new DefaultButton("randomise", () -> {
-            settings.randomise();
+            circleStackingSettings.randomise();
             fire(new RestartEvent());
         }));
         add(new DefaultButton("screenshot", screenshot));

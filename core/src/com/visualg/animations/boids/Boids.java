@@ -9,12 +9,12 @@ import java.util.stream.Collectors;
 @Getter
 class Boids {
     private final List<Boid> boids = new ArrayList<>();
-    private final Settings settings;
+    private final BoidsSettings boidsSettings;
 
-    Boids(Settings settings) {
-        this.settings = settings;
-        for (int i = 0; i < settings.getNumberOfBoids(); i++) {
-            boids.add(new Boid(settings));
+    Boids(BoidsSettings boidsSettings) {
+        this.boidsSettings = boidsSettings;
+        for (int i = 0; i < boidsSettings.getNumberOfBoids(); i++) {
+            boids.add(new Boid(boidsSettings));
         }
     }
 

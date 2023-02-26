@@ -11,7 +11,7 @@ import static com.visualg.global.Config.WIDTH;
 @RequiredArgsConstructor
 class JuliaSetAlg extends PixmapAlg {
 
-    private final Settings settings;
+    private final JuliaSetSettings juliaSetSettings;
 
     @Override
     public Pixmap getPixMap() {
@@ -20,14 +20,14 @@ class JuliaSetAlg extends PixmapAlg {
         pixmap.fill();
         pixmap.setBlending(Pixmap.Blending.None);
 
-        double cRe = settings.getComplexNumber().getRe();
-        double cIm = settings.getComplexNumber().getIm();
+        double cRe = juliaSetSettings.getComplexNumber().getRe();
+        double cIm = juliaSetSettings.getComplexNumber().getIm();
 
         double prevRe;
         double prevIm;
-        double xOffset = settings.getXOffset();
-        double yOffset = settings.getYOffset();
-        double zoom = settings.getZoom();
+        double xOffset = juliaSetSettings.getXOffset();
+        double yOffset = juliaSetSettings.getYOffset();
+        double zoom = juliaSetSettings.getZoom();
 
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
@@ -35,7 +35,7 @@ class JuliaSetAlg extends PixmapAlg {
                 double nextRe = WIDTH / (float) HEIGHT * (x - (double) WIDTH / 2) / (WIDTH * 0.5 * zoom) - xOffset;
                 double nextIm = (y - (double) HEIGHT / 2) / (HEIGHT * 0.5 * zoom) - yOffset;
                 int p;
-                for (p = 0; p < settings.getNumberOfIteration(); p++) {
+                for (p = 0; p < juliaSetSettings.getNumberOfIteration(); p++) {
                     prevRe = nextRe;
                     prevIm = nextIm;
                     nextRe = prevRe * prevRe - prevIm * prevIm + cRe;
@@ -44,9 +44,9 @@ class JuliaSetAlg extends PixmapAlg {
                         break;
                     }
                 }
-                int color = Color.rgba8888(getRgbPart(settings, p, settings.getRMultiplier()),
-                        getRgbPart(settings, p, settings.getGMultiplier()),
-                        getRgbPart(settings, p, settings.getBMultiplier()),
+                int color = Color.rgba8888(getRgbPart(juliaSetSettings, p, juliaSetSettings.getRMultiplier()),
+                        getRgbPart(juliaSetSettings, p, juliaSetSettings.getGMultiplier()),
+                        getRgbPart(juliaSetSettings, p, juliaSetSettings.getBMultiplier()),
                         1);
                 if (p == 0) {
                     color = Color.rgba8888(Color.BLACK);
@@ -61,8 +61,8 @@ class JuliaSetAlg extends PixmapAlg {
         progress = (x * HEIGHT + y) / (WIDTH * (float) HEIGHT);
     }
 
-    private float getRgbPart(Settings settings, int p, int multiplier) {
-        float v = (float) (p * multiplier) / settings.getNumberOfIteration();
+    private float getRgbPart(JuliaSetSettings juliaSetSettings, int p, int multiplier) {
+        float v = (float) (p * multiplier) / juliaSetSettings.getNumberOfIteration();
         return v - (int) v;
     }
 

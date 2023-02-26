@@ -1,15 +1,14 @@
 package com.visualg.animations.boids;
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
-
-    static Settings INSTANCE = new Settings();
-
+class BoidsSettings implements Settings {
+    static final BoidsSettings settings = new BoidsSettings();
 
     private int numberOfBoids = 500;
 

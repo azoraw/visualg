@@ -26,13 +26,13 @@ class SimplexPixMap {
     private final Pixmap pixmap;
     private double z;
 
-    SimplexPixMap(Settings settings) {
-        goInNumberOfPixels = settings.getNumberOfSkippedPixels();
+    SimplexPixMap(SimplexSettings simplexSettings) {
+        goInNumberOfPixels = simplexSettings.getNumberOfSkippedPixels();
         openSimplex = new OpenSimplexNoise(0);
-        colorFunction = settings.getColorMode().getColorFunction();
-        X_OFF = settings.getX_OFF();
-        Y_OFF = settings.getY_OFF();
-        Z_OFF = settings.getZ_OFF();
+        colorFunction = simplexSettings.getColorMode().getColorFunction();
+        X_OFF = simplexSettings.getX_OFF();
+        Y_OFF = simplexSettings.getY_OFF();
+        Z_OFF = simplexSettings.getZ_OFF();
         pixmap = new Pixmap(WIDTH_SCALED, HEIGHT_SCALED, Pixmap.Format.RGBA8888);
         pixmap.setBlending(Pixmap.Blending.None);
         pixmap.setColor(palette.getPrimaryColor());

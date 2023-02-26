@@ -10,7 +10,7 @@ class CellularAutomataAlg {
     static final int NUMBER_OF_ROWS = 50;
     static final int NUMBER_OF_COLUMNS = 81;
     @Getter
-    private final Settings settings;
+    private final CASettings CASettings;
     private final Table table;
 
     private Rules rules;
@@ -18,10 +18,10 @@ class CellularAutomataAlg {
     @Getter
     private ArrayDeque<Boolean[]> elements;
 
-    CellularAutomataAlg(Settings settings, Table table) {
-        this.settings = settings;
+    CellularAutomataAlg(CASettings CASettings, Table table) {
+        this.CASettings = CASettings;
         this.table = table;
-        init(settings.getRuleNumber());
+        init(CASettings.getRuleNumber());
     }
 
     private void init(int ruleNo) {
@@ -54,9 +54,9 @@ class CellularAutomataAlg {
     }
 
     void incrementRuleNumber() {
-        settings.incrementRule();
+        CASettings.incrementRule();
         table.updateRuleNumber();
-        init(settings.getRuleNumber());
+        init(CASettings.getRuleNumber());
 
     }
 }

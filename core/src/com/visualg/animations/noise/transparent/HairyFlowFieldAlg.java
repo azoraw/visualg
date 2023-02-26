@@ -17,14 +17,14 @@ class HairyFlowFieldAlg {
 
     private final OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise(RandomDecorator.Random.nextInt());
     private final Vector2[][] vectors;
-    private final Settings settings;
+    private final TransparentSettings transparentSettings;
 
     @Getter
     private List<Dot> dots;
 
-    HairyFlowFieldAlg(Settings settings) {
-        settings.restartColor();
-        this.settings = settings;
+    HairyFlowFieldAlg(TransparentSettings transparentSettings) {
+        transparentSettings.restartColor();
+        this.transparentSettings = transparentSettings;
         vectors = new Vector2[WIDTH + 1][HEIGHT + 1];
         initVectors(WIDTH, HEIGHT);
         initDots();
@@ -32,7 +32,7 @@ class HairyFlowFieldAlg {
 
     private void initDots() {
         dots = new ArrayList<>();
-        for (int i = 0; i < settings.getNumberOfAgents(); i++) {
+        for (int i = 0; i < transparentSettings.getNumberOfAgents(); i++) {
             dots.add(new Dot());
         }
     }
@@ -42,14 +42,14 @@ class HairyFlowFieldAlg {
             for (int y = 0; y <= HEIGHT; y++) {
                 vectors[x][y] = new Vector2(1, 0);
                 double eval;
-                if (settings.isHaveMiddleCircle() && isInsideCircle(x,y)) {
+                if (transparentSettings.isHaveMiddleCircle() && isInsideCircle(x,y)) {
                     eval = openSimplexNoise.eval(
-                            x * settings.getStep() / 100,
-                            y * settings.getStep() / 100);
+                            x * transparentSettings.getStep() / 100,
+                            y * transparentSettings.getStep() / 100);
                 } else {
                     eval = openSimplexNoise.eval(
-                            x * settings.getStep(),
-                            y * settings.getStep());
+                            x * transparentSettings.getStep(),
+                            y * transparentSettings.getStep());
                 }
                 vectors[x][y].setAngleRad((float) (2 * PI * eval));
             }

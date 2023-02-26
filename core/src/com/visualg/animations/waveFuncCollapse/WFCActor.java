@@ -25,7 +25,7 @@ class WFCActor extends Actor {
     public WFCActor() {
         spriteBatch = new SpriteBatch();
         textures = new WFCTextures();
-        if (Settings.INSTANCE.variant == Variant.CARRCAS) {
+        if (WFCSettings.settings.variant == Variant.CARRCAS) {
             cellSize = 40;
         }
         cellsX = WIDTH / cellSize;

@@ -4,7 +4,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.visualg.global.Config;
 import com.visualg.ui.FrameBufferActor;
 
-import static com.visualg.animations.circleStacking.Settings.INSTANCE;
+import static com.visualg.animations.circleStacking.CircleStackingSettings.settings;
 
 class CircleStackingActor extends FrameBufferActor {
 
@@ -14,7 +14,7 @@ class CircleStackingActor extends FrameBufferActor {
         super(true);
         alg = new CircleStackingAlg();
         final Color primaryColor = Config.palette.getPrimaryColor();
-        sr.setColor(primaryColor.r, primaryColor.g, primaryColor.b, INSTANCE.getTransparency());
+        sr.setColor(primaryColor.r, primaryColor.g, primaryColor.b, settings.getTransparency());
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.visualg.animations.bezier;
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,8 +10,9 @@ import java.util.List;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
-    static final Settings INSTANCE = new Settings();
+class BezierSettings implements Settings {
+    static final BezierSettings settings = new BezierSettings();
+
     private int numberOfBlobs = 1;
     private List<BlobSetting> blobs = initBlobs();
 
@@ -22,11 +24,11 @@ class Settings {
         return blobs;
     }
 
-    public void setNumberOfBlobs(int numberOfBlobs) {
+    void setNumberOfBlobs(int numberOfBlobs) {
         this.numberOfBlobs = numberOfBlobs;
         blobs = initBlobs();
     }
-    public BlobSetting getBlobSetting(int index) {
+    BlobSetting getBlobSetting(int index) {
         return blobs.get(index);
     }
 }

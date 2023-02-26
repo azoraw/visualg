@@ -7,17 +7,17 @@ import com.visualg.ui.FrameBufferActor;
 class HairyFlowFieldActor extends FrameBufferActor {
 
     private final HairyFlowFieldAlg alg;
-    private final Settings settings;
+    private final TransparentSettings transparentSettings;
 
-    HairyFlowFieldActor(Settings settings) {
+    HairyFlowFieldActor(TransparentSettings transparentSettings) {
         super(true);
-        super.tiles = settings.getTiles();
-        this.settings = settings;
-        alg = new HairyFlowFieldAlg(settings);
+        super.tiles = transparentSettings.getTiles();
+        this.transparentSettings = transparentSettings;
+        alg = new HairyFlowFieldAlg(transparentSettings);
         final Color primaryColor = Config.palette.getPrimaryColor();
-        Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, settings.getAlpha());
+        Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, transparentSettings.getAlpha());
         sr.setColor(color);
-        for (int i = 0; i < Settings.INSTANCE.getInitFrameSkips(); i++) {
+        for (int i = 0; i < TransparentSettings.settings.getInitFrameSkips(); i++) {
             alg.update();
         }
     }
@@ -26,7 +26,7 @@ class HairyFlowFieldActor extends FrameBufferActor {
     protected void drawFrame() {
         alg.getDots().forEach(dot -> {
                     sr.setColor(dot.getColor());
-                    if (settings.isConnectedWithStartingPoint())
+                    if (transparentSettings.isConnectedWithStartingPoint())
                         sr.line(dot.getX(), dot.getY(), dot.getInitX(), dot.getInitY());
                     else
                         sr.circle(dot.getX(), dot.getY(), 1);

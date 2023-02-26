@@ -11,33 +11,33 @@ import static com.visualg.global.Config.WIDTH;
 @RequiredArgsConstructor
 class JuliaSetController {
 
-    private final Settings settings;
+    private final JuliaSetSettings juliaSetSettings;
     private final Table table;
     private final PixmapActor juliaSetActor;
 
     void zoom(Zoom zoom) {
-        settings.zoom(zoom);
+        juliaSetSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCameraAndZoom(int screenX, int screenY, Zoom zoom) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
-        settings.zoom(zoom);
+        juliaSetSettings.move(screenX, screenY, WIDTH, HEIGHT);
+        juliaSetSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCamera(Direction direction) {
-        settings.addOffset(direction);
+        juliaSetSettings.addOffset(direction);
         updateViews();
     }
 
     void moveCamera(int screenX, int screenY) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
+        juliaSetSettings.move(screenX, screenY, WIDTH, HEIGHT);
         updateViews();
     }
 
     void moveSet(Direction left) {
-        settings.moveJulia(left);
+        juliaSetSettings.moveJulia(left);
         updateViews();
     }
 

@@ -16,7 +16,7 @@ class QuadTreeAlg {
 
     public QuadTreeAlg() {
         qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), 4);
-        for (int i = 0; i < Settings.INSTANCE.getNumberOfParticles(); i++) {
+        for (int i = 0; i < QTree1Settings.settings.getNumberOfParticles(); i++) {
             final Particle particle = new Particle();
             particles.add(particle);
             qTree.insert(new Point(particle.getX(), particle.getY(), particle));

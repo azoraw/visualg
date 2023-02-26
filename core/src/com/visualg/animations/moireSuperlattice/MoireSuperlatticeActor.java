@@ -1,4 +1,4 @@
-package com.visualg.animations.moireSupperlattice;
+package com.visualg.animations.moireSuperlattice;
 
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -10,9 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.global.Config;
 import com.visualg.util.color.ColorGenerator;
 
-
-import static com.visualg.animations.moireSupperlattice.Settings.INSTANCE;
-import static com.visualg.global.Config.*;
+import static com.visualg.animations.moireSuperlattice.MoireSuperLatticeSettings.settings;
+import static com.visualg.global.Config.HEIGHT;
+import static com.visualg.global.Config.WIDTH;
+import static com.visualg.global.Config.palette;
 
 class MoireSuperlatticeActor extends Actor {
     private final SpriteBatch spriteBatch;
@@ -23,8 +24,8 @@ class MoireSuperlatticeActor extends Actor {
     MoireSuperlatticeActor() {
         spriteBatch = new SpriteBatch();
 
-        Pixmap pixmap = getPixmap(INSTANCE.getColorOption());
-        Pixmap pixmap2 = getPixmap(INSTANCE.getColorOption2());
+        Pixmap pixmap = getPixmap(settings.getColorOption());
+        Pixmap pixmap2 = getPixmap(settings.getColorOption2());
         textureRegion = new TextureRegion(new Texture(pixmap));
         textureRegion2 = new TextureRegion(new Texture(pixmap2));
     }
@@ -36,19 +37,19 @@ class MoireSuperlatticeActor extends Actor {
         switch (colorOption) {
             case PRIMARY -> {
                 color = Config.palette.getPrimaryColor().cpy();
-                color.a = INSTANCE.getTransparency();
+                color.a = settings.getTransparency();
             }
             case RANDOM -> {
                 color = new Color(ColorGenerator.getRandomColor());
-                color.a = INSTANCE.getTransparency();
+                color.a = settings.getTransparency();
             }
         }
         for (int j = 0; j < WIDTH; j++) {
             for (int k = 0; k < HEIGHT; k++) {
-                if (j % INSTANCE.getModuloX() == 0 && k % INSTANCE.getModuloY() == 0) {
+                if (j % settings.getModuloX() == 0 && k % settings.getModuloY() == 0) {
                     if (colorOption == ColorOption.RANDOMS) {
                         color = new Color(ColorGenerator.getRandomColor());
-                        color.a = INSTANCE.getTransparency();
+                        color.a = settings.getTransparency();
                     }
                     pixmap.drawPixel(j, k, Color.rgba8888(color));
                 }
@@ -61,7 +62,7 @@ class MoireSuperlatticeActor extends Actor {
         spriteBatch.begin();
         spriteBatch.draw(textureRegion, 0, 0, Config.WIDTH / 2, Config.HEIGHT / 2, Config.WIDTH, Config.HEIGHT, 1, 1, 0);
         spriteBatch.draw(textureRegion2, 0, 0, Config.WIDTH / 2, Config.HEIGHT / 2, Config.WIDTH, Config.HEIGHT, 1, 1, rotation);
-        rotation += INSTANCE.getRotationSpeed();
+        rotation += settings.getRotationSpeed();
         spriteBatch.end();
     }
 }

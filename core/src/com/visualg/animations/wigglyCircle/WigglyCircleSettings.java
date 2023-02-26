@@ -1,9 +1,15 @@
 package com.visualg.animations.wigglyCircle;
 
+import com.visualg.ui.settings.Settings;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
+class WigglyCircleSettings implements Settings {
+    static final WigglyCircleSettings settings = new WigglyCircleSettings();
+
 
     private boolean thresholdEnabled;
     private float zDelta = 0.01f;

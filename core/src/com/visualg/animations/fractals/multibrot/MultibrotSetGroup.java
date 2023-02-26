@@ -10,12 +10,12 @@ public class MultibrotSetGroup extends Group implements InteractiveActor {
     private final InputProcessor inputProcessors;
 
     public MultibrotSetGroup() {
-        Settings settings = Settings.INSTANCE;
-        Table table = new Table(settings);
-        PixmapActor pixmapActor = new PixmapActor(new MultibrotAlg(settings));
+        MultibrotSettings multibrotSettings = MultibrotSettings.settings;
+        Table table = new Table(multibrotSettings);
+        PixmapActor pixmapActor = new PixmapActor(new MultibrotAlg(multibrotSettings));
         addActor(pixmapActor);
         addActor(table);
-        MultibrotSetController multibrotSetController = new MultibrotSetController(settings, table, pixmapActor);
+        MultibrotSetController multibrotSetController = new MultibrotSetController(multibrotSettings, table, pixmapActor);
         inputProcessors = new MultibrotSetInputProcessor(multibrotSetController);
     }
 

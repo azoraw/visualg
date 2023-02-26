@@ -1,6 +1,6 @@
 package com.visualg.animations.waveFuncCollapse.texture;
 
-import com.visualg.animations.waveFuncCollapse.Settings;
+import com.visualg.animations.waveFuncCollapse.WFCSettings;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ class TextureRules {
     private int cellSize;
 
     TextureRules() {
-        switch (Settings.INSTANCE.variant) {
+        switch (WFCSettings.settings.variant) {
             case VARIANT1 -> init1();
             case VARIANT2 -> init2();
             case PSEUDO_RANDOM -> initPseudoRandom();

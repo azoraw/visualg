@@ -14,69 +14,69 @@ import static java.lang.String.valueOf;
 
 class Table extends SettingsTable {
 
-    Table(Settings settings, Runnable onScreenShotRunnable) {
+    Table(TransparentSettings transparentSettings, Runnable onScreenShotRunnable) {
 
         DefaultSettingsRow alpha = DefaultSettingsRow.builder()
                 .label("alpha")
-                .initValue(valueOf(settings.getAlpha()))
-                .onValueChange(stringValue -> settings.setAlpha(parseFloat(stringValue)))
+                .initValue(valueOf(transparentSettings.getAlpha()))
+                .onValueChange(stringValue -> transparentSettings.setAlpha(parseFloat(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(alpha);
 
         DefaultSettingsRow numberOfAgents = DefaultSettingsRow.builder()
                 .label("numberOfAgents")
-                .initValue(valueOf(settings.getNumberOfAgents()))
-                .onValueChange(stringValue -> settings.setNumberOfAgents(parseInt(stringValue)))
+                .initValue(valueOf(transparentSettings.getNumberOfAgents()))
+                .onValueChange(stringValue -> transparentSettings.setNumberOfAgents(parseInt(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(numberOfAgents);
 
         DefaultSettingsRow tiles = DefaultSettingsRow.builder()
                 .label("tiles")
-                .initValue(valueOf(settings.getTiles()))
-                .onValueChange(stringValue -> settings.setTiles(parseInt(stringValue)))
+                .initValue(valueOf(transparentSettings.getTiles()))
+                .onValueChange(stringValue -> transparentSettings.setTiles(parseInt(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(tiles);
 
         DefaultSettingsRow initFrameSkips = DefaultSettingsRow.builder()
                 .label("initFrameSkips")
-                .initValue(valueOf(settings.getInitFrameSkips()))
-                .onValueChange(stringValue -> settings.setInitFrameSkips(parseInt(stringValue)))
+                .initValue(valueOf(transparentSettings.getInitFrameSkips()))
+                .onValueChange(stringValue -> transparentSettings.setInitFrameSkips(parseInt(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(initFrameSkips);
 
         DefaultSettingsRow fieldForce = DefaultSettingsRow.builder()
                 .label("fieldForce")
-                .initValue(valueOf(settings.getFieldMagnitude()))
-                .onValueChange(stringValue -> settings.setFieldMagnitude(parseFloat(stringValue)))
+                .initValue(valueOf(transparentSettings.getFieldMagnitude()))
+                .onValueChange(stringValue -> transparentSettings.setFieldMagnitude(parseFloat(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(fieldForce);
 
         DefaultSettingsRow step = DefaultSettingsRow.builder()
                 .label("step")
-                .initValue(valueOf(settings.getStep()))
-                .onValueChange(stringValue -> settings.setStep(parseFloat(stringValue)))
+                .initValue(valueOf(transparentSettings.getStep()))
+                .onValueChange(stringValue -> transparentSettings.setStep(parseFloat(stringValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
         addRow(step);
 
         DefaultCheckBox connected = DefaultCheckBox.builder()
                 .label("connect init point")
-                .initValue(settings.isConnectedWithStartingPoint())
-                .onClick(() -> settings.setConnectedWithStartingPoint(!settings.isConnectedWithStartingPoint()))
+                .initValue(transparentSettings.isConnectedWithStartingPoint())
+                .onClick(() -> transparentSettings.setConnectedWithStartingPoint(!transparentSettings.isConnectedWithStartingPoint()))
                 .build();
         add(new EmptyLabel());
         add(connected);
         row();
         DefaultCheckBox haveMiddleCircle = DefaultCheckBox.builder()
                 .label("have middle circle")
-                .initValue(settings.isHaveMiddleCircle())
+                .initValue(transparentSettings.isHaveMiddleCircle())
                 .onClick(() -> {
-                    settings.setHaveMiddleCircle(!settings.isHaveMiddleCircle());
+                    transparentSettings.setHaveMiddleCircle(!transparentSettings.isHaveMiddleCircle());
                     fire(new RestartEvent());
 
                 })
@@ -87,9 +87,9 @@ class Table extends SettingsTable {
 
         addRow(SelectBoxRow.<Colors>builder()
                 .label("colours")
-                .selected(settings.getColors())
+                .selected(transparentSettings.getColors())
                 .onChange(colors -> {
-                    settings.setColors(colors);
+                    transparentSettings.setColors(colors);
                     fire(new RestartEvent());
                 })
                 .items(Colors.values())
@@ -97,9 +97,9 @@ class Table extends SettingsTable {
 
         addRow(SelectBoxRow.<ColorInputSrc>builder()
                 .label("colours input")
-                .selected(settings.getColorInputSrc())
+                .selected(transparentSettings.getColorInputSrc())
                 .onChange(colors -> {
-                    settings.setColorInputSrc(colors);
+                    transparentSettings.setColorInputSrc(colors);
                     fire(new RestartEvent());
                 })
                 .items(ColorInputSrc.values())

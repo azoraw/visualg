@@ -14,75 +14,75 @@ class Table extends SettingsTable {
 
     Set<InteractiveSettingsRow> rows = new HashSet<>();
 
-    Table(Settings settings) {
+    Table(MandelbrotSettings mandelbrotSettings) {
         InteractiveSettingsRow numberOfIteration = InteractiveSettingsRow.builder()
                 .label("numberOfIterations")
-                .initValue(settings::getNumberOfIteration)
-                .onValueChange(newValue -> settings.setNumberOfIteration(parseInt(newValue)))
+                .initValue(mandelbrotSettings::getNumberOfIteration)
+                .onValueChange(newValue -> mandelbrotSettings.setNumberOfIteration(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(numberOfIteration);
 
         InteractiveSettingsRow r = InteractiveSettingsRow.builder()
                 .label("r")
-                .initValue(settings::getRMultiplier)
-                .onValueChange(newValue -> settings.setRMultiplier(parseInt(newValue)))
+                .initValue(mandelbrotSettings::getRMultiplier)
+                .onValueChange(newValue -> mandelbrotSettings.setRMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(r);
 
         InteractiveSettingsRow g = InteractiveSettingsRow.builder()
                 .label("g")
-                .initValue(settings::getGMultiplier)
-                .onValueChange(newValue -> settings.setGMultiplier(parseInt(newValue)))
+                .initValue(mandelbrotSettings::getGMultiplier)
+                .onValueChange(newValue -> mandelbrotSettings.setGMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(g);
 
         InteractiveSettingsRow b = InteractiveSettingsRow.builder()
                 .label("b")
-                .initValue(settings::getBMultiplier)
-                .onValueChange(newValue -> settings.setBMultiplier(parseInt(newValue)))
+                .initValue(mandelbrotSettings::getBMultiplier)
+                .onValueChange(newValue -> mandelbrotSettings.setBMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(b);
 
         InteractiveSettingsRow moveDelta = InteractiveSettingsRow.builder()
                 .label("moveDelta")
-                .initValue(settings::getMoveDelta)
-                .onValueChange(newValue -> settings.setMoveDelta(parseDouble(newValue)))
+                .initValue(mandelbrotSettings::getMoveDelta)
+                .onValueChange(newValue -> mandelbrotSettings.setMoveDelta(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(moveDelta);
 
         InteractiveSettingsRow xOffset = InteractiveSettingsRow.builder()
                 .label("xOffset")
-                .initValue(settings::getXOffset)
-                .onValueChange(newValue -> settings.setXOffset(parseDouble(newValue)))
+                .initValue(mandelbrotSettings::getXOffset)
+                .onValueChange(newValue -> mandelbrotSettings.setXOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(xOffset);
 
         InteractiveSettingsRow yOffset = InteractiveSettingsRow.builder()
                 .label("yOffset")
-                .initValue(settings::getYOffset)
-                .onValueChange(newValue -> settings.setYOffset(parseDouble(newValue)))
+                .initValue(mandelbrotSettings::getYOffset)
+                .onValueChange(newValue -> mandelbrotSettings.setYOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(yOffset);
 
         InteractiveSettingsRow zoom = InteractiveSettingsRow.builder()
                 .label("zoom")
-                .initValue(settings::getZoom)
-                .onValueChange(newValue -> settings.setZoom(parseDouble(newValue)))
+                .initValue(mandelbrotSettings::getZoom)
+                .onValueChange(newValue -> mandelbrotSettings.setZoom(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(zoom);
 
         InteractiveSettingsRow zoomMultiplier = InteractiveSettingsRow.builder()
                 .label("zoomMultiplier")
-                .initValue(settings::getZoomMultiplier)
-                .onValueChange(newValue -> settings.setZoomMultiplier(parseDouble(newValue)))
+                .initValue(mandelbrotSettings::getZoomMultiplier)
+                .onValueChange(newValue -> mandelbrotSettings.setZoomMultiplier(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(zoomMultiplier);

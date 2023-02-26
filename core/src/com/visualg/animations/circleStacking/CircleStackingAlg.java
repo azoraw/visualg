@@ -11,20 +11,20 @@ class CircleStackingAlg {
     private final List<Circle> circles = new ArrayList<>();
 
     CircleStackingAlg() {
-        Settings settings = Settings.INSTANCE;
+        CircleStackingSettings circleStackingSettings = CircleStackingSettings.settings;
         circles.add(Circle.builder()
                 .xCenter(Config.WIDTH/2)
                 .yCenter(Config.HEIGHT/2)
-                .radius(settings.getCircles().get(0).first)
-                .stepsNo(settings.getCircles().get(0).second)
+                .radius(circleStackingSettings.getCircles().get(0).first)
+                .stepsNo(circleStackingSettings.getCircles().get(0).second)
                 .build());
 
-        for (int i = 1; i < settings.getNumberOfCircles(); i++) {
+        for (int i = 1; i < circleStackingSettings.getNumberOfCircles(); i++) {
             circles.add(Circle.builder()
                     .xCenter((int)circles.get(i-1).getEnd().x)
                     .yCenter((int)circles.get(i-1).getEnd().y)
-                    .radius(settings.getCircles().get(i).first)
-                    .stepsNo(settings.getCircles().get(i).second)
+                    .radius(circleStackingSettings.getCircles().get(i).first)
+                    .stepsNo(circleStackingSettings.getCircles().get(i).second)
                     .build());
         }
     }

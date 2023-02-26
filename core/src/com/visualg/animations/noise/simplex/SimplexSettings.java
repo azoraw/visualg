@@ -1,15 +1,16 @@
 package com.visualg.animations.noise.simplex;
 
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
+class SimplexSettings implements Settings {
 
-    static Settings INSTANCE = new Settings();
+    static final SimplexSettings settings = new SimplexSettings();
 
     private int numberOfSkippedPixels = 10;
     private SimplexColorMode colorMode = SimplexColorMode.GRAYSCALE;

@@ -30,7 +30,7 @@ class KandynskyAlg {
 
 
     public void createElement(int x, int y) {
-        switch (Settings.INSTANCE.getShape()) {
+        switch (KandynskySettings.settings.getShape()) {
             case CIRCLE -> {
                 if (startPosition == null) {
                     startPosition = new Pair<>(x, y);

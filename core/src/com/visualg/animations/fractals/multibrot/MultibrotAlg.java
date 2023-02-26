@@ -15,7 +15,7 @@ import static java.lang.Math.sin;
 @RequiredArgsConstructor
 class MultibrotAlg extends PixmapAlg {
 
-    private final Settings settings;
+    private final MultibrotSettings multibrotSettings;
 
     @Override
     public Pixmap getPixMap() {
@@ -24,10 +24,10 @@ class MultibrotAlg extends PixmapAlg {
         pixmap.fill();
         pixmap.setBlending(Pixmap.Blending.None);
         double pow, atan2;
-        double xOffset = settings.getXOffset();
-        double yOffset = settings.getYOffset();
-        double zoom = settings.getZoom();
-        double multibrotPower = settings.getMultibrotPower().getRe();
+        double xOffset = multibrotSettings.getXOffset();
+        double yOffset = multibrotSettings.getYOffset();
+        double zoom = multibrotSettings.getZoom();
+        double multibrotPower = multibrotSettings.getMultibrotPower().getRe();
 
         float resolutionShapeAdjustment = WIDTH / (float) HEIGHT;
 
@@ -40,7 +40,7 @@ class MultibrotAlg extends PixmapAlg {
                 double prevIm = 0;
                 double nextRe, nextIm;
                 int p;
-                for (p = 0; p < settings.getNumberOfIteration(); p++) {
+                for (p = 0; p < multibrotSettings.getNumberOfIteration(); p++) {
                     pow = pow((prevRe * prevRe + prevIm * prevIm), (multibrotPower / 2));
                     atan2 = atan2(prevIm, prevRe);
                     nextRe = pow * cos(multibrotPower * atan2) + re;
@@ -51,9 +51,9 @@ class MultibrotAlg extends PixmapAlg {
                     prevRe = nextRe;
                     prevIm = nextIm;
                 }
-                int color = Color.rgba8888(getRgbPart(settings, p, settings.getRMultiplier()),
-                        getRgbPart(settings, p, settings.getGMultiplier()),
-                        getRgbPart(settings, p, settings.getBMultiplier()),
+                int color = Color.rgba8888(getRgbPart(multibrotSettings, p, multibrotSettings.getRMultiplier()),
+                        getRgbPart(multibrotSettings, p, multibrotSettings.getGMultiplier()),
+                        getRgbPart(multibrotSettings, p, multibrotSettings.getBMultiplier()),
                         1);
                 if (p == 0) {
                     color = Color.rgba8888(Color.BLACK);
@@ -68,8 +68,8 @@ class MultibrotAlg extends PixmapAlg {
         progress = (x * HEIGHT + y) / (WIDTH * (float) HEIGHT);
     }
 
-    private float getRgbPart(Settings settings, int p, int multiplier) {
-        float v = (float) (p * multiplier) / settings.getNumberOfIteration();
+    private float getRgbPart(MultibrotSettings multibrotSettings, int p, int multiplier) {
+        float v = (float) (p * multiplier) / multibrotSettings.getNumberOfIteration();
         return v - (int) v;
     }
 

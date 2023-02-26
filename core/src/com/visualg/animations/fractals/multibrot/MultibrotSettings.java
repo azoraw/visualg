@@ -1,39 +1,30 @@
 package com.visualg.animations.fractals.multibrot;
 
+import com.visualg.ui.settings.Settings;
 import com.visualg.util.ComplexNumber;
 import com.visualg.util.Direction;
 import com.visualg.util.Zoom;
-import lombok.Builder;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder(toBuilder = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
+class MultibrotSettings implements Settings {
 
-    static Settings INSTANCE = Settings.builder()
-            .numberOfIteration(30)
-            .rMultiplier(0)
-            .gMultiplier(1)
-            .bMultiplier(13)
-            .multibrotPower(new ComplexNumber(2, 0))
-            .moveDelta(0.5)
-            .xOffset(0)
-            .yOffset(0)
-            .zoom(1)
-            .zoomMultiplier(2)
-            .build();
+    static final MultibrotSettings settings = new MultibrotSettings();
 
-    private int numberOfIteration;
-    private int rMultiplier;
-    private int gMultiplier;
-    private int bMultiplier;
+    private int numberOfIteration = 30;
+    private int rMultiplier = 0;
+    private int gMultiplier = 1;
+    private int bMultiplier = 13;
 
-    private ComplexNumber multibrotPower;
-    private double moveDelta;
-    private double xOffset;
-    private double yOffset;
-    private double zoom;
-    private double zoomMultiplier;
+    private ComplexNumber multibrotPower = new ComplexNumber(2, 0);
+    private double moveDelta = (0.5);
+    private double xOffset = 0;
+    private double yOffset = 0;
+    private double zoom = 1;
+    private double zoomMultiplier = 2;
 
     void zoom(Zoom zoomInput) {
         if (zoomInput == Zoom.IN) {

@@ -5,7 +5,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.visualg.util.Pair;
 import com.visualg.util.color.ColorGenerator;
 
-import static com.visualg.animations.noise.transparent.Settings.INSTANCE;
+import static com.visualg.animations.noise.transparent.TransparentSettings.settings;
 import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 import static com.visualg.global.Config.palette;
@@ -20,7 +20,7 @@ class Dot {
     private final Vector2 acceleration;
     private final int randomColorDelta;
     private final Color primaryColor = palette.getPrimaryColor();
-    private Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, INSTANCE.getAlpha());
+    private Color color = new Color(primaryColor.r, primaryColor.g, primaryColor.b, settings.getAlpha());
 
     Dot() {
         float x = Random.nextInt(WIDTH);
@@ -29,7 +29,7 @@ class Dot {
         initPosition = new Vector2(position);
         velocity = initVelocity();
         acceleration = new Vector2(0, 0);
-        randomColorDelta = INSTANCE.getRandomColorDelta();
+        randomColorDelta = settings.getRandomColorDelta();
 
     }
 
@@ -57,7 +57,7 @@ class Dot {
     }
 
     Color getColor() {
-        switch (INSTANCE.getColors()) {
+        switch (settings.getColors()) {
             case MONOCHROMATIC -> {
                 return color;
             }
@@ -66,7 +66,7 @@ class Dot {
                 var rad = Math.atan2(colorInput.first(), colorInput.second());
                 var angle = rad * (180 / Math.PI);
                 color = ColorGenerator.fromHSV(randomColorDelta + (float) angle / 4, 1, 1);
-                color.a = INSTANCE.getAlpha();
+                color.a = settings.getAlpha();
                 return color;
             }
             case FULL_PALETTE -> {
@@ -74,12 +74,12 @@ class Dot {
                 var rad = Math.atan2(colorInput.first(), colorInput.second());
                 var angle = rad * (180 / Math.PI);
                 color = ColorGenerator.fromHSV((float) angle, 1, 1);
-                color.a = INSTANCE.getAlpha();
+                color.a = settings.getAlpha();
                 return color;
             }
             case SINGLE_RANDOM -> {
                 color = ColorGenerator.fromHSV(randomColorDelta, 1, 1);
-                color.a = INSTANCE.getAlpha();
+                color.a = settings.getAlpha();
                 return color;
             }
         }
@@ -87,7 +87,7 @@ class Dot {
     }
 
     private Pair<Float, Float> getColorInput() {
-        switch (INSTANCE.getColorInputSrc()) {
+        switch (settings.getColorInputSrc()) {
             case POSITION -> {
                 return new Pair<>( position.x - WIDTH / 2,  position.y - HEIGHT / 2);
             }
@@ -106,7 +106,7 @@ class Dot {
         velocity.add(acceleration);
         velocity.limit(maxSpeed);
         position.add(velocity);
-        acceleration.set(vector2.x * INSTANCE.getFieldMagnitude(), vector2.y * INSTANCE.getFieldMagnitude());
+        acceleration.set(vector2.x * settings.getFieldMagnitude(), vector2.y * settings.getFieldMagnitude());
         edge();
     }
 

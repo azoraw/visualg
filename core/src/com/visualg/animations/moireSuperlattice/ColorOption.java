@@ -1,4 +1,4 @@
-package com.visualg.animations.moireSupperlattice;
+package com.visualg.animations.moireSuperlattice;
 
 public enum ColorOption {
     PRIMARY,

@@ -11,7 +11,7 @@ import static com.visualg.global.Config.WIDTH;
 @RequiredArgsConstructor
 class MandelbrotSetAlg extends PixmapAlg {
 
-    private final Settings settings;
+    private final MandelbrotSettings mandelbrotSettings;
 
     @Override
     public Pixmap getPixMap() {
@@ -20,9 +20,9 @@ class MandelbrotSetAlg extends PixmapAlg {
         pixmap.fill();
         pixmap.setBlending(Pixmap.Blending.None);
 
-        double xOffset = settings.getXOffset();
-        double yOffset = settings.getYOffset();
-        double zoom = settings.getZoom();
+        double xOffset = mandelbrotSettings.getXOffset();
+        double yOffset = mandelbrotSettings.getYOffset();
+        double zoom = mandelbrotSettings.getZoom();
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
                 updateProgress(x, y);
@@ -32,7 +32,7 @@ class MandelbrotSetAlg extends PixmapAlg {
                 double prevIm = 0;
                 double nextRe, nextIm;
                 int p;
-                for (p = 0; p < settings.getNumberOfIteration(); p++) {
+                for (p = 0; p < mandelbrotSettings.getNumberOfIteration(); p++) {
                     nextRe = prevRe * prevRe - prevIm * prevIm + re;
                     nextIm = 2 * prevRe * prevIm + im;
                     if (nextRe * nextRe + nextIm * nextIm > 4) {
@@ -41,9 +41,9 @@ class MandelbrotSetAlg extends PixmapAlg {
                     prevRe = nextRe;
                     prevIm = nextIm;
                 }
-                int color = Color.rgba8888(getRgbPart(settings, p, settings.getRMultiplier()),
-                        getRgbPart(settings, p, settings.getGMultiplier()),
-                        getRgbPart(settings, p, settings.getBMultiplier()),
+                int color = Color.rgba8888(getRgbPart(mandelbrotSettings, p, mandelbrotSettings.getRMultiplier()),
+                        getRgbPart(mandelbrotSettings, p, mandelbrotSettings.getGMultiplier()),
+                        getRgbPart(mandelbrotSettings, p, mandelbrotSettings.getBMultiplier()),
                         1);
                 if (p == 0) {
                     color = Color.rgba8888(Color.BLACK);
@@ -54,8 +54,8 @@ class MandelbrotSetAlg extends PixmapAlg {
         return pixmap;
     }
 
-    private float getRgbPart(Settings settings, int p, int multiplier) {
-        float v = (float) (p * multiplier) / settings.getNumberOfIteration();
+    private float getRgbPart(MandelbrotSettings mandelbrotSettings, int p, int multiplier) {
+        float v = (float) (p * multiplier) / mandelbrotSettings.getNumberOfIteration();
         return v - (int) v;
     }
 

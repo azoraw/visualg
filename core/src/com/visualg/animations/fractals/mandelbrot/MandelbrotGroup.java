@@ -10,12 +10,12 @@ public class MandelbrotGroup extends Group implements InteractiveActor {
     private final InputProcessor inputProcessors;
 
     public MandelbrotGroup() {
-        Settings settings = Settings.INSTANCE;
-        Table table = new Table(settings);
-        PixmapActor pixmapActor = new PixmapActor(new MandelbrotSetAlg(settings));
+        MandelbrotSettings mandelbrotSettings = MandelbrotSettings.INSTANCE;
+        Table table = new Table(mandelbrotSettings);
+        PixmapActor pixmapActor = new PixmapActor(new MandelbrotSetAlg(mandelbrotSettings));
         addActor(pixmapActor);
         addActor(table);
-        MandelbrotController mandelbrotController = new MandelbrotController(settings, table, pixmapActor);
+        MandelbrotController mandelbrotController = new MandelbrotController(mandelbrotSettings, table, pixmapActor);
         inputProcessors = new MandelbrotInputProcessor(mandelbrotController);
     }
 

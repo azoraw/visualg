@@ -11,28 +11,28 @@ import static com.visualg.global.Config.WIDTH;
 @RequiredArgsConstructor
 class MandelbrotController {
 
-    private final Settings settings;
+    private final MandelbrotSettings mandelbrotSettings;
     private final Table table;
     private final PixmapActor mandelbrotActor;
 
     void zoom(Zoom zoom) {
-        settings.zoom(zoom);
+        mandelbrotSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCameraAndZoom(int screenX, int screenY, Zoom zoom) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
-        settings.zoom(zoom);
+        mandelbrotSettings.move(screenX, screenY, WIDTH, HEIGHT);
+        mandelbrotSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCamera(Direction direction) {
-        settings.addOffset(direction);
+        mandelbrotSettings.addOffset(direction);
         updateViews();
     }
 
     void moveCamera(int screenX, int screenY) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
+        mandelbrotSettings.move(screenX, screenY, WIDTH, HEIGHT);
         updateViews();
     }
 

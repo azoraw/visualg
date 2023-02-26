@@ -21,8 +21,8 @@ class QuadTreeAlg {
 
     public QuadTreeAlg() {
         qTree = new QTree(new Rectangle(0, 0, Config.WIDTH, Config.HEIGHT), QTREE_CAPACITY);
-        for (int i = 0; i < Settings.INSTANCE.getNumberOfParticles(); i++) {
-            final BouncingBall bouncingBall = new BouncingBall(HEIGHT, 1, 1, WIDTH, Settings.INSTANCE.getMovementSpeed());
+        for (int i = 0; i < QTree3Settings.settings.getNumberOfParticles(); i++) {
+            final BouncingBall bouncingBall = new BouncingBall(HEIGHT, 1, 1, WIDTH, QTree3Settings.settings.getMovementSpeed());
             bouncingBalls.add(bouncingBall);
             qTree.insert(new Point(bouncingBall.getPosition().x, bouncingBall.getPosition().y, bouncingBall));
         }

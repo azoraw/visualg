@@ -8,20 +8,20 @@ class Table extends SettingsTable {
     Table() {
         addRow(DefaultSettingsRow.builder()
                 .label("movementSpeed")
-                .initValue(Settings.INSTANCE.getMovementSpeed())
-                .onValueChange((str) -> Settings.INSTANCE.setMovementSpeed(Integer.parseInt(str)))
+                .initValue(QTree3Settings.settings.getMovementSpeed())
+                .onValueChange((str) -> QTree3Settings.settings.setMovementSpeed(Integer.parseInt(str)))
                 .afterValueChange((str)-> fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("number of particles")
-                .initValue(Settings.INSTANCE.getNumberOfParticles())
-                .onValueChange((str) -> Settings.INSTANCE.setNumberOfParticles(Integer.parseInt(str)))
+                .initValue(QTree3Settings.settings.getNumberOfParticles())
+                .onValueChange((str) -> QTree3Settings.settings.setNumberOfParticles(Integer.parseInt(str)))
                 .afterValueChange((str)-> fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("particle range")
-                .initValue(Settings.INSTANCE.getRectSize())
-                .onValueChange((str) -> Settings.INSTANCE.setRectSize(Integer.parseInt(str)))
+                .initValue(QTree3Settings.settings.getRectSize())
+                .onValueChange((str) -> QTree3Settings.settings.setRectSize(Integer.parseInt(str)))
                 .afterValueChange((str)-> fire(new RestartEvent()))
                 .build());
     }

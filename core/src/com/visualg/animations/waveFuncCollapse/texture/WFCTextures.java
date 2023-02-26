@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
-import com.visualg.animations.waveFuncCollapse.Settings;
+import com.visualg.animations.waveFuncCollapse.WFCSettings;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,14 +15,14 @@ public class WFCTextures {
     private Map<Integer, Texture> texturesMap = new HashMap<>();
 
     public WFCTextures() {
-        switch (Settings.INSTANCE.variant) {
+        switch (WFCSettings.settings.variant) {
             case VARIANT1, PSEUDO_RANDOM, VARIANT2 -> {
                 TextureGenerator textureGenerator = new TextureGenerator();
                 texturesMap = textureGenerator.generate();
             }
             case TILES1, TILES2, TILES3, TILES4, TILES5 -> initTiles1();
             case CARRCAS -> initCarcass();
-            default -> throw new IllegalStateException("Unexpected value: " + Settings.INSTANCE.variant);
+            default -> throw new IllegalStateException("Unexpected value: " + WFCSettings.settings.variant);
         }
     }
 

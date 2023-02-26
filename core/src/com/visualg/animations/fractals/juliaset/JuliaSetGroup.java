@@ -10,12 +10,12 @@ public class JuliaSetGroup extends Group implements InteractiveActor {
     private final InputProcessor inputProcessors;
 
     public JuliaSetGroup() {
-        Settings settings = Settings.INSTANCE;
-        Table table = new Table(settings);
-        PixmapActor pixmapActor = new PixmapActor(new JuliaSetAlg(settings));
+        JuliaSetSettings juliaSetSettings = JuliaSetSettings.settings;
+        Table table = new Table(juliaSetSettings);
+        PixmapActor pixmapActor = new PixmapActor(new JuliaSetAlg(juliaSetSettings));
         addActor(pixmapActor);
         addActor(table);
-        JuliaSetController juliaSetController = new JuliaSetController(settings, table, pixmapActor);
+        JuliaSetController juliaSetController = new JuliaSetController(juliaSetSettings, table, pixmapActor);
         inputProcessors = new JuliaSetInputProcessor(juliaSetController);
     }
 

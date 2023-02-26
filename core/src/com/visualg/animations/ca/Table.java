@@ -1,12 +1,10 @@
 package com.visualg.animations.ca;
 
-import com.badlogic.gdx.scenes.scene2d.ui.CheckBox;
 import com.badlogic.gdx.scenes.scene2d.ui.TextField;
 import com.visualg.controls.events.RestartEvent;
 import com.visualg.ui.settings.DefaultSettingsRow;
 import com.visualg.ui.settings.SettingsTable;
 import com.visualg.ui.simplifiedComponents.DefaultCheckBox;
-import com.visualg.ui.simplifiedComponents.DefaultLabel;
 
 import static java.lang.Integer.parseInt;
 import static java.lang.String.valueOf;
@@ -14,15 +12,15 @@ import static java.lang.String.valueOf;
 class Table extends SettingsTable {
 
     private final TextField ruleNumberTextField;
-    private final Settings settings;
+    private final CASettings CASettings;
 
-    Table(Settings settings) {
-        this.settings = settings;
+    Table(CASettings CASettings) {
+        this.CASettings = CASettings;
 
         DefaultSettingsRow ruleNumber = DefaultSettingsRow.builder()
                 .label("Rule number")
-                .initValue(valueOf(settings.getRuleNumber()))
-                .onValueChange(newStringValue -> settings.setRuleNumber(parseInt(newStringValue)))
+                .initValue(valueOf(CASettings.getRuleNumber()))
+                .onValueChange(newStringValue -> CASettings.setRuleNumber(parseInt(newStringValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
 
@@ -31,22 +29,22 @@ class Table extends SettingsTable {
 
         DefaultSettingsRow animationSpeed = DefaultSettingsRow.builder()
                 .label("Animation speed")
-                .initValue(valueOf(settings.getAnimationSpeedInSec()))
-                .onValueChange(newStringValue -> settings.setAnimationSpeedInSec(Float.parseFloat(newStringValue)))
+                .initValue(valueOf(CASettings.getAnimationSpeedInSec()))
+                .onValueChange(newStringValue -> CASettings.setAnimationSpeedInSec(Float.parseFloat(newStringValue)))
                 .build();
         addRow(animationSpeed);
 
         DefaultSettingsRow ruleChangeSpeed = DefaultSettingsRow.builder()
                 .label("Rule change speed")
-                .initValue(valueOf(settings.getRuleChangeSpeedInSec()))
-                .onValueChange(newStringValue -> settings.setRuleChangeSpeedInSec(Float.parseFloat(newStringValue)))
+                .initValue(valueOf(CASettings.getRuleChangeSpeedInSec()))
+                .onValueChange(newStringValue -> CASettings.setRuleChangeSpeedInSec(Float.parseFloat(newStringValue)))
                 .build();
         addRow(ruleChangeSpeed);
         add(DefaultCheckBox.builder()
                 .label("interesting")
-                .initValue(settings.isOnlyInteresting())
+                .initValue(CASettings.isOnlyInteresting())
                 .onClick(() -> {
-                    settings.onInterestingChange();
+                    CASettings.onInterestingChange();
                     fire(new RestartEvent());
                 })
                 .build());
@@ -54,7 +52,7 @@ class Table extends SettingsTable {
 
 
     void updateRuleNumber() {
-        ruleNumberTextField.setText(valueOf(settings.getRuleNumber()));
+        ruleNumberTextField.setText(valueOf(CASettings.getRuleNumber()));
 
     }
 }

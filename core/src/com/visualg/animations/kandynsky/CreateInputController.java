@@ -5,7 +5,7 @@ import com.visualg.global.Config;
 import com.visualg.ui.simplifiedComponents.DefaultInputProcessor;
 
 class CreateInputController implements DefaultInputProcessor {
-    private final Settings settings = Settings.INSTANCE;
+    private final KandynskySettings kandynskySettings = KandynskySettings.settings;
     private final KandynskyAlg alg;
     private final Table table;
 
@@ -19,7 +19,7 @@ class CreateInputController implements DefaultInputProcessor {
         if (button != Input.Buttons.LEFT) {
             return false;
         }
-        switch (settings.getEditMode()) {
+        switch (kandynskySettings.getEditMode()) {
             case CREATE -> alg.createElement(screenX, Config.HEIGHT - screenY);
             case MOVE -> alg.moveElement(screenX, Config.HEIGHT - screenY);
             case SELECT -> {
@@ -33,7 +33,7 @@ class CreateInputController implements DefaultInputProcessor {
 
     @Override
     public boolean mouseMoved(int screenX, int screenY) {
-        if (Settings.INSTANCE.getEditMode() == EditMode.MOVE || Settings.INSTANCE.getEditMode() == EditMode.SELECT) {
+        if (KandynskySettings.settings.getEditMode() == EditMode.MOVE || KandynskySettings.settings.getEditMode() == EditMode.SELECT) {
             table.updateFields();
         }
         return false;

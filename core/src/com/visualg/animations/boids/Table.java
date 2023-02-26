@@ -10,63 +10,63 @@ import static java.lang.String.valueOf;
 
 class Table extends SettingsTable {
 
-    Table(Settings settings) {
+    Table(BoidsSettings boidsSettings) {
 
         DefaultSettingsRow numberOfBoids = DefaultSettingsRow.builder()
                 .label("number of boids: ")
-                .initValue(valueOf(settings.getNumberOfBoids()))
-                .onValueChange(newValue -> settings.setNumberOfBoids(parseInt(newValue)))
+                .initValue(valueOf(boidsSettings.getNumberOfBoids()))
+                .onValueChange(newValue -> boidsSettings.setNumberOfBoids(parseInt(newValue)))
                 .afterValueChange(value -> fire(new RestartEvent()))
                 .build();
         addRow(numberOfBoids);
 
         DefaultSettingsRow maxSpeed = DefaultSettingsRow.builder()
                 .label("max speed: ")
-                .initValue(valueOf(settings.getMaxSpeed()))
-                .onValueChange(newValue -> settings.setMaxSpeed(parseInt(newValue)))
+                .initValue(valueOf(boidsSettings.getMaxSpeed()))
+                .onValueChange(newValue -> boidsSettings.setMaxSpeed(parseInt(newValue)))
                 .build();
         addRow(maxSpeed);
 
         DefaultSettingsRow minSpeed = DefaultSettingsRow.builder()
                 .label("min speed: ")
-                .initValue(valueOf(settings.getMinSpeed()))
-                .onValueChange(newValue -> settings.setMinSpeed(parseInt(newValue)))
+                .initValue(valueOf(boidsSettings.getMinSpeed()))
+                .onValueChange(newValue -> boidsSettings.setMinSpeed(parseInt(newValue)))
                 .build();
         addRow(minSpeed);
 
         DefaultSettingsRow alignForce = DefaultSettingsRow.builder()
                 .label("alignment force: ")
-                .initValue(valueOf(settings.getAlignmentForce()))
-                .onValueChange(newValue -> settings.setAlignmentForce(parseDouble(newValue)))
+                .initValue(valueOf(boidsSettings.getAlignmentForce()))
+                .onValueChange(newValue -> boidsSettings.setAlignmentForce(parseDouble(newValue)))
                 .build();
         addRow(alignForce);
 
         DefaultSettingsRow cohForce = DefaultSettingsRow.builder()
                 .label("cohesion force: ")
-                .initValue(valueOf(settings.getCohesionForce()))
-                .onValueChange(newValue -> settings.setCohesionForce(parseDouble(newValue)))
+                .initValue(valueOf(boidsSettings.getCohesionForce()))
+                .onValueChange(newValue -> boidsSettings.setCohesionForce(parseDouble(newValue)))
                 .build();
         addRow(cohForce);
 
 
         DefaultSettingsRow collisionForce = DefaultSettingsRow.builder()
                 .label("collision repulsion force: ")
-                .initValue(valueOf(settings.getCollisionRepulsionForce()))
-                .onValueChange(newValue -> settings.setCollisionRepulsionForce(parseDouble(newValue)))
+                .initValue(valueOf(boidsSettings.getCollisionRepulsionForce()))
+                .onValueChange(newValue -> boidsSettings.setCollisionRepulsionForce(parseDouble(newValue)))
                 .build();
         addRow(collisionForce);
 
         DefaultSettingsRow neighbourRadius = DefaultSettingsRow.builder()
                 .label("neighbour radius: ")
-                .initValue(valueOf(settings.getNeighbourRadius()))
-                .onValueChange(newValue -> settings.setNeighbourRadius(parseInt(newValue)))
+                .initValue(valueOf(boidsSettings.getNeighbourRadius()))
+                .onValueChange(newValue -> boidsSettings.setNeighbourRadius(parseInt(newValue)))
                 .build();
         addRow(neighbourRadius);
 
         DefaultSettingsRow circleSize = DefaultSettingsRow.builder()
                 .label("circle radius size: ")
-                .initValue(valueOf(settings.getCircleRadius()))
-                .onValueChange(newValue -> settings.setCircleRadius(parseInt(newValue)))
+                .initValue(valueOf(boidsSettings.getCircleRadius()))
+                .onValueChange(newValue -> boidsSettings.setCircleRadius(parseInt(newValue)))
                 .build();
         addRow(circleSize);
 

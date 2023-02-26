@@ -1,6 +1,6 @@
 package com.visualg.animations.waveFuncCollapse.rules;
 
-import com.visualg.animations.waveFuncCollapse.Settings;
+import com.visualg.animations.waveFuncCollapse.WFCSettings;
 import com.visualg.animations.waveFuncCollapse.rules.tiles.CarrcasRules;
 import com.visualg.animations.waveFuncCollapse.rules.tiles.Tileset1Rules;
 import com.visualg.animations.waveFuncCollapse.rules.tiles.TilesetRule;
@@ -25,7 +25,7 @@ class ConnectionRules {
     private final List<ConnectionRule> rules = new ArrayList<>();
 
     public ConnectionRules() {
-        switch (Settings.INSTANCE.variant) {
+        switch (WFCSettings.settings.variant) {
             case VARIANT1, VARIANT2 -> init1();
             case PSEUDO_RANDOM -> initPseudorandom();
             case TILES1 -> initTiles1(new Tileset1Rules());

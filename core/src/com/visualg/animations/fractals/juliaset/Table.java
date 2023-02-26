@@ -14,91 +14,91 @@ class Table extends SettingsTable {
 
     Set<InteractiveSettingsRow> rows = new HashSet<>();
 
-    Table(Settings settings) {
+    Table(JuliaSetSettings juliaSetSettings) {
         InteractiveSettingsRow numberOfIteration = InteractiveSettingsRow.builder()
                 .label("numberOfIterations")
-                .initValue(settings::getNumberOfIteration)
-                .onValueChange(newValue -> settings.setNumberOfIteration(parseInt(newValue)))
+                .initValue(juliaSetSettings::getNumberOfIteration)
+                .onValueChange(newValue -> juliaSetSettings.setNumberOfIteration(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(numberOfIteration);
 
         InteractiveSettingsRow re = InteractiveSettingsRow.builder()
                 .label("re")
-                .initValue(() -> settings.getComplexNumber().getRe())
-                .onValueChange(newValue -> settings.getComplexNumber().setRe(parseDouble(newValue)))
+                .initValue(() -> juliaSetSettings.getComplexNumber().getRe())
+                .onValueChange(newValue -> juliaSetSettings.getComplexNumber().setRe(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(re);
 
         InteractiveSettingsRow im = InteractiveSettingsRow.builder()
                 .label("im")
-                .initValue(() -> settings.getComplexNumber().getIm())
-                .onValueChange(newValue -> settings.getComplexNumber().setIm(parseDouble(newValue)))
+                .initValue(() -> juliaSetSettings.getComplexNumber().getIm())
+                .onValueChange(newValue -> juliaSetSettings.getComplexNumber().setIm(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(im);
 
         InteractiveSettingsRow r = InteractiveSettingsRow.builder()
                 .label("r")
-                .initValue(settings::getRMultiplier)
-                .onValueChange(newValue -> settings.setRMultiplier(parseInt(newValue)))
+                .initValue(juliaSetSettings::getRMultiplier)
+                .onValueChange(newValue -> juliaSetSettings.setRMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(r);
 
         InteractiveSettingsRow g = InteractiveSettingsRow.builder()
                 .label("g")
-                .initValue(settings::getGMultiplier)
-                .onValueChange(newValue -> settings.setGMultiplier(parseInt(newValue)))
+                .initValue(juliaSetSettings::getGMultiplier)
+                .onValueChange(newValue -> juliaSetSettings.setGMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(g);
 
         InteractiveSettingsRow b = InteractiveSettingsRow.builder()
                 .label("b")
-                .initValue(settings::getBMultiplier)
-                .onValueChange(newValue -> settings.setBMultiplier(parseInt(newValue)))
+                .initValue(juliaSetSettings::getBMultiplier)
+                .onValueChange(newValue -> juliaSetSettings.setBMultiplier(parseInt(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(b);
 
         InteractiveSettingsRow moveDelta = InteractiveSettingsRow.builder()
                 .label("moveDelta")
-                .initValue(settings::getMoveDelta)
-                .onValueChange(newValue -> settings.setMoveDelta(parseDouble(newValue)))
+                .initValue(juliaSetSettings::getMoveDelta)
+                .onValueChange(newValue -> juliaSetSettings.setMoveDelta(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(moveDelta);
 
         InteractiveSettingsRow xOffset = InteractiveSettingsRow.builder()
                 .label("xOffset")
-                .initValue(settings::getXOffset)
-                .onValueChange(newValue -> settings.setXOffset(parseDouble(newValue)))
+                .initValue(juliaSetSettings::getXOffset)
+                .onValueChange(newValue -> juliaSetSettings.setXOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(xOffset);
 
         InteractiveSettingsRow yOffset = InteractiveSettingsRow.builder()
                 .label("yOffset")
-                .initValue(settings::getYOffset)
-                .onValueChange(newValue -> settings.setYOffset(parseDouble(newValue)))
+                .initValue(juliaSetSettings::getYOffset)
+                .onValueChange(newValue -> juliaSetSettings.setYOffset(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(yOffset);
 
         InteractiveSettingsRow zoom = InteractiveSettingsRow.builder()
                 .label("zoom")
-                .initValue(settings::getZoom)
-                .onValueChange(newValue -> settings.setZoom(parseDouble(newValue)))
+                .initValue(juliaSetSettings::getZoom)
+                .onValueChange(newValue -> juliaSetSettings.setZoom(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(zoom);
 
         InteractiveSettingsRow zoomMultiplier = InteractiveSettingsRow.builder()
                 .label("zoomMultiplier")
-                .initValue(settings::getZoomMultiplier)
-                .onValueChange(newValue -> settings.setZoomMultiplier(parseDouble(newValue)))
+                .initValue(juliaSetSettings::getZoomMultiplier)
+                .onValueChange(newValue -> juliaSetSettings.setZoomMultiplier(parseDouble(newValue)))
                 .afterValueChange(newStringValue -> fire(new RestartEvent()))
                 .build();
         addSettingsRow(zoomMultiplier);

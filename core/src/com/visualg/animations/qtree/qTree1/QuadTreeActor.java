@@ -10,7 +10,7 @@ import com.visualg.util.qTree.Rectangle;
 
 import java.util.ArrayList;
 
-import static com.visualg.animations.qtree.qTree1.Settings.INSTANCE;
+import static com.visualg.animations.qtree.qTree1.QTree1Settings.settings;
 
 class QuadTreeActor extends ShapeRendererActor {
     private final QuadTreeAlg alg;
@@ -28,13 +28,13 @@ class QuadTreeActor extends ShapeRendererActor {
         }
         sr.setColor(Color.GREEN);
         ArrayList<Point> particlesInRect = null;
-        if (INSTANCE.getMode() == QueryMode.RECT) {
-            sr.rect(Mouse.getX() - INSTANCE.getRectSize(), Mouse.getY() - INSTANCE.getRectSize(), INSTANCE.getRectSize() * 2, INSTANCE.getRectSize() * 2);
-            particlesInRect = alg.getParticlesInRect(new Rectangle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize(), INSTANCE.getRectSize()));
+        if (settings.getMode() == QueryMode.RECT) {
+            sr.rect(Mouse.getX() - settings.getRectSize(), Mouse.getY() - settings.getRectSize(), settings.getRectSize() * 2, settings.getRectSize() * 2);
+            particlesInRect = alg.getParticlesInRect(new Rectangle(Mouse.getX(), Mouse.getY(), settings.getRectSize(), settings.getRectSize()));
         }
-        if (INSTANCE.getMode() == QueryMode.CIRCLE) {
-            sr.circle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize());
-            particlesInRect = alg.getParticlesInCircle(new Circle(Mouse.getX(), Mouse.getY(), INSTANCE.getRectSize()));
+        if (settings.getMode() == QueryMode.CIRCLE) {
+            sr.circle(Mouse.getX(), Mouse.getY(), settings.getRectSize());
+            particlesInRect = alg.getParticlesInCircle(new Circle(Mouse.getX(), Mouse.getY(), settings.getRectSize()));
         }
 
         for (Point point : particlesInRect) {

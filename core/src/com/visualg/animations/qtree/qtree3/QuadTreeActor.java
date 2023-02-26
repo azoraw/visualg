@@ -11,7 +11,7 @@ import com.visualg.util.qTree.Rectangle;
 
 import java.util.ArrayList;
 
-import static com.visualg.animations.qtree.qtree3.Settings.INSTANCE;
+import static com.visualg.animations.qtree.qtree3.QTree3Settings.settings;
 
 class QuadTreeActor extends ShapeRendererActor {
 
@@ -31,7 +31,7 @@ class QuadTreeActor extends ShapeRendererActor {
         }
         sr.setColor(ColorGenerator.fromHSV((Mouse.getX() / (float) Config.WIDTH) * 360, 1, 0.75f));
         for (BouncingBall particle : particles) {
-            final ArrayList<Point> connectedParticles = alg.getParticlesInRect(new Rectangle(particle.getPosition().x, particle.getPosition().y, INSTANCE.getRectSize(), INSTANCE.getRectSize()));
+            final ArrayList<Point> connectedParticles = alg.getParticlesInRect(new Rectangle(particle.getPosition().x, particle.getPosition().y, settings.getRectSize(), settings.getRectSize()));
             for (Point connectedParticle : connectedParticles) {
                 sr.line(particle.getPosition().x, particle.getPosition().y, connectedParticle.x(), connectedParticle.y());
             }

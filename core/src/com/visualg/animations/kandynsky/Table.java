@@ -21,23 +21,23 @@ class Table extends SettingsTable {
         add(new EmptyLabel());
         add(DefaultCheckBox.builder()
                 .label("background")
-                .initValue(Settings.INSTANCE.isDrawBackground())
-                .onClick(() -> Settings.INSTANCE.setDrawBackground(!Settings.INSTANCE.isDrawBackground()))
+                .initValue(KandynskySettings.settings.isDrawBackground())
+                .onClick(() -> KandynskySettings.settings.setDrawBackground(!KandynskySettings.settings.isDrawBackground()))
                 .build());
         add(new EmptyLabel());
         row();
         add(new EmptyLabel());
         add(DefaultCheckBox.builder()
                 .label("rotate")
-                .initValue(Settings.INSTANCE.isRotate())
-                .onClick(() -> Settings.INSTANCE.setRotate(!Settings.INSTANCE.isRotate()))
+                .initValue(KandynskySettings.settings.isRotate())
+                .onClick(() -> KandynskySettings.settings.setRotate(!KandynskySettings.settings.isRotate()))
                 .build());
         row();
         addRow(SelectBoxRow.<EditMode>builder()
                 .label("edit mode")
-                .selected(Settings.INSTANCE.getEditMode())
+                .selected(KandynskySettings.settings.getEditMode())
                 .onChange(editMode -> {
-                    Settings.INSTANCE.setEditMode(editMode);
+                    KandynskySettings.settings.setEditMode(editMode);
                     alg.unselect();
                 })
                 .items(EditMode.values())
@@ -88,12 +88,12 @@ class Table extends SettingsTable {
             if (currentCheckBox == checkbox) {
                 currentCheckBox = null;
             }
-            Settings.INSTANCE.setShape(null);
-            Settings.INSTANCE.setEditMode(EditMode.SELECT);
+            KandynskySettings.settings.setShape(null);
+            KandynskySettings.settings.setEditMode(EditMode.SELECT);
         } else {
             currentCheckBox = checkbox;
-            Settings.INSTANCE.setEditMode(EditMode.CREATE);
-            Settings.INSTANCE.setShape(shape);
+            KandynskySettings.settings.setEditMode(EditMode.CREATE);
+            KandynskySettings.settings.setShape(shape);
             alg.unselect();
         }
     }

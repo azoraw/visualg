@@ -11,33 +11,33 @@ import static com.visualg.global.Config.WIDTH;
 @RequiredArgsConstructor
 class MultibrotSetController {
 
-    private final Settings settings;
+    private final MultibrotSettings multibrotSettings;
     private final Table table;
     private final PixmapActor multibrotActor;
 
     void zoom(Zoom zoom) {
-        settings.zoom(zoom);
+        multibrotSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCameraAndZoom(int screenX, int screenY, Zoom zoom) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
-        settings.zoom(zoom);
+        multibrotSettings.move(screenX, screenY, WIDTH, HEIGHT);
+        multibrotSettings.zoom(zoom);
         updateViews();
     }
 
     void moveCamera(Direction direction) {
-        settings.addOffset(direction);
+        multibrotSettings.addOffset(direction);
         updateViews();
     }
 
     void moveCamera(int screenX, int screenY) {
-        settings.move(screenX, screenY, WIDTH, HEIGHT);
+        multibrotSettings.move(screenX, screenY, WIDTH, HEIGHT);
         updateViews();
     }
 
     void moveSet(Direction left) {
-        settings.moveSet(left);
+        multibrotSettings.moveSet(left);
         updateViews();
     }
 

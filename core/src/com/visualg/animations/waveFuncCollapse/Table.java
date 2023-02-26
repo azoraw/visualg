@@ -9,14 +9,14 @@ import com.visualg.ui.simplifiedComponents.EmptyLabel;
 class Table extends SettingsTable {
 
     public Table(WFCActor actor) {
-        Settings settings = Settings.INSTANCE;
+        WFCSettings wfcSettings = WFCSettings.settings;
         addRow(SelectBoxRow.<Variant>builder()
                 .label("variants")
                 .onChange(variant -> {
-                    settings.setVariant(variant);
+                    wfcSettings.setVariant(variant);
                     fire(new RestartEvent());
                 })
-                .selected(settings.getVariant())
+                .selected(wfcSettings.getVariant())
                 .items(Variant.values())
                 .build());
         add(new EmptyLabel());

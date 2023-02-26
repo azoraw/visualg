@@ -10,16 +10,15 @@ class NoiseActor extends Actor {
 
     private final SimplexPixMap simplexPixMap;
     private Texture texture;
-    private Pixmap pixmap;
 
-    NoiseActor(Settings settings) {
-        simplexPixMap = new SimplexPixMap(settings);
+    NoiseActor(SimplexSettings simplexSettings) {
+        simplexPixMap = new SimplexPixMap(simplexSettings);
     }
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
         disposePreviousTexture();
-        pixmap = simplexPixMap.generateMovementOnZAxis();
+        Pixmap pixmap = simplexPixMap.generateMovementOnZAxis();
         texture = new Texture(pixmap);
         batch.draw(texture, 0, 0, Config.WIDTH, Config.HEIGHT);
     }

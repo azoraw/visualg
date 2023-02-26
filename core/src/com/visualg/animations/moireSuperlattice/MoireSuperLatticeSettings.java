@@ -1,13 +1,15 @@
-package com.visualg.animations.moireSupperlattice;
+package com.visualg.animations.moireSuperlattice;
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
-    static final Settings INSTANCE = new Settings();
+class MoireSuperLatticeSettings implements Settings {
+    static final MoireSuperLatticeSettings settings = new MoireSuperLatticeSettings();
+
     private float transparency = 0.5f;
     private int moduloX = 10;
     private int moduloY = 10;

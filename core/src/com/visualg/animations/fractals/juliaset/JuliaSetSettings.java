@@ -1,39 +1,30 @@
 package com.visualg.animations.fractals.juliaset;
 
+import com.visualg.ui.settings.Settings;
 import com.visualg.util.ComplexNumber;
 import com.visualg.util.Direction;
 import com.visualg.util.Zoom;
-import lombok.Builder;
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
-@Builder(toBuilder = true)
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
+class JuliaSetSettings implements Settings {
 
-    static Settings INSTANCE = Settings.builder()
-            .numberOfIteration(1000)
-            .rMultiplier(0)
-            .gMultiplier(13)
-            .bMultiplier(13)
-            .complexNumber(new ComplexNumber(-0.01994, 0.88634))
-            .moveDelta(0.002)
-            .xOffset(0)
-            .yOffset(0)
-            .zoom(1)
-            .zoomMultiplier(2)
-            .build();
+    static final JuliaSetSettings settings = new JuliaSetSettings();
 
-    private int numberOfIteration;
-    private int rMultiplier;
-    private int gMultiplier;
-    private int bMultiplier;
+    private int numberOfIteration = 1000;
+    private int rMultiplier = 0;
+    private int gMultiplier = 13;
+    private int bMultiplier = 13;
 
-    private ComplexNumber complexNumber;
-    private double moveDelta;
-    private double xOffset;
-    private double yOffset;
-    private double zoom;
-    private double zoomMultiplier;
+    private ComplexNumber complexNumber = new ComplexNumber(-0.01994, 0.88634);
+    private double moveDelta = 0.002;
+    private double xOffset = 0;
+    private double yOffset = 0;
+    private double zoom = 1;
+    private double zoomMultiplier = 2;
 
     void zoom(Zoom zoomInput) {
         if (zoomInput == Zoom.IN) {

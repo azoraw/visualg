@@ -2,14 +2,14 @@ package com.visualg.animations.lsystems;
 
 import java.util.Map;
 
-import static com.visualg.animations.lsystems.Settings.Settings;
+import static com.visualg.animations.lsystems.LSystemSettings.LSystemSettings;
 
 class LSystemAlg {
 
-    private final Map<Character, String> rules = Settings.getRules();
+    private final Map<Character, String> rules = LSystemSettings.getRules();
 
     String create(int generations) {
-        String result = Settings.getAxiom();
+        String result = LSystemSettings.getAxiom();
         for (int generation = 0; generation < generations; generation++) {
             StringBuilder sb = new StringBuilder();
             for (int j = 0; j < result.length(); j++) {

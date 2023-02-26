@@ -9,11 +9,11 @@ import com.visualg.ui.simplifiedComponents.EmptyLabel;
 import static java.lang.String.valueOf;
 
 class Table extends SettingsTable {
-    Table(Settings settings) {
+    Table(SimplexSettings simplexSettings) {
         DefaultSettingsRow numberOfSkippedPixels = DefaultSettingsRow.builder()
                 .label("pixels per cell")
-                .initValue(valueOf(settings.getNumberOfSkippedPixels()))
-                .onValueChange(newValue -> settings.setNumberOfSkippedPixels(Integer.parseInt(newValue)))
+                .initValue(valueOf(simplexSettings.getNumberOfSkippedPixels()))
+                .onValueChange(newValue -> simplexSettings.setNumberOfSkippedPixels(Integer.parseInt(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
 
@@ -21,8 +21,8 @@ class Table extends SettingsTable {
 
         DefaultSettingsRow x = DefaultSettingsRow.builder()
                 .label("X")
-                .initValue(valueOf(settings.getX_OFF()))
-                .onValueChange(newValue -> settings.setX_OFF(Double.parseDouble(newValue)))
+                .initValue(valueOf(simplexSettings.getX_OFF()))
+                .onValueChange(newValue -> simplexSettings.setX_OFF(Double.parseDouble(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
 
@@ -30,8 +30,8 @@ class Table extends SettingsTable {
 
         DefaultSettingsRow y = DefaultSettingsRow.builder()
                 .label("Y")
-                .initValue(valueOf(settings.getY_OFF()))
-                .onValueChange(newValue -> settings.setY_OFF(Double.parseDouble(newValue)))
+                .initValue(valueOf(simplexSettings.getY_OFF()))
+                .onValueChange(newValue -> simplexSettings.setY_OFF(Double.parseDouble(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
 
@@ -39,8 +39,8 @@ class Table extends SettingsTable {
 
         DefaultSettingsRow z = DefaultSettingsRow.builder()
                 .label("Z")
-                .initValue(valueOf(settings.getZ_OFF()))
-                .onValueChange(newValue -> settings.setZ_OFF(Double.parseDouble(newValue)))
+                .initValue(valueOf(simplexSettings.getZ_OFF()))
+                .onValueChange(newValue -> simplexSettings.setZ_OFF(Double.parseDouble(newValue)))
                 .afterValueChange(stringValue -> fire(new RestartEvent()))
                 .build();
 
@@ -48,9 +48,9 @@ class Table extends SettingsTable {
 
         DefaultCheckBox connected = DefaultCheckBox.builder()
                 .label("GRAY SCALE")
-                .initValue(settings.getColorMode() == SimplexColorMode.GRAYSCALE)
+                .initValue(simplexSettings.getColorMode() == SimplexColorMode.GRAYSCALE)
                 .onClick(() -> {
-                    settings.changeColorMode();
+                    simplexSettings.changeColorMode();
                     fire(new RestartEvent());
                 }).build();
         add(new EmptyLabel());

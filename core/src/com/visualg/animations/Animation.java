@@ -20,7 +20,7 @@ import com.visualg.animations.lineGrower.LineGrowerGroup;
 import com.visualg.animations.lines.LinesDoodleActor;
 import com.visualg.animations.lissajous.LissajousCurveGroup;
 import com.visualg.animations.lsystems.LSystemGroup;
-import com.visualg.animations.moireSupperlattice.MoireSuperlatticeGroup;
+import com.visualg.animations.moireSuperlattice.MoireSuperlatticeGroup;
 import com.visualg.animations.mondrian.MondrianGroup;
 import com.visualg.animations.mouseFollower.MouseFollowerActor;
 import com.visualg.animations.nBody.NBodyGroup;

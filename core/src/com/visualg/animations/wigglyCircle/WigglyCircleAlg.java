@@ -15,22 +15,22 @@ class WigglyCircleAlg {
 
     private final float xMiddle;
     private final float yMiddle;
-    private final Settings settings;
+    private final WigglyCircleSettings wigglyCircleSettings;
     private final OpenSimplexNoise noise;
 
 
-    WigglyCircleAlg(float xMiddle, float yMiddle, Settings settings) {
+    WigglyCircleAlg(float xMiddle, float yMiddle, WigglyCircleSettings wigglyCircleSettings) {
         this.xMiddle = xMiddle;
         this.yMiddle = yMiddle;
-        this.settings = settings;
+        this.wigglyCircleSettings = wigglyCircleSettings;
         noise = new OpenSimplexNoise();
     }
 
     List<Pair<Float, Float>> getVertices() {
         ArrayList<Pair<Float, Float>> points = new ArrayList<>();
-        for (float a = 0; a < 2 * Math.PI; a += 2 * Math.PI / settings.getVertexNumber()) {
-            double r = settings.getStartingRadius() + settings.getMaxRadius() * noise.eval(settings.getNoiseDeltaX() * cos(a), settings.getNoiseDeltaY() * sin(a), settings.getZ());
-            if (settings.isThresholdEnabled()) {
+        for (float a = 0; a < 2 * Math.PI; a += 2 * Math.PI / wigglyCircleSettings.getVertexNumber()) {
+            double r = wigglyCircleSettings.getStartingRadius() + wigglyCircleSettings.getMaxRadius() * noise.eval(wigglyCircleSettings.getNoiseDeltaX() * cos(a), wigglyCircleSettings.getNoiseDeltaY() * sin(a), wigglyCircleSettings.getZ());
+            if (wigglyCircleSettings.isThresholdEnabled()) {
                 r = Math.min(r, THRESHOLD_RADIUS);
             }
             float x = (float) (xMiddle + r * cos(a));
@@ -41,7 +41,7 @@ class WigglyCircleAlg {
     }
 
     void update() {
-        settings.incrementZ();
+        wigglyCircleSettings.incrementZ();
     }
 
 }

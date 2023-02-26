@@ -1,13 +1,14 @@
 package com.visualg.animations.ca;
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
-    static Settings INSTANCE = new Settings();
+class CASettings implements Settings {
+    static final CASettings settings = new CASettings();
     private final int[] interestingRules = {18, 25, 30, 45, 73, 75, 82, 86, 89, 105, 124, 126, 129, 135, 137, 149, 150, 161, 165, 169, 193, 225};
 
     private int ruleNumber;

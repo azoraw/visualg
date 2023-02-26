@@ -12,26 +12,26 @@ import static java.lang.Integer.parseInt;
 
 class Table extends SettingsTable {
     Table(MondrianActor actor) {
-        Settings settings = Settings.INSTANCE;
+        MondrianSettings mondrianSettings = MondrianSettings.settings;
 
         addRow(DefaultSettingsRow.builder()
                 .label("sideMaxSplitLength")
-                .initValue(settings.getSideMaxSplitLength())
-                .onValueChange(stringValue -> settings.setSideMaxSplitLength(parseInt(stringValue)))
+                .initValue(mondrianSettings.getSideMaxSplitLength())
+                .onValueChange(stringValue -> mondrianSettings.setSideMaxSplitLength(parseInt(stringValue)))
                 .afterValueChange(s -> this.fire(new RestartEvent()))
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("space")
-                .initValue(settings.getSpace())
-                .onValueChange(stringValue -> settings.setSpace(parseInt(stringValue)))
+                .initValue(mondrianSettings.getSpace())
+                .onValueChange(stringValue -> mondrianSettings.setSpace(parseInt(stringValue)))
                 .afterValueChange(s -> this.fire(new RestartEvent()))
                 .build());
 
         DefaultCheckBox mondriatCheckBox = DefaultCheckBox.builder()
                 .label("Mondriats palette")
-                .initValue(settings.isMondriatsPalette())
+                .initValue(mondrianSettings.isMondriatsPalette())
                 .onClick(() -> {
-                    settings.setMondriatsPalette(!settings.isMondriatsPalette());
+                    mondrianSettings.setMondriatsPalette(!mondrianSettings.isMondriatsPalette());
                     fire(new RestartEvent());
                 })
                 .build();
@@ -39,36 +39,36 @@ class Table extends SettingsTable {
         add(mondriatCheckBox);
         row();
 
-        if (!settings.isMondriatsPalette()) {
+        if (!mondrianSettings.isMondriatsPalette()) {
             addRow(DefaultSettingsRow.builder()
                     .label("randomPaletteSize")
-                    .initValue(settings.getPaletteSize())
-                    .onValueChange(stringValue -> settings.setPaletteSize(parseInt(stringValue)))
+                    .initValue(mondrianSettings.getPaletteSize())
+                    .onValueChange(stringValue -> mondrianSettings.setPaletteSize(parseInt(stringValue)))
                     .afterValueChange(s -> this.fire(new RestartEvent()))
                     .build());
 
             addRow(SelectBoxRow.<Gradient>builder()
                     .label("gradient1")
-                    .onChange(settings::setGradient1)
-                    .selected(settings.getGradient1())
+                    .onChange(mondrianSettings::setGradient1)
+                    .selected(mondrianSettings.getGradient1())
                     .items(Gradient.values())
                     .build());
             addRow(SelectBoxRow.<Gradient>builder()
                     .label("gradient2")
-                    .onChange(settings::setGradient2)
-                    .selected(settings.getGradient2())
+                    .onChange(mondrianSettings::setGradient2)
+                    .selected(mondrianSettings.getGradient2())
                     .items(Gradient.values())
                     .build());
             addRow(SelectBoxRow.<Gradient>builder()
                     .label("gradient3")
-                    .onChange(settings::setGradient3)
-                    .selected(settings.getGradient3())
+                    .onChange(mondrianSettings::setGradient3)
+                    .selected(mondrianSettings.getGradient3())
                     .items(Gradient.values())
                     .build());
             addRow(SelectBoxRow.<Gradient>builder()
                     .label("gradient4")
-                    .onChange(settings::setGradient4)
-                    .selected(settings.getGradient4())
+                    .onChange(mondrianSettings::setGradient4)
+                    .selected(mondrianSettings.getGradient4())
                     .items(Gradient.values())
                     .build());
         }

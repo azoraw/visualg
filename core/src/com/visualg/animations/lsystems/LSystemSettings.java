@@ -1,6 +1,7 @@
 package com.visualg.animations.lsystems;
 
 import com.visualg.global.Config;
+import com.visualg.ui.settings.Settings;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,8 +9,8 @@ import java.util.Map;
 
 @NoArgsConstructor
 @Data
-class Settings {
-    static Settings Settings = new Settings();
+class LSystemSettings implements Settings {
+    static LSystemSettings LSystemSettings = new LSystemSettings();
 
     float transparency = 1f;
     int numberOfGenerations = 2;

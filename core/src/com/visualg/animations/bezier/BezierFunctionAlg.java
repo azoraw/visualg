@@ -9,7 +9,7 @@ import com.visualg.util.color.ColorGenerator;
 import java.util.HashSet;
 import java.util.Set;
 
-import static com.visualg.animations.bezier.Settings.INSTANCE;
+import static com.visualg.animations.bezier.BezierSettings.settings;
 import static com.visualg.util.color.ColorGenerator.fromHSV;
 
 class BezierFunctionAlg {
@@ -20,9 +20,9 @@ class BezierFunctionAlg {
     public BezierFunctionAlg(int index) {
         this.index = index;
         randomColor1 = new Color(ColorGenerator.getRandomColor());
-        randomColor1.a = INSTANCE.getBlobSetting(index).getTransparency();
+        randomColor1.a = settings.getBlobSetting(index).getTransparency();
         randomColor2 = new Color(ColorGenerator.getRandomColor());
-        randomColor2.a = INSTANCE.getBlobSetting(index).getTransparency2();
+        randomColor2.a = settings.getBlobSetting(index).getTransparency2();
     }
 
     Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 start, Vector2 middle, Vector2 end, int delta) {
@@ -54,22 +54,22 @@ class BezierFunctionAlg {
     }
 
     private Pair<Color, Color> getColorGradient(Vector2 pos1, Vector2 pos2) {
-        final BlobSetting blobSetting = INSTANCE.getBlobSetting(index);
+        final BlobSetting blobSetting = settings.getBlobSetting(index);
         Color first;
         Color second;
         switch (blobSetting.getBlobColor()) {
             case PRIMARY -> {
                 final Color color = Config.palette.getPrimaryColor().cpy();
-                color.a = INSTANCE.getBlobSetting(index).getTransparency();
+                color.a = settings.getBlobSetting(index).getTransparency();
                 first = color;
             }
             case BACKGROUND -> {
                 final Color color = Config.palette.getBackground().cpy();
-                color.a = INSTANCE.getBlobSetting(index).getTransparency();
+                color.a = settings.getBlobSetting(index).getTransparency();
                 first = color;
             }
             case RANDOM -> first = randomColor1;
-            case POSITION_BASED -> first = fromHSV(getAngle(pos1.x, pos1.y), 1, 1, INSTANCE.getBlobSetting(index).getTransparency());
+            case POSITION_BASED -> first = fromHSV(getAngle(pos1.x, pos1.y), 1, 1, settings.getBlobSetting(index).getTransparency());
             default -> throw new IllegalStateException("Unexpected value: " + blobSetting.getBlobColor());
         }
         if (!blobSetting.isGradient()) {
@@ -78,16 +78,16 @@ class BezierFunctionAlg {
         switch (blobSetting.getBlobColor2()) {
             case PRIMARY -> {
                 final Color color = Config.palette.getPrimaryColor().cpy();
-                color.a = INSTANCE.getBlobSetting(index).getTransparency2();
+                color.a = settings.getBlobSetting(index).getTransparency2();
                 second = color;
             }
             case BACKGROUND -> {
                 final Color color = Config.palette.getBackground().cpy();
-                color.a = INSTANCE.getBlobSetting(index).getTransparency2();
+                color.a = settings.getBlobSetting(index).getTransparency2();
                 second = color;
             }
             case RANDOM -> second = randomColor2;
-            case POSITION_BASED -> second = fromHSV(getAngle(pos2.x, pos2.y), 1, 1, INSTANCE.getBlobSetting(index).getTransparency2());
+            case POSITION_BASED -> second = fromHSV(getAngle(pos2.x, pos2.y), 1, 1, settings.getBlobSetting(index).getTransparency2());
             default -> throw new IllegalStateException("Unexpected value: " + blobSetting.getBlobColor());
         }
         return new Pair<>(first, second);

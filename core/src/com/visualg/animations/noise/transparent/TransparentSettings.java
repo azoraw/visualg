@@ -1,5 +1,6 @@
 package com.visualg.animations.noise.transparent;
 
+import com.visualg.ui.settings.Settings;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,9 +11,9 @@ import static java.lang.Math.min;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
-class Settings {
+class TransparentSettings implements Settings {
 
-    static Settings INSTANCE = new Settings();
+    static final TransparentSettings settings = new TransparentSettings();
 
     private boolean isConnectedWithStartingPoint = false;
     private boolean haveMiddleCircle = false;

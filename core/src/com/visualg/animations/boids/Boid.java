@@ -9,15 +9,15 @@ import java.util.List;
 @Getter
 class Boid {
 
-    private final Settings settings;
+    private final BoidsSettings boidsSettings;
     private final Position position;
 
     @Setter
     private List<Boid> neighbours = new ArrayList<>();
 
-    Boid(Settings settings) {
-        this.settings = settings;
-        this.position = new Position(settings);
+    Boid(BoidsSettings boidsSettings) {
+        this.boidsSettings = boidsSettings;
+        this.position = new Position(boidsSettings);
     }
 
     void move() {
@@ -30,6 +30,6 @@ class Boid {
         double x2 = possibleNeighbourPosition.getX();
         double y1 = position.getY();
         double y2 = possibleNeighbourPosition.getY();
-        return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2) < Math.pow(settings.getNeighbourRadius(), 2);
+        return Math.pow(x1 - x2, 2) + Math.pow(y1 - y2, 2) < Math.pow(boidsSettings.getNeighbourRadius(), 2);
     }
 }

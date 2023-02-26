@@ -8,6 +8,5 @@ public class TransparentBezierGroup extends Group {
         addActor(transparentBezierActor);
         final Table table = new Table(transparentBezierActor.onScreenShot());
         addActor(table);
-
     }
 }

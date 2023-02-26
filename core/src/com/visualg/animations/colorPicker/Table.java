@@ -9,10 +9,10 @@ class Table extends SettingsTable {
     public Table() {
         add(new EmptyLabel());
         row();
-        add(new DefaultButton("setPrimaryColor", () -> PaletteType.updateUserPrimaryColor(Settings.INSTANCE.getChosenColor())));
+        add(new DefaultButton("setPrimaryColor", () -> PaletteType.updateUserPrimaryColor(ColorPickerSettings.settings.getChosenColor())));
         row();
-        add(new DefaultButton("setSecondaryColor", () -> PaletteType.updateUserSecondaryColor(Settings.INSTANCE.getChosenColor())));
+        add(new DefaultButton("setSecondaryColor", () -> PaletteType.updateUserSecondaryColor(ColorPickerSettings.settings.getChosenColor())));
         row();
-        add(new DefaultButton("setBackgroundColor", () -> PaletteType.updateUserBackgroundColor(Settings.INSTANCE.getChosenColor())));
+        add(new DefaultButton("setBackgroundColor", () -> PaletteType.updateUserBackgroundColor(ColorPickerSettings.settings.getChosenColor())));
     }
 }

@@ -48,13 +48,13 @@ class KandynskyActor extends Actor {
     }
 
     private void drawBackground(Batch batch) {
-        if (Settings.INSTANCE.isDrawBackground()) {
+        if (KandynskySettings.settings.isDrawBackground()) {
             batch.draw(backgroundTexture, 0, 0, Config.WIDTH, Config.HEIGHT);
         }
     }
 
     private void update() {
-        if(Settings.INSTANCE.isRotate()) {
+        if(KandynskySettings.settings.isRotate()) {
             for (int i = 0; i < Config.updatesPerFrame; i++) {
                 alg.rotate();
             }
@@ -63,7 +63,7 @@ class KandynskyActor extends Actor {
 
     private void drawSelectedElement() {
         sr.setColor(Color.GREEN);
-        if (alg.getSelectedElement() != null && Settings.INSTANCE.getEditMode() == SELECT) {
+        if (alg.getSelectedElement() != null && KandynskySettings.settings.getEditMode() == SELECT) {
             drawElement(alg.getSelectedElement());
         }
     }
@@ -71,7 +71,7 @@ class KandynskyActor extends Actor {
     private void drawCreateElement() {
         final Pair<Integer, Integer> startPosition = alg.getStartPosition();
         if (startPosition != null) {
-            switch (Settings.INSTANCE.getShape()) {
+            switch (KandynskySettings.settings.getShape()) {
                 case CIRCLE -> {
                     final double distance = Point2D.distance(startPosition.first(), startPosition.second(), Mouse.getX(), Mouse.getY());
                     sr.circle(startPosition.first(), startPosition.second(), (int) distance);
@@ -91,7 +91,7 @@ class KandynskyActor extends Actor {
 
     private void drawMovingSelectedElement() {
         boolean isSelected = alg.isSelected();
-        if (isSelected && Settings.INSTANCE.getEditMode() == MOVE) {
+        if (isSelected && KandynskySettings.settings.getEditMode() == MOVE) {
             final Element selectedElement = alg.getSelectedElement();
             sr.setColor(Color.GREEN);
             if (selectedElement instanceof CircleElement circleElement) {
@@ -143,7 +143,7 @@ class KandynskyActor extends Actor {
     }
 
     private void highlightNearestElement() {
-        if (MOVE == Settings.INSTANCE.getEditMode() && !alg.isSelected()) {
+        if (MOVE == KandynskySettings.settings.getEditMode() && !alg.isSelected()) {
             sr.setColor(Color.YELLOW);
             final Element highlightedElement = alg.getHighlightedElement(Mouse.getX(), Mouse.getY());
             if (highlightedElement instanceof CircleElement circle) {

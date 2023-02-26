@@ -25,22 +25,22 @@ class MondrianActor extends FrameBufferActor {
     }
 
     private void drawRect(Rect rect) {
-        switch (Settings.INSTANCE.getGradient1()) {
+        switch (MondrianSettings.settings.getGradient1()) {
             case BLACK -> gradient1 = Color.BLACK;
             case WHITE -> gradient1 = Color.WHITE;
             case PALETTE -> gradient1 = rect.color();
         }
-        switch (Settings.INSTANCE.getGradient2()) {
+        switch (MondrianSettings.settings.getGradient2()) {
             case BLACK -> gradient2 = Color.BLACK;
             case WHITE -> gradient2 = Color.WHITE;
             case PALETTE -> gradient2 = rect.color();
         }
-        switch (Settings.INSTANCE.getGradient3()) {
+        switch (MondrianSettings.settings.getGradient3()) {
             case BLACK -> gradient3 = Color.BLACK;
             case WHITE -> gradient3 = Color.WHITE;
             case PALETTE -> gradient3 = rect.color();
         }
-        switch (Settings.INSTANCE.getGradient4()) {
+        switch (MondrianSettings.settings.getGradient4()) {
             case BLACK -> gradient4 = Color.BLACK;
             case WHITE -> gradient4 = Color.WHITE;
             case PALETTE -> gradient4 = rect.color();

@@ -53,7 +53,7 @@ class ColorPickerAlg {
 
     private void drawPickedColor(int x, int y) {
         if (!insideHuePickerRing(x, y)) {
-            pixmap.drawPixel(x, y, Color.rgba8888(Settings.INSTANCE.getChosenColor()));
+            pixmap.drawPixel(x, y, Color.rgba8888(ColorPickerSettings.settings.getChosenColor()));
         }
     }
 
@@ -129,6 +129,6 @@ class ColorPickerAlg {
         double hue = getAngle(huePosition.first(), huePosition.second());
         double saturation = 1 - normalize(valueAndSaturationPosition.first(), p2X, p1X);
         double value = 1 - normalize(valueAndSaturationPosition.second(), p3Y, p2Y);
-        Settings.INSTANCE.setChosenColor(ColorGenerator.fromHSV((float) hue, (float) saturation, (float) value));
+        ColorPickerSettings.settings.setChosenColor(ColorGenerator.fromHSV((float) hue, (float) saturation, (float) value));
     }
 }

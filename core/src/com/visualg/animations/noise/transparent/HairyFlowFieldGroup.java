@@ -5,9 +5,9 @@ import com.badlogic.gdx.scenes.scene2d.Group;
 public class HairyFlowFieldGroup extends Group {
 
     public HairyFlowFieldGroup() {
-        Settings settings = Settings.INSTANCE;
-        HairyFlowFieldActor actor = new HairyFlowFieldActor(settings);
-        Table settingsTable = new Table(settings, actor.onScreenShot());
+        TransparentSettings transparentSettings = TransparentSettings.settings;
+        HairyFlowFieldActor actor = new HairyFlowFieldActor(transparentSettings);
+        Table settingsTable = new Table(transparentSettings, actor.onScreenShot());
         addActor(actor);
         addActor(settingsTable);
     }

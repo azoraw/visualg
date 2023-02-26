@@ -1,6 +1,6 @@
 package com.visualg.animations.lissajous;
 
-import static com.visualg.animations.lissajous.Settings.INSTANCE;
+import static com.visualg.animations.lissajous.LissajousSettings.settings;
 
 class LissajousCurveAlg {
 
@@ -9,14 +9,14 @@ class LissajousCurveAlg {
     private float t = 0;
 
     void update() {
-        t += INSTANCE.getTimeStep();
+        t += settings.getTimeStep();
     }
 
     float getX() {
-        return INSTANCE.getA() * (float) Math.cos(Math.PI * INSTANCE.getPIMultiplierX() * t);
+        return settings.getA() * (float) Math.cos(Math.PI * settings.getPIMultiplierX() * t);
     }
 
     float getY() {
-        return INSTANCE.getB() * (float) Math.sin(Math.PI * INSTANCE.getPIMultiplierY() * t);
+        return settings.getB() * (float) Math.sin(Math.PI * settings.getPIMultiplierY() * t);
     }
 }
