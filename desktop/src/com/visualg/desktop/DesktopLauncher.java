@@ -2,7 +2,7 @@ package com.visualg.desktop;
 
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import com.visualg.Main;
+import com.visualg.Visualg;
 
 public class DesktopLauncher {
 
@@ -15,7 +15,7 @@ public class DesktopLauncher {
         } else {
             setFullScreenMode(config);
         }
-        new LwjglApplication(new Main(), config);
+        new LwjglApplication(new Visualg(), config);
     }
 
     private static void setFullScreenMode(LwjglApplicationConfiguration config) {

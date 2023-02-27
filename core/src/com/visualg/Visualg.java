@@ -2,25 +2,25 @@ package com.visualg;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.visualg.controls.MainStage;
+import com.visualg.controls.VisualgStage;
 import com.visualg.global.Config;
 import com.visualg.ui.RefreshType;
 
-public class Main extends ApplicationAdapter {
+public class Visualg extends ApplicationAdapter {
 
-    private MainStage mainStage;
+    private VisualgStage visualgStage;
 
     @Override
     public void create() {
 
         Config.init();
-        mainStage = new MainStage();
+        visualgStage = new VisualgStage();
     }
 
     @Override
     public void render() {
         RefreshType.DEFAULT.refresh();
-        mainStage.act(Gdx.graphics.getDeltaTime());
-        mainStage.draw();
+        visualgStage.act(Gdx.graphics.getDeltaTime());
+        visualgStage.draw();
     }
 }

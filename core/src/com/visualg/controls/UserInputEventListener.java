@@ -7,30 +7,28 @@ import com.visualg.controls.events.ChangeUiScalingEvent;
 import com.visualg.controls.events.MainMenuEvent;
 import com.visualg.controls.events.RestartEvent;
 
-class MainStageEventListener implements EventListener {
+class UserInputEventListener implements EventListener {
 
-    private final MainStage mainStage;
+    private final VisualgStage visualgStage;
 
-    MainStageEventListener(MainStage mainStage) {
-        this.mainStage = mainStage;
+    UserInputEventListener(VisualgStage visualgStage) {
+        this.visualgStage = visualgStage;
     }
 
     @Override
     public boolean handle(Event event) {
         if (event instanceof ChangeAnimationEvent changeAnimationEvent) {
-            mainStage.showAnimation(changeAnimationEvent.getAnimation());
+            visualgStage.showAnimation(changeAnimationEvent.getAnimation());
         }
         if (event instanceof MainMenuEvent) {
-            mainStage.showMainMenu();
+            visualgStage.showMainMenu();
         }
         if (event instanceof RestartEvent) {
-            mainStage.restart();
+            visualgStage.restart();
         }
         if (event instanceof ChangeUiScalingEvent changeUiScalingEvent) {
-            mainStage.changeUiScaling(changeUiScalingEvent.getNewValue());
+            visualgStage.changeUiScaling(changeUiScalingEvent.getNewValue());
         }
         return false;
     }
-
-
 }

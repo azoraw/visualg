@@ -11,9 +11,9 @@ import com.visualg.ui.simplifiedComponents.DefaultTextField;
 import static java.lang.Float.parseFloat;
 import static java.lang.Integer.parseInt;
 
-public class UpRightMenuTable extends Table {
+public class OptionsTable extends Table {
 
-    public UpRightMenuTable() {
+    public OptionsTable() {
         setFillParent(true);
         right().top();
         add(new DefaultLabel("uiscale: "));

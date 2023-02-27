@@ -4,18 +4,18 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 
-class Input {
+class InputController {
 
-    void addInputProcessors(Actor animationActor, MainStage mainStage) {
+    void setAnimationInputProcessor(Actor animationActor, VisualgStage visualgStage) {
         if (animationActor instanceof InteractiveActor interactiveAnimationActor) {
             InputMultiplexer inputMultiplexer = new InputMultiplexer();
-            inputMultiplexer.addProcessor(mainStage);
+            inputMultiplexer.addProcessor(visualgStage);
             inputMultiplexer.addProcessor(interactiveAnimationActor.getInputProcessor());
             Gdx.input.setInputProcessor(inputMultiplexer);
         }
     }
 
-    void addMainInputProcessor(MainStage mainStage) {
-        Gdx.input.setInputProcessor(mainStage);
+    void setMainStageInputProcessor(VisualgStage visualgStage) {
+        Gdx.input.setInputProcessor(visualgStage);
     }
 }

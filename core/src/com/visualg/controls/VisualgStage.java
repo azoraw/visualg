@@ -4,18 +4,18 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.visualg.animations.Animation;
 import com.visualg.global.Config;
-import com.visualg.ui.animationToolbar.ToolbarTable;
-import com.visualg.ui.menu.MenuTable;
-import com.visualg.ui.upRightMenu.UpRightMenuTable;
+import com.visualg.ui.animationToolbar.AnimationToolbarTable;
+import com.visualg.ui.menu.AnimationsTable;
+import com.visualg.ui.upRightMenu.OptionsTable;
 
-public class MainStage extends Stage {
+public class VisualgStage extends Stage {
 
-    private final Input input = new Input();
+    private final InputController inputController = new InputController();
 
-    public MainStage() {
-        addListener(new MainStageEventListener(this));
-        addMenuTable();
-        input.addMainInputProcessor(this);
+    public VisualgStage() {
+        addListener(new UserInputEventListener(this));
+        addMainMenuTables();
+        inputController.setMainStageInputProcessor(this);
     }
 
     public void restart() {
@@ -23,27 +23,26 @@ public class MainStage extends Stage {
     }
 
     public void showAnimation(Animation animation) {
-        Config.setCurrentAnimation(animation);
         clearStage();
+        Config.setCurrentAnimation(animation);
 
         Actor animationActor = animation.getAnimation();
         addActor(animationActor);
-        addActor(new ToolbarTable());
-        addActor(new UpRightMenuTable());
+        addActor(new AnimationToolbarTable());
+        addActor(new OptionsTable());
 
-        input.addInputProcessors(animationActor, this);
+        inputController.setAnimationInputProcessor(animationActor, this);
     }
 
-    public void addMenuTable() {
-        MenuTable menuTable = new MenuTable();
-        addActor(menuTable);
-        addActor(new UpRightMenuTable());
+    public void addMainMenuTables() {
+        addActor(new AnimationsTable());
+        addActor(new OptionsTable());
     }
 
     public void showMainMenu() {
         clearStage();
-        addMenuTable();
-        input.addMainInputProcessor(this);
+        addMainMenuTables();
+        inputController.setMainStageInputProcessor(this);
     }
 
     private void clearStage() {

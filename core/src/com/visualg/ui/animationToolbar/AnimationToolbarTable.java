@@ -17,9 +17,9 @@ import com.visualg.util.color.PaletteType;
 
 import static com.visualg.util.color.PaletteType.USER_DEFINED;
 
-public class ToolbarTable extends Table {
+public class AnimationToolbarTable extends Table {
 
-    public ToolbarTable() {
+    public AnimationToolbarTable() {
         setFillParent(true);
         left().top();
         add(new DefaultButton("Main Menu", () -> fire(new MainMenuEvent())));

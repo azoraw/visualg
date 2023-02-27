@@ -42,9 +42,9 @@ import static com.visualg.animations.Animation.WAVE_FUNCTION_COLLAPSE;
 import static com.visualg.animations.Animation.WIGGLY_CIRCLE;
 import static com.visualg.animations.Animation.WIGGLY_LINE;
 
-public class MenuTable extends Table {
+public class AnimationsTable extends Table {
 
-    public MenuTable() {
+    public AnimationsTable() {
         setFillParent(true);
         left().top();
         addLabel("VISUALG");
