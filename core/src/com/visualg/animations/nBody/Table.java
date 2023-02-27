@@ -21,8 +21,10 @@ class Table extends SettingsTable {
         DefaultSettingsRow numberOfBodies = DefaultSettingsRow.builder()
                 .label("number of bodies")
                 .initValue(valueOf(settings.getNumberOfBodies()))
-                .onValueChange(stringValue -> settings.setNumberOfBodies(Integer.parseInt(stringValue)))
-                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .onValueChange(stringValue -> {
+                    settings.setNumberOfBodies(Integer.parseInt(stringValue));
+                    fire(new RestartEvent());
+                })
                 .build();
         addRow(numberOfBodies);
     }

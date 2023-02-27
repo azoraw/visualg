@@ -11,14 +11,18 @@ public class DesktopLauncher {
     public static void main(String[] arg) {
         LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
         if (debug) {
-            small(config);
+            updateWindowSize(config);
         } else {
-            config.setFromDisplayMode(LwjglApplicationConfiguration.getDesktopDisplayMode());
+            setFullScreenMode(config);
         }
         new LwjglApplication(new Main(), config);
     }
 
-    private static void small(LwjglApplicationConfiguration config) {
+    private static void setFullScreenMode(LwjglApplicationConfiguration config) {
+        config.setFromDisplayMode(com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration.getDesktopDisplayMode());
+    }
+
+    private static void updateWindowSize(LwjglApplicationConfiguration config) {
         config.width = 2000;
         config.height = 1000;
     }

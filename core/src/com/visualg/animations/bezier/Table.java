@@ -20,8 +20,10 @@ class Table extends SettingsTable {
         final DefaultSettingsRow numberOfBlobs = DefaultSettingsRow.builder()
                 .label("number of blobs")
                 .initValue(bezierSettings.getNumberOfBlobs())
-                .onValueChange((str) -> bezierSettings.setNumberOfBlobs(parseInt(str)))
-                .afterValueChange((str) -> fire(new RestartEvent()))
+                .onValueChange((str) -> {
+                    bezierSettings.setNumberOfBlobs(parseInt(str));
+                    fire(new RestartEvent());
+                })
                 .build();
         addRow(numberOfBlobs);
         add(new DefaultLabel("Blobs:"));
@@ -40,8 +42,10 @@ class Table extends SettingsTable {
             addRow(DefaultSettingsRow.builder()
                     .label("transparency")
                     .initValue(bezierSettings.getBlobSetting(finalI).getTransparency())
-                    .onValueChange((str) -> bezierSettings.getBlobSetting(finalI).setTransparency(parseFloat(str)))
-                    .afterValueChange((s -> fire(new RestartEvent())))
+                    .onValueChange((str) -> {
+                        bezierSettings.getBlobSetting(finalI).setTransparency(parseFloat(str));
+                        fire(new RestartEvent());
+                    })
                     .build());
             addRow(SelectBoxRow.<BlobColor>builder()
                     .label("color")
@@ -53,8 +57,10 @@ class Table extends SettingsTable {
                 addRow(DefaultSettingsRow.builder()
                         .label("transparency2")
                         .initValue(bezierSettings.getBlobSetting(finalI).getTransparency2())
-                        .onValueChange((str) -> bezierSettings.getBlobSetting(finalI).setTransparency2(parseFloat(str)))
-                        .afterValueChange((s -> fire(new RestartEvent())))
+                        .onValueChange((str) -> {
+                            bezierSettings.getBlobSetting(finalI).setTransparency2(parseFloat(str));
+                            fire(new RestartEvent());
+                        })
                         .build());
                 addRow(SelectBoxRow.<BlobColor>builder()
                         .label("color2")

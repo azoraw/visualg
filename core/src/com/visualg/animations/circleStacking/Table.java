@@ -15,15 +15,19 @@ class Table extends SettingsTable {
         addRow(DefaultSettingsRow.builder()
                 .label("transparency")
                 .initValue(circleStackingSettings.getTransparency())
-                .onValueChange(newValue -> circleStackingSettings.setTransparency(parseFloat(newValue)))
-                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .onValueChange(newValue -> {
+                    circleStackingSettings.setTransparency(parseFloat(newValue));
+                    fire(new RestartEvent());
+                })
                 .build());
 
         addRow(DefaultSettingsRow.builder()
                 .label("numberOfCircles")
                 .initValue(circleStackingSettings.getNumberOfCircles())
-                .onValueChange(newValue -> circleStackingSettings.setNumberOfCircles(parseInt(newValue)))
-                .afterValueChange(stringValue -> fire(new RestartEvent()))
+                .onValueChange(newValue -> {
+                    circleStackingSettings.setNumberOfCircles(parseInt(newValue));
+                    fire(new RestartEvent());
+                })
                 .build());
 
         for (int i = 0; i < circleStackingSettings.getNumberOfCircles(); i++) {
@@ -31,14 +35,18 @@ class Table extends SettingsTable {
             addRow(DefaultSettingsRow.builder()
                     .label("radius" + (i + 1))
                     .initValue(circle.first)
-                    .onValueChange(newValue -> circle.first = (parseInt(newValue)))
-                    .afterValueChange(stringValue -> fire(new RestartEvent()))
+                    .onValueChange(newValue -> {
+                        circle.first = (parseInt(newValue));
+                        fire(new RestartEvent());
+                    })
                     .build());
             addRow(DefaultSettingsRow.builder()
                     .label("stepNo" + (i + 1))
                     .initValue(circle.second)
-                    .onValueChange(newValue -> circle.second = (parseInt(newValue)))
-                    .afterValueChange(stringValue -> fire(new RestartEvent()))
+                    .onValueChange(newValue -> {
+                        circle.second = (parseInt(newValue));
+                        fire(new RestartEvent());
+                    })
                     .build());
         }
         add(new DefaultButton("randomise", () -> {

@@ -5,7 +5,6 @@ import com.visualg.ui.simplifiedComponents.DefaultLabel;
 import com.visualg.ui.simplifiedComponents.DefaultTextField;
 import lombok.Builder;
 
-import java.util.Optional;
 import java.util.function.Consumer;
 
 public class DefaultSettingsRow extends SettingsRow {
@@ -14,11 +13,9 @@ public class DefaultSettingsRow extends SettingsRow {
     private final DefaultTextField textField;
 
     @Builder
-    public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
+    public DefaultSettingsRow(String label, Object initValue, Consumer<String> onValueChange) {
         this.label = new DefaultLabel(label);
-        textField = new DefaultTextField(String.valueOf(initValue), onValueChange.andThen(Optional.ofNullable(afterValueChange)
-                .orElseGet(() -> (consumer) -> {
-                })));
+        textField = new DefaultTextField(String.valueOf(initValue), onValueChange);
     }
 
     @Override

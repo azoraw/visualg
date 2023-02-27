@@ -20,8 +20,10 @@ class Table extends SettingsTable {
         DefaultSettingsRow ruleNumber = DefaultSettingsRow.builder()
                 .label("Rule number")
                 .initValue(valueOf(CASettings.getRuleNumber()))
-                .onValueChange(newStringValue -> CASettings.setRuleNumber(parseInt(newStringValue)))
-                .afterValueChange(newStringValue -> fire(new RestartEvent()))
+                .onValueChange(newStringValue -> {
+                    CASettings.setRuleNumber(parseInt(newStringValue));
+                    fire(new RestartEvent());
+                })
                 .build();
 
         ruleNumberTextField = ruleNumber.getWidget();

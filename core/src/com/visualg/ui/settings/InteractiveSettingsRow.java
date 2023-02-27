@@ -16,12 +16,11 @@ public class InteractiveSettingsRow {
     private final Supplier<Object> initValueSupplier;
 
     @Builder
-    public InteractiveSettingsRow(String label, Supplier<Object> initValue, Consumer<String> onValueChange, Consumer<String> afterValueChange) {
+    public InteractiveSettingsRow(String label, Supplier<Object> initValue, Consumer<String> onValueChange) {
         defaultSettingsRow = DefaultSettingsRow.builder()
                 .label(label)
                 .initValue(initValue.get())
                 .onValueChange(onValueChange)
-                .afterValueChange(afterValueChange)
                 .build();
         this.initValueSupplier = initValue;
     }

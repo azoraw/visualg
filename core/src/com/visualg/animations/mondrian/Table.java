@@ -17,14 +17,18 @@ class Table extends SettingsTable {
         addRow(DefaultSettingsRow.builder()
                 .label("sideMaxSplitLength")
                 .initValue(mondrianSettings.getSideMaxSplitLength())
-                .onValueChange(stringValue -> mondrianSettings.setSideMaxSplitLength(parseInt(stringValue)))
-                .afterValueChange(s -> this.fire(new RestartEvent()))
+                .onValueChange(stringValue -> {
+                    mondrianSettings.setSideMaxSplitLength(parseInt(stringValue));
+                    fire(new RestartEvent());
+                })
                 .build());
         addRow(DefaultSettingsRow.builder()
                 .label("space")
                 .initValue(mondrianSettings.getSpace())
-                .onValueChange(stringValue -> mondrianSettings.setSpace(parseInt(stringValue)))
-                .afterValueChange(s -> this.fire(new RestartEvent()))
+                .onValueChange(stringValue -> {
+                    mondrianSettings.setSpace(parseInt(stringValue));
+                    fire(new RestartEvent());
+                })
                 .build());
 
         DefaultCheckBox mondriatCheckBox = DefaultCheckBox.builder()
@@ -43,8 +47,10 @@ class Table extends SettingsTable {
             addRow(DefaultSettingsRow.builder()
                     .label("randomPaletteSize")
                     .initValue(mondrianSettings.getPaletteSize())
-                    .onValueChange(stringValue -> mondrianSettings.setPaletteSize(parseInt(stringValue)))
-                    .afterValueChange(s -> this.fire(new RestartEvent()))
+                    .onValueChange(stringValue -> {
+                        mondrianSettings.setPaletteSize(parseInt(stringValue));
+                        fire(new RestartEvent());
+                    })
                     .build());
 
             addRow(SelectBoxRow.<Gradient>builder()

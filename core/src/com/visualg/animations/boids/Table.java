@@ -15,8 +15,10 @@ class Table extends SettingsTable {
         DefaultSettingsRow numberOfBoids = DefaultSettingsRow.builder()
                 .label("number of boids: ")
                 .initValue(valueOf(boidsSettings.getNumberOfBoids()))
-                .onValueChange(newValue -> boidsSettings.setNumberOfBoids(parseInt(newValue)))
-                .afterValueChange(value -> fire(new RestartEvent()))
+                .onValueChange(newValue -> {
+                    boidsSettings.setNumberOfBoids(parseInt(newValue));
+                    fire(new RestartEvent());
+                })
                 .build();
         addRow(numberOfBoids);
 
