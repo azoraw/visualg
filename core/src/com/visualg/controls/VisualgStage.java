@@ -14,8 +14,7 @@ public class VisualgStage extends Stage {
 
     public VisualgStage() {
         addListener(new UserInputEventListener(this));
-        addMainMenuTables();
-        inputController.setMainStageInputProcessor(this);
+        showMainMenu();
     }
 
     public void restart() {
@@ -34,27 +33,19 @@ public class VisualgStage extends Stage {
         inputController.setAnimationInputProcessor(animationActor, this);
     }
 
-    public void addMainMenuTables() {
-        addActor(new AnimationsTable());
-        addActor(new OptionsTable());
-    }
-
     public void showMainMenu() {
         clearStage();
+        Config.setCurrentAnimation(null);
         addMainMenuTables();
         inputController.setMainStageInputProcessor(this);
     }
 
-    private void clearStage() {
-        getActors().clear();
+    private void addMainMenuTables() {
+        addActor(new AnimationsTable());
+        addActor(new OptionsTable());
     }
 
-    public void changeUiScaling(float newValue) {
-        Config.updateUiFontScale(newValue);
-        if (Config.getCurrentAnimation() == null) {
-            showMainMenu();
-        } else {
-            showAnimation(Config.getCurrentAnimation());
-        }
+    private void clearStage() {
+        getActors().clear();
     }
 }

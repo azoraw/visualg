@@ -6,6 +6,7 @@ import com.visualg.controls.events.ChangeAnimationEvent;
 import com.visualg.controls.events.ChangeUiScalingEvent;
 import com.visualg.controls.events.MainMenuEvent;
 import com.visualg.controls.events.RestartEvent;
+import com.visualg.global.Config;
 
 class UserInputEventListener implements EventListener {
 
@@ -27,7 +28,12 @@ class UserInputEventListener implements EventListener {
             visualgStage.restart();
         }
         if (event instanceof ChangeUiScalingEvent changeUiScalingEvent) {
-            visualgStage.changeUiScaling(changeUiScalingEvent.getNewValue());
+            Config.updateUiFontScale(changeUiScalingEvent.getNewValue());
+            if (Config.getCurrentAnimation() == null) {
+                visualgStage.showMainMenu();
+            } else {
+                visualgStage.showAnimation(Config.getCurrentAnimation());
+            }
         }
         return false;
     }
