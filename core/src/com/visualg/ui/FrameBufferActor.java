@@ -60,7 +60,7 @@ public abstract class FrameBufferActor extends Actor implements Recordable {
         batch.begin();
         for (int x = 0; x < tiles; x++) {
             for (int y = 0; y < tiles; y++) {
-                batch.draw(fbo.getColorBufferTexture(), x * WIDTH / tiles, y * HEIGHT / tiles, WIDTH / tiles, HEIGHT / tiles, x * WIDTH / tiles, y * HEIGHT / tiles, WIDTH / tiles, HEIGHT / tiles, false, true);
+                batch.draw(fbo.getColorBufferTexture(), x * WIDTH / tiles, y * HEIGHT / tiles, WIDTH / tiles, HEIGHT / tiles);
             }
         }
     }
