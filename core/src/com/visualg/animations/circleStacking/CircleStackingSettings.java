@@ -2,16 +2,13 @@ package com.visualg.animations.circleStacking;
 
 import com.visualg.ui.settings.Settings;
 import com.visualg.util.MutablePair;
-import lombok.AccessLevel;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.visualg.util.RandomDecorator.Random;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
 class CircleStackingSettings implements Settings {
     static final CircleStackingSettings settings = new CircleStackingSettings();
@@ -19,6 +16,10 @@ class CircleStackingSettings implements Settings {
     private int numberOfCircles = 3;
     private List<MutablePair<Integer, Integer>> circles = new ArrayList<>();
     private float transparency = 0.008f;
+
+    private CircleStackingSettings() {
+        setNumberOfCircles(numberOfCircles);
+    }
 
     void setNumberOfCircles(int numberOfCircles) {
         this.numberOfCircles = numberOfCircles;
