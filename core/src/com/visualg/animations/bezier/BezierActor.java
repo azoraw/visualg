@@ -16,7 +16,7 @@ public class BezierActor extends ShapeRendererActor {
     @Override
     protected void drawFrame() {
         for (Line line : oldWidowsScreenSaver.getLines()) {
-            sr.line(line.pos1(), line.pos2());
+            sr.line(line.end1(), line.end2());
         }
         oldWidowsScreenSaver.update();
     }

@@ -25,25 +25,14 @@ class BezierFunctionAlg {
         randomColor2.a = settings.getBlobSetting(index).getTransparency2();
     }
 
-    Set<Pair<Vector2, Vector2>> getQuadraticBezier(Vector2 start, Vector2 middle, Vector2 end, int delta) {
-        HashSet<Pair<Vector2, Vector2>> lines = new HashSet<>();
-
-        for (int i = 0; i <= delta; i++) {
-            Vector2 lerp1 = start.cpy().lerp(middle, (float) i / delta);
-            Vector2 lerp2 = middle.cpy().lerp(end, (float) i / delta);
-            lines.add(new Pair<>(lerp1, lerp2));
-        }
-        return lines;
-    }
-
-    Set<Line> getQuadraticBezier(Vector2 position0, Vector2 position1, Vector2 position2, Vector2 position3, int delta) {
+    Set<Line> getQuadraticBezier(Vector2 position1, Vector2 position2, Vector2 position3, Vector2 position4, int delta) {
         HashSet<Line> lines = new HashSet<>();
 
         for (int i = 0; i <= delta; i++) {
-            Vector2 lerp1 = position0.cpy().lerp(position1, (float) i / delta);
-            Vector2 lerp2 = position1.cpy().lerp(position2, (float) i / delta);
-            Vector2 lerp3 = position2.cpy().lerp(position3, (float) i / delta);
-            Vector2 lerp4 = position3.cpy().lerp(position0, (float) i / delta);
+            Vector2 lerp1 = position1.cpy().lerp(position2, (float) i / delta);
+            Vector2 lerp2 = position2.cpy().lerp(position3, (float) i / delta);
+            Vector2 lerp3 = position3.cpy().lerp(position4, (float) i / delta);
+            Vector2 lerp4 = position4.cpy().lerp(position1, (float) i / delta);
 
             lines.add(new Line(lerp1, lerp2, getColorGradient(lerp1, lerp2)));
             lines.add(new Line(lerp2, lerp3, getColorGradient(lerp2, lerp3)));

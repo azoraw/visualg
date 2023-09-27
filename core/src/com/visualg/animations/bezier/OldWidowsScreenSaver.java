@@ -14,8 +14,7 @@ class OldWidowsScreenSaver {
     private static final int movementSpeed = 5;
     private static final int DELTA = 20;
     private final BezierFunctionAlg bezierFunctionAlg;
-
-    List<BouncingBall> bouncingBalls = new ArrayList<>();
+    private final List<BouncingBall> bouncingBalls = new ArrayList<>();
 
     OldWidowsScreenSaver(int index) {
         bezierFunctionAlg = new BezierFunctionAlg(index);

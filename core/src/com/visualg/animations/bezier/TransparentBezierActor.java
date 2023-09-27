@@ -23,7 +23,7 @@ class TransparentBezierActor extends FrameBufferActor {
         for (int i = 0; i < settings.getNumberOfBlobs(); i++) {
             final OldWidowsScreenSaver oldWidowsScreenSaver = oldWidowsScreenSavers.get(i);
             for (Line line : oldWidowsScreenSaver.getLines()) {
-                sr.line(line.pos1().x, line.pos1().y, line.pos2().x, line.pos2().y, line.colorPair().first(), line.colorPair().second());
+                sr.line(line.end1().x, line.end1().y, line.end2().x, line.end2().y, line.colorPair().first(), line.colorPair().second());
             }
         }
         oldWidowsScreenSavers.forEach(OldWidowsScreenSaver::update);
