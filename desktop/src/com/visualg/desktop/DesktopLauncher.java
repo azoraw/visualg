@@ -23,7 +23,7 @@ public class DesktopLauncher {
     }
 
     private static void updateWindowSize(LwjglApplicationConfiguration config) {
-        config.width = 2000;
+        config.width = 3500;
         config.height = 1000;
     }
 }
