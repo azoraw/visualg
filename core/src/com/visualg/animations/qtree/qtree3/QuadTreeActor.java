@@ -21,7 +21,6 @@ class QuadTreeActor extends FrameBufferActor {
         alg = new QuadTreeAlg();
     }
 
-
     @Override
     protected void drawFrame() {
         final ArrayList<BouncingBall> particles = alg.getBouncingBalls();

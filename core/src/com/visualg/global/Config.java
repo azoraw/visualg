@@ -24,7 +24,7 @@ public class Config {
     private static UserProperties userProperties;
 
     @Setter
-    public static PaletteType palette = PaletteType.DARK;
+    public static PaletteType palette = PaletteType.USER_DEFINED;
     public static MusicController musicController;
 
     public static void init() {

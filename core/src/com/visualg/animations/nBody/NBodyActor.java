@@ -1,6 +1,6 @@
 package com.visualg.animations.nBody;
 
-import com.badlogic.gdx.graphics.Color;
+import com.visualg.global.Config;
 import com.visualg.ui.ShapeRendererActor;
 
 import static com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType.Filled;
@@ -12,16 +12,15 @@ class NBodyActor extends ShapeRendererActor {
     NBodyActor(NBodyAlg alg) {
         super(Filled);
         this.alg = alg;
-        sr.setColor(Color.DARK_GRAY);
+        sr.setColor(Config.palette.getPrimaryColor());
     }
-
 
     @Override
     protected void drawFrame() {
         for (Body body : alg.getBodies()) {
-            sr.setColor(Color.DARK_GRAY);
+            sr.setColor(Config.palette.getPrimaryColor());
             sr.circle(body.getPosition().x, body.getPosition().y, 50);
-            sr.setColor(Color.GRAY);
+            sr.setColor(Config.palette.getSecondaryColor());
             sr.circle(body.getPosition().x, body.getPosition().y, 45);
         }
         alg.update();

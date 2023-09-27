@@ -1,7 +1,7 @@
 package com.visualg.animations.doublePendulum;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.visualg.global.Config;
 import com.visualg.ui.ShapeRendererActor;
 
 import static com.visualg.global.Config.palette;
@@ -24,9 +24,9 @@ public class DoublePendulumActor extends ShapeRendererActor {
         sr.end();
 
         sr.begin(ShapeRenderer.ShapeType.Filled);
-        sr.setColor(Color.BLUE);
+        sr.setColor(Config.palette.getPrimaryColor());
         sr.circle((float) state.getX1(), (float) state.getY1(), state.getM1());
-        sr.setColor(Color.GREEN);
+        sr.setColor(Config.palette.getSecondaryColor());
         sr.circle((float) state.getX2(), (float) state.getY2(), state.getM2());
         state.updateState();
     }

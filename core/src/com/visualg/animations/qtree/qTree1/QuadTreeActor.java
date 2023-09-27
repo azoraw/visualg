@@ -1,7 +1,7 @@
 package com.visualg.animations.qtree.qTree1;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.visualg.global.Config;
 import com.visualg.ui.ShapeRendererActor;
 import com.visualg.util.Mouse;
 import com.visualg.util.qTree.Circle;
@@ -22,11 +22,11 @@ class QuadTreeActor extends ShapeRendererActor {
 
     @Override
     protected void drawFrame() {
-        sr.setColor(Color.WHITE);
+        sr.setColor(Config.palette.getSecondaryColor());
         for (Particle particle : alg.getParticles()) {
             sr.point(particle.getX(), particle.getY(), 0);
         }
-        sr.setColor(Color.GREEN);
+        sr.setColor(Config.palette.getPrimaryColor());
         ArrayList<Point> particlesInRect = null;
         if (settings.getMode() == QueryMode.RECT) {
             sr.rect(Mouse.getX() - settings.getRectSize(), Mouse.getY() - settings.getRectSize(), settings.getRectSize() * 2, settings.getRectSize() * 2);
