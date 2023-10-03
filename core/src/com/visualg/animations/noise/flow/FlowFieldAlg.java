@@ -8,13 +8,11 @@ import static com.visualg.global.Config.WIDTH;
 
 class FlowFieldAlg {
 
+    final double scale = 10;
     private final double xStep = 0.05;
     private final double yStep = 0.05;
     private final double zStep = 0.000001;
     int time = 0;
-
-    final double scale = 10;
-
     OpenSimplexNoise openSimplexNoise = new OpenSimplexNoise();
     Vector2[][] vectors;
 

@@ -21,6 +21,20 @@ public class ColorGenerator {
         return RandomDecorator.Random.nextInt();
     }
 
+    public static Color fromRGB(int r, int g, int b) {
+        return new Color(Color.rgba8888((float) r / 256, (float) g / 256, (float) b / 256, 1f));
+    }
+
+    public static Color fromHSV(float h, float s, float v) {
+        return Color.WHITE.cpy().fromHsv(h, s, v);
+    }
+
+    public static Color fromHSV(float h, float s, float v, float transparency) {
+        final Color color = Color.WHITE.cpy().fromHsv(h, s, v);
+        color.a = transparency;
+        return color;
+    }
+
     public int getRedScaleColor() {
         return RandomDecorator.Random.nextInt() & redMask;
     }
@@ -34,20 +48,6 @@ public class ColorGenerator {
         int tmp = luminosity << 8;
         tmp = luminosity ^ tmp;
         return (tmp << 16) ^ tmp;
-    }
-
-    public static Color fromRGB(int r, int g, int b) {
-        return new Color(Color.rgba8888((float) r / 256, (float) g / 256, (float) b / 256, 1f));
-    }
-
-    public static Color fromHSV(float h, float s, float v) {
-        return Color.WHITE.cpy().fromHsv(h, s, v);
-    }
-
-    public static Color fromHSV(float h, float s, float v, float transparency) {
-        final Color color = Color.WHITE.cpy().fromHsv(h, s, v);
-        color.a = transparency;
-        return color;
     }
 
 }

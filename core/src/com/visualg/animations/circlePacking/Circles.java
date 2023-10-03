@@ -11,10 +11,9 @@ import static com.visualg.global.Config.HEIGHT;
 import static com.visualg.global.Config.WIDTH;
 
 class Circles {
-    int HOW_MANY_CIRCLES = 3;
-
     private final ArrayList<Circle> circles = new ArrayList<>();
     private final Pixmap pixmap;
+    int HOW_MANY_CIRCLES = 3;
 
     Circles(Pixmap pixmapResized) {
         this.pixmap = pixmapResized;

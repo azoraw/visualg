@@ -12,8 +12,8 @@ import static com.visualg.global.Config.WIDTH;
 class ColorPickerActor extends Actor {
 
     private final ColorPickerAlg colorPickerAlg;
-    private Texture texture;
     private final ShapeRenderer sr;
+    private Texture texture;
 
 
     ColorPickerActor(ColorPickerAlg colorPickerAlg) {

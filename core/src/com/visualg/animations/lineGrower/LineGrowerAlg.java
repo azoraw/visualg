@@ -15,8 +15,18 @@ import static com.visualg.global.Config.palette;
 
 class LineGrowerAlg extends PixmapAlg {
     private static final int NUMBER_OF_INIT_POINTS = 3;
-    int NUMBER_OF_NEW_SEGMENTS = 2;
     private static final int[] DIR = getInts();
+    private static final int MAX_NUMBER_OF_GROWING_SEGMENTS = 100;
+    private static final int MAX_NUMBER_OF_All_SEGMENTS = 1_0000;
+    private final Pixmap pixmap;
+    private final HashSet<Segment> growingSegments = new HashSet<>();
+    private final ArrayList<Segment> allSegments = new ArrayList<>();
+    private final Segment[][] pixels = new Segment[WIDTH + 1][HEIGHT + 1];
+    int NUMBER_OF_NEW_SEGMENTS = 2;
+    LineGrowerAlg() {
+        pixmap = PixmapFactory.create();
+        createInitPoints();
+    }
 
     private static int[] getInts() {
         int shift = 5;
@@ -27,19 +37,6 @@ class LineGrowerAlg extends PixmapAlg {
             index++;
         }
         return ints;
-    }
-
-    private static final int MAX_NUMBER_OF_GROWING_SEGMENTS = 100;
-    private static final int MAX_NUMBER_OF_All_SEGMENTS = 1_0000;
-    private final Pixmap pixmap;
-
-    private final HashSet<Segment> growingSegments = new HashSet<>();
-    private final ArrayList<Segment> allSegments = new ArrayList<>();
-    private final Segment[][] pixels = new Segment[WIDTH + 1][HEIGHT + 1];
-
-    LineGrowerAlg() {
-        pixmap = PixmapFactory.create();
-        createInitPoints();
     }
 
     private void createInitPoints() {

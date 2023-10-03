@@ -10,10 +10,9 @@ import lombok.NoArgsConstructor;
 class CASettings implements Settings {
     static final CASettings settings = new CASettings();
     private final int[] interestingRules = {18, 25, 30, 45, 73, 75, 82, 86, 89, 105, 124, 126, 129, 135, 137, 149, 150, 161, 165, 169, 193, 225};
-
+    float ruleChangeSpeedInSec = 60;
     private int ruleNumber;
     private float animationSpeedInSec = 0.5f;
-    float ruleChangeSpeedInSec = 60;
     private boolean onlyInteresting = false;
     private int onlyInterestingIndex = 0;
 

@@ -16,16 +16,14 @@ public class Config {
     public static int WIDTH;
     public static int HEIGHT;
     public static Skin skin;
-
+    @Setter
+    public static PaletteType palette = PaletteType.USER_DEFINED;
+    public static MusicController musicController;
     @Getter
     @Setter
     private static Animation currentAnimation;
     @Getter
     private static UserProperties userProperties;
-
-    @Setter
-    public static PaletteType palette = PaletteType.USER_DEFINED;
-    public static MusicController musicController;
 
     public static void init() {
         initUserProperties();

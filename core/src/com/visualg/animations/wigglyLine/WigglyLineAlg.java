@@ -12,8 +12,8 @@ import static com.visualg.global.Config.WIDTH;
 
 class WigglyLineAlg {
 
-    private final OpenSimplexNoise noise;
     private static final int numberOfPoints = 2500;
+    private final OpenSimplexNoise noise;
     private double magn = 1f;
 
     WigglyLineAlg() {

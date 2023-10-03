@@ -11,10 +11,10 @@ import static com.visualg.util.Direction.UP;
 import static java.util.List.of;
 
 public class CarrcasRules implements TilesetRules {
-    private final Map<Integer, List<TilesetRule>> tilesetRules = new HashMap<>();
     private static final String GRASS = "G";
     private static final String ROAD = "R";
     private static final String CITY = "C";
+    private final Map<Integer, List<TilesetRule>> tilesetRules = new HashMap<>();
 
     public CarrcasRules() {
         addTile(1, GRASS, GRASS, GRASS, GRASS);

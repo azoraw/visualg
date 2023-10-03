@@ -9,10 +9,6 @@ public enum Direction {
     RIGHT,
     LEFT;
 
-    public Direction clockwise;
-    public Direction counterClockwise;
-    public Direction opposite;
-
     static {
         UP.clockwise = RIGHT;
         UP.counterClockwise = LEFT;
@@ -31,6 +27,10 @@ public enum Direction {
         DOWN.opposite = UP;
         LEFT.opposite = RIGHT;
     }
+
+    public Direction clockwise;
+    public Direction counterClockwise;
+    public Direction opposite;
 
     public static Set<Direction> getAllReducedBy(EnumSet<Direction> directions) {
         Set<Direction> reversed = EnumSet.allOf(Direction.class);

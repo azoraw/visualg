@@ -15,6 +15,12 @@ public enum PaletteType {
     USER_DEFINED(WHITE, WHITE, BLACK);
 
 
+    @Setter
+    private static Runnable onPrimaryColorChange;
+    @Setter
+    private static Runnable onSecondaryColorChange;
+    @Setter
+    private static Runnable onBackgroundColorChange;
     @Getter
     @Setter
     private Color primaryColor;
@@ -24,13 +30,6 @@ public enum PaletteType {
     @Getter
     @Setter
     private Color background;
-
-    @Setter
-    private static Runnable onPrimaryColorChange;
-    @Setter
-    private static Runnable onSecondaryColorChange;
-    @Setter
-    private static Runnable onBackgroundColorChange;
 
     public static void updateUserPrimaryColor(Color userPrimaryColor) {
         onPrimaryColorChange.run();

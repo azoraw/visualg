@@ -16,10 +16,9 @@ class Cell implements Comparable<Cell> {
     @Getter
     private final int y;
     private final Rules rules;
-    private List<Integer> options;
     boolean collapsed = false;
     int solution;
-
+    private List<Integer> options;
 
     Cell(int x, int y, Rules rules) {
         this.x = x;

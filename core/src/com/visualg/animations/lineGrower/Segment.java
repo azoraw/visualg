@@ -13,23 +13,10 @@ class Segment {
 
     private static final float SPEED = 1;
     private static final int[] DIR = getInts();
-
-    private static int[] getInts() {
-        int shift = 1;
-        int[] ints = new int[shift * 2 + 2];
-        int index = 0;
-        for (int i = -shift; i < shift; i++) {
-            ints[index] = i;
-            index++;
-        }
-        return ints;
-    }
-
     private final Vector2 position;
     private final Vector2 initPosition;
     private final Vector2 velocity;
     int crossed = 0;
-
     Segment() {
         position = new Vector2(Random.nextInt(WIDTH - 1), Random.nextInt(HEIGHT - 1));
         initPosition = position.cpy();
@@ -44,6 +31,17 @@ class Segment {
         this.position = position;
         this.initPosition = initPosition;
         this.velocity = velocity;
+    }
+
+    private static int[] getInts() {
+        int shift = 1;
+        int[] ints = new int[shift * 2 + 2];
+        int index = 0;
+        for (int i = -shift; i < shift; i++) {
+            ints[index] = i;
+            index++;
+        }
+        return ints;
     }
 
     private void initMove() {

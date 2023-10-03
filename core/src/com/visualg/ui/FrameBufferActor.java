@@ -18,12 +18,12 @@ import static com.visualg.ui.RefreshType.DEFAULT;
 
 public abstract class FrameBufferActor extends Actor implements Recordable {
 
+    protected final ShapeRenderer sr;
     private final FrameBuffer fbo;
     private final boolean transparent;
-    protected final ShapeRenderer sr;
+    protected int tiles = 1;
     private boolean takeScreenShot = false;
     private boolean backgroundCleared = false;
-    protected int tiles = 1;
 
     public FrameBufferActor(boolean transparent) {
         sr = new ShapeRenderer();

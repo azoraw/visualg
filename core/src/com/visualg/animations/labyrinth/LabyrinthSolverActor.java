@@ -18,10 +18,10 @@ public class LabyrinthSolverActor extends Actor {
     static final int GRID_HEIGHT = Config.HEIGHT / CELL_HEIGHT;
 
     private final SpriteBatch batch;
+    private final AStarAlg aStarAlg;
     private Map<Direction, Texture> wallTextures;
     private Map<Color, Texture> backgroundTextures;
     private Cell[][] cells;
-    private final AStarAlg aStarAlg;
 
     public LabyrinthSolverActor() {
         createTextures();

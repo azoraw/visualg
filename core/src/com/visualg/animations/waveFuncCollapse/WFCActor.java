@@ -17,9 +17,9 @@ class WFCActor extends Actor {
     private final SpriteBatch spriteBatch;
     private final WFCTextures textures;
     private final WFCAlg alg;
-    private boolean canTakeScreenShot = false;
     int cellsX;
     int cellsY;
+    private boolean canTakeScreenShot = false;
 
 
     public WFCActor() {
