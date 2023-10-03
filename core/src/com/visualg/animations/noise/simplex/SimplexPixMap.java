@@ -54,37 +54,4 @@ class SimplexPixMap {
         z += Z_OFF * Config.updatesPerFrame;
         return pixmap;
     }
-
-    Pixmap generateZoomOut() {
-        double x = 0;
-        double y;
-        for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
-            y = 0;
-            for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
-                double eval = openSimplex.eval(x, y, 0);
-                pixmap.drawPixel(i, j, colorFunction.apply(eval));
-                y += Y_OFF + z;
-            }
-            x += X_OFF + z;
-        }
-        z += Z_OFF * Config.updatesPerFrame;
-        return pixmap;
-    }
-
-    Pixmap generatePlanarMovement() {
-        double x = z;
-        double y;
-        for (int i = 0; i < WIDTH_SCALED; i += goInNumberOfPixels) {
-            y = z;
-            for (int j = 0; j < HEIGHT_SCALED; j += goInNumberOfPixels) {
-                double eval = openSimplex.eval(x, y, 0);
-                pixmap.drawPixel(i, j, colorFunction.apply(eval));
-                y += Y_OFF;
-            }
-            x += X_OFF;
-        }
-        z += Z_OFF * Config.updatesPerFrame;
-        return pixmap;
-    }
-
 }

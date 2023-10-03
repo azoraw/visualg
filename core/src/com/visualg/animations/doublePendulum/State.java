@@ -53,21 +53,6 @@ class State {
         return 2 * y0 - y2;
     }
 
-    private void limit() {
-        if (velocity1 > 1) {
-            velocity1 = 0;
-        }
-        if (velocity1 < -1) {
-            velocity1 = 0;
-        }
-        if (velocity2 > 1) {
-            velocity2 = 0;
-        }
-        if (velocity2 < -1) {
-            velocity2 = 0;
-        }
-    }
-
     private double calculateAcceleration1() {
         double num = -g * (2 * m1 + m2) * sin(angle1)
                 - m2 * g * sin(angle1 - 2 * angle2)

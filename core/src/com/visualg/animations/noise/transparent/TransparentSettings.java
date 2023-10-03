@@ -6,8 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import static com.visualg.util.RandomDecorator.Random;
-import static java.lang.Math.max;
-import static java.lang.Math.min;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @Data
@@ -26,10 +24,6 @@ class TransparentSettings implements Settings {
     private boolean haveMiddleCircle = false;
     private Colors colors = Colors.MONOCHROMATIC;
     private ColorInputSrc colorInputSrc = ColorInputSrc.VELOCITY;
-
-    void setAlpha(float alpha) {
-        this.alpha = min(max(alpha, 0.01f), 1);
-    }
 
     void restartColor() {
         randomColorDelta = Random.nextInt(360);

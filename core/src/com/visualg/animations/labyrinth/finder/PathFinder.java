@@ -17,8 +17,6 @@ abstract class PathFinder {
 
     protected final Cell[][] cells;
 
-    abstract void update();
-
     protected List<Cell> getNeighbours(Cell cell) {
         List<Cell> neighbours = new ArrayList<>();
         Direction.getAllReducedBy(cell.getWalls())

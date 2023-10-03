@@ -40,30 +40,6 @@ class WFCAlg {
         }
     }
 
-    private void initBorders() {
-        for (int x = 0; x < dimX; x++) {
-            for (int y = 0; y < dimY; y++) {
-                if (x == 0) {
-                    cells[x][y].collapsed(1);
-                    collapse(cells[x][y]);
-                }
-                if (y == 0) {
-                    cells[x][y].collapsed(1);
-                    collapse(cells[x][y]);
-                }
-                if (x == dimX - 1) {
-                    cells[x][y].collapsed(1);
-                    collapse(cells[x][y]);
-                }
-                if (y == dimY - 1) {
-                    cells[x][y].collapsed(1);
-                    collapse(cells[x][y]);
-                }
-            }
-        }
-    }
-
-
     void update() {
         if (sortedCells.isEmpty()) {
             return;

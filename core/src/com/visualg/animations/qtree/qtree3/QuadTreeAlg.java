@@ -30,10 +30,6 @@ class QuadTreeAlg {
         }
     }
 
-    public ArrayList<Point> getParticlesInRect(Rectangle rectangle) {
-        return qTree.query(rectangle, new ArrayList<>());
-    }
-
     public ArrayList<Point> getParticlesInCircle(Circle circle) {
         return qTree.query(circle, new ArrayList<>());
     }
