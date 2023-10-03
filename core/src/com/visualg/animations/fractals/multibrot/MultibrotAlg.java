@@ -27,7 +27,7 @@ class MultibrotAlg extends PixmapAlg {
         double xOffset = multibrotSettings.getXOffset();
         double yOffset = multibrotSettings.getYOffset();
         double zoom = multibrotSettings.getZoom();
-        double multibrotPower = multibrotSettings.getMultibrotPower().getRe();
+        double multibrotPower = multibrotSettings.getMultibrotPower().re();
 
         float resolutionShapeAdjustment = WIDTH / (float) HEIGHT;
 

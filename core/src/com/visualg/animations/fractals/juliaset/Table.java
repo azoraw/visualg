@@ -27,9 +27,9 @@ class Table extends SettingsTable {
 
         InteractiveSettingsRow re = InteractiveSettingsRow.builder()
                 .label("re")
-                .initValue(() -> juliaSetSettings.getComplexNumber().getRe())
+                .initValue(() -> juliaSetSettings.getComplexNumber().re())
                 .onValueChange(newValue -> {
-                    juliaSetSettings.getComplexNumber().setRe(parseDouble(newValue));
+                    juliaSetSettings.setComplexNumber(juliaSetSettings.getComplexNumber().withRe(parseDouble(newValue)));
                     fire(new RestartEvent());
                 })
                 .build();
@@ -37,9 +37,9 @@ class Table extends SettingsTable {
 
         InteractiveSettingsRow im = InteractiveSettingsRow.builder()
                 .label("im")
-                .initValue(() -> juliaSetSettings.getComplexNumber().getIm())
+                .initValue(() -> juliaSetSettings.getComplexNumber().im())
                 .onValueChange(newValue -> {
-                    juliaSetSettings.getComplexNumber().setIm(parseDouble(newValue));
+                    juliaSetSettings.setComplexNumber(juliaSetSettings.getComplexNumber().withIm(parseDouble(newValue)));
                     fire(new RestartEvent());
                 })
                 .build();

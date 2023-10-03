@@ -27,9 +27,9 @@ class Table extends SettingsTable {
 
         InteractiveSettingsRow re = InteractiveSettingsRow.builder()
                 .label("re")
-                .initValue(() -> multibrotSettings.getMultibrotPower().getRe())
+                .initValue(() -> multibrotSettings.getMultibrotPower().re())
                 .onValueChange(newValue -> {
-                    multibrotSettings.getMultibrotPower().setRe(parseDouble(newValue));
+                    multibrotSettings.setMultibrotPower(multibrotSettings.getMultibrotPower().withRe(parseDouble(newValue)));
                     fire(new RestartEvent());
                 })
                 .build();
@@ -37,9 +37,9 @@ class Table extends SettingsTable {
 
         InteractiveSettingsRow im = InteractiveSettingsRow.builder()
                 .label("im")
-                .initValue(() -> multibrotSettings.getMultibrotPower().getIm())
+                .initValue(() -> multibrotSettings.getMultibrotPower().im())
                 .onValueChange(newValue -> {
-                    multibrotSettings.getMultibrotPower().setIm(parseDouble(newValue));
+                    multibrotSettings.setMultibrotPower(multibrotSettings.getMultibrotPower().withIm(parseDouble(newValue)));
                     fire(new RestartEvent());
                 })
                 .build();

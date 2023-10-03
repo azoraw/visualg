@@ -20,8 +20,8 @@ class JuliaSetAlg extends PixmapAlg {
         pixmap.fill();
         pixmap.setBlending(Pixmap.Blending.None);
 
-        double cRe = juliaSetSettings.getComplexNumber().getRe();
-        double cIm = juliaSetSettings.getComplexNumber().getIm();
+        double cRe = juliaSetSettings.getComplexNumber().re();
+        double cIm = juliaSetSettings.getComplexNumber().im();
 
         double prevRe;
         double prevIm;
