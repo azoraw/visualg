@@ -19,9 +19,9 @@ class NBodyActor extends ShapeRendererActor {
     protected void drawFrame() {
         for (Body body : alg.getBodies()) {
             sr.setColor(Config.palette.getPrimaryColor());
-            sr.circle(body.getPosition().x, body.getPosition().y, 50);
-            sr.setColor(Config.palette.getSecondaryColor());
-            sr.circle(body.getPosition().x, body.getPosition().y, 45);
+            sr.rect(body.getPosition().x, body.getPosition().y, 2, 2);
+/*            sr.setColor(Config.palette.getSecondaryColor());
+            sr.circle(body.getPosition().x, body.getPosition().y, 45);*/
         }
         alg.update();
     }

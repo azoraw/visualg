@@ -15,12 +15,13 @@ class TransparentNBodyActor extends FrameBufferActor {
         final Color color = Config.palette.getPrimaryColor().cpy();
         color.a = settings.getTransparency();
         sr.setColor(color);
+
     }
 
     @Override
     protected void drawFrame() {
         for (Body body : alg.getBodies()) {
-            sr.circle(body.getPosition().x, body.getPosition().y, 50);
+            sr.circle(body.getPosition().x, body.getPosition().y, 1);
         }
         alg.update();
     }

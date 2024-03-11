@@ -10,8 +10,9 @@ import lombok.NoArgsConstructor;
 class NBodySettings implements Settings {
     static NBodySettings settings = new NBodySettings();
 
-    private float g = 5f;
-    private int numberOfBodies = 3;
+    private float g = 1f;
+    private int numberOfBodies = 100;
+    private float visibilityRadius = 300;
     private float transparency = 0.1f;
 
 }
