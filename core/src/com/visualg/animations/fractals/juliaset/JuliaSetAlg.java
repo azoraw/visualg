@@ -32,8 +32,8 @@ class JuliaSetAlg extends PixmapAlg {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
                 updateProgress(x, y);
-                double nextRe = WIDTH / (float) HEIGHT * (x - (double) WIDTH / 2) / (WIDTH * 0.5 * zoom) - xOffset;
-                double nextIm = (y - (double) HEIGHT / 2) / (HEIGHT * 0.5 * zoom) - yOffset;
+                double nextRe = WIDTH / (float) HEIGHT * (x - WIDTH / 2d) / (WIDTH * 0.5 * zoom) - xOffset;
+                double nextIm = (y - HEIGHT / 2d) / (HEIGHT * 0.5 * zoom) - yOffset;
                 int p;
                 for (p = 0; p < juliaSetSettings.getNumberOfIteration(); p++) {
                     prevRe = nextRe;

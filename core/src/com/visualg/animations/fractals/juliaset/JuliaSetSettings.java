@@ -44,8 +44,8 @@ class JuliaSetSettings implements Settings {
     }
 
     void move(int screenX, int screenY, int fractalWidth, int fractalHeight) {
-        double x = 1.5 * (((double) screenX * 2 / fractalWidth) - 1) / zoom;
-        double y = (((double) screenY * 2 / fractalHeight) - 1) / zoom;
+        double x = 1.5 * ((screenX * 2d / fractalWidth) - 1) / zoom;
+        double y = ((screenY * 2d / fractalHeight) - 1) / zoom;
         xOffset -= x;
         yOffset -= y;
     }

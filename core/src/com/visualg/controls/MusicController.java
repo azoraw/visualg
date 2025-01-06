@@ -17,7 +17,7 @@ public class MusicController {
     }
 
     public void setVolume(int volume) {
-        music.setVolume(volume / (float) 100);
+        music.setVolume(volume / 100f);
         Config.getUserProperties().saveVolume(volume);
     }
 

@@ -28,8 +28,8 @@ class State {
     private double velocity2 = 0;
 
     State() {
-        x0 = (float) Config.WIDTH / 2;
-        y0 = (float) Config.HEIGHT / 2;
+        x0 = Config.WIDTH / 2f;
+        y0 = Config.HEIGHT / 2f;
         calculatePositions();
     }
 

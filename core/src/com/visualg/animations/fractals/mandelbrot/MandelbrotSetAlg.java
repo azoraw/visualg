@@ -26,8 +26,8 @@ class MandelbrotSetAlg extends PixmapAlg {
         for (int x = 0; x < WIDTH; x++) {
             for (int y = 0; y < HEIGHT; y++) {
                 updateProgress(x, y);
-                double re = WIDTH / (float) HEIGHT * (x - (double) WIDTH / 2) / (WIDTH * 0.5 * zoom) - xOffset;
-                double im = (y - (double) HEIGHT / 2) / (HEIGHT * 0.5 * zoom) - yOffset;
+                double re = WIDTH / (float) HEIGHT * (x - WIDTH / 2d) / (WIDTH * 0.5 * zoom) - xOffset;
+                double im = (y - HEIGHT / 2d) / (HEIGHT * 0.5 * zoom) - yOffset;
                 double prevRe = 0;
                 double prevIm = 0;
                 double nextRe, nextIm;

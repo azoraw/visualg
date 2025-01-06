@@ -22,7 +22,7 @@ public class ColorGenerator {
     }
 
     public static Color fromRGB(int r, int g, int b) {
-        return new Color(Color.rgba8888((float) r / 256, (float) g / 256, (float) b / 256, 1f));
+        return new Color(Color.rgba8888(r / 256f, g / 256f, b / 256f, 1f));
     }
 
     public static Color fromHSV(float h, float s, float v) {
