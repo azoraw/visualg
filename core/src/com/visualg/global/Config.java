@@ -28,7 +28,8 @@ public class Config {
     public static void init() {
         initUserProperties();
         initSkin();
-        initNativeResolution();
+        //initNativeResolution();
+        initBigResolution();
         initMusic();
     }
 
@@ -43,6 +44,11 @@ public class Config {
     private static void initNativeResolution() {
         WIDTH = Gdx.graphics.getWidth();
         HEIGHT = Gdx.graphics.getHeight();
+    }
+
+    private static void initBigResolution() {
+        WIDTH = 8270/2;
+        HEIGHT = 5900/2;
     }
 
     private static void initSkin() {

@@ -16,7 +16,7 @@ public class SettingsTable extends Table {
 
     public SettingsTable() {
         setSize(WIDTH, HEIGHT);
-        top().right();
+        bottom().left();
         emptyRow();
         emptyRow();
         add(new DefaultLabel("Settings"));

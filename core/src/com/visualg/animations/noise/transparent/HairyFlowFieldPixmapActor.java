@@ -6,8 +6,10 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.visualg.controls.fileio.ScreenShotSaver;
+import com.visualg.global.Config;
 
 import static com.visualg.animations.noise.transparent.TransparentSettings.settings;
+import static com.visualg.global.Config.palette;
 import static com.visualg.global.Config.updatesPerFrame;
 
 public class HairyFlowFieldPixmapActor extends Actor {
@@ -15,11 +17,12 @@ public class HairyFlowFieldPixmapActor extends Actor {
     private final HairyFlowFieldAlg alg;
     private final Pixmap pixmap;
     private final Texture texture;
+    private boolean canUpdate = true;
 
-    public HairyFlowFieldPixmapActor(int width, int height) {
-        pixmap = new Pixmap(width, height, Pixmap.Format.RGBA8888);
+    public HairyFlowFieldPixmapActor() {
+        pixmap = new Pixmap(Config.WIDTH, Config.HEIGHT, Pixmap.Format.RGBA8888);
 
-        pixmap.setColor(0, 0, 0, 0);
+        pixmap.setColor(palette.getBackground());
         pixmap.fill();
         texture = new Texture(pixmap);
 
@@ -48,8 +51,8 @@ public class HairyFlowFieldPixmapActor extends Actor {
 
         float Rd = ((dstRGBA >>> 24) & 0xff) / 255f;
         float Gd = ((dstRGBA >>> 16) & 0xff) / 255f;
-        float Bd = ((dstRGBA >>> 8)  & 0xff) / 255f;
-        float Ad = ( dstRGBA         & 0xff) / 255f;
+        float Bd = ((dstRGBA >>> 8) & 0xff) / 255f;
+        float Ad = (dstRGBA & 0xff) / 255f;
 
         float Rs = src.r;
         float Gs = src.g;
@@ -78,6 +81,7 @@ public class HairyFlowFieldPixmapActor extends Actor {
     @Override
     public void act(float delta) {
         super.act(delta);
+        if (!canUpdate) return;
         for (int i = 0; i < updatesPerFrame; i++) {
             renderFrame();
         }
@@ -108,6 +112,10 @@ public class HairyFlowFieldPixmapActor extends Actor {
     }
 
     public Runnable onScreenShot() {
-        return () -> ScreenShotSaver.take(pixmap);
+        return () -> {
+            canUpdate = false;
+            ScreenShotSaver.take(pixmap);
+            canUpdate = true;
+        };
     }
 }

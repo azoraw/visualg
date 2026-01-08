@@ -21,7 +21,6 @@ public class ScreenShotSaver {
 
     public static void take(Pixmap pixmap) {
         PixmapIO.writePNG(Gdx.files.local(screenshotPath()), pixmap);
-        pixmap.dispose();
     }
 
     private static String screenshotPath() {
