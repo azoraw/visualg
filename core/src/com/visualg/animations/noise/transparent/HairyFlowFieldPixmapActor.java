@@ -1,5 +1,6 @@
 package com.visualg.animations.noise.transparent;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
@@ -18,6 +19,8 @@ public class HairyFlowFieldPixmapActor extends Actor {
     private final Pixmap pixmap;
     private final Texture texture;
     private boolean canUpdate = true;
+    private final int monitorWidth;
+    private final int monitorHeight;
 
     public HairyFlowFieldPixmapActor() {
         pixmap = new Pixmap(Config.WIDTH, Config.HEIGHT, Pixmap.Format.RGBA8888);
@@ -31,6 +34,8 @@ public class HairyFlowFieldPixmapActor extends Actor {
         for (int i = 0; i < settings.getInitFrameSkips(); i++) {
             renderFrame();
         }
+        monitorWidth = Gdx.graphics.getWidth();
+        monitorHeight = Gdx.graphics.getHeight();
     }
 
     public void renderFrame() {
@@ -95,8 +100,7 @@ public class HairyFlowFieldPixmapActor extends Actor {
 
 
         batch.setColor(getColor().cpy().mul(parentAlpha));
-        batch.draw(texture, getX(), getY(), getWidth() > 0 ? getWidth() : pixmap.getWidth(),
-                getHeight() > 0 ? getHeight() : pixmap.getHeight());
+        batch.draw(texture, getX(), getY(), monitorWidth, monitorHeight);
     }
 
     @Override

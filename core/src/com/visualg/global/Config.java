@@ -47,8 +47,8 @@ public class Config {
     }
 
     private static void initBigResolution() {
-        WIDTH = 8270/2;
-        HEIGHT = 5900/2;
+        WIDTH = 8270;
+        HEIGHT = 5900;
     }
 
     private static void initSkin() {
