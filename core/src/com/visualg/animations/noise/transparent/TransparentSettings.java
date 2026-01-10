@@ -14,14 +14,14 @@ class TransparentSettings implements Settings {
     static final TransparentSettings settings = new TransparentSettings();
 
     private int tiles = 1;
-    private float alpha = 0.01f;
-    private int numberOfAgents = 1000;
-    private double step = 0.01;
-    private float fieldMagnitude = 0.01f;
+    private float alpha = 0.015f;
+    private int numberOfAgents = 10000;
+    private double step = 0.002;
+    private float fieldMagnitude = 0.002f;
     private int initFrameSkips = 0;
     private int randomColorDelta = Random.nextInt(360);
     private boolean isConnectedWithStartingPoint = false;
-    private boolean haveMiddleCircle = false;
+    private boolean haveMiddleCircle = true;
     private Colors colors = Colors.MONOCHROMATIC;
     private ColorInputSrc colorInputSrc = ColorInputSrc.VELOCITY;
 
