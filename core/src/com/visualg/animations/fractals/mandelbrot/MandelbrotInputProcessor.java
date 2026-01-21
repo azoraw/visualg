@@ -75,6 +75,11 @@ class MandelbrotInputProcessor implements InputProcessor {
     }
 
     @Override
+    public boolean touchCancelled(int i, int i1, int i2, int i3) {
+        return false;
+    }
+
+    @Override
     public boolean touchDragged(int screenX, int screenY, int pointer) {
         return false;
     }

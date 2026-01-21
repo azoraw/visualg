@@ -1,4 +1,17 @@
-sourceCompatibility = 1.17
-[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
 
-sourceSets.main.java.srcDirs = [ "src/" ]
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs = ['src']
+        }
+    }
+}

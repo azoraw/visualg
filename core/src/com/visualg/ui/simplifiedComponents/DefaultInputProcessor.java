@@ -42,4 +42,9 @@ public interface DefaultInputProcessor extends InputProcessor {
     default boolean scrolled(float amountX, float amountY) {
         return false;
     }
+
+    @Override
+    default boolean touchCancelled(int i, int i1, int i2, int i3) {
+        return false;
+    }
 }

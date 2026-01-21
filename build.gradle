@@ -1,32 +1,10 @@
-buildscript {
-    
-
-    repositories {
-        mavenLocal()
-        mavenCentral()
-        maven { url "https://plugins.gradle.org/m2/" }
-        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-        maven { url "https://plugins.gradle.org/m2/" }
-        google()
-    }
-    dependencies {
-        classpath "io.freefair.gradle:lombok-plugin:6.5.0.3"
-    }
+plugins {
+    id "io.freefair.lombok" version "9.2.0"
 }
 
 allprojects {
-    apply plugin: "io.freefair.lombok"
-
-    version = '1.0'
-    ext {
-        appName = "visualg"
-        gdxVersion = '1.11.0'
-        roboVMVersion = '2.3.12'
-        box2DLightsVersion = '1.5'
-        ashleyVersion = '1.7.3'
-        aiVersion = '1.8.2'
-        gdxControllersVersion = '2.0.1'
-    }
+    group = "com.example"
+    version = "1.0"
 
     repositories {
         mavenLocal()
@@ -37,24 +15,42 @@ allprojects {
     }
 }
 
-project(":desktop") {
+subprojects {
     apply plugin: "java-library"
+    apply plugin: "io.freefair.lombok"
 
+    java {
+        toolchain {
+            languageVersion = JavaLanguageVersion.of(25)
+        }
+    }
 
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = "UTF-8"
+        options.release.set(25)
+    }
+}
+
+ext {
+    appName = "visualg"
+    gdxVersion = "1.14.0"
+    roboVMVersion = "2.3.12"
+    box2DLightsVersion = "1.5"
+    ashleyVersion = "1.7.3"
+    aiVersion = "1.8.2"
+    gdxControllersVersion = "2.0.1"
+}
+
+project(":desktop") {
     dependencies {
         implementation project(":core")
         api "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
         api "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-        
     }
 }
 
 project(":core") {
-    apply plugin: "java-library"
-
-
     dependencies {
         api "com.badlogicgames.gdx:gdx:$gdxVersion"
-        
     }
 }
